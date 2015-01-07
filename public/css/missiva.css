@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Italianno', cursive;
+
+}
+
+article{
+	font-family: 'Italianno', cursive;
+}
+
+header{
+	text-align: right;
+}
+
+footer{
+	text-align: right;
+}
+
+footer img{
+	position: absolute;
+	right: 120px;
+}
+
+article h5{
+	font-family: 'Italianno', cursive;
+	font-size: 1.6em;  
+	line-height: 0.25em;  
+}
+
+article h4{
+	font-family: 'Italianno', cursive;
+	font-size: 2em;  
+	line-height: 0.3em;  
+}
+
+
+article p{
+	font-size: 1.7em;  
+	line-height: 1.1em;  
+
+}
+
+
+

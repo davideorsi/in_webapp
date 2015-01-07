@@ -1,0 +1,348 @@
+<?php
+
+class PgController extends \BaseController {
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$Morti=PG::orderBy('Nome','asc')->where('Morto','=','1')->get();
+		$Limbo=PG::orderBy('Nome','asc')->where('InLimbo','=','1')->get();
+		$Vivi=PG::orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+
+		$selMorti=array('NULL' => '');
+		foreach ($Morti as $morto){
+			$selMorti[(string)$morto->ID] = $morto['Nome'].' ('.$morto['NomeGiocatore'].')';
+		}
+
+		$selLimbo=array('NULL' => '');
+		foreach ($Limbo as $limb){
+			$selLimbo[(string)$limb->ID] = $limb['Nome'].' ('.$limb['NomeGiocatore'].')';
+		}
+
+		$selVivi=array('NULL' => '');
+		foreach ($Vivi as $vivo){
+			$selVivi[(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['NomeGiocatore'].')';
+		}
+
+		return View::make('pg.index')
+				->with('selMorti',$selMorti)
+				->with('selLimbo',$selLimbo)
+				->with('selVivi',$selVivi);
+	}
+
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		$sel_affiliazione=array();
+		$fazioni = Fazione::all();
+		foreach ($fazioni as $fazione){
+			$sel_affiliazione[$fazione['Fazione']]=$fazione['Fazione'];
+		}
+			
+		return View::make('pg.create')
+					->with('sel_affiliazione',$sel_affiliazione);
+	}
+
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$PG = new PG;
+		$PG->Nome				=	Input::get('Nome');
+		$PG->NomeGiocatore		=	Input::get('NomeGiocatore');
+		$PG->Email				=	Input::get('Email');
+		$PG->Affiliazione		=	Input::get('Affiliazione');
+		$PG->Px					=	Input::get('Px');
+		$PG->Morto				=	Input::get('Morto',0);
+		$PG->InLimbo			=	Input::get('InLimbo',0);
+		$PG->Sesso				=	Input::get('Sesso');
+		$PG->background			=	Input::get('background');
+		$PG->save();
+		// redirect
+		Session::flash('message', 'PG creato con successo!');
+		return Redirect::to('admin/pg');
+	}
+
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$PG= PG::find($id);
+
+		// Retrieving infos
+
+		$PG['Abilita']=PG::find($id)->Abilita;
+		$PG['Incanti']=PG::find($id)->Incanti;
+
+		$sesso=$PG['Sesso'];
+		switch ($sesso) {
+			case 'M':
+				$PG['Sesso']='Uomo';
+				break;
+			case 'F':
+				$PG['Sesso']='Donna';
+				break;
+			}
+		$PG['Categorie']=PG::find($id)->Categorie;
+		$PG['Monete']=INtools::convertiMonete($PG->Rendita());
+		$PG['Px Rimasti']=$PG->PxRimasti();
+		$PG['Erbe']=$PG->Erbe();
+		$PG['CartelliniPotere']=$PG->CartelliniPotere();
+		$PG['Note']=$PG->Note();
+
+		unset($PG['background']);
+		
+		$data=array(
+			'name' 		=> Auth::user()->username,
+			'PG'		=> $PG
+		);
+		return View::make('pg.show',$data);
+	}
+
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		
+		$PG= PG::find($id);
+		$PG['abilita_unlocked']   = PGtools::AbilitaSbloccate($PG);
+		$PG['incanti_unlocked']   = PGtools::IncantiSbloccati($PG);
+		$PG['categorie_unlocked'] = PGtools::CategorieSbloccate($PG);
+		$PG['speciali_unlocked']   = PGtools::Speciali($PG);
+		
+		$PG['PxRimasti']=$PG->PxRimasti();
+
+		
+
+		
+		$sel_affiliazione=array();
+		$fazioni = Fazione::all();
+		foreach ($fazioni as $fazione){
+			$sel_affiliazione[$fazione['Fazione']]=$fazione['Fazione'];
+		}
+
+		return View::make('pg.edit')
+			->with('PG', $PG)
+			->with('sel_affiliazione',$sel_affiliazione);
+		}
+
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		// store
+		$PG = PG::find($id);
+		$PG->Nome				=	Input::get('Nome');
+		$PG->NomeGiocatore  	=	Input::get('NomeGiocatore');
+		$PG->Email				=	Input::get('Email');
+		$PG->Affiliazione		=	Input::get('Affiliazione');
+		$PG->Px					=	Input::get('Px');
+		$PG->Morto				=	Input::get('Morto',0);
+		$PG->InLimbo			=	Input::get('InLimbo',0);
+		$PG->Sesso				=	Input::get('Sesso');
+		$PG->background			=	Input::get('background');
+		$PG->save();
+
+		
+		// redirect
+		$msg=' Informazioni aggiornate con successo.';
+		Session::flash('message', $msg);
+		return Redirect::to('admin/pg/'.$id.'/edit');
+	}
+
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$PG = PG::find($id);
+		$PG -> delete();
+
+		Session::flash('message', 'PG cancellato correttamente!');
+		return Redirect::to('admin/pg');
+	}
+
+//######## GESTIONE CATEGORIE #########################################
+	public function add_categoria()
+	{
+		$idPg=Input::get('ID');
+		$idCategoria=Input::get('Categoria');
+
+
+		$PG=PG::find($idPg);
+		$PG->Categorie()->attach($idCategoria);
+
+		Session::flash('message', 'Categoria aggiunta correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+	public function del_categoria()
+	{
+		$idPg=Input::get('ID');
+		$idCategoria=Input::get('Categoria');
+
+
+		$PG=PG::find($idPg);
+		$PG->Categorie()->detach($idCategoria);
+
+		Session::flash('message', 'Categoria rimossa correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+
+//######## GESTIONE ABILITA #########################################
+	public function add_abilita()
+	{
+		$idPg=Input::get('ID');
+		$idAbilita=Input::get('Abilita');
+
+
+		$PG=PG::find($idPg);
+		if ($idAbilita!=0){
+			$ab=Abilita::find($idAbilita);
+			$Px=$ab['PX'];
+			if ($Px <= $PG->PxRimasti()) {
+				$PG->Abilita()->attach($idAbilita);
+				$msg='Abilita aggiunta correttamente!';
+			} else { 
+				$msg='Il PG non ha Px a sufficienza per acquistare l\'abilità selezionata!<br>';
+			}
+		}
+
+		Session::flash('message', $msg);
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+	public function del_abilita()
+	{
+		$idPg=Input::get('ID');
+		$idAbilita=Input::get('Abilita');
+
+
+		$PG=PG::find($idPg);
+		$PG->Abilita()->detach($idAbilita);
+
+		Session::flash('message', 'Abilità rimossa correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+//######## GESTIONE ABILITA SPECIALI SBLOCCATE #########################
+	public function add_sbloccate()
+	{
+		$idPg=Input::get('ID');
+		$idAbilita=Input::get('Abilita');
+
+		$PG=PG::find($idPg);
+		$PG->Sbloccate()->attach($idAbilita);
+		$msg='Abilita Sbloccata aggiunta correttamente!';
+
+
+		Session::flash('message', $msg);
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+	public function del_sbloccate()
+	{
+		$idPg=Input::get('ID');
+		$idAbilita=Input::get('Abilita');
+
+
+		$PG=PG::find($idPg);
+		$PG->Sbloccate()->detach($idAbilita);
+
+		Session::flash('message', 'Abilità Sbloccata rimossa correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+	//######## GESTIONE INCANTI #########################################
+	public function add_incanto()
+	{
+		$idPg=Input::get('ID');
+		$idIncanto=Input::get('Incanto');
+
+
+		$PG=PG::find($idPg);
+		$PG->Incanti()->attach($idIncanto);
+
+		Session::flash('message', 'Incanto aggiunto correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+	public function del_incanto()
+	{
+		$idPg=Input::get('ID');
+		$idIncanto=Input::get('Incanto');
+
+
+		$PG=PG::find($idPg);
+		$PG->Incanti()->detach($idIncanto);
+
+		Session::flash('message', 'Incanto rimosso correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+	}
+
+
+	//######## SCHEDE PG #########################################
+	public function schede()
+	{
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+
+		$data['Evento']=$Evento[0]->toArray();
+
+		$data['PG']=array();
+		foreach($Evento[0]->PG()->orderby('Arrivo','asc')->get() as $key=>$pg){
+				$data['PG'][$key]=$pg->toArray();
+				$data['PG'][$key]['Rendita']=INtools::convertiMonete($pg->Rendita());
+				$data['PG'][$key]['PxRimasti']=intval($pg->PxRimasti());
+				$data['PG'][$key]['Erbe']=intval($pg->Erbe());
+				$data['PG'][$key]['CartelliniPotere']=intval($pg->CartelliniPotere());
+				$data['PG'][$key]['Note']=$pg->Note();
+				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();
+				$data['PG'][$key]['Incanti']=$pg->Incanti()->orderBy('Livello','asc')->get();
+		}
+		
+		$pdf = PDF::loadView('pg.schede',$data);
+		return $pdf->setWarnings(false)->stream();
+		//return View::make('pg.schede')->with('PG',$data['PG']);
+	}
+
+}

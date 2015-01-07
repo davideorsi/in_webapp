@@ -1,0 +1,47 @@
+<?php
+
+class PG extends Eloquent {
+
+	protected $table = 'PG';
+	public $timestamps = false;
+	protected $primaryKey = 'ID';		
+
+	public function Abilita() {
+		return $this->belongsToMany('Abilita', 'Ability-PG', 'ID PG', 'ID Abil');
+	}
+	
+	public function Incanti() {
+		return $this->belongsToMany('Incanto', 'Incanti-PG', 'ID PG', 'ID Incanto');
+	}
+
+	public function Categorie() {
+		return $this->belongsToMany('Categoria', 'Categorie-PG', 'PG', 'CAT');
+	}
+
+	public function Sbloccate() {
+		return $this->belongsToMany('Abilita', 'Sbloccate-PG', 'ID PG', 'ID Abil');
+	}
+
+	public function User(){
+		return $this->hasOne('Giocatore', 'ID', 'pg');
+	}
+
+	public function PxRimasti(){
+		return intval($this->Px - $this->Abilita->sum('PX'));
+		}
+	public function Erbe(){
+		return intval($this->Abilita()->sum('Erbe'));
+		}
+	public function Rendita(){
+		return intval(2 + $this->Abilita()->sum('Rendita'));
+		}
+
+	public function CartelliniPotere(){
+		return intval($this->Abilita()->sum('CartelliniPotere'));
+		}
+
+	public function Note(){
+		return implode('<br>',$this->Abilita()->where('Note','!=','')->lists('Note'));
+		}
+}
+?>

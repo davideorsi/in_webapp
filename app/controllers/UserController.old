@@ -1,0 +1,55 @@
+<?php
+
+class UserController extends BaseController {
+
+	/*
+	|--------------------------------------------------------------------------
+	| Default Home Controller
+	|--------------------------------------------------------------------------
+	|
+	| You may wish to use controllers instead of, or in addition to, Closure
+	| based routes. That's great! Here is an example controller method to
+	| get you started. To route to this controller, just add the route:
+	|
+	|	Route::get('/', 'HomeController@showWelcome');
+	|
+	*/
+
+	// show the homepage
+	public function showProfile()
+	{
+		$id= Auth::user()->id;
+
+		// Find the PG that corresponds to the user
+		$idpg = DB::table('giocatore-pg')->where('user', $id)->pluck('pg');
+		$PG= PG::find($idpg);
+
+		// Retrieving infos
+		$PG['Abilita']=PG::find($idpg)->Abilita;
+		$PG['Incanti']=PG::find($idpg)->Incanti;
+
+				$PG['Categorie']=PG::find($id)->Categorie;
+		$PG['Monete']=INtools::convertiMonete($PG->Rendita());
+		$PG['Px Rimasti']=$PG->PxRimasti();
+		$PG['Erbe']=$PG->Erbe();
+		$PG['CartelliniPotere']=$PG->CartelliniPotere();
+		$PG['Note']=$PG->Note();
+		
+		$data=array(
+			'name' 		=> Auth::user()->username,
+			'PG'		=> $PG
+		);
+		return View::make('profile',$data);
+
+	}
+
+	public function showAdmin()
+	{
+		$data=array(
+			'name' 		=> Auth::user()->username
+		);
+		return View::make('admin',$data);
+
+	}
+
+}
