@@ -54,7 +54,7 @@
 				</div>
 				<div class='row'>
 
-					<div class='btn-group class=col-sm-4 col-xs-6'>
+					<div class='btn-group col-sm-4 col-xs-6'>
 						{{ Form::submit('Cerca', array('class' => 'btn btn-success ')) }}
 	
 	
@@ -65,28 +65,28 @@
 
 					<div id="legenda" class="collapse col-sm-8 col-xs-6">
 						<div class='row'>
-						<div class='col-md-4 col-sm-6 col-xs-12'>
-							<p><span class=' pdfbutton glyphicon glyphicon-print'></span> Genera PDF</p>
-						</div>
-						<div class='col-md-4 col-sm-6 col-xs-12'>
-							<p><span class=' glyphicon glyphicon-comment text-success'></span> Missiva tra PG</p>
-						</div>
-						<div class='col-md-4 col-sm-6 col-xs-12'>
-							<p><span class=' glyphicon glyphicon-tower text-primary'></span> Missiva nel Ducato</p>
-						</div>
-						<div class='col-md-4 col-sm-6 col-xs-12'>
-							<p><span class=' glyphicon glyphicon-globe text-warning'></span> Missiva Estera</p>
-						</div>
-						<div class='col-md-4 col-sm-6 col-xs-12'>
-							<p><span class=' glyphicon glyphicon-certificate text-danger'></span> Missiva Sicura</p>
-						</div>
-
-
-						@if (Auth::user()->usergroup == 7)
-						<div class='col-md-4 col-sm-6 col-xs-12'>
-							<p><span class='glyphicon glyphicon-flash' style='color:#FF6600;'></span> Intercettato</p>
-						</div>
-						@endif
+							<div class='col-md-4 col-sm-6 col-xs-12'>
+								<p><span class=' pdfbutton glyphicon glyphicon-print'></span> Genera PDF</p>
+							</div>
+							<div class='col-md-4 col-sm-6 col-xs-12'>
+								<p><span class=' glyphicon glyphicon-comment text-success'></span> Missiva tra PG</p>
+							</div>
+							<div class='col-md-4 col-sm-6 col-xs-12'>
+								<p><span class=' glyphicon glyphicon-tower text-primary'></span> Missiva nel Ducato</p>
+							</div>
+							<div class='col-md-4 col-sm-6 col-xs-12'>
+								<p><span class=' glyphicon glyphicon-globe text-warning'></span> Missiva Estera</p>
+							</div>
+							<div class='col-md-4 col-sm-6 col-xs-12'>
+								<p><span class=' glyphicon glyphicon-certificate text-danger'></span> Missiva Sicura</p>
+							</div>
+	
+	
+							@if (Auth::user()->usergroup == 7)
+							<div class='col-md-4 col-sm-6 col-xs-12'>
+								<p><span class='glyphicon glyphicon-flash' style='color:#FF6600;'></span> Intercettato</p>
+							</div>
+							@endif
 
 						</div>
 					</div>
@@ -102,7 +102,8 @@
 	
 	{{--##### LIST OF ELEMENTS ###########################################--}}
 	<div class='row'>
-		<div class='col-sm-6' id='results'>
+		<div class='col-sm-6'>
+			<ul class='media-list' id='results'></ul> >
 		
 		</div>
 		<div id='lateral_panel' class='col-sm-6 hidden-xs'>

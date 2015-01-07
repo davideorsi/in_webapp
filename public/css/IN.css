@@ -254,7 +254,8 @@ article{
 .media{
 	margin-bottom: 5px;
 	margin-top: 5px;
-	border-top: 1px solid 
+	border-top: 1px solid ;
+	width: auto;
 }
 
 .media-heading{
@@ -262,7 +263,8 @@ article{
 	padding-top:3px;
 	padding-bottom:5px;
 	border-left: 5px solid;
-	min-height: 40px;
+	width: 100%;
+	margin: 0px;
 }
 
 .blue_border {

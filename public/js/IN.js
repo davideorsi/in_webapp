@@ -217,10 +217,10 @@ $.ajax({
 				var clr='gray_border';
 			}
 				
-			media=$('<div></div>').addClass('media '+clr);
-			mediacollapse=$('<div></div>').addClass('media-body collapse-group');
-			header=$('<h5></h5>').addClass('media-heading '+clr);
-			body=$('<div></div>').addClass('media-body collapse');
+			media=$('<li></li>').addClass('media '+clr);
+			mediacollapse=$('<div></div>').addClass(' collapse-group');
+			header=$('<div></div>').addClass('media-heading '+clr);
+			body=$('<div></div>').addClass('collapse');
 			testo=$('<p></p>').addClass('visible-xs justified');
 						
 			main.append(media);
