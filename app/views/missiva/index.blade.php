@@ -34,20 +34,20 @@
 						{{ Form::text('PNG', Input::old('PNG'), ['class'=>'form-control']) }}
 					</div>
 
-					<div class='form-group col-sm-2 col-xs-4'>
+					<div class='form-group  col-xs-4 col-sm-2'>
 						{{ Form::label('Data', 'Data') }}
 						{{ Form::text('Data', Input::old('Data'), ['class'=>'form-control']) }}
 					</div>
 
 					@if (Auth::user()->usergroup == 7)
-					<div class='form-group col-xs-3 col-sm-3'>
-						{{ Form::label('Intercettato', 'Intercettata') }}
+					<div class='form-group col-xs-3 col-sm-2'>
+						{{ Form::label('Intercettato', 'Intercettata', ['style'=>'width:100%']) }}
 						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox']) }}
 					</div>
 					@endif
 
-					<div class='form-group col-xs-3 col-sm-3' style='min-width:105px;'>
-						{{ Form::label('ConPNG', 'Da/Per PNG') }}
+					<div class='form-group col-xs-3 col-sm-2'>
+						{{ Form::label('ConPNG', 'Da/Per PNG', ['style'=>'width:100%']) }}
 						{{ Form::checkbox('ConPNG',1, Input::old('ConPNG'), ['class'=>'checkbox']) }}
 					</div>
 

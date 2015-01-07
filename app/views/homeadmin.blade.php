@@ -12,7 +12,36 @@
 </div>
 
 <div class='row'>
-	<div class='col-sm-6'>
+	<div class='col-sm-6 '>
+
+		<div class='row panel panel-default' style='padding:10px;'>
+		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
+		{{ Form::model([], array('files'=>true, 'method' => 'PUT', 'url' => 'admin', 'class'=>'pure-form')) }}
+			
+			<div class='col-xs-12 col-sm-12 col-md-3'>
+			{{ Form::label('PG', 'Personaggio',['style'=>'width:100%']) }}
+			{{ Form::select('PG', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}
+			{{ Form::hidden('Evento',$Evento['ID']) }}
+			</div>
+			<div class='col-xs-12 col-sm-4 col-md-3'>
+			{{ Form::label('Arrivo','Arrivo',['style'=>'width:100%']) }}		
+			{{ Form::input('time','Arrivo','14:00', ['class'=>'form-control'])}}
+			</div>
+			<div class='col-xs-4 col-sm-3 col-md-2'>
+			{{ Form::label('Cena', 'Cena',['style'=>'width:100%']) }}
+			{{ Form::checkbox('Cena',1,null,['class'=>'checkbox']) }}
+			</div>
+			<div class='col-xs-4 col-sm-3 col-md-2'>
+			{{ Form::label('Pernotto', 'Pernotto',['style'=>'width:100%']) }}
+			{{ Form::checkbox('Pernotto',1,null,['class'=>'checkbox']) }}
+			</div>
+			<div class='col-xs-4 col-sm-2 col-md-2'>
+			{{ Form::submit('&oplus;', array('class' => 'btn btn-success','style'=>'margin-top: 24px;')) }}
+			{{ Form::close()}}
+			</div>
+		</div>
+
+		
 		<h5><strong>Elenco degli iscritti</strong></h5>
 		<table class='table table-striped table-condensed'>
 			<thead>
@@ -24,30 +53,6 @@
 			</thead>
 			
 		<tbody>
-		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
-		{{ Form::model([], array('files'=>true, 'method' => 'PUT', 'url' => 'admin', 'class'=>'pure-form')) }}
-		<tr>
-			<td>
-			{{ Form::select('PG', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}
-			</td>
-			{{ Form::hidden('Evento',$Evento['ID']) }}
-			<td>
-				{{ Form::input('time','Arrivo','14:00', ['class'=>'form-control'])}}
-			</td>
-			<td align = "center" style='vertical-align:middle'>
-				{{ Form::checkbox('Cena',1,null,['class'=>'checkbox']) }}
-			</td>
-			<td align = "center" style='vertical-align:middle'>
-				{{ Form::checkbox('Pernotto',1,null,['class'=>'checkbox']) }}
-			</td>
-			<td align = "center">
-				{{ Form::submit('&oplus;', array('class' => 'btn btn-success')) }}
-			</td>
-			{{ Form::close()}}
-
-		</tr>
-
-
 		<!-- ISCRIZIONI -->			
 		@foreach ($Evento['PG'] as $PG)
 	
