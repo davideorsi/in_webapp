@@ -256,8 +256,8 @@ $.ajax({
 			header.append("<span class='with_margin glyphicon glyphicon-arrow-right'></span>")
 			header.append(missiva.dest);
 			mediacollapse.append(body);
-			body.append(nl2br(testo));
-			testo.append(missiva.testo);
+			body.append(testo);
+			testo.append(nl2br(missiva.testo));
 			
 		});
 		$('.media .media-heading').on('click', function(e) {
