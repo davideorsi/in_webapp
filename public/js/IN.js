@@ -1,5 +1,13 @@
+function nl2br (str, is_xhtml) {   
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
+}
+
 // SCRIPT HOMEPAGE ####################################################/
 // popola il div #Famosi con un personaggio famoso di IN
+
+
+
 function get_famoso(num,path){
 if(typeof(path)==='undefined') path = '../';
 $.ajax({
@@ -247,7 +255,7 @@ $.ajax({
 			header.append(missiva.mitt);
 			header.append("<span class='with_margin glyphicon glyphicon-arrow-right'></span>")
 			header.append(missiva.dest);
-			mediacollapse.append(body);
+			mediacollapse.append(nl2br(body));
 			body.append(testo);
 			testo.append(missiva.testo);
 			
