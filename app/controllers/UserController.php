@@ -122,7 +122,7 @@ class UserController extends BaseController {
 			
 		}
 		else {
-			return Redirect::to('/informazioni');
+			return Redirect::to('/istruzioni');
 		}
 
 	}
@@ -219,7 +219,7 @@ class UserController extends BaseController {
 			);
 			return View::make('profile',$data);
 		} else {
-			return Redirect::to('/');
+			return Redirect::to('/istruzioni');
 		}
 	}
 
@@ -288,7 +288,7 @@ class UserController extends BaseController {
 					->with('Incanti',$Incanti)
 					->with('Sbloccate',$Sbloccate);
 		} else {
-			return Redirect::to('/informazioni');
+			return Redirect::to('/istruzioni');
 		}
 
 

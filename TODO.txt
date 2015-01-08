@@ -1,25 +1,6 @@
-1) al database del forum, aggiungere le colonne "remember_token" e "updated_at"
-remember_token, 100 char string, nullable
-updated_at, data
+0) nelle schede PG, mettere un pG su un foglio solo.
 
-2) creare la vista 'users'
+1) aggiungere una spunta per segnare le missive a cui deve essere ancora data risposta
 
-create view `users` as
-select `avphpbb_users`.`user_id` AS `id`,
-`avphpbb_users`.`username_clean` AS `username`,
-`avphpbb_users`.`user_password` AS `password`,
-`avphpbb_users`.`user_email` AS `email`,
-`avphpbb_users`.`group_id` AS `usergroup`,
-`avphpbb_users`.`remember_token` AS `remember_token`,
-`avphpbb_users`.`updated_at` AS `updated_at`
-from `avphpbb_users`
+2) Pagina di economia con debiti missive, conti in banca, beni del mercato.
 
-Forse è meglio, visto che non posso rigenerare in modo semplice username_clean, usare una mail per il login.
-
-3) modificare le pivot tables mettendo ID come primary key invece di NN
-
-4) Eliminare gli spazi dai nomi colonna della tabella PG, Ability
-
-
-5) In PNG, sostituire ai nomi gli ID dei master (stando alla tabella del forum).
-6) Lanciare lo script python che converte le date da stringa a Data e aggiunge le tabella pivot mancanti.
