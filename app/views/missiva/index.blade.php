@@ -103,7 +103,7 @@
 	{{--##### LIST OF ELEMENTS ###########################################--}}
 	<div class='row'>
 		<div class='col-sm-6'>
-			<ul class='media-list' id='results'></ul> >
+			<ul class='media-list' id='results'></ul> 
 		
 		</div>
 		<div id='lateral_panel' class='col-sm-6 hidden-xs'>
