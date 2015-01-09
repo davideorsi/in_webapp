@@ -357,7 +357,7 @@ class MissivaController extends \BaseController {
                 $lista[]=array('Nome'=>$pg['Nome'],'ID'=>$pg['ID'],'debito'=>$totale);
             }
 	    }			
-		return Response::json($lista);
+		return View::make('missiva.debiti')->with('lista',$lista);
 	}
 
 	
