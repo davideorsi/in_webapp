@@ -3,6 +3,7 @@
 @section('content')
 
 <div class='col-md-offset-2 col-md-8'>
+    <h3>Debiti per missive inviate</h3>
     <table class='table table-striped'>
     <thead>
         <tr>
