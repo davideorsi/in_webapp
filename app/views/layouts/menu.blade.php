@@ -82,7 +82,10 @@
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('missive') }}"><small>Cerca</small></a></li>
 						<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
-					</ul>
+                        @if (Auth::user()->usergroup == 7)
+                        <li><a href="{{ URL::to('admin/debito/') }}"><small>Debiti</small></a></li>
+                        @endif
+                    </ul>
 				</li>
 			@endif
 
