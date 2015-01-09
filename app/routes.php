@@ -120,6 +120,10 @@
 	// route per le missive
 	Route::group(array('before'=>'auth'), function() {
 		Route::get('missive/search','MissivaController@search');
+		Route::get('debito/{id}','MissivaController@debito');
 		Route::resource('missive', 'MissivaController',array('except' => array('update','edit')));
 	});	
 
+    Route::group(array('before'=>'master'), function() {
+        Route::get('admin/debito/','MissivaController@debiti');
+    });

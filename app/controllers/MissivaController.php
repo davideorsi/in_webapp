@@ -316,4 +316,51 @@ class MissivaController extends \BaseController {
 	}
 
 
+	/*
+	 * Ritorna i costi delle missive
+	 * con una lista, da cui sarà possibile eliminare i debiti dei PG
+	 *
+	 *
+	 * */
+
+	public function debito($id)
+	{
+
+		$idpg = Session::get('idpg');
+		if (($idpg == $id) | (Auth::user()->usergroup == 7)) {
+			$lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ?",[$id])->whereNull('pagato')->get(['costo']);
+			$costi=INtools::select_column($lista,'costo');
+			
+			$totale = INtools::convertiMonete(array_sum($costi));
+			
+			if (!$totale) { $totale=0;}
+		} else {
+
+			$totale='';
+		}
+				
+		return Response::json($totale);
+	}
+
+	public function debiti()
+	{
+        $pgs=PG::orderBy('Nome','asc')->get(['ID','Nome']);
+
+        $lista=[];
+        foreach ($pgs as $pg){
+		    $missive = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ?",[$pg['ID']])->whereNull('pagato')->get(['costo']);
+			$costi=INtools::select_column($missive,'costo');
+			
+			$totale = INtools::convertiMonete(array_sum($costi));
+			
+            if ($totale) {
+                $lista[]=array('Nome'=>$pg['Nome'],'ID'=>$pg['ID'],'debito'=>$totale);
+            }
+	    }			
+		return Response::json($lista);
+	}
+
+	
+
+
 }
