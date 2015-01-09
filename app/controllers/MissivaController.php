@@ -344,7 +344,7 @@ class MissivaController extends \BaseController {
 
 	public function debiti()
 	{
-        $pgs=PG::orderBy('Nome','asc')->get(['ID','Nome']);
+        $pgs=PG::orderBy('Nome','asc')->get(['ID','Nome','NomeGiocatore']);
 
         $lista=[];
         foreach ($pgs as $pg){
@@ -354,13 +354,28 @@ class MissivaController extends \BaseController {
 			$totale = INtools::convertiMonete(array_sum($costi));
 			
             if ($totale) {
-                $lista[]=array('Nome'=>$pg['Nome'],'ID'=>$pg['ID'],'debito'=>$totale);
+                $lista[]=array('Nome'=>$pg['Nome'],
+                               'NomeGiocatore'=>$pg['NomeGiocatore'],
+                               'ID'=>$pg['ID'],
+                               'debito'=>$totale);
             }
 	    }			
 		return View::make('missiva.debiti')->with('lista',$lista);
 	}
 
-	
+    public function azzera_debito($id)
+    {
+
+        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ?",[$id])->whereNull('pagato')->get(['id']);
+
+        foreach ($lista as $elem)
+        {
+            $missiva= Missiva::find($elem['id']);
+            $missiva['pagato']=1;
+            $missiva->save();        
+        }   
+        return Response::json(['OK']);    
+    }    
 
 
 }

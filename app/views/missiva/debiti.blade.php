@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class='col-md-offset-2 col-md-8'>
     <table class='table table-striped'>
     <thead>
         <tr>
@@ -13,14 +14,17 @@
     <tbody>    
         @foreach ($lista as $elem)
         <tr>
-            <td>{{$elem['Nome']}}</td>
-            <td>{{substr($elem['debito'],0,-1)}}</td>
+            <td>{{$elem['Nome']}}<br><small>{{$elem['NomeGiocatore']}}</small></td>
+            <td>{{$elem['debito']}}</td>
             <td>        
-                <a class='glyphicon glyphicon-remove-sign' href='#' onclick='azzera_debito({{$elem['ID']}})'></a>
+                <span style='font-size: 24px' class='del glyphicon glyphicon-remove-sign'  onclick="azzera_debito({{$elem['ID']}})"></span>
             </td>
         </tr>
         @endforeach
     </tbody>
     </table>
+</div>    
 @stop
 
+@section('Scripts')
+@stop

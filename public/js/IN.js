@@ -293,6 +293,21 @@ function destroy_missiva(id){
 	}
 }
 
+function azzera_debito(id){
+    var conf = confirm("Azzero il debito?");
+    if (conf){
+       $.ajax({
+                type: 'POST',
+                url:  "debito/"+id,
+                async: false,
+                success: function(){
+                    location.reload();
+                },
+                dataType: "json"
+        });
+     } 
+}
+
 function get_missiva(id){
 $.ajax({
 	type: "GET",

@@ -126,4 +126,5 @@
 
     Route::group(array('before'=>'master'), function() {
         Route::get('admin/debito/','MissivaController@debiti');
+        Route::post('admin/debito/{id}','MissivaController@azzera_debito');
     });
