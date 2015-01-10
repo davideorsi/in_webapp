@@ -328,7 +328,7 @@ class MissivaController extends \BaseController {
 
 		$idpg = Session::get('idpg');
 		if (($idpg == $id) | (Auth::user()->usergroup == 7)) {
-			$lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ?",[$id])->whereNull('pagato')->get(['costo']);
+			$lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
 			$costi=INtools::select_column($lista,'costo');
 			
 			$totale = INtools::convertiMonete(array_sum($costi));
@@ -348,7 +348,7 @@ class MissivaController extends \BaseController {
 
         $lista=[];
         foreach ($pgs as $pg){
-		    $missive = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ?",[$pg['ID']])->whereNull('pagato')->get(['costo']);
+		    $missive = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
 			$costi=INtools::select_column($missive,'costo');
 			
 			$totale = INtools::convertiMonete(array_sum($costi));
@@ -366,7 +366,7 @@ class MissivaController extends \BaseController {
     public function azzera_debito($id)
     {
 
-        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ?",[$id])->whereNull('pagato')->get(['id']);
+        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['id']);
 
         foreach ($lista as $elem)
         {
