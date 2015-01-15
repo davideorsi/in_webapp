@@ -94,26 +94,50 @@ $.ajax({
 
 // popola il div  con una voce di Locanda
 function get_voce(pos){
+var N=0;
+var pos1=pos+1;
 $.ajax({
 	type: "GET",
 	url:  "voce/"+pos,
 	async: false,
 	success: function(output){
-		var next=pos-1;
+		N=output.N;
+		var next=pos-2;
 		if (next<1) {next=1};
-		var prev = pos + 1;
+		var prev = pos + 2;
 		if (prev > output.N) {prev=pos;}
 		$("#voce_first").attr("onclick","javascript:get_voce(1)");
 		$("#voce_next").attr("onclick","javascript:get_voce("+next+")");
 		$("#voce_prev").attr("onclick","javascript:get_voce("+prev+")");
 		$("#voce_last").attr("onclick","javascript:get_voce("+output.N+")");
-		$("#voce_num").html('<b>'+pos+'/'+output.N+'</b>');
+		$("#voce_num").html('<b>'+pos+'/'+pos1+' di '+output.N+'</b>');
 		$("#voce_data").html(output.Data);
 		$("#voce_testo").html(output.Testo);
 		$("#voce_chiusa").text(output.Chiusa);
 	},  
 	dataType: "json"
 });
+
+
+if (pos1<N) {
+	$.ajax({
+		type: "GET",
+		url:  "voce/"+pos1,
+		async: false,
+		success: function(output){
+			$("#voce_data1").html(output.Data);
+			$("#voce_testo1").html(output.Testo);
+			$("#voce_chiusa1").text(output.Chiusa);
+			$('#voce_separator').show();
+		},  
+		dataType: "json"
+	});
+} else {
+			$("#voce_data1").html("");
+			$("#voce_testo1").html("");
+			$("#voce_chiusa1").text("");
+			$('#voce_separator').hide();
+}
 }
 
 function get_voce_master(pos){

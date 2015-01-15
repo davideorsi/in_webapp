@@ -45,13 +45,28 @@
 				</div>
 				</div>
 			</header>
-			
-			<p id="voce_data" class='floatleft'></p>
-			<p id="voce_testo" class='justified'></p>
-			
-			<footer>
-				<p id="voce_chiusa"></p>
-			</footer>
+
+			<div>
+				<p id="voce_data" class='floatleft'></p>
+				<p id="voce_testo" class='justified'></p>
+				
+				<footer>
+					<p id="voce_chiusa"></p>
+				</footer>
+			</div>
+
+			<div class="separator" id='voce_separator'>
+				{{ HTML::image('img/divider.png') }}
+			</div>
+
+			<div>
+				<p id="voce_data1" class='floatleft'></p>
+				<p id="voce_testo1" class='justified'></p>
+				
+				<footer>
+					<p id="voce_chiusa1"></p>
+				</footer>
+			</div>
 		</article>
 		
 		<div class="separator">
