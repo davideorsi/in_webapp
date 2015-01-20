@@ -76,8 +76,10 @@
 
 </div>	
 <footer class='bodyfooter'>
-	<div class='centerbar'>
+	<div>
+		<div class='centerbar'>
 		Intempesta Noctis - Gioco di Ruolo dal vivo nel Ducato di Parma di inizio Ottocento
+		</div>
 	</div>
 </footer>
 
