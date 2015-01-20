@@ -79,11 +79,6 @@ body {
 .titlebar{
 	background-image: url(../img/top_bcg2.png);
 	background-size: auto 60px;
-	webkit-filter: blur(13px); 
-    -moz-filter: blur(13px); 
-    -o-filter: blur(13px); 
-    -ms-filter: blur(13px); 
-    filter: blur(13px); 
 }
 
 .titlebar > div{
@@ -303,11 +298,6 @@ article{
 	color: #fff;
 	background-image: url(../img/evento_bcg.jpg);
 	background-position: -100px -350px;
-	webkit-filter: blur(13px); 
-    -moz-filter: blur(13px); 
-    -o-filter: blur(13px); 
-    -ms-filter: blur(13px); 
-    filter: blur(13px); 
 }
 
 .account_bcg{
@@ -323,11 +313,6 @@ article{
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-size: 100%;
-	webkit-filter: blur(13px); 
-    -moz-filter: blur(13px); 
-    -o-filter: blur(13px); 
-    -ms-filter: blur(13px); 
-    filter: blur(13px);
     margin-bottom: 10px;
     height: 60px;
 }
@@ -337,11 +322,6 @@ article{
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-size: 100%;
-	webkit-filter: blur(13px); 
-    -moz-filter: blur(13px); 
-    -o-filter: blur(13px); 
-    -ms-filter: blur(13px); 
-    filter: blur(13px);
     margin-bottom: 10px;
     height: 60px;
 }
@@ -367,11 +347,6 @@ article{
 	background-repeat: no-repeat;
 	background-position: right bottom;
 	background-size: 120%;
-	webkit-filter: blur(13px); 
-    -moz-filter: blur(13px); 
-    -o-filter: blur(13px); 
-    -ms-filter: blur(13px); 
-    filter: blur(13px);
     margin-bottom: 10px;
 }
 
