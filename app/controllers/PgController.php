@@ -341,8 +341,8 @@ class PgController extends \BaseController {
 		}
 		
 		$pdf = PDF::loadView('pg.schede',$data);
-		return $pdf->setWarnings(false)->stream();
-		//return View::make('pg.schede')->with('PG',$data['PG']);
+		//return $pdf->setWarnings(false)->stream();
+		return View::make('pg.schede')->with('PG',$data['PG']);
 	}
 
 }

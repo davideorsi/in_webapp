@@ -130,11 +130,7 @@
 			</table>
 		</div>
 	</div>
-</div>
 
-
-
-<div class='row'>
 	<div class='col-sm-6'>
 		<div class="panel panel-default">
 			<div class="panel-heading">Informazioni aggiuntive	</div>
@@ -159,9 +155,9 @@
 			</table>
 		</div>
 	</div>
-	
-	
 </div>
+
+
 
 
 @stop
