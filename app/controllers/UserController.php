@@ -187,11 +187,9 @@ class UserController extends BaseController {
 		} else {
 			return Redirect::to('account');
 		}
-	
-		
-
-		
 	}
+
+
 	
 
 	// show the profile (PG info)
@@ -344,6 +342,21 @@ class UserController extends BaseController {
 
 		Session::flash('message', 'Iscrizione rimossa correttamente!');
 		return Redirect::to('admin');
+
+	}
+
+	public function user_unsubscribe()
+	{		
+		$idPg = Session::get('idpg');
+		$evento = Evento::orderBy('Data','Desc')->take(1)->get(array('ID'));
+		$idEvento=$evento[0]['ID'];
+
+
+		$Evento=Evento::find($idEvento);
+		$Evento->PG()->detach($idPg);
+
+		Session::flash('message', 'Iscrizione rimossa correttamente!');
+		return Redirect::to('account');
 
 	}
 

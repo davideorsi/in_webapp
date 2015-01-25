@@ -17,11 +17,11 @@
 			<h5>{{$evento['Data']}} - {{$evento['Luogo']}}</h5>
 		</div>
 		
-		<div class='row' style='margin-left:0px; margin-right:0px;'>
+		<div class='row' style='margin-left:5px; margin-right:5px;'>
 		@if (!$iscritto)
 
 			<div class='col-sm-6'>
-				<div class='img-rounded row' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin:5px 0px 5px 0px'>
+				<div class='img-rounded row' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin: 0px'>
 		
 					@if ($in_tempo)
 					<p>
@@ -59,7 +59,7 @@
 				@foreach ($abilita_con_opzioni as $key=>$ab)
 					@if ($posseduta[$key])
 					<div class='col-sm-6'>
-						<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin:5px 0px 5px 0px'>
+						<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin: 0px'>
 						<table >
 						<p class=justified'>
 							Alcune tue abilità ti consentono di effettuare una scelta prima dell'evento. Riceverai quanto scelto qui con la tua scheda personaggio.
@@ -111,33 +111,41 @@
 		@else
 
 			
-			<div class='col-sm-6 img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom:10px'>
-			<p>Ottimo, sei iscritto all'evento!</p>
-			<table>
-				<tr>
-					<td><b>Ora di arrivo</b></td>
-					<td align = "center"><b>Cena</b></td>
-					<td align = "center"><b>Pernotto</b></td>
-					<td align = "center"><b>Note</b></td>
-				</tr>
-					<td>{{$iscrizione['Arrivo']}}</td>
-					<td align = "center">
-						@if ($iscrizione['Cena'])
-						<span class='glyphicon glyphicon-ok'></span>
-						@endif
-					</td>
-					<td align = "center">
-						@if ($iscrizione['Pernotto'])
-						<span class='glyphicon glyphicon-ok'></span>
-						@endif
-					</td>
-					<td>{{$iscrizione['Note']}}</td>
-				<tr>
+			<div class='col-sm-6'>
+				<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
+				<h5>Iscrizioni aperte fino al {{$data_iscrizione}} incluso!</h5>
+				<p>Risulti già iscritto all'evento.</p>
+				<table>
+					<tr>
+						<td><b>Ora di arrivo</b></td>
+						<td align = "center"><b>Cena</b></td>
+						<td align = "center"><b>Pernotto</b></td>
+					</tr>
+						<td>{{$iscrizione['Arrivo']}}</td>
+						<td align = "center">
+							@if ($iscrizione['Cena'])
+							<span class='glyphicon glyphicon-ok'></span>
+							@endif
+						</td>
+						<td align = "center">
+							@if ($iscrizione['Pernotto'])
+							<span class='glyphicon glyphicon-ok'></span>
+							@endif
+						</td>
+					<tr>
+	
+					</tr>
+				</table>
+				<p><b>Note</b><br>{{$iscrizione['Note']}}</p>
 
-				</tr>
-			</table>
+				<a class='btn btn-warning' onclick="unsubscribe()">Cancella Iscrizione</a>
+				</div>
+			</div>
 			
-			<p>Potrai saldare la quota di partecipazione direttamente prima dell'evento. </br> Nel caso ti trovassi in difficoltà e dovessi disdire l'iscrizione, oppure anche solo se devi fare una modifica importante, contatta un master! </p>
+			<div class='col-sm-6 justified'>
+				<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom:10px;'>
+				<p>Potrai saldare la quota di partecipazione direttamente prima dell'evento. </br> Nel caso ti trovassi in difficoltà e dovessi disdire l'iscrizione, oppure anche solo se devi fare una modifica importante, clicca sull'apposito pulsante. </p>
+				</div>
 			</div>
 			
 		@endif

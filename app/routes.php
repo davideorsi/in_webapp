@@ -23,6 +23,7 @@
 	// normal user profile e admin
 	Route::get('account', 'UserController@showAccount')->before('auth');
 	Route::put('account', 'UserController@updateAccount')->before('auth');
+	Route::delete('account', 'UserController@user_unsubscribe')->before('auth');
 	Route::get('pg', 'UserController@showPg')->before('auth');
 	Route::get('pg/info', 'UserController@showPginfo')->before('auth');
 	Route::put('pg', 'UserController@updatePg')->before('auth');

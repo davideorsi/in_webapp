@@ -321,6 +321,24 @@ $.ajax({
 });
 }
 
+
+// cancella iscrizione a personaggio
+function unsubscribe(){
+	var conf = confirm("Vuoi veramente cancellare l'iscrizione?");
+	if (conf){
+		$.ajax({
+			type: 'POST',
+			url:  "",
+			data: { _method:"DELETE" },
+			success: function(){
+				location.reload();
+				$("#info").html('Iscrizione Cancellata con Successo!');
+			},  
+			dataType: "html"
+		});
+	}
+}
+
 // da far andare al caricamento della pagina
 function pageload(famoso){
 	get_voce(1);
