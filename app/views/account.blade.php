@@ -59,7 +59,7 @@
 				@foreach ($abilita_con_opzioni as $key=>$ab)
 					@if ($posseduta[$key])
 					<div class='col-sm-6'>
-						<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
+						<div class='img-rounded row' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
 						<table >
 						<p class=justified'>
 							Alcune tue abilità ti consentono di effettuare una scelta prima dell'evento. Riceverai quanto scelto qui con la tua scheda personaggio.
