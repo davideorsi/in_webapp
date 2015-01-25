@@ -21,7 +21,7 @@
 		@if (!$iscritto)
 
 			<div class='col-sm-6'>
-				<div class='img-rounded row' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
+				<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
 		
 					@if ($in_tempo)
 					<p>
@@ -34,19 +34,21 @@
 					{{ Form::model([], array('files'=>true, 'method' => 'PUT', 'url' => 'account', 'class'=>'form-inline')) }}
 					{{ Form::hidden('PG',$pg['ID'])}}
 					{{ Form::hidden('Evento',$evento['ID']) }}
-					<div class='form-group col-xs-6'>
+					<div class='row'>
+						<div class='form-group col-xs-6'>
+							
+							{{ Form::label('Arrivo', 'Ora di Arrivo',['style'=>'width:100%']) }}
+							{{ Form::input('time','Arrivo','12:00', ['class'=>'form-control'])}}
+						</div>
+						<div class='form-group col-xs-3'>
+							{{ Form::label('Cena', '',['style'=>'width:100%']) }}
+							{{ Form::checkbox('Cena',1,false,['class'=>'checkbox']) }}
+						</div>
+						<div class='form-group col-xs-3'>
 						
-						{{ Form::label('Arrivo', 'Ora di Arrivo',['style'=>'width:100%']) }}
-						{{ Form::input('time','Arrivo','12:00', ['class'=>'form-control'])}}
-					</div>
-					<div class='form-group col-xs-3'>
-						{{ Form::label('Cena', '',['style'=>'width:100%']) }}
-						{{ Form::checkbox('Cena',1,false,['class'=>'checkbox']) }}
-					</div>
-					<div class='form-group col-xs-3'>
-					
-						{{ Form::label('Pernotto', '',['style'=>'width:100%']) }}
-						{{ Form::checkbox('Pernotto',1,false,['class'=>'checkbox']) }}
+							{{ Form::label('Pernotto', '',['style'=>'width:100%']) }}
+							{{ Form::checkbox('Pernotto',1,false,['class'=>'checkbox']) }}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -59,7 +61,7 @@
 				@foreach ($abilita_con_opzioni as $key=>$ab)
 					@if ($posseduta[$key])
 					<div class='col-sm-6'>
-						<div class='img-rounded row' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
+						<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
 						<table >
 						<p class=justified'>
 							Alcune tue abilità ti consentono di effettuare una scelta prima dell'evento. Riceverai quanto scelto qui con la tua scheda personaggio.
