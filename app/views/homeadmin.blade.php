@@ -92,7 +92,7 @@
 		<div class="panel-heading">Amministrazione	</div>
 			<div class="panel-body">
 				<div class="input-group">
-					<span class="input-group-addon">Schede iscritti (f/r)</span>
+					<span class="input-group-addon">Schede iscritti</span>
 					{{ HTML::link('/admin/schede', 'Genera!', array('class' => 'btn btn-primary form-control'), false)}}
 				</div>
 			</div>
