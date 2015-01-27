@@ -75,5 +75,4 @@
 @stop
 
 @section('Scripts')
-$(".checkbox").bootstrapSwitch('size','mini');
 @stop

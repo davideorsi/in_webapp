@@ -5,7 +5,7 @@
 		<div>
 			<h3>Nuovo PNG</h3>
 		</div>		
-			{{ Form::open(array('url'=>'admin/pg')) }}
+			{{ Form::open(array('url'=>'admin/png')) }}
 
 		
 <div class="row">
@@ -47,7 +47,7 @@
 			</div>
 			
 	        <div class="btn-group">
-				{{ Form::submit('Aggiungi PG', array('class' => 'btn btn-primary')) }}
+				{{ Form::submit('Aggiungi PNG', array('class' => 'btn btn-primary')) }}
 			</div>
 			{{ Form::close() }}
 	
