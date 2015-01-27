@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('CSS')
+@stop
+
 @section('content')
 
 @if (Auth::guest())
@@ -108,9 +111,17 @@
 			<p style='color: #2a3;'>Prosegui la lettura.</p>
 			</a>
 		</article>
+
+		<div id="nanoGallery">
+
+
+		</div>
 		
 	</div>
 </div>	
+@stop
+
+@section('JS')
 @stop
 
 @section('Scripts')
@@ -118,6 +129,7 @@
 	
 	$(document).ready( function(){
 		pageload({{$famoso}});
+
 	});
 	
 @stop
