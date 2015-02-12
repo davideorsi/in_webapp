@@ -177,7 +177,7 @@ class MissivaController extends \BaseController {
 		} else {
 			//variables
 
-			$time=Voce::where('Bozza','=',0)->orderBy('ID','desc')->take(1)->pluck('Data');
+			$time=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
 
 			$costo=Input::get('tipo');
 			$intercettato = INtools::is_intercettato($costo);
