@@ -61,6 +61,7 @@
 							<h6 class='hidden-xs didascalia'>Account</h6>
 						</a>
 						<ul class="dropdown-menu" role="menu">
+							<li ><a href="{{ URL::to('info') }}"><small>I tuoi dati</small></a></li>
 							<li ><a href="{{ URL::to('account') }}"><small>Iscrizione</small></a></li>
 							<li ><a href="{{ URL::to('pg') }}"><small>Il tuo PG</small></a></li>
 							<li ><a href="{{ URL::to('pg/info') }}"><small>Info Speciali</small></a></li>
