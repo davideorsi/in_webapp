@@ -221,13 +221,19 @@ class MissivaController extends \BaseController {
 			//############ MISSIVA #####################################
 			
 			$data=[];
+			// aggiungendo le email di notifica
 			if ($missiva->tipo_mittente=='PNG') {
 					$data['mittente']=$missiva->mittente;
 					$PG=PG::find($missiva->destinatario);
 					$data['destinatario']=$PG['Nome'];
-					
+
 					$emails=User::where('usergroup','=',7)->get(array('email'));
 					$emails=INtools::select_column($emails,'email');
+
+					
+					$user_id=$PG->User;
+					$user_id=$user_id['user'];
+					$user_email=User::find($user_id)->email;					array_push($emails,$user_email);
 					
 				} elseif ($missiva->tipo_destinatario=='PNG') {
 					$PG=PG::find($missiva->mittente);
@@ -236,16 +242,37 @@ class MissivaController extends \BaseController {
 					
 					$emails=User::where('usergroup','=',7)->get(array('email'));
 					$emails=INtools::select_column($emails,'email');					
+				} else {
+
+					$emails=User::where('usergroup','=',7)->get(array('email'));
+					$emails=INtools::select_column($emails,'email');
+					
+					$PG=PG::find($missiva->destinatario);
+					$data['destinatario']=$PG['Nome'];
+
+					$user_id=$PG->User;
+					$user_id=$user_id['user'];
+					$user_email=User::find($user_id)->email;
+					array_push($emails,$user_email);
+
+					
+					$PG=PG::find($missiva->mittente);
+					$data['mittente']=$PG['Nome'];
+
+					$user_id=$PG->User;
+					$user_id=$user_id['user'];
+					$user_email=User::find($user_id)->email;					array_push($emails,$user_email);
+
+
+
 				}
 
-			if (($missiva->tipo_mittente=='PNG') | 	($missiva->tipo_destinatario=='PNG')){
 			$data['missiva']=$missiva;
 				
 			Mail::send('emails.missiva', $data, function($message) use ($emails)
 			{
 				$message->to($emails)->subject('Missiva inviata');
 			});
-			}
 			
 			// salva
 			$missiva->save();

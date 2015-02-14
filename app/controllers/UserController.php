@@ -15,7 +15,30 @@ class UserController extends BaseController {
 	|
 	*/
 
-	// show the User info
+
+	public function showInfo()
+	{
+		$USER=Auth::user();
+
+		$email=$USER->email;
+		return View::make('info')
+			->with('email',$email);
+
+	}
+
+	public function updateInfo()
+	{
+		$USER=Auth::user();
+		$USER->email = Input::get('email');
+
+		$USER->save();
+		
+		return Redirect::to('/info');
+
+	}
+	
+
+	// show the User info: iscrizioni
 	public function showAccount()
 	{
 		

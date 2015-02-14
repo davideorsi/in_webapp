@@ -23,7 +23,8 @@ class PG extends Eloquent {
 	}
 
 	public function User(){
-		return $this->hasOne('Giocatore', 'ID', 'pg');
+		return $this->belongsTo('Giocatore','ID','pg');
+		
 	}
 
 	public function PxRimasti(){
