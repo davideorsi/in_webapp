@@ -68,7 +68,7 @@
 						</p>
 						<tr><th colspan=3>{{$ab['Ability']}}</th></tr>
 							
-						@if (in_array($ab['Ability'],array('Informatori','Ragno Tessitore',"Iscritto all'albo")) )
+						@if (in_array($ab['Ability'],array('Informatori','Ragno tessitore',"Iscritto all'albo")) )
 							<!-- Abilità con scelta singola e zero costo -->
 							<tr><td colspan=3>{{ Form::select('Opzioni[]', 	$sel[$ab['Ability']], null, ['class'=>'form-control']) }}</td></tr>
 						@else
