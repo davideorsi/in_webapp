@@ -19,6 +19,12 @@ public static function AbilitaSbloccate($PG){
 		// trova abilità disponibili per l'acquisto
 		$possessed = $PG['Abilita']->lists('ID');
 		$categorie = $PG['Categorie']->lists('Categoria');
+
+		$categorie_poss=$categorie;
+		array_push($categorie_poss,'Speciali');
+		array_push($categorie_poss,'Innate');
+		array_push($categorie_poss,'Spiriti');
+		
 		if (empty($sbloccate)) $sbloccate=array();
 		if (empty($possessed)) $possessed=array();
 		if (empty($categorie)) $categorie=array();
@@ -53,20 +59,20 @@ public static function AbilitaSbloccate($PG){
 		$num_generiche=0;
 		$fuori_categoria=0;
 		foreach ($PG['Abilita'] as $ab){
-			if ($ab['Generica']==1 & !in_array($ab['Categoria'],$categorie)){
+			if ($ab['Generica']==1 & !in_array($ab['Categoria'],$categorie_poss)){
 					$num_generiche++;
 				}
 		}
 		
 		foreach ($PG['Abilita'] as $ab){
-			if (!in_array($ab['Categoria'],$categorie)){
+			if (!in_array($ab['Categoria'],$categorie_poss)){
 				$fuori_categoria++;
 				}
 			}
 
 		// conoscenza profonda
 		$generiche=Abilita::where('Generica','=','1')->get();
-		if ((!$hasConoscProf & $num_generiche<=1)|($hasConoscProf & $num_generiche<=2)) {
+		if ((!$hasConoscProf & $num_generiche<1)|($hasConoscProf & $num_generiche<2)) {
 			foreach ($generiche as $ab){
 				if (!in_array($ab['ID'],$possessed)){
 					$sbloccate[]=$ab;
