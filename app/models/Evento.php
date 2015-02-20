@@ -8,7 +8,7 @@ class Evento extends Eloquent {
 
 	public function PG() {
 		return $this->belongsToMany('PG', 'Eventi-PG', 'Evento', 'PG')
-			->withPivot('Arrivo', 'Pernotto','Cena','Note');
+			->withPivot('Arrivo', 'Pernotto','Cena','Note','Pagato');
 	}
 
 }

@@ -59,7 +59,7 @@ class UserController extends BaseController {
 			$today=new Datetime();
 
 			// Verifica l'Iscrizione
-			$iscrizione=Evento::find($evento[0]['ID'])->PG()->where('PG.ID','=',$idpg)->get(array('Arrivo','Cena','Pernotto','Note'));
+			$iscrizione=Evento::find($evento[0]['ID'])->PG()->where('PG.ID','=',$idpg)->get(array('Arrivo','Cena','Pernotto','Note','Pagato'));
 			$iscritto = !empty($iscrizione[0]);
 			if (empty($iscrizione[0])){
 				$iscrizione = array(0=>[]);
@@ -198,7 +198,7 @@ class UserController extends BaseController {
 
 		
 		if ((Auth::user()->usergroup == 7) | ($PG==$idPg)) {
-			$Evento->PG()->attach($idPg,array('Arrivo'=>$arrivo,'Cena'=>$cena,	'Pernotto'=>$pernotto, 'Note'=>$note));
+			$Evento->PG()->attach($idPg,array('Arrivo'=>$arrivo,'Cena'=>$cena,	'Pernotto'=>$pernotto, 'Note'=>$note, 'Pagato'=>0));
 		
 			Session::flash('message', 'Iscrizione aggiunta correttamente!');
 		} else {
@@ -211,6 +211,9 @@ class UserController extends BaseController {
 			return Redirect::to('account');
 		}
 	}
+
+
+	
 
 
 	
@@ -364,6 +367,21 @@ class UserController extends BaseController {
 		$Evento->PG()->detach($idPg);
 
 		Session::flash('message', 'Iscrizione rimossa correttamente!');
+		return Redirect::to('admin');
+
+	}
+
+	#Segna se il giocatore ha pagato o no
+	public function updatePagato()
+	{
+		$idPg=Input::get('PG');
+		$idEvento=Input::get('Evento');
+
+
+		$Evento=Evento::find($idEvento);
+		$Evento->PG()->updateExistingPivot($idPg,array('Pagato'=>Input::get('Pagato')));
+
+		Session::flash('message', 'Informazione correttamente registrata!');
 		return Redirect::to('admin');
 
 	}

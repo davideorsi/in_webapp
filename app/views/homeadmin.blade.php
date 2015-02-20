@@ -16,7 +16,7 @@
 
 		<div class='row panel panel-default' style='padding:10px;'>
 		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
-		{{ Form::model([], array('files'=>true, 'method' => 'PUT', 'url' => 'admin', 'class'=>'pure-form')) }}
+		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin', 'class'=>'pure-form')) }}
 			
 			<div class='col-xs-12 col-sm-12 col-md-3'>
 			{{ Form::label('PG', 'Personaggio',['style'=>'width:100%']) }}
@@ -49,6 +49,7 @@
 				<th>Arrivo</th>
 				<th>Cena</th>
 				<th>Pernotto</th>
+				<th>Pagato</th>
 				<th></th>
 			</thead>
 			
@@ -70,11 +71,24 @@
 					@endif
 				</td>
 				<td align = "center">
+					{{ Form::model($PG, array('files'=>true, 'method' => 'PUT', 'url' => 'admin', 'class'=>'pure-form')) }}
+					{{ Form::hidden('PG',$PG['ID'])}}
+					{{ Form::hidden('Evento',$Evento['ID']) }}
+					{{ Form::hidden('Pagato',!$PG['pivot']['Pagato'])}}
+					@if ($PG['pivot']['Pagato']=='1')
+						{{ Form::submit('Si', array('class' => 'btn btn-success btn-xs')) }}
+					@else
+						{{ Form::submit('No', array('class' => 'btn btn-default btn-xs')) }}
+					@endif
+					{{ Form::close()}}
+				</td>
+				
+				<td align = "center">
 					{{ Form::model($PG, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin', 'class'=>'pure-form')) }}
 					
 					{{ Form::hidden('PG',$PG['ID'])}}
 					{{ Form::hidden('Evento',$Evento['ID']) }}
-					{{ Form::submit("X", array('class' => 'btn btn-warning')) }}
+					{{ Form::submit("x", array('class' => 'btn btn-warning btn-xs')) }}
 					{{ Form::close()}}
 
 				</td>
