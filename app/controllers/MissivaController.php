@@ -393,7 +393,7 @@ class MissivaController extends \BaseController {
     public function azzera_debito($id)
     {
 
-        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['id']);
+        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$id])->get(['id']);
 
         foreach ($lista as $elem)
         {

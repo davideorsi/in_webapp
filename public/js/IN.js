@@ -298,8 +298,8 @@ function azzera_debito(id){
     if (conf){
        $.ajax({
                 type: 'POST',
+				async: false,
                 url:  "debito/"+id,
-                async: false,
                 success: function(){
                     location.reload();
                 },
