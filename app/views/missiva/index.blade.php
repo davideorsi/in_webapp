@@ -29,25 +29,30 @@
 						{{ Form::text('Testo', Input::old('testo'), ['class'=>'form-control','placeholder'=>'Cerca tra le missive usando parole chiave, es: "spia"']) }}
 					</div>
 
-					<div class='form-group col-sm-5 col-xs-6'>
+					<div class='form-group col-xs-6 col-sm-3 '>
 						{{ Form::label('PNG', 'PNG') }}
 						{{ Form::text('PNG', Input::old('PNG'), ['class'=>'form-control']) }}
 					</div>
 
-					<div class='form-group  col-xs-4 col-sm-2'>
+					<div class='form-group  col-xs-5 col-sm-3'>
 						{{ Form::label('Data', 'Data') }}
 						{{ Form::text('Data', Input::old('Data'), ['class'=>'form-control']) }}
 					</div>
 
 					@if (Auth::user()->usergroup == 7)
-					<div class='form-group col-xs-3 col-sm-2'>
-						{{ Form::label('Intercettato', 'Intercettata', ['style'=>'width:100%']) }}
-						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox']) }}
+					<div class='form-group col-xs-2 col-sm-2'>
+						{{ Form::label('Intercettato', 'Intercettata', ['style'=>'width:100%; font-size: 80%']) }}
+						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox ']) }}
+					</div>
+					<div class='form-group col-xs-2 col-sm-2'>
+						{{ Form::label('Solononrisp', 'Solo non risp.', ['style'=>'width:100%; font-size: 50%; 
+    white-space: nowrap;']) }}
+						{{ Form::checkbox('Solononrisp',1, Input::old('rispondere'), ['class'=>'checkbox']) }}
 					</div>
 					@endif
 
-					<div class='form-group col-xs-3 col-sm-2'>
-						{{ Form::label('ConPNG', 'Da/Per PNG', ['style'=>'width:100%']) }}
+					<div class='form-group col-xs-2 col-sm-2'>
+						{{ Form::label('ConPNG', 'PNG', ['style'=>'width:100%']) }}
 						{{ Form::checkbox('ConPNG',1, Input::old('ConPNG'), ['class'=>'checkbox']) }}
 					</div>
 

@@ -230,30 +230,40 @@ $.ajax({
 			header=$('<div></div>').addClass('media-heading '+clr);
 			body=$('<div></div>').addClass('collapse');
 			testo=$('<p></p>').addClass('visible-xs justified');
-						
+			icon_area=$('<div></div>').addClass('icon_area');
+			
 			main.append(media);
 			media.append(mediacollapse);
-			
-			// Aggiungi bottone per cancellare missiva, come glyph
+			mediacollapse.append(icon_area);
+			// se sei un master
 			if (show_delete) {
-				mediacollapse.append("<a class='with_margin_icon glyphicon glyphicon-remove-sign' href='#' onclick='destroy_missiva("+missiva.id+")'></a>");
+				// Aggiungi bottone per cancellare missiva, come glyph
+				icon_area.append("<a class='with_margin_icon glyphicon glyphicon-remove-sign' href='#' onclick='destroy_missiva("+missiva.id+")'></a>");
+				// Aggiungi bottone per cancellare missiva, come glyph
 			}
-
-			// Aggiungi PDF print button
-			mediacollapse.append("<a class='pdfbutton with_margin_icon glyphicon glyphicon-print' ' href='missive/"+missiva.id+"'></a>")
-			
-			// Aggiungi icone con il tipo di missiva, come glyph
-			mediacollapse.append("<span class='with_margin_icon "+missiva.tipo['icon']+"' style='margin-top: 3px;'></span>");
+			if (missiva.rispondere==1 && show_delete){
+			icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")' style='color: #f00'></a>");
+			} 
+			if (missiva.rispondere==0 && show_delete){
+			icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")'></a>");	
+			}
 			if (missiva.intercettato==1 && show_delete){
-				mediacollapse.append("<span class='pull-right glyphicon glyphicon-flash' style='font-size: 1.6em; color:#FF6600; margin-top: 3px;'>");
+				icon_area.append("<span class='pull-right glyphicon glyphicon-flash' style='font-size: 1.4em; color:#FF6600; margin-top: 2px;'>");
 				}
 
+			// Aggiungi PDF print button
+			icon_area.append("<a class='pdfbutton with_margin_icon glyphicon glyphicon-print' ' href='missive/"+missiva.id+"'></a>")
+			
 				
 			mediacollapse.append(header);
 			header.append("<input type='hidden' name='id' value='"+missiva.id+"' />");
-			header.append('('+missiva.data+') ');
+			
+			// Aggiungi icone con il tipo di missiva, come glyph
+			header.append("<span class='"+missiva.tipo['icon']+"' style='margin-top: 3px; font-size: 1.4em'></span>");
+			
+			header.append(' ('+missiva.data+') ');
 			header.append(missiva.mitt);
-			header.append("<span class='with_margin glyphicon glyphicon-arrow-right'></span>")
+			header.append("<span class='with_margin glyphicon glyphicon-arrow-right' ></span>")
 			header.append(missiva.dest);
 			mediacollapse.append(body);
 			body.append(testo);
@@ -287,6 +297,21 @@ function destroy_missiva(id){
 			success: function(){
 				location.reload();
 				$("#info").html('Missiva Cancellata con Successo!');
+			},  
+			dataType: "html"
+		});
+	}
+}
+
+function toggle_rispondere(id){
+	var conf = confirm("Cambio lo stato della missiva n°"+id+"?");
+	if (conf){
+		$.ajax({
+			type: 'POST',
+			url:  "missive/"+id+"/toggle",
+			success: function(){
+				location.reload();
+				$("#info").html('Missiva Aggiornata con Successo!');
 			},  
 			dataType: "html"
 		});

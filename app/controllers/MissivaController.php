@@ -37,6 +37,7 @@ class MissivaController extends \BaseController {
 		$data=Input::get('Data');
 		$testo=Input::get('Testo');
 		$interc=Input::get('Intercettato',0);
+		$solononrisp=Input::get('Solononrisp',0);
 		$conpng=Input::get('ConPNG',0);
 
 		
@@ -47,6 +48,13 @@ class MissivaController extends \BaseController {
 			if ($condizione) {$condizione.=" AND ";}
 			$params[]=$interc;
 			$condizione.="(`intercettato` = ?)";
+		}
+		
+				
+		if ($solononrisp){
+			if ($condizione) {$condizione.=" AND ";}
+			$params[]=$solononrisp;
+			$condizione.="(`rispondere` = ?)";
 		}
 
 		if ($conpng){
@@ -188,7 +196,8 @@ class MissivaController extends \BaseController {
 			$missiva->costo 	  		= $costo;
 			$missiva->intercettato 		= $intercettato;
 			$missiva->testo      		= Input::get('testo');
-			
+			$missiva->rispondere		= 0;
+				
 			if (Auth::user()->usergroup == 7) {
 				$missiva->mittente       	= Input::get('mittente');
 				$missiva->destinatario      = Input::get('destinatario');
@@ -211,6 +220,7 @@ class MissivaController extends \BaseController {
 				elseif (!$destinatario_PG && $destinatario_PNG){
 					$missiva->destinatario = $destinatario_PNG;
 					$missiva->tipo_destinatario		= 'PNG';
+					$missiva->rispondere		= 1;
 					}
 				else {
 					Session::flash('message', 'Errore! Indica come destinatario un pg OPPURE un png!');
@@ -339,6 +349,24 @@ class MissivaController extends \BaseController {
 		$missiva -> delete();
 
 		Session::flash('message', 'Missiva cancellata correttamente!');
+		return Redirect::to('missive');
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function toggle_rispondere($id)
+	{
+		$missiva = Missiva::find($id);
+		$status = $missiva['rispondere'];
+		
+		$missiva -> rispondere = 1-$status;
+		$missiva -> save();
+
+		Session::flash('message', 'Missiva aggiornata!');
 		return Redirect::to('missive');
 	}
 
