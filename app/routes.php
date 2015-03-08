@@ -30,6 +30,8 @@
 	Route::get('pg/info', 'UserController@showPginfo')->before('auth');
 	Route::put('pg', 'UserController@updatePg')->before('auth');
 	Route::get('admin', 'UserController@showAdmin')->before('master');
+	Route::get('admin/px', 'UserController@showAdminPx')->before('master');
+	Route::post('admin/px', 'UserController@updateAdminPx')->before('master');
 	Route::post('admin', 'UserController@updateAccount')->before('master');
 	Route::put('admin', 'UserController@updatePagato')->before('master');
 	Route::delete('admin', 'UserController@unsuscribe')->before('master');

@@ -355,6 +355,36 @@ class UserController extends BaseController {
 				->with('selVivi',$selVivi);
 
 	}
+	
+		############## Admin page: editare iscrizione agli eventi ##########
+	public function showAdminPx()
+	{
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+		$data=new Datetime($Evento[0]['Data']);
+		$Evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
+		
+		$Evento[0]['PG'] = $Evento[0]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Px','NomeGiocatore'));
+
+		
+		return View::make('adminpx')
+				->with('Evento',$Evento[0]);
+
+	}
+	
+	public function updateAdminPx()
+	{
+		$pgs=Input::get('pg');
+		$px=Input::get('px');
+		
+		foreach ($pgs as $key=>$pg){
+				$pers = PG::find($pg);
+				$pers['Px']=$pers['Px']+$px[$key];
+				$pers->save();
+			}
+		Session::flash('message', 'PX assegnati correttamente!');
+		return Redirect::to('admin/px');
+
+	}
 
 	## Elimina iscrizione utente dall'evento.
 	public function unsuscribe()
