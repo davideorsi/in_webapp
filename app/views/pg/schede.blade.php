@@ -66,6 +66,9 @@
 			
 			<div style='float: left; margin: 10px;'>
 				<p> {{ $pers['Note'] }} </p>
+				@if ($pers['Info'])
+				<p> {{ $pers['Info'] }} </p>
+				@endif
 			</div>
 			
 		</div>

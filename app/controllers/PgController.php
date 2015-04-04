@@ -338,7 +338,24 @@ class PgController extends \BaseController {
 				$data['PG'][$key]['Note']=$pg->Note();
 				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();
 				$data['PG'][$key]['Incanti']=$pg->Incanti()->orderBy('Livello','asc')->get();
+		
+				# SE il PG ha spie, nella scheda trova l'elenco degli informatori
+				$informatori= Abilita::where('Ability','=','Informatori')->first();
+				$PG=$informatori->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+				$PGab="Questi personaggi hanno l'abilità 'Informatori': ";
+				foreach ($PG as $pers) {
+					$PGab.=$pers->Nome.'; ';
+				}
+				
+				if (in_array('Spie',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))) {
+					$data['PG'][$key]['Info'] =  $PGab;			
+				} else {		
+					$data['PG'][$key]['Info'] = NULL;
+				}
+		
 		}
+		
+		
 		
 		$pdf = PDF::loadView('pg.schede',$data);
 		//return $pdf->setWarnings(false)->stream();
