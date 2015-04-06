@@ -54,9 +54,9 @@
 
 
 		<!--############# INFO ###################################-->
-		<div >
-			<div style='float: left; margin: 10px;'>
-				<p>
+		<div style='padding: 10px;'>
+			<div style='float: left; margin-bottom: 10px; width: 30%;'>
+				<p style='margin:0px;'>
 					<b>PX: </b >{{$pers['Px']}} ({{intval($pers['PxRimasti'])}} disponibili)<br>
 					<b>Rendita: </b> {{$pers['Rendita']}}<br>
 					<b>Erbe: </b>{{$pers['Erbe']}}<br>
@@ -64,10 +64,27 @@
 				</p>
 			</div>
 			
-			<div style='float: left; margin: 10px;'>
+			<div style='float: left; width:68%; margin-bottom: 10px'>
+				@if ($pers['Note'])
 				<p> {{ $pers['Note'] }} </p>
-				@if ($pers['Info'])
-				<p> {{ $pers['Info'] }} </p>
+				@endif
+			</div>
+			
+			<div style='clear:both;'></div>
+			
+			<div>	
+				@if (array_key_exists('Opzioni',$pers))
+				<p class='justified' style='font-size: 80%; margin-bottom: 5px;'>
+					@foreach ($pers['Opzioni'] as $opt)	
+					 {{ $opt }} <br>
+					@endforeach
+				</p>
+				@endif
+				
+				@if (array_key_exists('Info',$pers))
+				<p  class='justified'style='font-size: 80%; margin-bottom: 5px;'> 
+					{{ $pers['Info'] }} 
+				</p>
 				@endif
 			</div>
 			

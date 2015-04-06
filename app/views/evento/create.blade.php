@@ -3,7 +3,7 @@
 	
 	@section('content')
 		<div class="pure-u-1">
-			<h3>Nuova Voce di Locanda</h3>
+			<h3>Nuovo Evento</h3>
 		
 			{{ Form::open(array('url'=>'admin/evento','class'=>'pure-form pure-form-aligned')) }}
 	

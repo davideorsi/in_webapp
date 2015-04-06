@@ -325,7 +325,12 @@ class PgController extends \BaseController {
 	public function schede()
 	{
 		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
-
+		$InfoList = Evento::find($Evento[0]['ID'])->Informatori;
+		$Informatori=array();
+		foreach ($InfoList as $inf) {
+			$Informatori[$inf->Categoria]=$inf->Testo;
+			}
+		
 		$data['Evento']=$Evento[0]->toArray();
 
 		$data['PG']=array();
@@ -339,6 +344,19 @@ class PgController extends \BaseController {
 				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();
 				$data['PG'][$key]['Incanti']=$pg->Incanti()->orderBy('Livello','asc')->get();
 		
+				# Aggiungere gli oggetti e gli informatori selezionati alla scheda PG
+				$opzioni=explode('<br>',$pg['pivot']['Note']);
+				foreach ($opzioni as $ii => $opt) {
+					if (array_key_exists($opt,$Informatori)) {
+						$data['PG'][$key]['Opzioni'][$ii]=$Informatori[$opt];
+					} else {
+						if ($opt) {
+							$data['PG'][$key]['Opzioni'][$ii]="Riceve: ".$opt;
+						}
+					}
+				}
+				$data['PG'][$key]['Informatori']=$Informatori;
+				
 				# SE il PG ha spie, nella scheda trova l'elenco degli informatori
 				$informatori= Abilita::where('Ability','=','Informatori')->first();
 				$PG=$informatori->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
@@ -349,9 +367,7 @@ class PgController extends \BaseController {
 				
 				if (in_array('Spie',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))) {
 					$data['PG'][$key]['Info'] =  $PGab;			
-				} else {		
-					$data['PG'][$key]['Info'] = NULL;
-				}
+				} 
 		
 		}
 		

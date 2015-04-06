@@ -11,5 +11,10 @@ class Evento extends Eloquent {
 			->withPivot('Arrivo', 'Pernotto','Cena','Note','Pagato');
 	}
 
+	public function Informatori() {
+		return $this->hasMany('Informatori', 'IDEvento', 'ID');
+	}
+
+
 }
 ?>

@@ -1,3 +1,4 @@
+
 function nl2br (str, is_xhtml) {   
     var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
@@ -124,6 +125,21 @@ $.ajax({
 		$("#voce_data").html(output.Data);
 		$("#voce_testo").html(output.Testo);
 		$("#voce_chiusa").text(output.Chiusa);
+	},  
+	dataType: "json"
+});
+}
+
+// popola il div con un informatori
+function get_info(pos){
+$.ajax({
+	type: "GET",
+	url:  "informatori/"+pos,
+	async: false,
+	success: function(output){
+		$("#info_evento").html(output.Evento);
+		$("#info_testo").html(output.Testo);
+		$("#info_cat").text(output.Categoria);
 	},  
 	dataType: "json"
 });

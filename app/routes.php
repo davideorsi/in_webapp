@@ -49,6 +49,11 @@
 		Route::resource('admin/evento', 'EventoController');
 	});
 
+	// route per gli Informatori	
+	Route::group(array('before'=>'master'), function() { 
+		Route::resource('admin/informatori', 'InformatoriController');
+	});
+
 	// route per gli PG Famosi
 	
 	Route::get('famoso/','FamosoController@gallery');
