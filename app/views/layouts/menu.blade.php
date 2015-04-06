@@ -112,6 +112,7 @@
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('admin/voce') }}"><small>Voci di Locanda</small></a></li>
 						<li ><a href="{{ URL::to('admin/evento') }}"><small>Eventi</small></a></li>
+						<li ><a href="{{ URL::to('admin/informatori') }}"><small>Informatori</small></a></li>
 						<li ><a href="{{ URL::to('admin/post') }}"><small>Ambientazione</small></a></li>
 						<li ><a href="{{ URL::to('admin/famoso') }}"><small>PG Famosi</small></a></li>
 						<li ><a href="{{ URL::to('admin/incanto') }}"><small>Incanti</small></a></li>
