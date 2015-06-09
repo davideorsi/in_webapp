@@ -137,6 +137,7 @@
 
     Route::group(array('before'=>'master'), function() {
         Route::get('admin/debito/','MissivaController@debiti');
+        Route::get('admin/intercettate/','MissivaController@intercettate');
         Route::post('missive/{id}/toggle','MissivaController@toggle_rispondere');
         Route::post('admin/debito/{id}','MissivaController@azzera_debito');
     });

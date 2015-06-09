@@ -431,6 +431,33 @@ class MissivaController extends \BaseController {
         }   
         return Response::json(['OK']);    
     }    
+    
+     /*
+	 * GESTIONE DELLE MISSIVE INTERCETTATE
+	 * per automatizzarne l'invio ad ogni mese.
+	 *
+	 * */
+	 public function intercettate(){
+		 
+		 
+		$missive=Missiva::where('intercettato','=','1')->orderBy('id','desc')->take(5)->get();
+
+		foreach ($missive as $missiva){
+			$data= new Datetime($missiva['data']);
+			$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
+			}
+			
+		$infiltrato=Abilita::where('Ability','=','Infiltrato')->get(['ID']);
+		$abilita = Abilita::find($infiltrato[0]['ID']);
+		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get(['PG.ID','Nome','NomeGiocatore']);
+		
+		return View::make('missiva.intercettate')
+					->with('missive',$missive)
+					->with('PG',$PG);
+		 
+		 
+	 }
+    
 
 
 }
