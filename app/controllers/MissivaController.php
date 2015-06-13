@@ -495,7 +495,7 @@ class MissivaController extends \BaseController {
 		 foreach ($missive as $key=>$idmiss) {
 		 #$idmiss=$missive[0];
 		 #$key=0;
-			 
+			if ($idmiss) {
 			$missiva=Missiva::find($idmiss);
 			
 			$time= new Datetime($missiva['data']);
@@ -537,6 +537,7 @@ class MissivaController extends \BaseController {
 			Mail::send('emails.missiva', $data, function($message) use ($emails){
 				$message->to($emails)->subject('Missiva inviata');
 			});
+			}
 		 }
 		 
 		 return Redirect::to('missive');
