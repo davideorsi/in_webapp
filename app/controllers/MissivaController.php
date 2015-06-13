@@ -243,7 +243,8 @@ class MissivaController extends \BaseController {
 					
 					$user_id=$PG->User;
 					$user_id=$user_id['user'];
-					$user_email=User::find($user_id)->email;					array_push($emails,$user_email);
+					$user_email=User::find($user_id)->email;					
+					array_push($emails,$user_email);
 					
 				} elseif ($missiva->tipo_destinatario=='PNG') {
 					$PG=PG::find($missiva->mittente);
@@ -271,7 +272,8 @@ class MissivaController extends \BaseController {
 
 					$user_id=$PG->User;
 					$user_id=$user_id['user'];
-					$user_email=User::find($user_id)->email;					array_push($emails,$user_email);
+					$user_email=User::find($user_id)->email;					
+					array_push($emails,$user_email);
 
 
 
@@ -439,22 +441,105 @@ class MissivaController extends \BaseController {
 	 * */
 	 public function intercettate(){
 		 
-		 
+		$data_attuale=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
+		$data_attuale= new Datetime($data_attuale);
+		$mese_attuale=strftime("%b",$data_attuale->sub(new DateInterval('P1M'))->gettimestamp());
+		
 		$missive=Missiva::where('intercettato','=','1')->orderBy('id','desc')->take(5)->get();
 
-		foreach ($missive as $missiva){
+		$selMissiva=array(''=>'');
+		$coinvolto=array();
+		foreach ($missive as $key=>$missiva){
 			$data= new Datetime($missiva['data']);
-			$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
+			if (strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0){
+				$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
+				$selMissiva[$missiva['id']]=$key+1;
+				if ($missiva['tipo_mittente']=='PG') {
+					$coinvolto[$key]=$missiva['mittente'];
+				} else{
+					$coinvolto[$key]=$missiva['destinatario'];
+				}
+			} else {
+				unset($missive[$key]);
 			}
+		}
 			
 		$infiltrato=Abilita::where('Ability','=','Infiltrato')->get(['ID']);
 		$abilita = Abilita::find($infiltrato[0]['ID']);
 		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get(['PG.ID','Nome','NomeGiocatore']);
 		
+		$elenco=array_keys($selMissiva);
+		unset($elenco[0]);
+		foreach( $PG as $pers) {
+			$index=array_rand($elenco);
+			$quale=$elenco[$index];
+			
+			$pers['missiva']=$quale;
+			}
+		
+
 		return View::make('missiva.intercettate')
 					->with('missive',$missive)
+					->with('selMissiva',$selMissiva)
 					->with('PG',$PG);
 		 
+		 
+	 }
+	 
+	 
+	 public function inoltra_intercettate(){
+		 
+		 $PG=Input::get('PG');
+		 $missive=Input::get('missiva');
+		 
+		 foreach ($missive as $key=>$idmiss) {
+		 #$idmiss=$missive[0];
+		 #$key=0;
+			 
+			$missiva=Missiva::find($idmiss);
+			
+			$time= new Datetime($missiva['data']);
+			$data=strftime("%d %B %Y",$time->gettimestamp());
+			
+			$intercetto= new Missiva;
+			$intercetto['mittente']='STAFF, Abilità "Infiltrato", missiva intercetta del mese di '.strftime("%B %Y",$time->gettimestamp());
+			$intercetto->destinatario=intval($PG[$key]);
+			$intercetto->costo=10;
+			$intercetto->pagato=1;
+			$intercetto->rispondere	= 0;
+			$intercetto->intercettato = 0;
+			$intercetto['tipo_destinatario']='PG';
+			$intercetto['tipo_mittente']='PNG';
+			$intercetto['testo']='DATA: '.$data.'</br>';
+			$intercetto['testo'].='DESTINATARIO: '.$missiva['dest'].'</br>';	
+			$intercetto['testo'].='</br>';
+			$intercetto['testo'].=$missiva['testo'];	
+			$intercetto->save();		 
+			
+			$pers=PG::find($PG[$key]);
+			
+			$data=[];
+			$data['mittente']=$intercetto->mittente;
+			$PG=PG::find($intercetto->destinatario);
+			$data['destinatario']=$pers['Nome'];
+
+			$emails=User::where('usergroup','=',7)->get(array('email'));
+			$emails=INtools::select_column($emails,'email');
+
+			
+			$user_id=$pers->User;
+			$user_id=$user_id['user'];
+			$user_email=User::find($user_id)->email;					
+			array_push($emails,$user_email);
+			
+			$data['missiva']=$intercetto;
+			
+			Mail::send('emails.missiva', $data, function($message) use ($emails){
+				$message->to($emails)->subject('Missiva inviata');
+			});
+		 }
+		 
+		 return Redirect::to('missive');
 		 
 	 }
     
