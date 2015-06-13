@@ -44,7 +44,7 @@
 	@endforeach
 	<br>
 	<div class="form-group">
-		{{ Form::submit('Invia Missive', array('class' => 'btn btn-primary')) }}
+		{{ Form::submit('Invia Missive', array('class' => 'btn btn-primary', "onclick"=>"if(!confirm('Sei sicuro di voler inviare?')){return false;};")) }}
 	</div>
 	{{ Form::close() }}
 </div>    
