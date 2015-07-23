@@ -489,21 +489,25 @@ class MissivaController extends \BaseController {
 	 
 	 public function inoltra_intercettate(){
 		 
-		 $PG=Input::get('PG');
+		 $personaggi=Input::get('PG');
 		 $missive=Input::get('missiva');
-		 
+
+	     $currtime=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
+					 
 		 foreach ($missive as $key=>$idmiss) {
 		 #$idmiss=$missive[0];
 		 #$key=0;
-			if ($idmiss) {
+		    if ($idmiss) {
 			$missiva=Missiva::find($idmiss);
 			
 			$time= new Datetime($missiva['data']);
 			$data=strftime("%d %B %Y",$time->gettimestamp());
 			
+			
 			$intercetto= new Missiva;
+			$intercetto->data=$currtime;
 			$intercetto['mittente']='STAFF, Abilità "Infiltrato", missiva intercetta del mese di '.strftime("%B %Y",$time->gettimestamp());
-			$intercetto->destinatario=intval($PG[$key]);
+			$intercetto->destinatario=$personaggi[$key];
 			$intercetto->costo=10;
 			$intercetto->pagato=1;
 			$intercetto->rispondere	= 0;
@@ -516,7 +520,7 @@ class MissivaController extends \BaseController {
 			$intercetto['testo'].=$missiva['testo'];	
 			$intercetto->save();		 
 			
-			$pers=PG::find($PG[$key]);
+			$pers=PG::find($personaggi[$key]);
 			
 			$data=[];
 			$data['mittente']=$intercetto->mittente;
@@ -537,11 +541,11 @@ class MissivaController extends \BaseController {
 			Mail::send('emails.missiva', $data, function($message) use ($emails){
 				$message->to($emails)->subject('Missiva inviata');
 			});
+			
 			}
 		 }
 		 
 		 return Redirect::to('missive');
-		 
 	 }
     
 
