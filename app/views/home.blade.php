@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('CSS')
+
+	{{ HTML::style('css/justifiedGallery.min.css');}}
 @stop
 
 @section('content')
@@ -96,7 +98,20 @@
 		</article>
 		</a>
 
-		
+		<div id="carousel" class="carousel slide " style='margin-top:20px; margin-bottom:0px;'>
+			
+			<div id="Gallery"class="carousel-inner" role="listbox" style="height:280px;">
+			</div>
+			
+			<a class="left carousel-control" href="#carousel" role="button">
+		      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#carousel" role="button">
+		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		</div>
 		
 		<article class='famoso boxed'>
 			<header class='famoso_bcg'>
@@ -112,24 +127,46 @@
 			</a>
 		</article>
 
-		<div id="nanoGallery">
-
-
-		</div>
 		
 	</div>
 </div>	
 @stop
 
 @section('JS')
+	{{ HTML::script('js/jflickrfeed.min.js');}}
 @stop
 
 @section('Scripts')
 	@parent
+
+		$('#Gallery').jflickrfeed({
+		limit: 50,
+		feedapi: 'photos_public.gne',
+		qstrings: {
+			id: '130216040@N08'
+		},
+		useTemplate: false,
+		itemCallback: function(item){
+			$(this).append("<div class='item "+item.class+"'><img src='" + item.image + "' alt='' class='center-block img-responsive'/></div>");
+		}
+		});	
+	
 	
 	$(document).ready( function(){
 		pageload({{$famoso}});
-
+	
+		
+	$("#carousel ").carousel({interval:10000});
+	    // Enable Carousel Controls
+    $(".left").click(function(){
+        $("#carousel").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#carousel").carousel("next");
+    });
+    
+    
+	
 	});
 	
 @stop
