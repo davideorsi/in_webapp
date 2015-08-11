@@ -100,14 +100,14 @@
 
 		<div id="carousel" class="carousel slide " style='margin-top:20px; margin-bottom:0px;'>
 			
-			<div id="Gallery"class="carousel-inner" role="listbox" style="height:280px;">
+			<div id="Gallery"class="carousel-inner" role="listbox" >
 			</div>
 			
-			<a class="left carousel-control" href="#carousel" role="button">
+			<a class="left carousel-control" href="#" role="button">
 		      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 		      <span class="sr-only">Previous</span>
 		    </a>
-		    <a class="right carousel-control" href="#carousel" role="button">
+		    <a class="right carousel-control" href="#" role="button">
 		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		      <span class="sr-only">Next</span>
 		    </a>
@@ -147,7 +147,7 @@
 		},
 		useTemplate: false,
 		itemCallback: function(item){
-			$(this).append("<div class='item "+item.class+"'><img src='" + item.image + "' alt='' class='center-block img-responsive'/></div>");
+			$(this).append("<div class='item "+item.class+"'><img src='" + item.image_m + "' alt='' class='center-block img-responsive'/></div>");
 		}
 		});	
 	
