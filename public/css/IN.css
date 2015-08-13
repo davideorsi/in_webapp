@@ -576,3 +576,14 @@ textarea{
 	position: absolute;
 	margin-left: -93px; 
 }
+
+/*######### CAPTION FOR 404 errors ##############*/
+.caption {
+	font-family: 'AquilineTwoRegular';
+	font-size: 3em;
+	color: white;
+    position: absolute;
+    top: 2%;
+    left: 10%;
+    width: 80%;
+}
