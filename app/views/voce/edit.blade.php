@@ -1,5 +1,9 @@
 @extends('admin')
 
+	@section('CSS')
+		{{ HTML::style('css/jquery-ui.min.css');}}
+	@show
+	
 	
 	@section('content')
 		<div class='row'>
@@ -37,6 +41,15 @@
 		</div>
 	@show
 	
-	
+@section('JS')
+
+{{ HTML::script('js/jquery-ui.min.js');}}
+
+@show
+@section('Scripts')	
+	$("input[type=date]").each(function() {
+	    if  (this.type != 'date' ) $(this).datepicker({ dateFormat: 'yy-mm-dd' });
+	});
+@show
 			
 @stop
