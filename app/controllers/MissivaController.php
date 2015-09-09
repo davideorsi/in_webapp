@@ -470,13 +470,19 @@ class MissivaController extends \BaseController {
 		
 		$elenco=array_keys($selMissiva);
 		unset($elenco[0]);
+		if ($elenco) {
 		foreach( $PG as $pers) {
 			$index=array_rand($elenco);
 			$quale=$elenco[$index];
 			
 			$pers['missiva']=$quale;
 			}
-		
+		} else {
+		foreach( $PG as $pers) {
+			$pers['missiva']='';
+			}
+				
+		}
 
 		return View::make('missiva.intercettate')
 					->with('missive',$missive)
