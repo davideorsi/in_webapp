@@ -422,3 +422,53 @@ function pageload(famoso){
     });*/
 	
 }
+
+//###### POZIONI ####################################################
+
+function get_info_pozioni(){
+idpoz=$('#selectpozioni').val();
+ideff=$('#selectveleni').val();
+$.ajax({
+	type: "GET",
+	url:  "infopozioni/",
+	data: { pozione: idpoz, veleno: ideff },
+	async: false,
+	success: function(output){
+		$("#rosse").val(output.rosse);
+		$("#verdi").val(output.verdi);
+		$("#blu").val(output.blu);		
+		$("#nome").html('Pozione '+output.nome);		
+		$("#effetto").html(output.effetto);		
+	},  
+	dataType: "json"
+});
+}
+
+function get_ricetta(){
+rosse=$('#rosse').val();
+verdi=$('#verdi').val();
+blu=$('#blu').val();
+
+$.ajax({
+	type: "GET",
+	url:  "ricetta/",
+	data: { 'rosse': rosse, 'verdi': verdi, 'blu': blu },
+	success: function(output){
+		if (!jQuery.isEmptyObject(output)) {
+			$("#selectpozioni").val(output.PID);		
+			$("#selectveleni").val(output.VID);	
+			if ($('#selectveleni').val()==1 | $('#selectveleni').val()==null){
+				$('#selettoreEffetti').hide();
+			} else {
+				$('#selettoreEffetti').show();
+			}
+			get_info_pozioni()
+		}	else {
+			
+			$("#nome").html('Errore!');
+			$("#effetto").html('Nessuna pozione trovata con questa ricetta.' );	
+		}
+	},  
+	dataType: "json"
+});
+}

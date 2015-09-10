@@ -142,3 +142,9 @@
         Route::post('missive/{id}/toggle','MissivaController@toggle_rispondere');
         Route::post('admin/debito/{id}','MissivaController@azzera_debito');
     });
+
+	Route::group(array('before'=>'master'), function() {
+        Route::get('admin/pozioni/','PozioniController@index');
+        Route::get('admin/infopozioni/','PozioniController@info');
+        Route::get('admin/ricetta/','PozioniController@ricetta');
+    });
