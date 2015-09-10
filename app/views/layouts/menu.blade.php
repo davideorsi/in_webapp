@@ -116,6 +116,7 @@
 						<li ><a href="{{ URL::to('admin/informatori') }}"><small>Informatori</small></a></li>
 						<li ><a href="{{ URL::to('admin/post') }}"><small>Ambientazione</small></a></li>
 						<li ><a href="{{ URL::to('admin/famoso') }}"><small>PG Famosi</small></a></li>
+						<li ><a href="{{ URL::to('admin/pozioni') }}"><small>Pozioni</small></a></li>
 						<li ><a href="{{ URL::to('admin/incanto') }}"><small>Incanti</small></a></li>
 						<li ><a href="{{ URL::to('admin/abilita') }}"><small>Abilità</small></a></li>
 					</ul>
