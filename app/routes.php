@@ -132,7 +132,8 @@
 	Route::group(array('before'=>'auth'), function() {
 		Route::get('missive/search','MissivaController@search');
 		Route::get('debito/{id}','MissivaController@debito');
-		Route::resource('missive', 'MissivaController',array('except' => array('update','edit')));
+		//disabilitato invio missive durante il live.
+		Route::resource('missive', 'MissivaController',array('except' => array('update','edit','create')));
 	});	
 
     Route::group(array('before'=>'master'), function() {
