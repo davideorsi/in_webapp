@@ -11,17 +11,81 @@
 		<h3>{{$Evento['Titolo']}} <small>{{$Evento['Data']}}</small></h2>
 </div>
 
-<div class='row'>
-	<div class='col-sm-6 '>
 
-		<div class='row panel panel-default' style='padding:10px;'>
+	<!-- ################## RIASSUNTO ############################-->
+	<div class='col-sm-8 col-sm-offset-2'>
+
+		<div class="panel panel-default">
+		<div class="panel-heading">Amministrazione	</div>
+			<div class="panel-body">
+				<div class="input-group">
+					<span class="input-group-addon">Schede iscritti</span>
+					{{ HTML::link('/admin/schede', 'Genera!', array('class' => 'btn btn-primary form-control'), false)}}
+				</div>
+			</div>
+		
+			<table class='table table-striped'>
+				<thead>
+					<tr>
+						<td></td>
+						<th>Iscritti</th>
+						<th>Cenano</th>
+						<th>Pernottano</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td>{{count($Evento['PG'])}}</td>
+						<td>{{$Evento['cenano']}}</td>
+						<td>{{$Evento['pernottano']}}</td>
+					</tr>
+				</tbody>
+				
+				<hr>
+				<hr>
+				
+				<thead>
+					<tr>
+						<td></td>
+						<th>Nottingham</th>
+						<th>La Rochelle</th>
+						<th>Non Affiliati</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>PG iscritti</th>
+						<td>{{$affiliazione['Nottingham']}}</td>
+						<td>{{$affiliazione['La Rochelle']}}</td>
+						<td>{{$affiliazione['Non Affiliati']}}</td>
+					</tr>
+					<tr>
+						<th>Rendite<br/>Secondarie</th>
+						<td>{{$secondaria['Nottingham']}}</td>
+						<td>{{$secondaria['La Rochelle']}}</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class='row panel panel-default' style='padding:10px; margin: 0px'>
 		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
 		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin', 'class'=>'pure-form')) }}
 			
-			<div class='col-xs-12 col-sm-12 col-md-3'>
+			<div class='col-xs-12 col-sm-12 col-md-6'>
 			{{ Form::label('PG', 'Personaggio',['style'=>'width:100%']) }}
 			{{ Form::select('PG', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}
 			{{ Form::hidden('Evento',$Evento['ID']) }}
+			</div>
+			<div class='col-xs-12 col-sm-12 col-md-6'>
+			{{ Form::label('Note','Note',['style'=>'width:100%']) }}		
+			{{ Form::input('text','Note','', ['class'=>'form-control'])}}
 			</div>
 			<div class='col-xs-12 col-sm-4 col-md-3'>
 			{{ Form::label('Arrivo','Arrivo',['style'=>'width:100%']) }}		
@@ -40,8 +104,9 @@
 			{{ Form::close()}}
 			</div>
 		</div>
-
-		
+	</div>
+	
+	<div class="col-sm-8 col-sm-offset-2">	
 		<h5><strong>Elenco degli iscritti</strong></h5>
 		<table class='table table-striped table-condensed'>
 			<thead>
@@ -49,6 +114,7 @@
 				<th>Arrivo</th>
 				<th>Cena</th>
 				<th>Pernotto</th>
+				<th>Note</th>
 				<th>Pagato</th>
 				<th></th>
 			</thead>
@@ -70,6 +136,12 @@
 						<span class='glyphicon glyphicon-ok'></span>
 					@endif
 				</td>
+				<td>
+					@if (!empty($PG['pivot']['Note']))
+						{{$PG['pivot']['Note']}}
+					@endif
+				</td>
+				
 				<td align = "center">
 					{{ Form::model($PG, array('files'=>true, 'method' => 'PUT', 'url' => 'admin', 'class'=>'pure-form')) }}
 					{{ Form::hidden('PG',$PG['ID'])}}
@@ -98,78 +170,6 @@
 		</table>
 	</div>
 
-
-	<!-- ################## RIASSUNTO ############################-->
-	<div class='col-sm-6'>
-
-		<div class="panel panel-default">
-		<div class="panel-heading">Amministrazione	</div>
-			<div class="panel-body">
-				<div class="input-group">
-					<span class="input-group-addon">Schede iscritti</span>
-					{{ HTML::link('/admin/schede', 'Genera!', array('class' => 'btn btn-primary form-control'), false)}}
-				</div>
-			</div>
-		
-			<table class='table table-striped'>
-				<thead>
-					<tr>
-						<th>Iscritti</th>
-						<th>Cenano</th>
-						<th>Pernottano</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>{{count($Evento['PG'])}}</td>
-						<td>{{$Evento['cenano']}}</td>
-						<td>{{$Evento['pernottano']}}</td>
-					</tr>
-				</tbody>
-
-				<thead>
-					<tr>
-						<th>Nottingham</th>
-						<th>La Rochelle</th>
-						<th>Non Affiliati</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>{{$affiliazione['Nottingham']}}</td>
-						<td>{{$affiliazione['La Rochelle']}}</td>
-						<td>{{$affiliazione['Non Affiliati']}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-
-	<div class='col-sm-6'>
-		<div class="panel panel-default">
-			<div class="panel-heading">Informazioni aggiuntive	</div>
-			<table class='table table-striped table-condensed'>
-				<thead>
-					<tr>
-						<th>Nome</th>
-						<th width='30%'>Note</th>
-					</tr>
-				</thead>
-				<tbody>
-				
-				@foreach ($Evento['PG'] as $PG)
-					@if (!empty($PG['pivot']['Note']))
-					<tr>
-						<td>{{$PG['Nome']}}<br><small>{{$PG['NomeGiocatore']}}</small></td>
-						<td>{{$PG['pivot']['Note']}}</td>
-					</tr>
-					@endif
-				@endforeach
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
 
 
 

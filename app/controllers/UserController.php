@@ -170,11 +170,16 @@ class UserController extends BaseController {
 		$tipo_oggetti =Input::get('oggetto');
 		$costo_oggetti =Input::get('costo');
 
-		if ($opzioni_singole){
-			$note=implode('<br>',$opzioni_singole);
-		} else
-		{
-			$note='';
+
+		if (Auth::user()->usergroup != 7) {
+			if ($opzioni_singole){
+				$note=implode('<br>',$opzioni_singole);
+			} else
+			{
+				$note='';
+			}
+		} else {
+			$note=Input::get('Note');
 		}
 		
 		if ($numero_oggetti) {
@@ -333,11 +338,27 @@ class UserController extends BaseController {
 		$affiliazione['Non Affiliati']=0;
 		$pernottano=0;
 		$cenano=0;
+		$secondaria['Nottingham']=0;
+		$secondaria['La Rochelle']=0;
+		$secondaria['Non Affiliati']=0;
 		foreach ($Evento[0]['PG'] as $pg){
 			$pernottano+=$pg['pivot']['Pernotto'];
 			$cenano+=$pg['pivot']['Cena'];
 			$affiliazione[$pg['Affiliazione']]+=1;
+			$abilita_del_PG=$pg->Abilita()->get();
+			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
+			if (!in_array(8,$abilita_del_PG)){
+				if (in_array(43,$abilita_del_PG)){
+					$secondaria[$pg['Affiliazione']]+=20;
+				} else {
+					$secondaria[$pg['Affiliazione']]+=10;
+				}
+			}
+			
 		}
+		$secondaria['Nottingham']=INtools::convertiMonete($secondaria['Nottingham']);
+		$secondaria['La Rochelle']=INtools::convertiMonete($secondaria['La Rochelle']);
+		$secondaria['Non Affiliati']=INtools::convertiMonete($secondaria['Non Affiliati']);
 		$Evento[0]['pernottano']=$pernottano;
 		$Evento[0]['cenano']=$cenano;
 
@@ -352,6 +373,7 @@ class UserController extends BaseController {
 		return View::make('homeadmin')
 				->with('Evento',$Evento[0])
 				->with('affiliazione',$affiliazione)
+				->with('secondaria',$secondaria)
 				->with('selVivi',$selVivi);
 
 	}
