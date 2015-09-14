@@ -57,11 +57,11 @@
 		<div style='padding: 10px;'>
 			<div style='float: left; margin-bottom: 10px; width: 30%;'>
 				<p style='margin:0px;'>
+					<b>Affiliazione: </b>{{$pers['Affiliazione']}}<br>
 					<b>PX: </b >{{$pers['Px']}} ({{intval($pers['PxRimasti'])}} disponibili)<br>
 					<b>Rendita: </b> {{$pers['Rendita']}}<br>
 					<b>Erbe: </b>{{$pers['Erbe']}}<br>
-					<b>Cart. Pot.: </b>{{$pers['CartelliniPotere']}}<br>
-					<b>Affiliazione: </b>{{$pers['Affiliazione']}}
+					<b>Cart. Pot.: </b>{{$pers['CartelliniPotere']}}
 				</p>
 			</div>
 			
