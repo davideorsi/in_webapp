@@ -100,7 +100,7 @@
 			{{ Form::checkbox('Pernotto',1,null,['class'=>'checkbox']) }}
 			</div>
 			<div class='col-xs-4 col-sm-2 col-md-2'>
-			{{ Form::submit('&oplus;', array('class' => 'btn btn-success','style'=>'margin-top: 24px;')) }}
+			{{ Form::submit('Iscrivi', array('class' => 'btn btn-success','style'=>'margin-top: 24px;')) }}
 			{{ Form::close()}}
 			</div>
 		</div>
