@@ -346,6 +346,14 @@ class UserController extends BaseController {
 			$cenano+=$pg['pivot']['Cena'];
 			$affiliazione[$pg['Affiliazione']]+=1;
 			$abilita_del_PG=$pg->Abilita()->get();
+			if ($pg['Affiliazione']=='Nottingham'){
+				$pg['classe_affiliazione']='bg-danger';
+			} elseif ($pg['Affiliazione']=='La Rochelle') {
+				$pg['classe_affiliazione']='bg-primary';
+			} else {
+				$pg['classe_affiliazione']='bg-warning';
+			}
+			
 			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
 			if (!in_array(8,$abilita_del_PG)){
 				if (in_array(43,$abilita_del_PG)){

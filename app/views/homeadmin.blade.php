@@ -128,7 +128,9 @@
 		@foreach ($Evento['PG'] as $PG)
 	
 			<tr>
-				<td>{{$PG['Nome']}}<br><small>{{$PG['NomeGiocatore']}}</small></td>
+				<td class='{{$PG['classe_affiliazione']}}'>
+					{{$PG['Nome']}}<br><small>{{$PG['NomeGiocatore']}}</small>
+				</td>
 				<td align = "center">{{$PG['pivot']['Arrivo']}}</td>
 				<td align = "center">
 					@if ($PG['pivot']['Cena'])
