@@ -146,8 +146,8 @@
 				<td>
 					@if($PG->Erbe()>0)
 					{{$PG->Erbe()}}&nbsp;erbe
-					@endif
 					<br>
+					@endif
 					@if($PG->CartelliniPotere()>0)
 					{{$PG->CartelliniPotere()}}&nbsp;potere
 					@endif
