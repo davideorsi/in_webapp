@@ -64,13 +64,13 @@ class INtools {
 		$monetestr='';
 		
 		if ($Oro>0){
-			$monetestr.= strval($Oro).' Oro; ';
+			$monetestr.= strval($Oro).'&nbsp;Oro; ';
 		}
 		if ($Argento>0){
-			$monetestr.= strval($Argento).' Argento; ';
+			$monetestr.= strval($Argento).'&nbsp;Argento; ';
 		}
 		if ($Rame>0){
-			$monetestr.= strval($Rame).' Rame.';
+			$monetestr.= strval($Rame).'&nbsp;Rame.';
 		}
 
 

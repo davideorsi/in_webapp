@@ -353,8 +353,30 @@ class UserController extends BaseController {
 				} else {
 					$secondaria[$pg['Affiliazione']]+=10;
 				}
+				$pg['Rendita_tot']=$pg->Rendita();
+			} else {
+				$pg['Rendita_tot']=$pg->Rendita();
+				if (in_array(43,$abilita_del_PG)){
+					$pg['Rendita_tot']+=20;
+				} else {
+					$pg['Rendita_tot']+=10;
+				}
 			}
+			$lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
+			$costi=INtools::select_column($lista,'costo');
+			$debtotale = array_sum($costi);
+			$pg['Debiti_tot']=INtools::convertiMonete($debtotale);
 			
+			$inbusta=$pg['Rendita_tot']-$debtotale;
+			
+			if ($inbusta<0) {
+				$pg['class_denaro']='danger';	
+			} else {
+				$pg['class_denaro']='success';
+			} 
+			$pg['Denaro_busta']=INtools::convertiMonete(abs($inbusta));
+			
+			$pg['Rendita_tot']=INtools::convertiMonete($pg['Rendita_tot']);
 		}
 		$secondaria['Nottingham']=INtools::convertiMonete($secondaria['Nottingham']);
 		$secondaria['La Rochelle']=INtools::convertiMonete($secondaria['La Rochelle']);

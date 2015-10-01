@@ -13,7 +13,7 @@
 
 
 	<!-- ################## RIASSUNTO ############################-->
-	<div class='col-sm-8 col-sm-offset-2'>
+	<div class='col-sm-10 col-sm-offset-1'>
 
 		<div class="panel panel-default">
 		<div class="panel-heading">Amministrazione	</div>
@@ -30,7 +30,7 @@
 						<td></td>
 						<th>Iscritti</th>
 						<th>Cenano</th>
-						<th>Pernottano</th>
+						<th>Pernotto</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -55,13 +55,13 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th>PG iscritti</th>
+						<th>Iscritti</th>
 						<td>{{$affiliazione['Nottingham']}}</td>
 						<td>{{$affiliazione['La Rochelle']}}</td>
 						<td>{{$affiliazione['Non Affiliati']}}</td>
 					</tr>
 					<tr>
-						<th>Rendite<br/>Secondarie</th>
+						<th>Rendite<br/>Fazione</th>
 						<td>{{$secondaria['Nottingham']}}</td>
 						<td>{{$secondaria['La Rochelle']}}</td>
 						<td></td>
@@ -73,7 +73,7 @@
 
 
 
-	<div class="col-sm-8 col-sm-offset-2">
+	<div class="col-sm-10 col-sm-offset-1">
 		<div class='row panel panel-default' style='padding:10px; margin: 0px'>
 		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
 		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin', 'class'=>'pure-form')) }}
@@ -106,7 +106,7 @@
 		</div>
 	</div>
 	
-	<div class="col-sm-8 col-sm-offset-2">	
+	<div class="col-sm-10 col-sm-offset-1">	
 		<h5><strong>Elenco degli iscritti</strong></h5>
 		<table class='table table-striped table-condensed'>
 			<thead>
@@ -114,7 +114,11 @@
 				<th>Arrivo</th>
 				<th>Cena</th>
 				<th>Pernotto</th>
-				<th>Note</th>
+				<th>Rendita<br>Totale</th>
+				<th>Debiti<br>Missive</th>
+				<th>Denaro&nbsp;in<br>Busta</th>
+				<th>Oggetti&nbsp;in<br>Busta</th>
+				<th>Note-Altro</th>
 				<th>Pagato</th>
 				<th></th>
 			</thead>
@@ -134,6 +138,18 @@
 				<td align = "center">
 					@if ($PG['pivot']['Pernotto'])
 						<span class='glyphicon glyphicon-ok'></span>
+					@endif
+				</td>
+				<td>{{$PG['Rendita_tot']}}</td>
+				<td>{{$PG['Debiti_tot']}}</td>
+				<td class='{{$PG['class_denaro']}}'>{{$PG['Denaro_busta']}}</td>
+				<td>
+					@if($PG->Erbe()>0)
+					{{$PG->Erbe()}}&nbsp;erbe
+					@endif
+					<br>
+					@if($PG->CartelliniPotere()>0)
+					{{$PG->CartelliniPotere()}}&nbsp;potere
 					@endif
 				</td>
 				<td>

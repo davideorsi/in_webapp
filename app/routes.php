@@ -148,3 +148,6 @@
         Route::get('admin/infopozioni/','PozioniController@info');
         Route::get('admin/ricetta/','PozioniController@ricetta');
     });
+	Route::group(array('before'=>'master'), function() {
+        Route::get('admin/economia/','EconomiaController@index');
+    });
