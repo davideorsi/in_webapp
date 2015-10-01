@@ -347,11 +347,11 @@ class UserController extends BaseController {
 			$affiliazione[$pg['Affiliazione']]+=1;
 			$abilita_del_PG=$pg->Abilita()->get();
 			if ($pg['Affiliazione']=='Nottingham'){
-				$pg['classe_affiliazione']='bg-danger';
+				$pg['classe_affiliazione']='text-danger';
 			} elseif ($pg['Affiliazione']=='La Rochelle') {
-				$pg['classe_affiliazione']='bg-primary';
+				$pg['classe_affiliazione']='text-primary';
 			} else {
-				$pg['classe_affiliazione']='bg-warning';
+				$pg['classe_affiliazione']='text-warning';
 			}
 			
 			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
@@ -378,9 +378,9 @@ class UserController extends BaseController {
 			$inbusta=$pg['Rendita_tot']-$debtotale;
 			
 			if ($inbusta<0) {
-				$pg['class_denaro']='danger';	
+				$pg['class_denaro']='text-danger';	
 			} else {
-				$pg['class_denaro']='success';
+				$pg['class_denaro']='text-success';
 			} 
 			$pg['Denaro_busta']=INtools::convertiMonete(abs($inbusta));
 			
