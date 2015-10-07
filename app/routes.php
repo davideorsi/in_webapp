@@ -150,4 +150,5 @@
     });
 	Route::group(array('before'=>'master'), function() {
         Route::get('admin/economia/','EconomiaController@index');
+        Route::put('admin/economia/','EconomiaController@update');
     });
