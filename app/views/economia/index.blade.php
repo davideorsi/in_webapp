@@ -69,7 +69,7 @@
 				<h4>Indici Rarità</h4>
 				@foreach($Beni as $Bene)
 				<div class="input-group">
-					<span class="input-group-addon info" id="sizing-addon3" style='min-width:100px; text-align:right;'>
+					<span class="input-group-addon info" id="sizing-addon3" style='min-width:110px; text-align:right;'>
 						<b>{{$Bene['Nome']}}</b>
 					</span>
 					{{ Form::input('number','IR[]', $Bene['IR'], ['class'=>'form-control', 'min'=>'0', 'max'=>'3', 'step'=>'0.1']) }}
