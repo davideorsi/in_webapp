@@ -87,8 +87,8 @@
 				@foreach($Beni as $Bene)
 					<tr>
 						<th>{{$Bene['Nome']}}</th>
-						<td>{{$Bene['PA']}}</td>
 						<td>{{$Bene['PV']}}</td>
+						<td>{{$Bene['PA']}}</td>
 					</tr>
 				@endforeach
 				</table>
