@@ -76,8 +76,8 @@
 			<p>* Penalità: deficit di monete, espresso in monete di Rame,
 			dovuto ad un eccessivo prelievo di denaro -con mancato reinvestimento- 
 			nei territori. Se alla fine del live il denaro presente nei territori
-			è inferiore al minimo dato dalla propria Condizione, il deficit è 
-			scalato dal denaro disponibile al live successivo.</p>
+			è inferiore al minimo dato dalla propria Condizione, la differenza è segnata come Penalità.
+			Il deficit verrà scalato dal denaro disponibile al live successivo.</p>
 			<p>&dagger; Ricchezza: surplus, espresso in monete d'Oro, al 
 			denaro disponibile nel territorio
 			assegnato per motivi di regolamento o trama. 
