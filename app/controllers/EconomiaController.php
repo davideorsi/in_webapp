@@ -21,6 +21,14 @@ class EconomiaController extends \BaseController {
 			4 => 'Florida'
 			);
 			
+		$totrich=array(2,4,6,8);
+		$minrich=array(2,2,3,4);	
+		
+		foreach($Fazioni as $faz) {
+			$faz['Totale']=INtools::convertiMonete($totrich[$faz['Condizione']]*50+$faz['Ricchezza']*50-$faz['Sovratassa']);
+			$faz['Minimo']=INtools::convertiMonete($minrich[$faz['Condizione']]*50);
+			}
+			
 		$Nbeni=array(0,3,5,8,10);
 		$Nbeni=$Nbeni[$max];
 		$PBA=array(0,30,20,10,5);
@@ -45,6 +53,7 @@ class EconomiaController extends \BaseController {
 		$cond=Input::get('Condizione');
 		$infl=Input::get('Influenza');
 		$rich=Input::get('Ricchezza');
+		$sovr=Input::get('Sovratassa');
 		$IR=Input::get('IR');
 		
 		
@@ -58,14 +67,15 @@ class EconomiaController extends \BaseController {
 		$Fazione->Condizione=$cond[0];
 		$Fazione->Influenza=$infl[0];
 		$Fazione->Ricchezza=$rich[0];
+		$Fazione->Sovratassa=$sovr[0];
 		$Fazione->save();
 
 		$Fazione=Fazione::find(2);
 		$Fazione->Condizione=$cond[1];
 		$Fazione->Influenza=$infl[1];
 		$Fazione->Ricchezza=$rich[1];
+		$Fazione->Sovratassa=$sovr[1];
 		$Fazione->save();
-		
 		
 		
 		$msg=' Informazioni aggiornate con successo.';
