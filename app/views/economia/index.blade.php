@@ -123,7 +123,7 @@
 		</div>
 	<br>
 	<hr>
-	<div class='row'>
+	<div class='row' style='padding: 10px;'>
 			<div class='col-xs-4'>
 				<h4>Indici Rarità</h4>
 				@foreach($Beni as $Bene)
@@ -152,12 +152,10 @@
 				@endforeach
 				</table>
 			</div>
-	</div>
-	
-	<div class='row'>
-		<div class="form-group btn-group">
-		{{ Form::submit('Aggiorna', array('class' => 'btn btn-success')) }}
-		</div>
+			<div class="form-group btn-group col-xs-2">
+			{{ Form::submit('Aggiorna', array('class' => 'btn btn-success')) }}
+			</div>
+			
 	</div>
 	
 	{{ Form::close() }}
