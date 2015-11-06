@@ -444,14 +444,15 @@ class MissivaController extends \BaseController {
 		$data_attuale=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
 		$data_attuale= new Datetime($data_attuale);
 		$mese_attuale=strftime("%b",$data_attuale->sub(new DateInterval('P1M'))->gettimestamp());
-		
-		$missive=Missiva::where('intercettato','=','1')->orderBy('id','desc')->take(5)->get();
+		$anno_attuale=strftime("%Y",$data_attuale->gettimestamp());
+
+		$missive=Missiva::where('intercettato','=','1')->orderBy('id','desc')->get();
 
 		$selMissiva=array(''=>'');
 		$coinvolto=array();
 		foreach ($missive as $key=>$missiva){
 			$data= new Datetime($missiva['data']);
-			if (strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0){
+			if (strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0 & strcmp($anno_attuale,strftime("%Y",$data->gettimestamp()))==0){
 				$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
 				$selMissiva[$missiva['id']]=$key+1;
 				if ($missiva['tipo_mittente']=='PG') {
