@@ -326,18 +326,48 @@ class UserController extends BaseController {
 	############## Admin page: editare iscrizione agli eventi ##########
 	public function showAdmin()
 	{
-		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+		$Evento = Evento::orderBy('Data','Desc')->take(2)->get(array('Data','Titolo','ID'));
 
 		$data=new Datetime($Evento[0]['Data']);
 		$Evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
-
 		$Evento[0]['PG'] = $Evento[0]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
+		$Evento[1]['PG'] = $Evento[1]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
+
+
+		// tassazione ##################################################
+		$tassazione['Nottingham']=0;
+		$tassazione['La Rochelle']=0;
+		$tassazione['Non Affiliati']=0;
+		$sconto['Nottingham']=0;
+		$sconto['La Rochelle']=0;
+		$sconto['Non Affiliati']=0;
+		foreach ($Evento[1]['PG'] as $pg){
+			$tassazione[$pg['Affiliazione']]+=1;
+			$abilita_del_PG=$pg->Abilita()->get();
+			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
+			if (in_array(42,$abilita_del_PG)){ // se non ha privilegi economici
+				$sconto[$pg['Affiliazione']]+=1;
+			}
+		}
+		
+		$diff=$tassazione['La Rochelle']-$tassazione['Nottingham'];
+		if ($diff>=0) {
+			$tassazione['La Rochelle']=INtools::convertiMonete(($tassazione['La Rochelle']-$sconto['La Rochelle'])*5+5*$diff);
+			$tassazione['Nottingham']=INtools::convertiMonete(($tassazione['Nottingham']-$sconto['Nottingham'])*5);
+		} else {
+			$tassazione['Nottingham']=INtools::convertiMonete(($tassazione['Nottingham']-$sconto['Nottingham'])*5-$diff*5);
+			$tassazione['La Rochelle']=INtools::convertiMonete(($tassazione['La Rochelle']-$sconto['La Rochelle'])*5);
+		}
+		
+		// evento corrente #############################################
 
 		$affiliazione['Nottingham']=0;
 		$affiliazione['La Rochelle']=0;
 		$affiliazione['Non Affiliati']=0;
+		
 		$pernottano=0;
 		$cenano=0;
+		
 		$secondaria['Nottingham']=0;
 		$secondaria['La Rochelle']=0;
 		$secondaria['Non Affiliati']=0;
@@ -345,7 +375,6 @@ class UserController extends BaseController {
 			$pernottano+=$pg['pivot']['Pernotto'];
 			$cenano+=$pg['pivot']['Cena'];
 			$affiliazione[$pg['Affiliazione']]+=1;
-			$abilita_del_PG=$pg->Abilita()->get();
 			if ($pg['Affiliazione']=='Nottingham'){
 				$pg['classe_affiliazione']='text-danger';
 			} elseif ($pg['Affiliazione']=='La Rochelle') {
@@ -353,7 +382,7 @@ class UserController extends BaseController {
 			} else {
 				$pg['classe_affiliazione']='text-warning';
 			}
-			
+			$abilita_del_PG=$pg->Abilita()->get();
 			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
 			if (!in_array(8,$abilita_del_PG)){
 				if (in_array(43,$abilita_del_PG)){
@@ -403,6 +432,7 @@ class UserController extends BaseController {
 		return View::make('homeadmin')
 				->with('Evento',$Evento[0])
 				->with('affiliazione',$affiliazione)
+				->with('tassazione',$tassazione)
 				->with('secondaria',$secondaria)
 				->with('selVivi',$selVivi);
 

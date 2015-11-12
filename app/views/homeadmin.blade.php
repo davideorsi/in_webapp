@@ -66,6 +66,12 @@
 						<td>{{$secondaria['La Rochelle']}}</td>
 						<td></td>
 					</tr>
+					<tr>
+						<th>Tassazione</th>
+						<td>{{$tassazione['Nottingham']}}</td>
+						<td>{{$tassazione['La Rochelle']}}</td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
