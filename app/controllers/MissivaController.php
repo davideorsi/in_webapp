@@ -452,7 +452,7 @@ class MissivaController extends \BaseController {
 		$coinvolto=array();
 		foreach ($missive as $key=>$missiva){
 			$data= new Datetime($missiva['data']);
-			if ($key==5 | $key==6 |(strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0 & strcmp($anno_attuale,strftime("%Y",$data->gettimestamp()))==0)){
+			if ((strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0 & strcmp($anno_attuale,strftime("%Y",$data->gettimestamp()))==0)){
 				$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
 				$selMissiva[$missiva['id']]=$key+1;
 				if ($missiva['tipo_mittente']=='PG') {
@@ -513,7 +513,7 @@ class MissivaController extends \BaseController {
 			
 			$intercetto= new Missiva;
 			$intercetto->data=$currtime;
-			$intercetto['mittente']='STAFF, Abilità "Infiltrato", missiva intercetta del mese di '.strftime("%B %Y",$time->gettimestamp());
+			$intercetto['mittente']='STAFF, Abilità "Infiltrato", missiva intercettata del mese di '.strftime("%B %Y",$time->gettimestamp());
 			$intercetto->destinatario=$personaggi[$key];
 			$intercetto->costo=10;
 			$intercetto->pagato=1;
