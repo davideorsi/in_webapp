@@ -132,7 +132,7 @@
 	Route::group(array('before'=>'auth'), function() {
 		Route::get('missive/search','MissivaController@search');
 		Route::get('debito/{id}','MissivaController@debito');
-		Route::resource('missive', 'MissivaController',array('except' => array('update','edit','store')));
+		Route::resource('missive', 'MissivaController',array('except' => array('update','edit')));
 	});	
 ;
 
