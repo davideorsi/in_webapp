@@ -95,7 +95,7 @@
                         <li><a href="{{ URL::to('admin/intercettate/') }}"><small>Intercettate</small></a></li>
                         @else
                         <!-- Disabilitato per live -->
-						<!--<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>-->
+						<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
                         @endif
                     </ul>
 				</li>

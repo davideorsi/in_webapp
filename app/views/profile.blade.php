@@ -61,7 +61,7 @@
 						<td>( {{$abilita['PX'] }} px )</td>
 					</tr>
 				@endforeach
-				<!-- DISABILITATO PER LIVE
+				<!-- DISABILITATO PER LIVE -->
 					<tr>
 						<td colspan='1'>
 							{{ Form::model($PG, array('files'=>true, 'method' => 'PUT', 'url' => 'pg', 'class'=>'pure-form')) }}
@@ -73,7 +73,6 @@
 							{{ Form::close()}}
 						</td>
 					</tr>
-				-->
 				</tbody>
 			</table>
 		</div>
