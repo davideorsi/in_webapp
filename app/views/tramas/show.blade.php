@@ -1,0 +1,1 @@
+/home/davide/webapp/app/views/tramas/show.blade.php

@@ -472,3 +472,17 @@ $.ajax({
 	dataType: "json"
 });
 }
+
+//###### TRAME ###############################################
+
+function get_trama(pos){
+$.ajax({
+	type: "GET",
+	url:  "trama/"+pos,
+	async: false,
+	success: function(output){
+		$("#trama_desc").html(output.body);
+	},  
+	dataType: "json"
+});
+}
