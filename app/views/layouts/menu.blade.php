@@ -127,15 +127,29 @@
 				</li>
 				<li class='dropdown'><a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<span class='glyphicon glyphicon-user'></span>
-					<div class='visible-xs-inline'>PG/PNG</div>
+					<div class='visible-xs-inline'>PG</div>
 					<span class="caret"></span>
-					<h6 class='hidden-xs didascalia'>PG/PNG</h6>
+					<h6 class='hidden-xs didascalia'>PG</h6>
 				</a>
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('admin/pg') }}"><small>PG</small></a></li>
 						<li ><a href="{{ URL::to('admin/userpg') }}"><small>Utenti - PG</small></a></li>
 						<li ><a href="{{ URL::to('admin/png') }}"><small>PNG</small></a></li>
 					</ul>
+					
+				</li>
+				<li class='dropdown'><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span class='glyphicon glyphicon-list-alt'></span>
+					<div class='visible-xs-inline'>Trame</div>
+					<span class="caret"></span>
+					<h6 class='hidden-xs didascalia'>Trame</h6>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+						<li ><a href="{{ URL::to('trama') }}"><small>Trame</small></a></li>
+						<li ><a href="{{ URL::to('vicenda') }}"><small>Vicende</small></a></li>
+						<li ><a href="{{ URL::to('admin/png') }}"><small>PNG</small></a></li>
+					</ul>
+					
 				</li>
 			@endif
 			@endif

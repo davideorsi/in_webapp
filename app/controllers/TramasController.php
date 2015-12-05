@@ -9,7 +9,7 @@ class TramasController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tramas = Trama::all();
+		$tramas = Trama::orderBy('title','asc')->get(['ID','title']);
 		
 		$selectTrama = array();
 		foreach($tramas as $trama) {

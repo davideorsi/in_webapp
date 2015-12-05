@@ -486,3 +486,15 @@ $.ajax({
 	dataType: "json"
 });
 }
+
+function get_vicenda(pos){
+$.ajax({
+	type: "GET",
+	url:  "vicenda/"+pos,
+	async: false,
+	success: function(output){
+		$("#vicenda_desc").html(output.body);
+	},  
+	dataType: "json"
+});
+}

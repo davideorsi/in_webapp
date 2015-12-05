@@ -11,7 +11,7 @@ class Trama extends \Eloquent {
 		'body' => 'required'
 	];
 
-	// Don't forget to fill this array
-	protected $fillable = ['title','body'];
+
+	protected $fillable = array('title', 'body');
 
 }

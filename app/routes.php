@@ -158,5 +158,6 @@
 	########## Trame ###############################
 	Route::group(array('before'=>'master'), function() {    
 		Route::resource('trama', 'TramasController');
+		Route::resource('vicenda', 'VicendasController');
 		Route::resource('elemento', 'ElementosController');
     });
