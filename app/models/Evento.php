@@ -15,6 +15,9 @@ class Evento extends Eloquent {
 		return $this->hasMany('Informatori', 'IDEvento', 'ID');
 	}
 
+	public function Vicende() {
+		return $this->hasMany('Vicenda', 'live', 'ID');
+	}
 
 }
 ?>

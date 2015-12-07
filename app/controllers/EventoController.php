@@ -96,6 +96,16 @@ class EventoController extends \BaseController {
 			return View::make('evento.show')->with('evento', $evento[0]);
 		}
 	}
+	
+	public function show_info($id)
+	{
+		$evento = Evento::findOrFail($id);//->get(['ID','Titolo','Data']);
+		if (Request::ajax()){
+			return Response::json(["Data"=> $evento['Data'], "Titolo"=> $evento['Titolo'],]);
+		} else {
+			return Redirect::to('/');
+		}
+	}
 
 
 	/**

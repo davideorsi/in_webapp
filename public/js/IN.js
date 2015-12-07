@@ -498,3 +498,95 @@ $.ajax({
 	dataType: "json"
 });
 }
+
+function get_elemento(pos) {
+    var tmp = null;
+    $.ajax({
+		type: "GET",
+		url:  "elemento/"+pos,
+		async: false,
+		success: function(output){
+			tmp=output;
+		},  
+		dataType: "json"
+	});
+    return tmp;
+};
+
+function return_data_to_scheduler(pos) {
+    var tmp = null;
+    $.ajax({
+		type: "GET",
+		url:  "vicende/"+pos,
+		async: false,
+		success: function(output){
+			tmp=output;
+		},  
+		dataType: "json"
+	});
+    return tmp;
+};
+
+function return_infoevento_to_scheduler(pos) {
+    var tmp = null;
+    $.ajax({
+		type: "GET",
+		url:  "evento_info/"+pos,
+		async: false,
+		success: function(output){
+			tmp=output;
+		},  
+		dataType: "json"
+	});
+    return tmp;
+};	
+
+function initialize_scheduler(string){
+	var evento=return_infoevento_to_scheduler($('#selectevento').val());
+	var m0=moment(evento.Data,"YYYY-MM-DD");
+	var mm=m0.clone();
+	$(string).timeSchedule({
+		startTime: evento.Data+" 14:00", // schedule start time(HH:ii)
+		endTime: mm.add(1,"d").format("YYYY-MM-DD")+" 02:00",   // schedule end time(HH:ii)
+		widthTime:15*60,  // cell timestamp example 15 minutes
+		timeLineY:100,       // height(px)
+		verticalScrollbar:20,   // scrollbar (px)
+		timeLineBorder:0,   // border(top and bottom)
+		debug:"#debug",     // debug string output elements
+		rows : return_data_to_scheduler($('#selectevento').val()),
+		change: function(node,data){
+			var param = $.param({'start':data.start, 'end':data.end});
+			$.ajax({
+                type: "POST",
+                cache: false,
+                data: param,
+                url: "elemento/"+data.id
+            });
+            $("#schedule").empty()
+			initialize_scheduler("#schedule");
+            
+		},
+		click: function(node,data){
+			var elemento=get_elemento(data.id);
+				$('#overlay').fadeIn('fast');
+				$('#edit_element').fadeIn('slow');
+				
+				$('#form_edit').get(0).setAttribute('action','elemento/'+elemento.ID);
+				$('#form_edit #text').val(elemento.text);
+				$('#form_edit #data').val(elemento.data);
+				$('#form_edit #start').val(elemento.start);
+				$('#form_edit #end').val(elemento.end);
+				$('#form_edit #vicenda').val(elemento.vicenda);
+				
+		},
+		time_click: function(time,data,vicenda){
+
+				$('#overlay').fadeIn('fast');
+				$('#insert_element').fadeIn('slow');
+				
+				$('#form_insert #start').val(data);
+				$('#form_insert #end').val(moment(data,"YYYY-MM-DD HH:mm").add(30,"m").format("YYYY-MM-DD HH:mm"));
+				$('#form_insert #vicenda').val(vicenda);
+		}	
+	});	
+};		

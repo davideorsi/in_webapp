@@ -21,7 +21,7 @@ class ElementosController extends \BaseController {
 
 		Elemento::create($data);
 
-		return Redirect::route('elementos.index');
+		return Redirect::to('scheduler');
 	}
 
 	/**
@@ -33,12 +33,9 @@ class ElementosController extends \BaseController {
 	public function show($id)
 	{
 		$elemento = Elemento::findOrFail($id);
-		if (Request::ajax()){
+		//if (Request::ajax()){
 			return Response::json($elemento);
-		} else {
-			return Redirect::to('elemento');
-		}
-
+		//} 
 	}
 
 
@@ -61,7 +58,24 @@ class ElementosController extends \BaseController {
 
 		$elemento->update($data);
 
-		return Redirect::route('elementos.index');
+		return Redirect::to('scheduler');
+	} 
+	 
+	public function update_time($id)
+	{
+		$elemento = Elemento::findOrFail($id);
+
+		$data= Input::all();
+		$start = $data['start'];
+		$end = $data['end'];
+		
+
+
+		$elemento['start']=$start;
+		$elemento['end']=$end;
+
+		$elemento->save();
+
 	}
 
 	/**
@@ -74,7 +88,6 @@ class ElementosController extends \BaseController {
 	{
 		Elemento::destroy($id);
 
-		return Redirect::route('elementos.index');
 	}
 
 }

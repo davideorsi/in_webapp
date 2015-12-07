@@ -6,13 +6,13 @@ class Elemento extends \Eloquent {
 	protected $primaryKey = 'ID';
 	// Add your validation rules here
 	public static $rules = [
-		'title' => 'required',
+		'text' => 'required',
 		'vicenda' => 'required',
-		'inizio'=> 'required',
-		'fine'	=> 'required'
+		'start'=> 'required',
+		'end'	=> 'required'
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['title','body','vicenda','inizio','fine'];
+	protected $fillable = ['text','data','vicenda','start','end'];
 
 }

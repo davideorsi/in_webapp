@@ -88,6 +88,18 @@ class VicendasController extends \BaseController {
 		}
 	}
 
+	public function show_all($id_evento)
+	{
+		$evento = Evento::findOrFail($id_evento);
+		$vicende = $evento->Vicende;
+		
+		foreach ($vicende as $vicenda){
+				$vicenda['schedule']=$vicenda->Elementi;
+			}
+		
+		return Response::json($vicende);
+	}
+
 	/**
 	 * Show the form for editing the specified vicenda.
 	 *

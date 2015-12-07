@@ -160,4 +160,9 @@
 		Route::resource('trama', 'TramasController');
 		Route::resource('vicenda', 'VicendasController');
 		Route::resource('elemento', 'ElementosController');
+		
+        Route::get('scheduler/','SchedulerController@index');
+        Route::get('vicende/{id}','VicendasController@show_all');
+        Route::get('evento_info/{id}','EventoController@show_info');
+		Route::post('elemento/{id}', 'ElementosController@update_time');
     });

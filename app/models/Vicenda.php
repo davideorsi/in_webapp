@@ -18,6 +18,10 @@ class Vicenda extends \Eloquent {
 	public function Trama(){
 		return $this->hasOne('Trama','ID','trama');
 	}
+	
+	public function Elementi() {
+		return $this->hasMany('Elemento', 'vicenda', 'ID');
+	}
 
 	protected $fillable = array('title', 'body', 'live', 'trama');
 }
