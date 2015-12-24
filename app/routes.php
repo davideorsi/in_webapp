@@ -165,4 +165,8 @@
         Route::get('vicende/{id}','VicendasController@show_all');
         Route::get('evento_info/{id}','EventoController@show_info');
 		Route::post('elemento/{id}', 'ElementosController@update_time');
+		Route::post('elemento_png/{id}', 'ElementosController@add_png');
+		Route::post('elemento_png_remove/{id}', 'ElementosController@remove_png');
+		Route::post('elemento_png_minor/{id}', 'ElementosController@add_png_minor');
+		Route::post('elemento_png_minor_remove/{id}', 'ElementosController@remove_png_minor');
     });

@@ -29,6 +29,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->belongsToMany('PG', 'giocatore-PG', 'user', 'pg');
 	}
 
+	public function PNG() {
+		return $this->hasMany('PNG', 'Master', 'id')->where('Morto','0');
+	}
 
 	public function getRememberToken()
 	{

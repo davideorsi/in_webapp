@@ -33,6 +33,35 @@ class ElementosController extends \BaseController {
 	public function show($id)
 	{
 		$elemento = Elemento::findOrFail($id);
+		$pngminori=$elemento->PNGminori;
+		$pngs=$elemento->PNG;
+		
+		$palette=array(
+			'black',
+			'red',
+			'green',
+			'blue'
+		);
+		
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$coloreMaster=array();
+		foreach ($Masters as $key=>$Master){
+			$coloreMaster[$Master->id] = $palette[$key];
+		}
+		
+		foreach ($pngs as $key=>$png){
+				$pngs[$key]['color']=$coloreMaster[$png['Master']];
+				$Master = User::find($png['Master']);
+				$pngs[$key]['nomemaster']=$Master['username'];
+		}		
+		if ($pngminori) {
+		foreach ($pngminori as $key=>$png){
+				$pngminori[$key]['color']=$coloreMaster[$png['User']];
+				$Master = User::find($png['User']);
+				$pngminori[$key]['nomeuser']=$Master['username'];
+		}
+		}
+
 		//if (Request::ajax()){
 			return Response::json($elemento);
 		//} 
@@ -58,7 +87,7 @@ class ElementosController extends \BaseController {
 
 		$elemento->update($data);
 
-		return Redirect::to('scheduler');
+		return Redirect::back();
 	} 
 	 
 	public function update_time($id)
@@ -76,6 +105,7 @@ class ElementosController extends \BaseController {
 
 		$elemento->save();
 
+		return Redirect::back();
 	}
 
 	/**
@@ -87,7 +117,44 @@ class ElementosController extends \BaseController {
 	public function destroy($id)
 	{
 		Elemento::destroy($id);
+		
+		return Redirect::back();
+	}
+	
+	
+	public function add_png($idElemento)
+	{
+		$idPng=Input::get('PNG');
 
+		$Elemento=Elemento::find($idElemento);
+		$Elemento->PNG()->attach($idPng);
+	}
+	
+	public function add_png_minor($idElemento)
+	{
+		$idMaster=Input::get('Master');
+		$minori=Input::get('pngminori');
+
+		$el=new ElementoPNGminori;
+		$el->User=$idMaster;
+		$el->PNG=$minori;
+		$el->Elemento=$idElemento;
+		$el->save();
+		
+		return Redirect::to('scheduler');
+		
 	}
 
+	public function remove_png($idElemento)
+	{
+		$idPng=Input::get('PNG');
+
+		$Elemento=Elemento::find($idElemento);
+		$Elemento->PNG()->detach($idPng);
+	}
+
+	public function remove_png_minor($idElemento)
+	{
+		$Elemento=ElementoPNGminori::destroy($idElemento);
+	}
 }

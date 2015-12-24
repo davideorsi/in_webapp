@@ -18,6 +18,8 @@
             verticalScrollbar:10,	// vertical scrollbar width
             // event
             init_data: null,
+            on_drop: null,
+            on_out: null,
             change: null,
             click: null,
             append: null,
@@ -112,7 +114,29 @@
         this.addScheduleData = function(data){
             var st = Math.ceil((data["start"] - tableStartTime) / setting.widthTime);
             var et = Math.floor((data["end"] - tableStartTime) / setting.widthTime);
-            var $bar = jQuery('<div class="sc_Bar"><span class="head"><span class="time"></span></span><span class="text"></span></div>');
+            var $bar = jQuery('<div class="sc_Bar"><span class="head"><span class="time"></span></span><span class="text" style="margin-bottom:4px;"></span></div>');
+
+            for( var i in data['png']){
+				var png= data['png'][i];
+				$bar.append("<span class='glyphicon glyphicon-user' style='margin:4px; font-size:1.6em; color:"+png['color']+";' title='"+png['Nome']+"'><input type='hidden' value='"+png['ID']+"' class='png'></input></span>");	
+			}
+            for( var i in data['pngminori']){
+				var png= data['pngminori'][i];
+				$bar.append("<span class='glyphicon glyphicon-user' style='margin:4px; font-size:1.6em; color:"+png['color']+";' title='"+png['nomeuser']+': '+png['PNG']+"'><input type='hidden' value='"+png['ID']+"' class='pngminori'></input></span>");	
+			}
+			$bar.find(".glyphicon").draggable({ revert: "valid"}).tooltip();
+			var $trash = $("<span class='glyphicon glyphicon-trash' style='right:0px; margin:4px; font-size:1.6em;'></span").droppable({
+					drop: function(event, ui) {
+						var minori=false;
+						if ($(ui.draggable).children().hasClass('pngminori')){
+							minori = true;
+							} 
+						var ID = $(ui.draggable).children().val();
+						setting.on_out(data["id"],ID,minori)
+					}	
+				});
+				
+			$bar.append($trash);	
             var stext = element.formatTime(data["start"]);
             var etext = element.formatTime(data["end"]);
             var snum = element.getScheduleCount(data["timeline"]);
@@ -129,15 +153,20 @@
             if(data["class"]){
                 $bar.addClass(data["class"]);
             }
+            
+
             //$element.find('.sc_main').append($bar);
             $element.find('.sc_main .timeline').eq(data["timeline"]).append($bar);
+            
+
+            
             // データの追加
             scheduleData.push(data);
             // key
             var key = scheduleData.length - 1;
             $bar.data("sc_key",key);
 
-            $bar.bind("mouseup",function(){
+            $bar.on("click",function(){
                 // コールバックがセットされていたら呼出
                 if(setting.click){
                     if(jQuery(this).data("dragCheck") !== true && jQuery(this).data("resizeCheck") !== true){
@@ -149,6 +178,17 @@
             });
 
             var $node = $element.find(".sc_Bar");
+            $node.droppable({
+				accept: ".todrag",
+				drop: function(event, ui) {
+					var node = jQuery(this);
+                    var sc_key = node.data("sc_key");
+					node.append($(ui.draggable).clone().tooltip());
+					if (setting.on_drop){
+						setting.on_drop(scheduleData[sc_key],$(ui.draggable).children('.png').val());
+					}
+				}
+				});
             // move node.
             $node.draggable({
                 grid: [ setting.widthTimeX, 1 ],
@@ -253,6 +293,8 @@
                     }
                 }
             });
+            
+            
             return key;
         };
         // スケジュール数の取得
@@ -274,7 +316,7 @@
             var html;
 
             html = '';
-            html += '<div class="timeline"><span>'+title+'</span></div>';
+            html += '<div class="timeline" style="background:'+row["color"]+'"><span>'+title+'</span></div>';
             var $data = jQuery(html);
             // event call
             if(setting.init_data){
@@ -286,7 +328,7 @@
             html += '<div class="timeline"></div>';
             var $timeline = jQuery(html);
             for(var t=tableStartTime;t<tableEndTime;t+=setting.widthTime){
-                var $tl = jQuery('<div class="tl"></div>');
+                var $tl = jQuery('<div class="tl" ></div>');
                 $tl.width(setting.widthTimeX - setting.timeBorder +1);
 
                 $tl.data("time",element.formatTimeFull(t+element.calcStringTimeStart(setting.startTime)));
@@ -325,6 +367,12 @@
                     data["data"] = {};
                     if(bdata["data"]){
                         data["data"] = bdata["data"];
+                    }
+                    if(bdata["png"]){
+                        data["png"] = bdata["png"];
+                    }
+                    if(bdata["pngminori"]){
+                        data["pngminori"] = bdata["pngminori"];
                     }
                     element.addScheduleData(data);
                 }

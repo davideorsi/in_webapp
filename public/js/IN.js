@@ -554,6 +554,36 @@ function initialize_scheduler(string){
 		timeLineBorder:0,   // border(top and bottom)
 		debug:"#debug",     // debug string output elements
 		rows : return_data_to_scheduler($('#selectevento').val()),
+		on_drop: function(data,png) {
+			var param = $.param({'PNG':png});
+			$.ajax({
+                type: "POST",
+                cache: false,
+                data: param,
+                url: "elemento_png/"+data.id
+            });
+            $("#schedule").empty();
+			initialize_scheduler("#schedule");
+		},
+		on_out: function(data,png,minore) {
+			if (!minore){
+				var param = $.param({'PNG':png});
+				$.ajax({
+	                type: "POST",
+	                cache: false,
+	                data: param,
+	                url: "elemento_png_remove/"+data
+	            });
+			} else {
+				$.ajax({
+	                type: "POST",
+	                cache: false,
+	                url: "elemento_png_minor_remove/"+png
+	            });				
+			}
+            $("#schedule").empty();
+			initialize_scheduler("#schedule");
+		},
 		change: function(node,data){
 			var param = $.param({'start':data.start, 'end':data.end});
 			$.ajax({
@@ -562,21 +592,24 @@ function initialize_scheduler(string){
                 data: param,
                 url: "elemento/"+data.id
             });
-            $("#schedule").empty()
+            $("#schedule").empty();
 			initialize_scheduler("#schedule");
             
 		},
 		click: function(node,data){
 			var elemento=get_elemento(data.id);
-				$('#overlay').fadeIn('fast');
-				$('#edit_element').fadeIn('slow');
-				
-				$('#form_edit').get(0).setAttribute('action','elemento/'+elemento.ID);
-				$('#form_edit #text').val(elemento.text);
-				$('#form_edit #data').val(elemento.data);
-				$('#form_edit #start').val(elemento.start);
-				$('#form_edit #end').val(elemento.end);
-				$('#form_edit #vicenda').val(elemento.vicenda);
+			$('#overlay').fadeIn('fast');
+			$('#edit_element').fadeIn('slow');
+			
+			$('#form_edit').attr('action','elemento/'+elemento.ID);
+			$('#form_edit #delete').attr('action', 'elemento/'+elemento.ID);
+			$('#form_edit #text').val(elemento.text);
+			$('#form_edit #data').val(elemento.data);
+			$('#form_edit #start').val(elemento.start);
+			$('#form_edit #end').val(elemento.end);
+			$('#form_edit #vicenda').val(elemento.vicenda);
+			
+			$('#form_png_minori').attr('action','elemento_png_minor/'+elemento.ID);
 				
 		},
 		time_click: function(time,data,vicenda){

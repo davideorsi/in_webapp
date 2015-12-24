@@ -93,11 +93,76 @@ class VicendasController extends \BaseController {
 		$evento = Evento::findOrFail($id_evento);
 		$vicende = $evento->Vicende;
 		
-		foreach ($vicende as $vicenda){
-				$vicenda['schedule']=$vicenda->Elementi;
-			}
+		$palette=array(
+			'#9B59b6',
+			'#3498DB',
+			'#2ecc71',
+			'#1abc9c',
+			'#f39c12',
+			'#d35400',
+			'#c0392b',
+			'#BDC3c7'
+		);
 		
-		return Response::json($vicende);
+
+		$palette_png=array(
+			'black',
+			'red',
+			'green',
+			'blue'
+		);
+
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$coloreMaster=array();
+		foreach ($Masters as $key2=>$Master){
+			$coloreMaster[$Master->id] = $palette_png[$key2];
+		}
+		
+		foreach ($vicende as $key=>$vicenda){
+				$elementi=$vicenda->Elementi;
+				foreach ($elementi as $elemento) {
+						$pngs=$elemento->png;
+						
+						foreach ($pngs as $key3=>$png){
+								$pngs[$key3]['color']=$coloreMaster[$png['Master']];
+						}
+						$elemento['png']=$pngs;
+						
+						
+						$pngminoris=$elemento->PNGminori;
+						
+						foreach ($pngminoris as $key4=>$png){
+								$pngminoris[$key4]['color']=$coloreMaster[$png['User']];
+								$Master = User::find($png['User']);
+								$pngminoris[$key4]['nomeuser']=$Master['username'];
+						}
+						$elemento['pngminori']=$pngminoris;
+					}
+					
+				$vicenda['schedule']=$elementi;
+				$vicenda['color']=$palette[$key%count($vicende)];
+			}
+		if (Request::ajax()){
+			return Response::json($vicende);
+		} else {
+			
+			$tramas = Trama::orderBy('title','asc')->get(['ID','title']);
+			$selectTrama = array(NULL=>'');
+			foreach($tramas as $trama) {
+				$selectTrama[$trama->ID] = $trama->title;
+			}
+			
+			$eventi = Evento::orderBy('ID', 'desc')->get(array('ID','Tipo','Titolo'));
+			$selectEventi = array();
+			foreach($eventi as $evento) {
+				$selectEventi[$evento->ID] = $evento->Tipo .'-'. $evento->Titolo;
+			}
+
+			return View::make('vicendas.all')
+				->with('selectTrama', $selectTrama)
+				->with('selectEventi', $selectEventi)
+			->with('vicende',$vicende);
+		}
 	}
 
 	/**
@@ -148,7 +213,7 @@ class VicendasController extends \BaseController {
 
 		$vicenda->update($data);
 
-		return Redirect::to('vicenda');
+		return Redirect::back();
 	}
 
 	/**

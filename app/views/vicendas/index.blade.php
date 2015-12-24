@@ -19,7 +19,7 @@
 			<div class='form-group'>
 				<?php $keys= array_keys($selectVicenda);?>
 				{{ Form::open() }}
-				{{ Form::select('vicenda', $selectVicenda, $keys[0], ['class'=>'form-control', 'id'=>'selectvicenda']) }}
+				{{ Form::select('vicenda', $selectVicenda, $keys[0], ['class'=>'form-control', 'id'=>'vicenda']) }}
 				{{ Form::close() }}
 			</div>
 	
@@ -45,7 +45,7 @@
 
 @section('Scripts')
 		$(function(ready) {
-			$('#selectVicenda').change( function() {
+			$('#vicenda').change( function() {
 				$('#editvicenda').attr('href', 'vicenda/'+$(this).val()+'/edit');
 				$('#delvicenda').attr('action', 'vicenda/'+$(this).val());
 				get_vicenda($(this).val());

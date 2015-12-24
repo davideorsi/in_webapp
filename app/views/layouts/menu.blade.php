@@ -12,8 +12,8 @@
       </button>
 		<a class="navbar-brand" href="{{ URL::to('/') }}">
 		  <!--Intempesta Noctis<br><small class='subtitle'>Gioco di Ruolo dal Vivo</small>-->
-		  {{ HTML::image('img/logo.png','Logo',array('style'=>'margin: -10px 0px 0px -15px; width: 200px;', 'class'=>'visible-xs-inline'))}}
-		  {{ HTML::image('img/logo.png','Logo',array('style'=>'margin: -20px 0px 0px -35px; width: 280px;', 'class'=>'hidden-xs'))}}
+		  {{ HTML::image('img/logo.png','Logo',array('style'=>'margin: -10px 0px 0px -40px; width: 210px;', 'class'=>'visible-xs-inline'))}}
+		  {{ HTML::image('img/logo.png','Logo',array('style'=>'margin: -10px 0px 0px -40px; width: 210px;', 'class'=>'hidden-xs'))}}
 		</a>
     </div>
     <div class="navbar-collapse collapse" >
@@ -145,6 +145,7 @@
 					<h6 class='hidden-xs didascalia'>Trame</h6>
 				</a>
 					<ul class="dropdown-menu" role="menu">
+						<li ><a href="{{ URL::to('scheduler') }}"><small>Ora per Ora</small></a></li>
 						<li ><a href="{{ URL::to('trama') }}"><small>Trame</small></a></li>
 						<li ><a href="{{ URL::to('vicenda') }}"><small>Vicende</small></a></li>
 						<li ><a href="{{ URL::to('admin/png') }}"><small>PNG</small></a></li>
