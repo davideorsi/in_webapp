@@ -14,7 +14,7 @@ if(typeof(path)==='undefined') path = '../';
 $.ajax({
 	type: "GET",
 	url:  "famoso/"+num,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#famoso_nome").text(output.Nome);
 		$("#famoso_storia").html(output.Storia[0]);
@@ -53,7 +53,7 @@ function get_desc(pos){
 $.ajax({
 	type: "GET",
 	url:  "post/descrizione/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		var next= (pos - 1) % output.N ;
 		if (next==0){next=output.N;}
@@ -74,7 +74,7 @@ function get_personaggio(pos){
 $.ajax({
 	type: "GET",
 	url:  "post/personaggio/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		var next= (pos - 1) % output.N ;
 		if (next==0){next=output.N;}
@@ -118,12 +118,11 @@ $.ajax({
 	dataType: "json"
 });
 
-
 if (pos1<N) {
 	$.ajax({
 		type: "GET",
 		url:  "voce/"+pos1,
-		async: false,
+		async: true,
 		success: function(output){
 			$("#voce_data1").html(output.Data);
 			$("#voce_testo1").html(output.Testo);
@@ -144,7 +143,7 @@ function get_voce_master(pos){
 $.ajax({
 	type: "GET",
 	url:  "voce/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#voce_data").html(output.Data);
 		$("#voce_testo").html(output.Testo);
@@ -174,7 +173,7 @@ function get_evento(){
 $.ajax({
 	type: "GET",
 	url:  "evento/1",
-	async: false,
+	async: true,
 	success: function(output){
 		$('#prossimo_tipo').text(output.Tipo);
 		$('#prossimo_titolo').text(output.Titolo);
