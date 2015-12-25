@@ -32,7 +32,7 @@ function get_anno(pos){
 $.ajax({
 	type: "GET",
 	url:  "post/anno/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		var next= (pos - 1) % output.N ;
 		if (next==0){next=output.N;}
@@ -99,7 +99,7 @@ var pos1=pos+1;
 $.ajax({
 	type: "GET",
 	url:  "voce/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		N=output.N;
 		var next=pos-2;
@@ -158,7 +158,7 @@ function get_info(pos){
 $.ajax({
 	type: "GET",
 	url:  "informatori/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#info_evento").html(output.Evento);
 		$("#info_testo").html(output.Testo);
@@ -218,7 +218,7 @@ function get_incanto(pos){
 $.ajax({
 	type: "GET",
 	url:  "incanto/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#incanto_formula").text(output.Formula);
 		$("#incanto_desc").html(output.Descrizione);
@@ -231,7 +231,7 @@ function get_abilita(pos){
 $.ajax({
 	type: "GET",
 	url:  "abilita/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#abilita_desc").html(output.Descrizione+'</br><p>'+output.PG+'</p>');
 	},  
@@ -362,7 +362,7 @@ function azzera_debito(id){
     if (conf){
        $.ajax({
                 type: 'POST',
-				async: false,
+				async: true,
                 url:  "debito/"+id,
                 success: function(){
                     location.reload();
@@ -431,7 +431,7 @@ $.ajax({
 	type: "GET",
 	url:  "infopozioni/",
 	data: { pozione: idpoz, veleno: ideff },
-	async: false,
+	async: true,
 	success: function(output){
 		$("#rosse").val(output.rosse);
 		$("#verdi").val(output.verdi);
@@ -478,7 +478,7 @@ function get_trama(pos){
 $.ajax({
 	type: "GET",
 	url:  "trama/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#trama_desc").html(output.body);
 	},  
@@ -490,7 +490,7 @@ function get_vicenda(pos){
 $.ajax({
 	type: "GET",
 	url:  "vicenda/"+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		$("#vicenda_desc").html(output.body);
 	},  
@@ -503,7 +503,7 @@ function get_elemento(pos) {
     $.ajax({
 		type: "GET",
 		url:  "elemento/"+pos,
-		async: false,
+		async: true,
 		success: function(output){
 			tmp=output;
 		},  
@@ -517,7 +517,7 @@ function return_data_to_scheduler(pos) {
     $.ajax({
 		type: "GET",
 		url:  "vicende/"+pos,
-		async: false,
+		async: true,
 		success: function(output){
 			tmp=output;
 		},  
@@ -531,7 +531,7 @@ function return_infoevento_to_scheduler(pos) {
     $.ajax({
 		type: "GET",
 		url:  "evento_info/"+pos,
-		async: false,
+		async: true,
 		success: function(output){
 			tmp=output;
 		},  
