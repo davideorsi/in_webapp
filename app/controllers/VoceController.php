@@ -90,11 +90,11 @@ class VoceController extends \BaseController {
 		}
 		}
 		
-		//if (Request::ajax()){
+		if (Request::ajax()){
 			return Response::json($voci);
-		//} else {
-			//return Redirect::to('/');
-		//}	
+		} else {
+			return Redirect::to('/');
+		}	
 	}
 
 	public function show_master($id)
