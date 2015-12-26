@@ -99,7 +99,7 @@ if (!testo) {testo='%20';}
 $.ajax({
 	type: "GET",
 	url:  "voce/"+testo+"?page="+pos,
-	async: false,
+	async: true,
 	success: function(output){
 		var next = output.current_page-1;
 		var prev = output.current_page+1;
