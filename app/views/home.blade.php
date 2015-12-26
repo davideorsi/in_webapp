@@ -98,7 +98,7 @@
 		</article>
 		</a>
 
-		<div id="carousel" class="carousel slide " style='margin-top:20px; margin-bottom:0px;'>
+		<!--<div id="carousel" class="carousel slide " style='margin-top:20px; margin-bottom:0px;'>
 			
 			<div id="Gallery"class="carousel-inner" role="listbox" >
 			</div>
@@ -111,7 +111,7 @@
 		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		      <span class="sr-only">Next</span>
 		    </a>
-		</div>
+		</div>-->
 		
 		<article class='famoso boxed'>
 			<header class='famoso_bcg'>
@@ -139,7 +139,7 @@
 @section('Scripts')
 	@parent
 
-		$('#Gallery').jflickrfeed({
+		<!--$('#Gallery').jflickrfeed({
 		limit: 50,
 		feedapi: 'photos_public.gne',
 		qstrings: {
@@ -149,21 +149,21 @@
 		itemCallback: function(item){
 			$(this).append("<div class='item "+item.class+"'><img src='" + item.image_m + "' alt='' class='center-block img-responsive'/></div>");
 		}
-		});	
+		});	-->
 	
 	
 	$(document).ready( function(){
 		pageload({{$famoso}});
 	
 		
-	$("#carousel ").carousel({interval:10000});
+	<!--$("#carousel ").carousel({interval:10000});
 	    // Enable Carousel Controls
     $(".left").click(function(){
         $("#carousel").carousel("prev");
     });
     $(".right").click(function(){
         $("#carousel").carousel("next");
-    });
+    });-->
     
     
 	
