@@ -13,7 +13,7 @@
 
 
 	<!-- ################## RIASSUNTO ############################-->
-	<div class='col-sm-10 col-sm-offset-1'>
+	<div class='col-sm-12'>
 
 		<div class="panel panel-default">
 		<div class="panel-heading">Amministrazione	</div>
@@ -79,7 +79,7 @@
 
 
 
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-12 ">
 		<div class='row panel panel-default' style='padding:10px; margin: 0px'>
 		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
 		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin', 'class'=>'pure-form')) }}
@@ -112,7 +112,7 @@
 		</div>
 	</div>
 	
-	<div class="col-sm-10 col-sm-offset-1">	
+	<div class="col-sm-12 ">	
 		<h5><strong>Elenco degli iscritti</strong></h5>
 		<table class='table table-striped table-condensed'>
 			<thead>
