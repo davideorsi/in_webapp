@@ -133,6 +133,7 @@
 @stop
 
 @section('JS')
+	<!--{{ HTML::script('js/jflickrfeed.min.js');}}-->
 	{{ HTML::script('js/jflickrfeed.min.js');}}
 @stop
 
@@ -170,8 +171,14 @@
 	
 	});
 	
-	$( "#testo_voce" ).keyup(function() {
-		get_voce(1);
-	});
+	var options = {
+    callback: get_voce(1); },
+    wait: 750,
+    highlight: true,
+    captureLength: 2
+	}
+
+	$( "#testo_voce" ).typeWatch( options );
+	
 	
 @stop
