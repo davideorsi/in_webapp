@@ -2,7 +2,6 @@
 
 @section('CSS')
 
-	{{ HTML::style('css/justifiedGallery.min.css');}}
 @stop
 
 @section('content')
