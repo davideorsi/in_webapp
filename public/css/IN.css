@@ -1,12 +1,8 @@
 /*CSS specifico di Intempesta Noctis*/
 
 @font-face {
-    font-family: 'droid_serifregular';
-    src: url('DroidSerif-webfont.eot');
-    src: url('DroidSerif-webfont.eot?#iefix') format('embedded-opentype'),
-         url('DroidSerif-webfont.woff') format('woff'),
-         url('DroidSerif-webfont.ttf') format('truetype'),
-         url('DroidSerif-webfont.svg#droid_serifregular') format('svg');
+    font-family: 'lora';
+    src: url('Lora-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -32,7 +28,7 @@ html {
 }
 body {
 	height: 100%;
-	font-family: "droid_serifregular", serif;
+	font-family: "lora", serif;
 	font-size: 1.3em;
 }
 
