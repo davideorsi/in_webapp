@@ -354,6 +354,16 @@ article{
     height: 60px;
 }
 
+#testo_voce {
+	background-color: transparent;
+	width: 180px;
+	border: solid 0px;
+	height: 45%;
+	font-size: 120%;
+	margin-top: 30px;
+	text-align: center;
+}
+
 .voce_bcg> div{
 	color: #fff;
 	background: rgb(0, 0, 0); /* fallback color */

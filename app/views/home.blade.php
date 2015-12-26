@@ -37,7 +37,7 @@
 						<button class="btn-left" id='voce_next'  onclick="">
 							<span class='glyphicon glyphicon-step-backward'></span>
 						</button>
-						<span id='voce_num' class='voce_num'></span>
+						{{Form::text('testo_voce','',array('id'=>'testo_voce','placeholder'=>'...testo da cercare...'))}}
 						<button class="btn-right" id='voce_last'  onclick="">
 							<span class='glyphicon glyphicon-fast-forward'></span>
 						</button>
@@ -48,8 +48,12 @@
 					</div>
 				</div>
 				</div>
-			</header>
 
+			</header>
+			<div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
+			</div>
+				
 			<div>
 				<p id="voce_data" class='floatleft'></p>
 				<p id="voce_testo" class='justified'></p>
@@ -73,9 +77,6 @@
 			</div>
 		</article>
 		
-		<div class="separator">
-			{{ HTML::image('img/divider.png') }}
-		</div>
 	</div>
 
 	<div class='col-sm-6'>
@@ -152,6 +153,7 @@
 	
 	
 	$(document).ready( function(){
+		
 		pageload({{$famoso}});
 	
 		
@@ -166,6 +168,10 @@
     
     
 	
+	});
+	
+	$( "#testo_voce" ).keyup(function() {
+		get_voce(1);
 	});
 	
 @stop
