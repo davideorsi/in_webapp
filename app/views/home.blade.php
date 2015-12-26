@@ -134,7 +134,7 @@
 
 @section('JS')
 	<!--{{ HTML::script('js/jflickrfeed.min.js');}}-->
-	{{ HTML::script('js/jflickrfeed.min.js');}}
+	{{ HTML::script('js/jquery.typewatch.js');}}
 @stop
 
 @section('Scripts')
