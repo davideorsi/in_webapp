@@ -319,9 +319,12 @@ article{
 }
 
 .evento_bcg{
-	color: #fff;
+	color: #111;
 	background-image: url(../img/evento_bcg.jpg);
+	background-position: center center;
+/*
 	background-position: -100px -350px;
+*/
 }
 
 .account_bcg{
@@ -338,7 +341,8 @@ article{
 	background-position: right top;
 	background-size: 100%;
     margin-bottom: 10px;
-    height: 60px;
+	height: 60px;
+
 }
 
 .post_bcg{
