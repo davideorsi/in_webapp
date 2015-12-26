@@ -172,7 +172,7 @@
 	});
 	
 	var options = {
-		callback: get_voce(1),
+		callback: function(){get_voce(1);},
 		wait: 750,
 		highlight: true,
 		captureLength: 2
