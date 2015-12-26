@@ -172,11 +172,11 @@
 	});
 	
 	var options = {
-    callback: get_voce(1); },
-    wait: 750,
-    highlight: true,
-    captureLength: 2
-	}
+		callback: get_voce(1),
+		wait: 750,
+		highlight: true,
+		captureLength: 2
+	};
 
 	$( "#testo_voce" ).typeWatch( options );
 	
