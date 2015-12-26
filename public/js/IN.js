@@ -105,28 +105,39 @@ $.ajax({
 		var prev = output.current_page+1;
 		if (next<=0) {next=1};
 		if (prev>=output.last_page) {prev=output.last_page};
-		$("#voce_first").attr("onclick","javascript:get_voce(1)");
-		$("#voce_next").attr("onclick","javascript:get_voce("+next+")");
-		$("#voce_prev").attr("onclick","javascript:get_voce("+prev+")");
-		$("#voce_last").attr("onclick","javascript:get_voce("+output.last_page+")");
-		$("#voce_first").attr("title","Pagina 1 di "+output.last_page);
-		$("#voce_next").attr("title","Pagina "+next+" di "+output.last_page);
-		$("#voce_prev").attr("title","Pagina "+prev+" di "+output.last_page);
-		$("#voce_last").attr("title","Pagina "+output.last_page+" di "+output.last_page);
-		$("#voce_data").html(output.data[0].Data);
-		$("#voce_testo").html(output.data[0].Testo);
-		$("#voce_chiusa").text(output.data[0].Chiusa);
-		var perc=100*output.current_page/output.last_page;
-		$(".progress-bar").attr("aria-valuenow",perc);
-		$(".progress-bar").css("width",perc+"%");
-		if (output.data.length>1) {
-		$("#voce_data1").html(output.data[1].Data);
-		$("#voce_testo1").html(output.data[1].Testo);
-		$("#voce_chiusa1").text(output.data[1].Chiusa);
+		if (output.data.length==0) {
+			
+				$("#voce_data").html("");
+				$("#voce_testo").html("La ricerca non ha fornito un risultato.");
+				$("#voce_chiusa").text("");
+				
+				$("#voce_data1").html("");
+				$("#voce_testo1").html("");
+				$("#voce_chiusa1").text("");
 		} else {
-		$("#voce_data1").html("");
-		$("#voce_testo1").html("");
-		$("#voce_chiusa1").text("");
+			$("#voce_first").attr("onclick","javascript:get_voce(1)");
+			$("#voce_next").attr("onclick","javascript:get_voce("+next+")");
+			$("#voce_prev").attr("onclick","javascript:get_voce("+prev+")");
+			$("#voce_last").attr("onclick","javascript:get_voce("+output.last_page+")");
+			$("#voce_first").attr("title","Pagina 1 di "+output.last_page);
+			$("#voce_next").attr("title","Pagina "+next+" di "+output.last_page);
+			$("#voce_prev").attr("title","Pagina "+prev+" di "+output.last_page);
+			$("#voce_last").attr("title","Pagina "+output.last_page+" di "+output.last_page);
+			$("#voce_data").html(output.data[0].Data);
+			$("#voce_testo").html(output.data[0].Testo);
+			$("#voce_chiusa").text(output.data[0].Chiusa);
+			var perc=100*output.current_page/output.last_page;
+			$(".progress-bar").attr("aria-valuenow",perc);
+			$(".progress-bar").css("width",perc+"%");
+			if (output.data.length>1) {
+				$("#voce_data1").html(output.data[1].Data);
+				$("#voce_testo1").html(output.data[1].Testo);
+				$("#voce_chiusa1").text(output.data[1].Chiusa);
+			} else {
+				$("#voce_data1").html("");
+				$("#voce_testo1").html("");
+				$("#voce_chiusa1").text("");
+			}
 		}
 	},  
 	dataType: "json"

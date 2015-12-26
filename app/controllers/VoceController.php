@@ -78,19 +78,23 @@ class VoceController extends \BaseController {
 	public function show($text)
 	{
 		//mostra solo le voci che non sono bozze
-		$voci=Voce::orderBy('Data', 'desc')->where('Bozza','!=','1')->where('Testo', 'like', '%'.$text.'%')->paginate(2);	
+		$voci=Voce::orderBy('Data', 'desc')->where('Bozza','!=','1')
+				->where('Testo', 'like', '%'.$text.'%')
+				->paginate(2);	
 		
+		if (!$voci->isEmpty()) {
 		foreach($voci as $voce){
 			$data=new Datetime($voce['Data']);
 			$voce['Data']=strftime("%d %B %Y",$data->gettimestamp());
 			$voce['Testo']=nl2br($voce['Testo']);
 		}
+		}
 		
-		if (Request::ajax()){
+		//if (Request::ajax()){
 			return Response::json($voci);
-		} else {
-			return Redirect::to('/');
-		}	
+		//} else {
+			//return Redirect::to('/');
+		//}	
 	}
 
 	public function show_master($id)

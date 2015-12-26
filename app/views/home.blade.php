@@ -31,17 +31,17 @@
 					<h4 style='margin: 5px 0px 5px 0px;'>VOCI DI LOCANDA</h4>
 					<div class="text-center" role="toolbar" style="margin-bottom: 10px;">
 					<div class="nav-gallery">
-						<button class="btn-left" id='voce_first' onclick="">
+						<button class="btn-left" id='voce_first' onclick="" data-toggle="tooltip" data-placement="top">
 							<span class='glyphicon glyphicon-fast-backward'></span>
 						</button>
-						<button class="btn-left" id='voce_next'  onclick="">
+						<button class="btn-left" id='voce_next'  onclick="" data-toggle="tooltip" data-placement="top">
 							<span class='glyphicon glyphicon-step-backward'></span>
 						</button>
 						{{Form::text('testo_voce','',array('id'=>'testo_voce','placeholder'=>'...testo da cercare...'))}}
-						<button class="btn-right" id='voce_last'  onclick="">
-							<span class='glyphicon glyphicon-fast-forward'></span>
+						<button class="btn-right" id='voce_last'  onclick="" data-toggle="tooltip" data-placement="top">
+							<span class='glyphicon glyphicon-fast-forward' data-toggle="tooltip" data-placement="top"></span>
 						</button>
-						<button class="btn-right" id='voce_prev'  onclick="">
+						<button class="btn-right" id='voce_prev'  onclick="" data-toggle="tooltip" data-placement="top">
 							<span class='glyphicon glyphicon-step-forward'></span>
 						</button>
 
