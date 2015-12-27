@@ -51,13 +51,13 @@
 					</div>
 
 					@if (Auth::user()->usergroup == 7)
-					<div class='form-group col-xs-2 col-sm-2' title='Mostra solo le missive intercettate'>
+					<div class='form-group col-xs-3 col-sm-2' title='Mostra solo le missive intercettate'>
 						<div class="input-group">
 						<span class="input-group-addon" id="basic-addon-intercettato"><span class="glyphicon glyphicon-flash" style="color:#FF6600;"></span></span>	
 						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox','describedby'=>"basic-addon-intercettato"]) }}
 						</div>
 					</div>
-					<div class='form-group col-xs-2 col-sm-2' title='Mostra solo le missive a cui dobbiamo ancora rispondere'>
+					<div class='form-group col-xs-3 col-sm-2' title='Mostra solo le missive a cui dobbiamo ancora rispondere'>
 						<div class="input-group">
 						<span class="input-group-addon" id="basic-addon-nonrisp">
 							<span class="glyphicon glyphicon-check" style="color: #f00"></span>
@@ -67,7 +67,7 @@
 					</div>
 					@endif
 
-					<div class='form-group col-xs-2 col-sm-2' title='Mostra solo le missive per PNG'>
+					<div class='form-group col-xs-6 col-sm-3' title='Mostra solo le missive per PNG'>
 						<div class="input-group">
 						<span class="input-group-addon" id="basic-addon-solopng">
 							Solo PNG
