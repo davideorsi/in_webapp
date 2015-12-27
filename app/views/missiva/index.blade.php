@@ -19,47 +19,65 @@
 			@endif
 			
 				<div class='row'>
-					<div class='form-group col-sm-5 col-xs-12'>
-						{{ Form::label('PG', 'Personaggio') }}
-					{{ Form::select('PG', $selPG, Input::old('PG'), ['class'=>'form-control']) }}
+					<div class='form-group col-xs-12 col-sm-6'>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-PG">PG</span>	
+						{{ Form::select('PG', $selPG, Input::old('PG'), ['class'=>'form-control','describedby'=>"basic-addon-PG"]) }}
+						</div>
 					</div>
 					
-					<div class='form-group col-sm-7 col-xs-6'>
-						{{ Form::label('Testo', 'Testo') }}
-						{{ Form::text('Testo', Input::old('testo'), ['class'=>'form-control','placeholder'=>'Cerca tra le missive usando parole chiave, es: "spia"']) }}
+					<div class='form-group col-xs-12 col-sm-6 '>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-PNG">PNG</span>	
+						{{ Form::text('PNG', Input::old('PNG'), ['class'=>'form-control','describedby'=>"basic-addon-PNG",'placeholder'=>'Nome del PNG']) }}
+						</div>
+					</div>
+					
+					
+					<div class='form-group col-xs-12 col-sm-6 '>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-testo">Testo</span>	
+						{{ Form::text('Testo', Input::old('testo'), ['class'=>'form-control','describedby'=>"basic-addon-testo",'placeholder'=>'Parole chiave, es: "spia"']) }}
+						</div>
 					</div>
 
-					<div class='form-group col-xs-6 col-sm-3 '>
-						{{ Form::label('PNG', 'PNG') }}
-						{{ Form::text('PNG', Input::old('PNG'), ['class'=>'form-control']) }}
-					</div>
 
-					<div class='form-group  col-xs-5 col-sm-3'>
-						{{ Form::label('Data', 'Data') }}
-						{{ Form::text('Data', Input::old('Data'), ['class'=>'form-control']) }}
+
+					<div class='form-group  col-xs-12 col-sm-6' >
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-data">Data</span>	
+						{{ Form::text('Data', Input::old('Data'), ['class'=>'form-control','describedby'=>"basic-addon-data"]) }}
+						</div>
 					</div>
 
 					@if (Auth::user()->usergroup == 7)
-					<div class='form-group col-xs-2 col-sm-2'>
-						{{ Form::label('Intercettato', 'Intercettata', ['style'=>'width:100%; font-size: 80%']) }}
-						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox ']) }}
+					<div class='form-group col-xs-2 col-sm-2' title='Mostra solo le missive intercettate'>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-intercettato"><span class="glyphicon glyphicon-flash" style="color:#FF6600;"></span></span>	
+						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox','describedby'=>"basic-addon-intercettato"]) }}
+						</div>
 					</div>
-					<div class='form-group col-xs-2 col-sm-2'>
-						{{ Form::label('Solononrisp', 'Solo non risp.', ['style'=>'width:100%; font-size: 50%; 
-    white-space: nowrap;']) }}
-						{{ Form::checkbox('Solononrisp',1, Input::old('rispondere'), ['class'=>'checkbox']) }}
+					<div class='form-group col-xs-2 col-sm-2' title='Mostra solo le missive a cui dobbiamo ancora rispondere'>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-nonrisp">
+							<span class="glyphicon glyphicon-check" style="color: #f00"></span>
+						</span>	
+						{{ Form::checkbox('Solononrisp',1, Input::old('rispondere'), ['class'=>'checkbox','describedby'=>'basic-addon-nonrisp']) }}
+						</div>
 					</div>
 					@endif
 
-					<div class='form-group col-xs-2 col-sm-2'>
-						{{ Form::label('ConPNG', 'PNG', ['style'=>'width:100%']) }}
-						{{ Form::checkbox('ConPNG',1, Input::old('ConPNG'), ['class'=>'checkbox']) }}
+					<div class='form-group col-xs-2 col-sm-2' title='Mostra solo le missive per PNG'>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon-solopng">
+							Solo PNG
+						</span>	
+						{{ Form::checkbox('ConPNG',1, Input::old('ConPNG'), ['class'=>'checkbox','describedby'=>'basic-addon-solopng']) }}
+					</div>
 					</div>
 
-				</div>
-				<div class='row'>
 
-					<div class='btn-group col-sm-4 col-xs-6'>
+					<div class='btn-group col-xs-12 col-sm-4'>
 						{{ Form::submit('Cerca', array('class' => 'btn btn-success ')) }}
 	
 	
@@ -68,27 +86,29 @@
 						</button>
 					</div>
 
-					<div id="legenda" class="collapse col-sm-8 col-xs-6">
+				</div>
+				<div class='row'>
+					<div id="legenda" class="collapse col-xs-12">
 						<div class='row'>
-							<div class='col-md-4 col-sm-6 col-xs-12'>
+							<div class='col-xs-4 '>
 								<p><span class=' pdfbutton glyphicon glyphicon-print'></span> Genera PDF</p>
 							</div>
-							<div class='col-md-4 col-sm-6 col-xs-12'>
+							<div class='col-xs-4 '>
 								<p><span class=' glyphicon glyphicon-comment text-success'></span> Missiva tra PG</p>
 							</div>
-							<div class='col-md-4 col-sm-6 col-xs-12'>
-								<p><span class=' glyphicon glyphicon-tower text-primary'></span> Missiva nel Ducato</p>
+							<div class='col-xs-4 '>
+								<p><span class=' glyphicon glyphicon-tower text-primary'></span> Nel Ducato</p>
 							</div>
-							<div class='col-md-4 col-sm-6 col-xs-12'>
+							<div class='col-xs-4 '>
 								<p><span class=' glyphicon glyphicon-globe text-warning'></span> Missiva Estera</p>
 							</div>
-							<div class='col-md-4 col-sm-6 col-xs-12'>
+							<div class='col-xs-4 '>
 								<p><span class=' glyphicon glyphicon-certificate text-danger'></span> Missiva Sicura</p>
 							</div>
 	
 	
 							@if (Auth::user()->usergroup == 7)
-							<div class='col-md-4 col-sm-6 col-xs-12'>
+							<div class='col-xs-4 '>
 								<p><span class='glyphicon glyphicon-flash' style='color:#FF6600;'></span> Intercettato</p>
 							</div>
 							@endif
