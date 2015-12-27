@@ -28,6 +28,7 @@
 	{{ HTML::style('css/bootstrap.min.css');}}
 	{{ HTML::style('css/bootstrap-theme.min.css');}}
 	{{ HTML::style('css/missiva.css') }}
+	{{ HTML::style('css/Italianno.css');}}
 
 	<link href='http://fonts.googleapis.com/css?family=Italianno&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<!--[if lt IE 9]>
