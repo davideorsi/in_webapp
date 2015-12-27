@@ -146,15 +146,20 @@
 	
 @stop
 
+@section('JS')
+@stop
+
 @section('Scripts')
-$( document ).ready(function() {
-	@if (Auth::user()->usergroup == 7)
-		var show_delete=true;
-	@else
-		var show_delete=false;
-	@endif
-	get_list_missive(1,show_delete);
-});
+	$( document ).ready(function() {
+		@if (Auth::user()->usergroup == 7)
+			var show_delete=true;
+		@else
+			var show_delete=false;
+		@endif
+		get_list_missive(1,show_delete);
+		
+	
+	});
 
 
 @stop
