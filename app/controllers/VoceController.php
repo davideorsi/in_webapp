@@ -75,8 +75,9 @@ class VoceController extends \BaseController {
 	 *
 	 * 
 	 */
-	public function show($text)
+	public function show()
 	{
+		$text=Input::get('testo');
 		//mostra solo le voci che non sono bozze
 		$voci=Voce::orderBy('Data', 'desc')->where('Bozza','!=','1')
 				->where('Testo', 'like', '%'.$text.'%')

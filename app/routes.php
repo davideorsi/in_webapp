@@ -37,7 +37,7 @@
 	Route::delete('admin', 'UserController@unsuscribe')->before('master');
 	
 	// route per le Voci di Locanda
-	Route::get('voce/{id}','VoceController@show');
+	Route::get('voce','VoceController@show');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/voce', 'VoceController',array('except' => array('show')));
 		Route::get('admin/voce/{id}', 'VoceController@show_master');

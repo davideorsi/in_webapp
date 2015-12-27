@@ -98,7 +98,7 @@ var testo = $('#testo_voce').val();
 if (!testo) {testo='%20';}
 $.ajax({
 	type: "GET",
-	url:  "voce/"+testo+"?page="+pos,
+	url:  "voce?testo="+testo+"&page="+pos,
 	async: true,
 	success: function(output){
 		var next = output.current_page-1;
