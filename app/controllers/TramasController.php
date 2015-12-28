@@ -97,7 +97,7 @@ class TramasController extends \BaseController {
 
 		$trama->update($data);
 
-		return Redirect::to('trama.index');
+		return Redirect::to('trama');
 	}
 
 	/**
@@ -110,7 +110,7 @@ class TramasController extends \BaseController {
 	{
 		Trama::destroy($id);
 
-		return Redirect::route('trama.index');
+		return Redirect::route('trama');
 	}
 
 }
