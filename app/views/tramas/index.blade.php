@@ -45,7 +45,7 @@
 
 @section('Scripts')
 		$(function(ready) {
-			$('#selecttrama').change( function() {
+			$('#selectTrama').change( function() {
 				$('#edittrama').attr('href', 'trama/'+$(this).val()+'/edit');
 				$('#deltrama').attr('action', 'trama/'+$(this).val());
 				get_trama($(this).val());
