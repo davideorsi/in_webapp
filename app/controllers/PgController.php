@@ -9,23 +9,23 @@ class PgController extends \BaseController {
 	 */
 	public function index()
 	{
-		$Morti=PG::orderBy('Nome','asc')->where('Morto','=','1')->get();
-		$Limbo=PG::orderBy('Nome','asc')->where('InLimbo','=','1')->get();
-		$Vivi=PG::orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+		$Morti=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->where('Morto','=','1')->get();
+		$Limbo=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->where('InLimbo','=','1')->get();
+		$Vivi=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 
 		$selMorti=array('NULL' => '');
 		foreach ($Morti as $morto){
-			$selMorti[(string)$morto->ID] = $morto['Nome'].' ('.$morto['NomeGiocatore'].')';
+			$selMorti[$morto['Affiliazione']][(string)$morto->ID] = $morto['Nome'].' ('.$morto['NomeGiocatore'].')';
 		}
 
 		$selLimbo=array('NULL' => '');
 		foreach ($Limbo as $limb){
-			$selLimbo[(string)$limb->ID] = $limb['Nome'].' ('.$limb['NomeGiocatore'].')';
+			$selLimbo[$limb['Affiliazione']][(string)$limb->ID] = $limb['Nome'].' ('.$limb['NomeGiocatore'].')';
 		}
 
 		$selVivi=array('NULL' => '');
 		foreach ($Vivi as $vivo){
-			$selVivi[(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['NomeGiocatore'].')';
+			$selVivi[$vivo['Affiliazione']][(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['NomeGiocatore'].')';
 		}
 
 		return View::make('pg.index')
