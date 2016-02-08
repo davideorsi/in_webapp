@@ -68,6 +68,26 @@
 					</div>
 				
 					{{ Form::close() }}
+					
+					
+					<!--################# PNG #####################-->
+					<div class="form-group col-xs-offset-1 col-xs-5 " style='position:relative; top:-50px;'>
+						<h6>PNG</h6>
+						<ul>
+							@foreach($elemento->png as $png)
+							<li style='color: {{$png->color}}'>{{$png->Nome}} ({{$png->nomeuser}})</li>
+							@endforeach
+						</ul>
+					</div>
+					<div class="form-group col-xs-offset-1 col-xs-5 " style='position:relative; top:-50px;'>
+						<h6>PNG secondari</h6>
+						<ul>
+							@foreach($elemento->pngminori as $png)
+							<li style='color: {{$png->color}}'>{{$png->PNG}} ({{$png->nomeuser}})</li>
+							@endforeach
+						</ul>
+					</div>
+					
 				</div>
 			@endforeach
 			</div>

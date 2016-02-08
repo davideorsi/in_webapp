@@ -114,8 +114,10 @@ class VicendasController extends \BaseController {
 
 		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
 		$coloreMaster=array();
+		$nomeMaster=array();
 		foreach ($Masters as $key2=>$Master){
 			$coloreMaster[$Master->id] = $palette_png[$key2];
+			$nomeMaster[$Master->id] = $Master->username;
 		}
 		
 		foreach ($vicende as $key=>$vicenda){
@@ -125,6 +127,7 @@ class VicendasController extends \BaseController {
 						
 						foreach ($pngs as $key3=>$png){
 								$pngs[$key3]['color']=$coloreMaster[$png['Master']];
+								$pngs[$key3]['nomeuser']=$nomeMaster[$png['Master']];
 						}
 						$elemento['png']=$pngs;
 						
