@@ -101,6 +101,14 @@ class VicendasController extends \BaseController {
 			'#f39c12',
 			'#d35400',
 			'#c0392b',
+			'#BDC3c7',
+			'#9B59b6',
+			'#3498DB',
+			'#2ecc71',
+			'#1abc9c',
+			'#f39c12',
+			'#d35400',
+			'#c0392b',
 			'#BDC3c7'
 		);
 		
