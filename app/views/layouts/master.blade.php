@@ -14,7 +14,7 @@
 	<meta property="og:title" content="Intempesta Noctis" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://intempestanoctis.boru.it" />
-	<meta property="og:image" content="http://intempestanoctis.boru.it/thumb.jpg" />
+	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb.jpg" />
 	<meta property="og:description" content="Gioco di Ruolo dal Vivo nel Ducato di Parma di Inizio Ottocento" />
 	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 
