@@ -163,6 +163,7 @@
 		
         Route::get('scheduler/','SchedulerController@index');
         Route::get('vicende/{id}','VicendasController@show_all');
+        Route::get('vicende/{id}/master/{num}','VicendasController@show_all_master');
         Route::get('evento_info/{id}','EventoController@show_info');
 		Route::post('elemento/{id}', 'ElementosController@update_time');
 		Route::post('elemento_png/{id}', 'ElementosController@add_png');

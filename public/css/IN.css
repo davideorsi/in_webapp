@@ -538,6 +538,10 @@ textarea{
 	text-align: center;
 }
 
+.center_title{
+	width:100%;
+	text-align:center;
+}
 
 /* ## COLONNE ############################################# */
 @media only screen and (min-width: 360px) {

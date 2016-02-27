@@ -8,7 +8,7 @@
 	
 	@section('content')
 	<div class='row'>
-		<div class="col-sm-6  col-md-5 ">
+		<div class="col-sm-12 ">
 			<h3>Ora per Ora</h3>
 
 
@@ -20,9 +20,13 @@
 	
 			<div class="input-group" style='margin-bottom:10px; '>
 				{{ Form::select('evento', $selectEventi, null, ['class'=>'form-control', 'id'=>'selectevento']) }}
-				<a id='showevento' class="input-group-addon" href="{{ URL::to('soggetto/') }}">Dettagli</a>
 			</div>
-	
+			<div class="btn-group" style='margin-bottom:10px; '>
+			<a id='showevento' class="btn btn-primary" href="{{ URL::to('soggetto/') }}">Tutti i dettagli</a>
+			@foreach($Masters as $master)
+				<a id="{{$master->id}}" class="master_btn btn btn-default" href="{{ URL::to('vicende/##/master/'.$master->id) }}">{{$master->username}}</a>
+			@endforeach
+			</div>	
 			
 		</div>
 	</div>
@@ -210,11 +214,19 @@
 @section('Scripts')
 		$(function(ready) {
 			$('#selectevento').change( function() {
+				var idevento=$(this).val();
 				$("#schedule").empty()
-				$('#showevento').attr('href', 'vicende/'+$(this).val());
+				$('#showevento').attr('href', 'vicende/'+idevento);
+				$('.master_btn').attr('href', function(){
+					return 'vicende/'+idevento+'/master/'+$(this).attr('id')
+					});
 				initialize_scheduler("#schedule");
 			});
 			
+			
+			$('.master_btn').attr('href', function(){
+					return 'vicende/'+$('#selectevento').val()+'/master/'+$(this).attr('id')
+					});
 			$('#showevento').attr('href', 'vicende/'+$('#selectevento').val());
 		    initialize_scheduler("#schedule");
 			
@@ -230,11 +242,13 @@
 				helper: 'clone',
 				appendTo: '.container'
 				}).tooltip();
-				
+			
+			/*
 			$('#png-sidebar').hide('slide');
 			$("body").on("mousemove",function(event) {
 				if (event.pageX < 20) $('#png-sidebar').show('slide'); 
 				$("#png-sidebar").mouseleave(function(){$('#png-sidebar').hide('slide');})
 			});
+			*/
 		});
 @stop

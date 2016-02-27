@@ -109,6 +109,14 @@ class VicendasController extends \BaseController {
 			'#f39c12',
 			'#d35400',
 			'#c0392b',
+			'#BDC3c7',
+			'#9B59b6',
+			'#3498DB',
+			'#2ecc71',
+			'#1abc9c',
+			'#f39c12',
+			'#d35400',
+			'#c0392b',
 			'#BDC3c7'
 		);
 		
@@ -131,28 +139,23 @@ class VicendasController extends \BaseController {
 		foreach ($vicende as $key=>$vicenda){
 				$elementi=$vicenda->Elementi;
 				foreach ($elementi as $elemento) {
-						$pngs=$elemento->png;
+						$elemento->png;
+						$elemento->PNGminori;
 						
-						foreach ($pngs as $key3=>$png){
-								$pngs[$key3]['color']=$coloreMaster[$png['Master']];
-								$pngs[$key3]['nomeuser']=$nomeMaster[$png['Master']];
+						foreach ($elemento['png'] as $key3=>$png){
+								$elemento['png'][$key3]['color']=$coloreMaster[$png['Master']];
+								$elemento['png'][$key3]['nomeuser']=$nomeMaster[$png['Master']];
 						}
-						$elemento['png']=$pngs;
 						
-						
-						$pngminoris=$elemento->PNGminori;
-						
-						foreach ($pngminoris as $key4=>$png){
-								$pngminoris[$key4]['color']=$coloreMaster[$png['User']];
-								$Master = User::find($png['User']);
-								$pngminoris[$key4]['nomeuser']=$Master['username'];
+						foreach ($elemento['pngminori'] as $key4=>$png){
+								$elemento['pngminori'][$key4]['color']=$coloreMaster[$png['User']];
+								$elemento['pngminori'][$key4]['nomeuser']=$nomeMaster[$png['User']];
 						}
-						$elemento['pngminori']=$pngminoris;
 					}
 					
 				$vicenda['schedule']=$elementi;
 				$vicenda['color']=$palette[$key%count($vicende)];
-			}
+				}
 		if (Request::ajax()){
 			return Response::json($vicende);
 		} else {
@@ -174,6 +177,68 @@ class VicendasController extends \BaseController {
 				->with('selectEventi', $selectEventi)
 			->with('vicende',$vicende);
 		}
+	}
+	
+	public function show_all_master($id_evento,$idmaster)
+	{
+
+		$palette_png=array(
+			'black',
+			'red',
+			'green',
+			'blue'
+		);
+
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$coloreMaster=array();
+		$nomeMaster=array();
+		foreach ($Masters as $key2=>$Master){
+			$coloreMaster[$Master->id] = $palette_png[$key2];
+			$nomeMaster[$Master->id] = $Master->username;
+		}
+		$ilmaster=User::find($idmaster);
+
+		$evento = Evento::findOrFail($id_evento);
+		
+		$vicende = $evento->Vicende;
+		$elenco=INtools::select_column($vicende,'ID');	
+		$elenco = array_map(
+			create_function('$value', 'return (int)$value;'),
+			$elenco
+		);
+		
+		
+		$elementi= Elemento::orderBy('start', 'asc')->whereIn('vicenda',$elenco)->get();
+		
+		foreach($elementi as $key=>$elemento){
+			$elemento->PNGminori;
+			$elemento->PNG;
+		
+			
+			$elenco1=INtools::select_column($elemento['pngminori'],'User');
+			$elenco2=INtools::select_column($elemento['png'],'Master');
+			
+			if (!(in_array($idmaster,$elenco1) | in_array($idmaster,$elenco2))) {
+				unset($elementi[$key]);
+			} else {
+				
+				foreach ($elemento['png'] as $key3=>$png){
+					$elemento['png'][$key3]['color']=$coloreMaster[$png['Master']];
+					$elemento['png'][$key3]['nomeuser']=$nomeMaster[$png['Master']];
+				}
+				
+				foreach ($elemento['pngminori'] as $key4=>$png){
+					$elemento['pngminori'][$key4]['color']=$coloreMaster[$png['User']];
+					$elemento['pngminori'][$key4]['nomeuser']=$nomeMaster[$png['User']];
+				}
+			
+			}
+		}
+		return View::make('vicendas.master')
+			->with('Evento',$evento)
+			->with('vicende',$vicende)
+			->with('elementi',$elementi)
+			->with('master',$ilmaster);
 	}
 
 	/**
