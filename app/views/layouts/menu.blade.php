@@ -116,6 +116,7 @@
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('admin/voce') }}"><small>Voci di Locanda</small></a></li>
 						<li ><a href="{{ URL::to('admin/evento') }}"><small>Eventi</small></a></li>
+						<li ><a href="{{ URL::to('admin/oggetti') }}"><small>Oggetti</small></a></li>
 						<li ><a href="{{ URL::to('admin/economia') }}"><small>Economia</small></a></li>
 						<li ><a href="{{ URL::to('admin/informatori') }}"><small>Informatori</small></a></li>
 						<li ><a href="{{ URL::to('admin/post') }}"><small>Ambientazione</small></a></li>

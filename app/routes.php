@@ -171,3 +171,9 @@
 		Route::post('elemento_png_minor/{id}', 'ElementosController@add_png_minor');
 		Route::post('elemento_png_minor_remove/{id}', 'ElementosController@remove_png_minor');
     });
+    
+	########## Trame ###############################
+	Route::group(array('before'=>'master'), function() {    
+        Route::get('admin/oggetti','OggettiController@index');
+        Route::post('admin/oggetti/stampa','OggettiController@stampa');
+	});
