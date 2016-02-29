@@ -15,7 +15,7 @@
             timeLinePaddingBottom:0,
             headTimeBorder:1,	// time border width
             dataWidth:180,		// data width
-            verticalScrollbar:10,	// vertical scrollbar width
+            verticalScrollbar:20,	// vertical scrollbar width
             // event
             init_data: null,
             on_drop: null,

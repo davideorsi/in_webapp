@@ -49,6 +49,7 @@
 	</div>	
 	<div id="png-sidebar">
 	<div class='row'>
+		<h4> Lista dei PNG</h4>
 		<ul class="nav nav-tabs nav-stacked ">
 		@foreach ($Masters as $key=>$Master)
 			<li><a data-toggle="tab" href="#menu{{$key}}">{{$Master['username']}}</a></li>

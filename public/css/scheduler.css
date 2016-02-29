@@ -77,13 +77,14 @@ float: left;
 }
 #schedule .sc_main_box,
 #schedule .sc_data{
-	max-height:500px;
+	/*max-height:500px;*/
 	overflow:hidden;
 }
 #schedule .sc_main_box{
 	float:left;
+
 	overflow-x:auto;
-	overflow-y:auto;
+
 }
 #schedule .sc_main_scroll{
 }
