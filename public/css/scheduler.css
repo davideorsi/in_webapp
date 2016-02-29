@@ -77,7 +77,7 @@ float: left;
 }
 #schedule .sc_main_box,
 #schedule .sc_data{
-	/*max-height:500px;*/
+	max-height:500px;
 	overflow:hidden;
 }
 #schedule .sc_main_box{
