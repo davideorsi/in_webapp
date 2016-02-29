@@ -84,6 +84,7 @@ float: left;
 	float:left;
 
 	overflow-x:auto;
+	overflow-y:auto;
 
 }
 #schedule .sc_main_scroll{
