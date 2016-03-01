@@ -19,6 +19,10 @@
 	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb2.jpg" />
 	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb3.jpg" />
 	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb4.jpg" />
+	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb5.jpg" />
+	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb6.jpg" />
+	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb7.jpg" />
+	<meta property="og:image" content="http://intempestanoctis.boru.it/img/thumb8.jpg" />
 	<meta property="og:description" content="Gioco di Ruolo dal Vivo nel Ducato di Parma di Inizio Ottocento" />
 	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 
