@@ -7,7 +7,7 @@
 	
 	@section('content')
 		<div class='row'>
-			<div class='col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+			<div class='col-sm-6 '>
 				<h3>Nuovo Oggetto</h3>
 			
 				{{ Form::open(array('url'=>'admin/oggetti/stampa')) }}
@@ -26,8 +26,31 @@
 					{{ Form::submit('Crea PDF', array('class' => 'btn btn-primary')) }}
 				</div>
 				{{ Form::close() }}
-	
+				
 			</div>
+			
+			<div class='col-sm-6 '>
+				<h3>Oggetti predefiniti</h3>
+				
+				{{ Form::open(array('url'=>'admin/oggetti/stampa')) }}
+				{{ Form::hidden('Nome',"Erba Rossa")}}
+				{{ Form::hidden('Testo',null) }}
+				{{ Form::submit('Erba Rossa', array('class' => 'btn btn-danger')) }}
+				{{ Form::close() }}
+				
+				{{ Form::open(array('url'=>'admin/oggetti/stampa')) }}
+				{{ Form::hidden('Nome',"Erba Verde")}}
+				{{ Form::hidden('Testo',null) }}
+				{{ Form::submit('Erba Verde', array('class' => 'btn btn-success')) }}
+				{{ Form::close() }}
+				
+				{{ Form::open(array('url'=>'admin/oggetti/stampa')) }}
+				{{ Form::hidden('Nome',"Erba Blu")}}
+				{{ Form::hidden('Testo',null) }}
+				{{ Form::submit('Erba Blu', array('class' => 'btn btn-primary')) }}
+				{{ Form::close() }}
+							
+			</div>	
 		</div>
 	@show
 	
