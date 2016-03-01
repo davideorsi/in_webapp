@@ -95,6 +95,8 @@
 		Route::resource('admin/abilita', 'AbilitaController');
 		Route::post('admin/abilita_opzione', 'AbilitaController@add_opzione');
 		Route::delete('admin/abilita_opzione', 'AbilitaController@del_opzione');
+		Route::post('admin/abilita_requisito', 'AbilitaController@add_requisito');
+		Route::delete('admin/abilita_requisito', 'AbilitaController@del_requisito');
 	});
 
 	// route per editare i collegamenti PG - USER

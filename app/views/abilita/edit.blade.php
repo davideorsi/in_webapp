@@ -68,6 +68,44 @@
 				</div>
 
 				
+		        <div class="col-md-6">
+					<table class='table table-striped'>
+						<thead>
+							<th >Requisiti</th>
+							<th class='center_tx'>Elimina</th>
+						</thead>
+						<tbody>
+						
+						@foreach ($abilita['Requisiti'] as $req)
+							<tr>
+								<td>{{$req['Ability']}}</td>
+								<td class='center_tx'>
+								{{ Form::model($req, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin/abilita_requisito', 'class'=>'pure-form')) }}
+								{{ Form::hidden('Req',$req['ID'])}}
+								{{ Form::hidden('ID',$abilita['ID']) }}
+								{{ Form::submit('Elimina', array('class' => 'btn btn-warning')) }}
+								{{ Form::close()}}
+								</td>
+							</tr>
+						
+						@endforeach	
+
+							<tr>
+								<td colspan='1'>
+									{{ Form::model($abilita, array('files'=>true, 'method' => 'POST', 'url' => 'admin/abilita_requisito', 'class'=>'pure-form')) }}
+									{{ Form::select('Req', $tutte, null, ['class'=>'form-control']) }}
+									{{ Form::hidden('ID',$abilita['ID'])}}
+								</td>
+								<td colspan='1'>
+									{{ Form::submit('Aggiungi', array('class' => 'btn btn-success')) }}
+									{{ Form::close()}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+					
+					
 		        <div class="form-group col-md-6">
 					<table>
 						<thead>

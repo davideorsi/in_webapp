@@ -122,10 +122,21 @@ class AbilitaController extends \BaseController {
 		foreach($categorie as $categoria) {
 			$categorieSelect[$categoria->Categoria] = $categoria->Categoria;
 		}
+		
+		$abilitas = Abilita::orderBy('Categoria', 'asc')->orderBy('Ability', 'asc')->get(array('ID','Ability','Categoria'));
 
+		$selectAbilita = array();
+		foreach($abilitas as $ab) {
+			$selectAbilita[$ab->Categoria][$ab->ID] = $ab->Ability;
+		}
+		
+		$abilita->Requisiti;
+		//dd($abilita['req']);
+		
 		// show the edit form and pass the object
 		return View::make('abilita.edit')
 			->with('abilita', $abilita)
+			->with('tutte', $selectAbilita)
 			->with('categorieSelect', $categorieSelect);
 	}
 
@@ -182,6 +193,8 @@ class AbilitaController extends \BaseController {
 	public function destroy($id)
 	{
 		$abilita = Abilita::find($id);
+		
+		$abilita->Requisiti()->detach();
 		$abilita -> delete();
 
 		Session::flash('message', 'Abilità cancellata correttamente!');
@@ -223,5 +236,30 @@ class AbilitaController extends \BaseController {
 		return Redirect::to('admin/abilita/'.$ab.'/edit');
 	}
 
+	//######## GESTIONE REQUISITI #########################################
+	public function add_requisito()
+	{
+		$ab=Input::get('ID');
+		$req=Input::get('Req');
+
+		$AB=Abilita::find($ab);
+		$AB->Requisiti()->attach($req);
+		
+		Session::flash('message', 'Requisito aggiunto correttamente!');
+		return Redirect::to('admin/abilita/'.$ab.'/edit');
+		
+	}
+
+	public function del_requisito()
+	{
+		$ab=Input::get('ID');
+		$req=Input::get('Req');
+
+		$AB=Abilita::find($ab);
+		$AB->Requisiti()->detach($req);
+
+		Session::flash('message', 'Requisito rimosso correttamente!');
+		return Redirect::to('admin/abilita/'.$ab.'/edit');
+	}
 
 }
