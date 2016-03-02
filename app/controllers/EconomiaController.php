@@ -25,8 +25,8 @@ class EconomiaController extends \BaseController {
 		$minrich=array(2,2,3,4);	
 		
 		foreach($Fazioni as $faz) {
-			$faz['Totale']=INtools::convertiMonete($totrich[$faz['Condizione']]*50+$faz['Ricchezza']*50-$faz['Sovratassa']);
-			$faz['Minimo']=INtools::convertiMonete($minrich[$faz['Condizione']]*50);
+			$faz['Totale']=INtools::convertiMonete($totrich[$faz['Condizione']-1]*50+$faz['Ricchezza']*50-$faz['Sovratassa']);
+			$faz['Minimo']=INtools::convertiMonete($minrich[$faz['Condizione']-1]*50);
 			}
 			
 		$Nbeni=array(0,3,5,8,10);
@@ -35,8 +35,8 @@ class EconomiaController extends \BaseController {
 		$PBV=array(0,40,30,20,10);
 		
 		foreach ($Beni as $bene){
-			$bene['PA']=INtools::convertiMonete($PBA[$max]*$bene['IR']);
-			$bene['PV']=INtools::convertiMonete($PBV[$min]*$bene['IR']);
+			$bene['PA']=INtools::convertiMonete($PBA[$max-1]*$bene['IR']);
+			$bene['PV']=INtools::convertiMonete($PBV[$min-1]*$bene['IR']);
 		
 		}
 
