@@ -6,7 +6,7 @@
 	@stop
 		
 	@section('content')
-		<h3>Dettagli della trama - {{$master['username']}} <a href="{{URL::to('scheduler')}}" class='btn btn-success'><span class='glyphicon glyphicon-arrow-left' aria-hidden="true"></span></a></h3>
+		<h3>Dettagli della trama - {{$master['username']}} <a href="{{ URL::previous() }}" class='btn btn-success'><span class='glyphicon glyphicon-arrow-left' aria-hidden="true"></span></a></h3>
 		</br>
 	@foreach( $elementi as $elemento)	
 		<div class='row'>

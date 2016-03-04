@@ -192,10 +192,41 @@ class VicendasController extends \BaseController {
 			$nomeMaster[$Master->id] = $Master->username;
 		}
 		$ilmaster=User::find($idmaster);
-
 		$evento = Evento::findOrFail($id_evento);
 		
+		
+		$palette=array(
+			'#9B59b6',
+			'#3498DB',
+			'#2ecc71',
+			'#1abc9c',
+			'#f39c12',
+			'#d35400',
+			'#c0392b',
+			'#BDC3c7',
+			'#9B59b6',
+			'#3498DB',
+			'#2ecc71',
+			'#1abc9c',
+			'#f39c12',
+			'#d35400',
+			'#c0392b',
+			'#BDC3c7',
+			'#9B59b6',
+			'#3498DB',
+			'#2ecc71',
+			'#1abc9c',
+			'#f39c12',
+			'#d35400',
+			'#c0392b',
+			'#BDC3c7'
+		);
 		$vicende = $evento->Vicende;
+		foreach ($vicende as $key=>$vicenda){
+			$vicenda['color']=$palette[$key%count($vicende)];
+		}
+		
+		
 		$elenco=INtools::select_column($vicende,'ID');	
 		$elenco = array_map(
 			create_function('$value', 'return (int)$value;'),
@@ -238,7 +269,7 @@ class VicendasController extends \BaseController {
 				->with('master',$ilmaster);
 		} else {
 			
-			$attivita=array(array(),array(),array(),array());
+			$attivita=array(array(),array(),array(),array(),array());
 			foreach($elementi as $key=>$elemento){
 				$elemento->PNGminori;
 				$elemento->PNG;
@@ -247,26 +278,59 @@ class VicendasController extends \BaseController {
 				$elenco1=INtools::select_column($elemento['pngminori'],'User');
 				$elenco2=INtools::select_column($elemento['png'],'Master');
 				
+				$start=Datetime::createFromFormat('Y-m-d H:i',$elemento['start']);
+				$end=Datetime::createFromFormat('Y-m-d H:i',$elemento['end']);
+				$giorno=Datetime::createFromFormat('Y-m-d H:i',substr($elemento['start'],0,-6).' 14:00');
+				
+				$end=$giorno->diff($end);
+				$end_h = $end->i;
+				$end_h = $end_h + ($end->h*60);
+				$end_h = $end_h + ($end->days*24*60);
+				
+				
+				$start=$giorno->diff($start);
+				$start_h = $start->i;
+				$start_h = $start_h + ($start->h*60);
+				$start_h = $start_h + ($start->days*24*60);
+				
 				foreach ($Masters as $key2=>$Master){
 					$idmaster=$Master->id;
-					if ((in_array($idmaster,$elenco1) | in_array($idmaster,$elenco2))) {
+					$quale1=array_search($idmaster, $elenco1);
+					$quale2=array_search($idmaster, $elenco2);
+					if (in_array($idmaster, $elenco1) | in_array($idmaster, $elenco2)) {
 	
-						foreach ($elemento['png'] as $key3=>$png){
-							$elemento['png'][$key3]['color']=$coloreMaster[$png['Master']];
-							$elemento['png'][$key3]['nomeuser']=$nomeMaster[$png['Master']];
-						}
-						
-						foreach ($elemento['pngminori'] as $key4=>$png){
-							$elemento['pngminori'][$key4]['color']=$coloreMaster[$png['User']];
-							$elemento['pngminori'][$key4]['nomeuser']=$nomeMaster[$png['User']];
-						}
-						array_push($attivita[$key2], [$elemento['ID'],$elemento['text']]);
+						if (in_array($idmaster, $elenco1)){ $ilpng=$elemento['pngminori'][$quale1]['PNG']; }
+						elseif (in_array($idmaster, $elenco2)){ $ilpng=$elemento['png'][$quale2]['Nome']; }
+							
+												
+						array_push($attivita[$key2], [
+								'ID'=>$elemento['ID'],
+								'Titolo'=>$elemento['text'],
+								'Info'=>$elemento['data'],
+								'Vicenda'=>$elemento['vicenda'],
+								'Start'=>$start_h,
+								'End'=>$end_h,
+								'Png'=>$ilpng
+							]);
 					
-					}
+					} 
 				}
+				if (empty($elenco1)&empty($elenco2)) {
+					array_push($attivita[count($Masters)], [
+							'ID'=>$elemento['ID'],
+							'Titolo'=>$elemento['text'],
+							'Info'=>$elemento['data'],
+							'Vicenda'=>$elemento['vicenda'],
+							'Start'=>$start_h,
+							'End'=>$end_h,
+							'Png'=>""
+							
+						]);
+				}	
 			}
-			
-			return Response::json($attivita[0]);
+			return View::make('vicendas.griglia')
+				->with('data',['Masters'=>$Masters,'Attivita'=>$attivita,'Vicende'=>$vicende]);
+			//return Response::json(['Masters'=>$Masters,'Elementi'=>$attivita,'Vicende'=>$vicende]);
 			
 		}
 	}

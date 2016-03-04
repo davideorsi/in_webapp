@@ -627,3 +627,34 @@ textarea{
     background-color: rgb(217, 83, 79);
     border-color: rgb(212, 63, 58);
 }
+
+/*######### GRIGLIA SCHEDULER ##############*/
+.griglia{ 
+	position: absolute; 
+	display:block; 
+	width:18%;
+	border: solid 1px white;
+	overflow: hidden;
+
+}
+
+.griglia > p{
+    padding: 5px;
+    margin: 0px;
+}
+.griglia > h5{
+	width:100%
+	font-weight: bold;
+	color: white;
+    padding: 3px;
+    margin: 0px;
+    background-color:rgba(0,0,0,0.5);
+    
+}
+
+.
+
+.small {
+	font-size: 0.8em;
+
+}

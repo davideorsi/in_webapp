@@ -8,7 +8,7 @@
 	
 	@section('content')
 	<div class='row'>
-		<div class="col-sm-12 ">
+		<div class="col-xs-offset-1 col-xs-11 ">
 			<h3>Ora per Ora</h3>
 
 
@@ -22,7 +22,8 @@
 				{{ Form::select('evento', $selectEventi, null, ['class'=>'form-control', 'id'=>'selectevento']) }}
 			</div>
 			<div class="btn-group" style='margin-bottom:10px; '>
-			<a id='showevento' class="btn btn-primary" href="{{ URL::to('soggetto/') }}">Tutti i dettagli</a>
+			<a id='showevento' class="btn btn-primary" href="{{ URL::to('vicende/##') }}">Dettagli</a>
+			<a id='grigliaevento' class="btn btn-success" href="{{ URL::to('vicende/##/master/') }}">Griglia</a>
 			@foreach($Masters as $master)
 				<a id="{{$master->id}}" class="master_btn btn btn-default" href="{{ URL::to('vicende/##/master/'.$master->id) }}">{{$master->username}}</a>
 			@endforeach
@@ -36,9 +37,9 @@
 	
 	<!-- SCHEDULER-->
 	<div class='row'>
-		<div id="schedule" class='col-sm-12'></div>
+		<div id="schedule" class='col-xs-offset-1 col-xs-11'></div>
 	
-		<div class='col-sm-12' style='margin-top:5px;'>
+		<div class='col-xs-offset-1 col-xs-11' style='margin-top:5px;'>
 			<a class="btn btn-success" href="{{ URL::to('vicenda/create') }}">Aggiungi Vicenda</a>
 		</div>	
 	</div>	
@@ -218,6 +219,7 @@
 				var idevento=$(this).val();
 				$("#schedule").empty()
 				$('#showevento').attr('href', 'vicende/'+idevento);
+				$('#grigliaevento').attr('href', 'vicende/'+idevento+'/master/');
 				$('.master_btn').attr('href', function(){
 					return 'vicende/'+idevento+'/master/'+$(this).attr('id')
 					});
@@ -229,6 +231,7 @@
 					return 'vicende/'+$('#selectevento').val()+'/master/'+$(this).attr('id')
 					});
 			$('#showevento').attr('href', 'vicende/'+$('#selectevento').val());
+			$('#grigliaevento').attr('href', 'vicende/'+$('#selectevento').val()+'/master/');
 		    initialize_scheduler("#schedule");
 			
 			$(".chiudi").click(
