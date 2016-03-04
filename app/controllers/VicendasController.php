@@ -194,7 +194,6 @@ class VicendasController extends \BaseController {
 		$ilmaster=User::find($idmaster);
 		$evento = Evento::findOrFail($id_evento);
 		
-		
 		$palette=array(
 			'#9B59b6',
 			'#3498DB',
@@ -280,7 +279,7 @@ class VicendasController extends \BaseController {
 				
 				$start=Datetime::createFromFormat('Y-m-d H:i',$elemento['start']);
 				$end=Datetime::createFromFormat('Y-m-d H:i',$elemento['end']);
-				$giorno=Datetime::createFromFormat('Y-m-d H:i',substr($elemento['start'],0,-6).' 14:00');
+				$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 14:00');
 				
 				$end=$giorno->diff($end);
 				$end_h = $end->i;
