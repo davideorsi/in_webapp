@@ -41,7 +41,7 @@
 			<!--### INSERIMENTO DEGLI ELEMENTI #######################-->
 			@foreach ($data['Attivita'] as $key=>$per_master)
 				@foreach ($per_master as $elemento)
-				<?php $keyVicenda = array_search($elemento['Vicenda'], array_column($data['Vicende']->toArray(), 'ID')); ?>
+				<?php $keyVicenda = array_search($elemento['Vicenda'], INtools::select_column($data['Vicende'], 'ID')); ?>
 				<div 
 					class='griglia' 
 					data-toggle="tooltip" title="{{strip_tags($elemento['Info'])}}" 
