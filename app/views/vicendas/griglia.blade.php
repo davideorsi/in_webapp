@@ -44,11 +44,12 @@
 				<?php $keyVicenda = array_search($elemento['Vicenda'], INtools::select_column($data['Vicende'], 'ID')); ?>
 				<div 
 					class='griglia' 
-					data-toggle="tooltip" title="{{strip_tags($elemento['Info'])}}" 
-					data-placement="bottom" 
 					style="background-color:{{$data['Vicende'][$keyVicenda]['color']}}; top:{{$elemento['Start']*3+38}}px; left:{{$key*18+10}}%; height:{{($elemento['End']-$elemento['Start'])*3}}px"
 				>
-					<h5>{{$elemento['Titolo']}}</h5>
+					<h5
+						data-toggle="tooltip" title="{{strip_tags($elemento['Info'])}}" 
+						data-placement="bottom" 
+					>{{$elemento['Titolo']}}</h5>
 					
 					<p>PNG: {{$elemento['Png']}}</br>
 					<span class='small'>Vicenda: {{$data['Vicende'][$keyVicenda]['title']}}</span>
