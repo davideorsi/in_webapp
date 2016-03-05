@@ -45,6 +45,7 @@
 				<div 
 					class='griglia' 
 					data-toggle="tooltip" title="{{strip_tags($elemento['Info'])}}" 
+					data-placement="bottom" 
 					style="background-color:{{$data['Vicende'][$keyVicenda]['color']}}; top:{{$elemento['Start']*3+38}}px; left:{{$key*18+10}}%; height:{{($elemento['End']-$elemento['Start'])*3}}px"
 				>
 					<h5>{{$elemento['Titolo']}}</h5>
