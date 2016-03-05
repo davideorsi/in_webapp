@@ -43,10 +43,10 @@
 				@foreach ($per_master as $elemento)
 				<?php $keyVicenda = array_search($elemento['Vicenda'], INtools::select_column($data['Vicende'], 'ID')); ?>
 				<div 
-					class='griglia' 
-					data-toggle="tooltip" title="{{strip_tags($elemento['Info'])}}" 
+					class='griglia master{{$key}}' 
+					data-toggle="tooltip" title="<b>{{$elemento['Titolo']}}</b></br>{{strip_tags($elemento['Info'])}}" 
 					data-placement="auto left"
-					style="background-color:{{$data['Vicende'][$keyVicenda]['color']}}; top:{{$elemento['Start']*3+38}}px; left:{{$key*18+10}}%; height:{{($elemento['End']-$elemento['Start'])*3}}px"
+					style="background-color:{{$data['Vicende'][$keyVicenda]['color']}}; top:{{$elemento['Start']*3+38}}px; left:{{$key*18+10}}%; height:{{($elemento['End']-$elemento['Start'])*3-2}}px"
 				>
 					<h5>{{$elemento['Titolo']}}</h5>
 					
@@ -65,8 +65,30 @@
 			
 @stop
 
+
+@section('JS')
+	{{ HTML::script('js/jquery.overlaps.js');}}
+@stop
+
 @section('Scripts')
 	$(document).ready(function(){
-	    $('[data-toggle="tooltip"]').tooltip(); 
+	    $('[data-toggle="tooltip"]').tooltip({html: true}); 
+	    
+	    for (var jMaster=0; jMaster<5; jMaster++){
+		    var list= $('.griglia.master'+jMaster).overlaps();
+		    
+			for (var i=0; i<list.length; i++){
+					list.eq(i).width(0.5*list.eq(i).width());
+				if (i%2) {
+					var pos=list.eq(i).position();
+					var posleft=pos.left / list.eq(i).parent().width() * 100;
+					list.eq(i).css({top: pos.top, left: posleft+9+'%'});
+				}
+			}
+			
+			
+		}
 	});	
+	
+	
 @stop

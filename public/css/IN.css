@@ -632,8 +632,8 @@ textarea{
 .griglia{ 
 	position: absolute; 
 	display:block; 
-	width:18%;
-	border: solid 1px white;
+	width:17.9%;
+	border: solid 0px white;
 	overflow: hidden;
 
 }
