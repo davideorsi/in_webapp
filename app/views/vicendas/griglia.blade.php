@@ -78,7 +78,7 @@
 		    var list= $('.griglia.master'+jMaster).overlaps();
 		    
 			for (var i=0; i<list.length; i++){
-					list.eq(i).width(0.5*list.eq(i).width());
+					list.eq(i).width(0.5*list.eq(i).width()-1);
 				if (i%2) {
 					var pos=list.eq(i).position();
 					var posleft=pos.left / list.eq(i).parent().width() * 100;
