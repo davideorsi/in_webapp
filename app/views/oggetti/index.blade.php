@@ -21,6 +21,12 @@
 					{{ Form::label('Testo', 'Testo') }}
 					{{ Form::textarea('Testo', Input::old('Testo'), array('class'=>'form-control', 'placeholder' => 'Effetti')) }}
 				</div>
+				
+				
+		        <div class="form-group">
+					{{ Form::label('Size', 'Font-size del retro (in pt)') }}
+					{{ Form::input('number','Size', 10,['class'=>'form-control']) }}
+				</div>
 		
 		        <div class="form-group">
 					{{ Form::submit('Crea PDF', array('class' => 'btn btn-primary')) }}

@@ -66,8 +66,8 @@
 	<div class='panel'>
 
 		@for ($i = 1; $i <= 21; $i++)
-		<article class='oggetto'>
-			<p>
+		<article class='retro'>
+			<p style='font-size: {{$Size}}pt; line-height: {{$Size}}pt;'>
 				{{$Testo}}
 			</p>
 		</article>

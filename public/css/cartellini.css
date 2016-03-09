@@ -35,6 +35,16 @@ article h3{
 	
 }
 
+.retro {
+	float: left;
+	padding: 5px;
+	border: 2px solid black;
+	height: 100px;
+	width:  200px;
+	text-align: center;
+	overflow-y: hidden;
+}
+
 
 
 

@@ -12,6 +12,7 @@ class OggettiController extends \BaseController {
 		
 		$data['Nome']=Input::get('Nome');
 		$data['Testo']=Input::get('Testo');
+		$data['Size']=Input::get('Size');
 		
 		//return View::make('oggetti.print')->with('Nome',$data['Nome'])->with('Testo',$data['Testo']);
 		$pdf = PDF::loadView('oggetti.print',$data);
