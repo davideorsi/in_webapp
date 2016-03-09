@@ -136,8 +136,11 @@
 		Route::get('debito/{id}','MissivaController@debito');
 		Route::resource('missive', 'MissivaController',array('except' => array('update','edit')));
 	});	
-;
-
+	Route::group(array('before'=>'scrivere'), function() {
+		Route::resource('missive', 'MissivaController',array('only' => array('create')));
+	});
+	
+	
     Route::group(array('before'=>'master'), function() {
         Route::get('admin/debito/','MissivaController@debiti');
         Route::get('admin/intercettate/','MissivaController@intercettate');

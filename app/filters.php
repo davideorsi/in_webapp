@@ -66,6 +66,37 @@ Route::filter('master', function()
 	}
 });
 
+Route::filter('scrivere', function()
+{
+	if (Auth::guest()){
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
+		}
+	} else {
+		$group=Auth::user()->usergroup;
+		
+		if ( $group!= 7) {
+			$idpg = Session::get('idpg');
+			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
+
+			$lista=INtools::select_column($abilita_del_PG,'Ability');			
+
+			$leggere=in_array('Leggere',$lista)|in_array('Leggere e scrivere',$lista);
+		} else {
+			$leggere=true;
+		}
+			
+		if (!$leggere) {
+			return Response::make('Unauthorized', 401);
+		}
+	}
+});
+
 
 Route::filter('auth.basic', function()
 {
