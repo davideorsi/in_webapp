@@ -67,7 +67,7 @@
 
 		@for ($i = 1; $i <= 21; $i++)
 		<article class='retro'>
-			<p style='font-size: {{$Size}}pt; line-height: {{$Size}}pt;'>
+			<p style='font-size: {{$Size}}pt; line-height: {{$Size}}pt; margin:-5px;'>
 				{{$Testo}}
 			</p>
 		</article>
