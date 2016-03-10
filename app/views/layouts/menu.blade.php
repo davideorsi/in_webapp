@@ -95,15 +95,18 @@
                         <li><a href="{{ URL::to('admin/intercettate/') }}"><small>Intercettate</small></a></li>
                         @else
                         <!-- Disabilitato per live -->
-                        <?php  
-				            $idpg = Session::get('idpg');
-							$abilita_del_PG=PG::find($idpg)->Abilita()->get();
-							$lista=INtools::select_column($abilita_del_PG,'Ability');			
-							$leggere=in_array('Leggere',$lista)|in_array('Leggere e scrivere',$lista);
-                        ?>
-							@if ($leggere)
-								<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
-							@endif
+                        
+	                        @if (!app('prelive'))
+		                        <?php  
+						            $idpg = Session::get('idpg');
+									$abilita_del_PG=PG::find($idpg)->Abilita()->get();
+									$lista=INtools::select_column($abilita_del_PG,'Ability');			
+									$leggere=in_array('Leggere',$lista)|in_array('Leggere e scrivere',$lista);
+		                        ?>
+									@if ($leggere)
+										<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
+									@endif
+		                    @endif
                         @endif
                     </ul>
 				</li>

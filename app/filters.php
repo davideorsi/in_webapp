@@ -14,6 +14,11 @@
 App::before(function($request)
 {
 	setlocale(LC_TIME, 'it_IT.utf8');
+	
+	App::singleton('prelive', function(){
+        $prelive=true; #true in prelive, false nell'uso normale
+        return $prelive; 
+    });
 });
 
 

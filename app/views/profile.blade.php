@@ -62,6 +62,7 @@
 					</tr>
 				@endforeach
 				<!-- DISABILITATO PER LIVE -->
+				@if (!app('prelive'))
 					<tr>
 						<td colspan='1'>
 							{{ Form::model($PG, array('files'=>true, 'method' => 'PUT', 'url' => 'pg', 'class'=>'pure-form')) }}
@@ -73,6 +74,7 @@
 							{{ Form::close()}}
 						</td>
 					</tr>
+				@endif
 				</tbody>
 			</table>
 		</div>
