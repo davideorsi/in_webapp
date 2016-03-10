@@ -108,7 +108,7 @@ public static function AbilitaSbloccate($PG){
 	 *
 	 * */
 	public static function IncantiSbloccati($PG){
-		$all_inc=Incanto::all();
+		$all_inc=Incanto::orderby('Livello','asc')->get();
 
 		if (!empty($PG['Incanti'])) {
 			$possessed = $PG['Incanti']->lists('ID');
