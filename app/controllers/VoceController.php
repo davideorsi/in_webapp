@@ -8,7 +8,7 @@ class VoceController extends \BaseController {
 	 */
 	public function index()
 	{
-		$voci = Voce::orderBy('Data', 'desc')->get(array('ID','Data','Testo','Bozza'));
+		$voci = Voce::orderBy('Data', 'desc')->orderBy('ID', 'desc')->get(array('ID','Data','Testo','Bozza'));
 		$selectVoci = array();
 		foreach($voci as $voce) {
 			$data=new Datetime($voce['Data']);
@@ -79,7 +79,7 @@ class VoceController extends \BaseController {
 	{
 		$text=Input::get('testo');
 		//mostra solo le voci che non sono bozze
-		$voci=Voce::orderBy('Data', 'desc')->where('Bozza','!=','1')
+		$voci=Voce::orderBy('Data', 'desc')->orderBy('ID', 'desc')->where('Bozza','!=','1')
 				->where('Testo', 'like', '%'.$text.'%')
 				->orWhere('Data', 'like', '%'.$text.'%')
 				->paginate(2);	
