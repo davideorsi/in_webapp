@@ -326,37 +326,46 @@ class UserController extends BaseController {
 	############## Admin page: editare iscrizione agli eventi ##########
 	public function showAdmin()
 	{
-		$Evento = Evento::orderBy('Data','Desc')->take(2)->get(array('Data','Titolo','ID'));
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID','Tipo'));
 
 		$data=new Datetime($Evento[0]['Data']);
 		$Evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
 		$Evento[0]['PG'] = $Evento[0]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
-		$Evento[1]['PG'] = $Evento[1]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
-
-
-		// tassazione ##################################################
-		$tassazione['Nottingham']=0;
-		$tassazione['La Rochelle']=0;
-		$tassazione['Non Affiliati']=0;
-		$sconto['Nottingham']=0;
-		$sconto['La Rochelle']=0;
-		$sconto['Non Affiliati']=0;
-		foreach ($Evento[1]['PG'] as $pg){
-			$tassazione[$pg['Affiliazione']]+=1;
-			$abilita_del_PG=$pg->Abilita()->get();
-			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
-			if (in_array(42,$abilita_del_PG)){ // se non ha privilegi economici
-				$sconto[$pg['Affiliazione']]+=1;
-			}
-		}
 		
-		$diff=$tassazione['La Rochelle']-$tassazione['Nottingham'];
-		if ($diff>=0) {
-			$tassazione['La Rochelle']=INtools::convertiMonete(($tassazione['La Rochelle']-$sconto['La Rochelle'])*5+5*$diff);
-			$tassazione['Nottingham']=INtools::convertiMonete(($tassazione['Nottingham']-$sconto['Nottingham'])*5);
+	
+	
+		// tassazione ##################################################	
+		if ($Evento[0]['Tipo']=='EVENTO LIVE') {
+		
+			$Eventoprec=Evento::orderBy('Data','Desc')->where('Tipo','=','EVENTO LIVE')->take(2)->get(array('Data','Titolo','ID','Tipo'));
+			$Eventoprec[1]['PG'] = $Eventoprec[1]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
+	
+			$tassazione['Nottingham']=0;
+			$tassazione['La Rochelle']=0;
+			$tassazione['Non Affiliati']=0;
+			$sconto['Nottingham']=0;
+			$sconto['La Rochelle']=0;
+			$sconto['Non Affiliati']=0;
+			foreach ($Eventoprec[1]['PG'] as $pg){
+				$tassazione[$pg['Affiliazione']]+=1;
+				$abilita_del_PG=$pg->Abilita()->get();
+				$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
+				if (in_array(42,$abilita_del_PG)){ // se non ha privilegi economici
+					$sconto[$pg['Affiliazione']]+=1;
+				}
+			}
+			
+			$diff=$tassazione['La Rochelle']-$tassazione['Nottingham'];
+			if ($diff>=0) {
+				$tassazione['La Rochelle']=INtools::convertiMonete(($tassazione['La Rochelle']-$sconto['La Rochelle'])*5+5*$diff);
+				$tassazione['Nottingham']=INtools::convertiMonete(($tassazione['Nottingham']-$sconto['Nottingham'])*5);
+			} else {
+				$tassazione['Nottingham']=INtools::convertiMonete(($tassazione['Nottingham']-$sconto['Nottingham'])*5-$diff*5);
+				$tassazione['La Rochelle']=INtools::convertiMonete(($tassazione['La Rochelle']-$sconto['La Rochelle'])*5);
+			}
+			
 		} else {
-			$tassazione['Nottingham']=INtools::convertiMonete(($tassazione['Nottingham']-$sconto['Nottingham'])*5-$diff*5);
-			$tassazione['La Rochelle']=INtools::convertiMonete(($tassazione['La Rochelle']-$sconto['La Rochelle'])*5);
+			$tassazione=NULL;
 		}
 		
 		// evento corrente #############################################

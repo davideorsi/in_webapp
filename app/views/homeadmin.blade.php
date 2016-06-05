@@ -42,6 +42,8 @@
 					</tr>
 				</tbody>
 				
+				
+				@if ($tassazione)
 				<hr>
 				<hr>
 				
@@ -73,6 +75,7 @@
 						<td></td>
 					</tr>
 				</tbody>
+				@endif
 			</table>
 		</div>
 	</div>
