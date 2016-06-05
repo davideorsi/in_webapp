@@ -154,6 +154,7 @@
         Route::get('admin/conto/','BancaController@index');
         Route::get('admin/conto/{id}','BancaController@show');
         Route::put('admin/conto/{id}','BancaController@update_conto');
+        Route::post('admin/interessi','BancaController@update_interessi');
     });
 
 	Route::group(array('before'=>'master'), function() {

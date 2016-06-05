@@ -51,6 +51,13 @@ class INtools {
 
 	// converte le monete da n° di monete di rame in una stringa HumanFriendly
 	public static function convertiMonete($Monete)	{
+		
+		$monetestr='';
+		if ($Monete<0){
+			$Monete = -$Monete;
+			$monetestr='Debito di ';
+			}
+		
 		$Rame= $Monete%10;
 		$Argento =($Monete-$Rame)/10;
 		if ($Argento%5==0){
@@ -61,7 +68,6 @@ class INtools {
 			$Oro=0;
 		}
 
-		$monetestr='';
 		
 		if ($Oro>0){
 			$monetestr.= strval($Oro).'&nbsp;Oro; ';

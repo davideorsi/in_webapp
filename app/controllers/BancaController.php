@@ -22,10 +22,16 @@ class BancaController extends \BaseController {
 				
 				
 				foreach ($conto as $ct){
+					if ($ct['Importo']<0) {
+						$colore='bg-danger';
+					} else {
+						$colore='';
+					}
 					$conti[]=array('Nome'=>$pg['Nome'],
                                'NomeGiocatore'=>$pg['NomeGiocatore'],
                                'ID'=>$ct['ID'],
                                'Importo'=>INtools::convertiMonete($ct['Importo']),
+                               'Colore'=>$colore,
                                'Intestatario'=>$ct['Intestatario']);
                 }
 			}
@@ -120,6 +126,26 @@ class BancaController extends \BaseController {
 		Session::flash('message', 'Spesa modificata con successo!');
 		return Redirect::to('admin/conto');
 	}
+
+	public function update_interessi()
+	{
+		$Conti = Conto::where('Importo','>',0)->get();
+		foreach($Conti as $Conto){
+			$imp=$Conto->Importo;
+			$Conto->Importo=floor($imp*1.05);
+			$Conto->save();
+		}
+		
+		$Conti = Conto::where('Importo','<',0)->get();
+		foreach($Conti as $Conto){
+			$imp=$Conto->Importo;
+			$Conto->Importo=ceil($imp*1.1);
+			$Conto->save();
+		}
+		
+        return Response::json(['OK']);    
+	}
+
 	
 
     public function azzera_spesa($id)

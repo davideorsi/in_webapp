@@ -4,9 +4,18 @@
 
 <div class='col-md-offset-2 col-md-8'>
 
-    <h3>Conti in Banca <span id="toggle_conto" class='btn btn-primary'>Aggiungi</span></h3>
+    <h3>Conti in Banca </h3>
     
-    <div class="col-sm-12" id="aggiungi_conto" style='display:none;'>
+    <div class="col-sm-12">
+	    <div class="btn-group" role="group">
+			<span id="toggle_conto" class='btn btn-primary'>Aggiungi</span>
+			<span id="calcola_interessi" class='btn btn-success'>Aggiorna Interessi</span>
+	    </div>
+    </div>
+    
+    
+    
+    <div class="col-sm-12" id="aggiungi_conto" style='display:none; margin:15px;'>
 		<div class='row panel panel-default' style='padding:10px; margin: 0px'>
 		<!-- AGGIUNGI MANUALMENTE UN CONTO -->
 		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin/conto/', 'class'=>'pure-form')) }}
@@ -53,7 +62,7 @@
 		</div>
 	</div>
     
-    <table class='table table-striped'>
+    <table class='table'>
     <thead>
         <tr>
             <th>Nome</th>
@@ -66,7 +75,7 @@
     
     <tbody>    
         @foreach ($conti as $elem)	
-        <tr>
+        <tr class="{{$elem['Colore']}}">
             <td>{{$elem['Nome']}}<br><small>{{$elem['NomeGiocatore']}}</small></td>
             <td>{{$elem['Intestatario']}}</td>
             <td>{{$elem['Importo']}}</td>        
@@ -93,6 +102,19 @@ $(document).ready(function(){
     $("#toggle_conto").click(function(){
         $("#aggiungi_conto").slideToggle();
     });
+    
+    $("#calcola_interessi").click(function(){    
+		$.ajax({
+			type: 'POST',
+			url:  "interessi",
+			success: function(){
+				location.reload();
+				$("#info").html('Interessi Calcolati con Successo!');
+			},  
+			dataType: "html"
+		});
+		
+		});
 });
 
 @stop
