@@ -379,6 +379,64 @@ function azzera_debito(id){
      } 
 }
 
+function azzera_spesa(id){
+    var conf = confirm("Azzero la spesa?");
+    if (conf){
+       $.ajax({
+                type: 'POST',
+				async: false,
+                url:  "spesa/"+id,
+                success: function(){
+                    location.reload();
+                },
+                dataType: "json"
+        });
+     } 
+}
+
+function azzera_conto(id){
+    var conf = confirm("Chiudo il conto?");
+    if (conf){
+       $.ajax({
+                type: 'POST',
+				async: false,
+                url:  "conto/"+id,
+                success: function(){
+                    location.reload();
+                },
+                dataType: "json"
+        });
+     } 
+}
+
+
+function get_conto(pos) {
+    var tmp = null;
+    $.ajax({
+		type: "GET",
+		url:  "conto/"+pos,
+		async: false,
+		success: function(output){
+			tmp=output;
+		},  
+		dataType: "json"
+	});
+    return tmp;
+};
+
+
+function edit_conto(id) {
+
+	var conto=get_conto(id);
+	$('#edit_conto').slideDown();
+			
+	$('#form_edit').attr('action','conto/'+conto.ID);
+	$('#form_edit #PG').html(conto.personaggio.Nome);
+	$('#form_edit #Importo').val(conto.Importo);
+	$('#form_edit #Intestatario').val(conto.Intestatario);
+}
+
+
 function get_missiva(id){
 $.ajax({
 	type: "GET",

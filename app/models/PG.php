@@ -23,9 +23,16 @@ class PG extends Eloquent {
 	}
 
 	public function User(){
-		return $this->belongsTo('Giocatore','ID','pg');
-		
+		return $this->belongsTo('Giocatore','ID','pg');	
 	}
+	
+	public function Spese(){
+		return $this->hasMany('Spese','PG','ID');
+	}	
+	public function Conto(){
+		return $this->hasMany('Conto','PG','ID');
+	}
+	
 
 	public function PxRimasti(){
 		return intval($this->Px - $this->Abilita->sum('PX'));

@@ -142,11 +142,18 @@
 	
 	
     Route::group(array('before'=>'master'), function() {
-        Route::get('admin/debito/','MissivaController@debiti');
         Route::get('admin/intercettate/','MissivaController@intercettate');
         Route::post('admin/intercettate/','MissivaController@inoltra_intercettate');
         Route::post('missive/{id}/toggle','MissivaController@toggle_rispondere');
-        Route::post('admin/debito/{id}','MissivaController@azzera_debito');
+        Route::post('admin/debito/{id}','BancaController@azzera_debito');
+        Route::post('admin/spesa/{id}','BancaController@azzera_spesa');
+        Route::post('admin/spesa','BancaController@store_spesa');
+        Route::get('admin/debito/','BancaController@debiti_e_spese');
+        Route::post('admin/conto/','BancaController@store_conto');
+        Route::post('admin/conto/{id}','BancaController@azzera_conto');
+        Route::get('admin/conto/','BancaController@index');
+        Route::get('admin/conto/{id}','BancaController@show');
+        Route::put('admin/conto/{id}','BancaController@update_conto');
     });
 
 	Route::group(array('before'=>'master'), function() {

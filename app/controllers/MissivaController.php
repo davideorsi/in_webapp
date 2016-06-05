@@ -399,40 +399,7 @@ class MissivaController extends \BaseController {
 		return Response::json($totale);
 	}
 
-	public function debiti()
-	{
-        $pgs=PG::orderBy('Nome','asc')->get(['ID','Nome','NomeGiocatore']);
-
-        $lista=[];
-        foreach ($pgs as $pg){
-		    $missive = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
-			$costi=INtools::select_column($missive,'costo');
-			
-			$totale = INtools::convertiMonete(array_sum($costi));
-			
-            if ($totale) {
-                $lista[]=array('Nome'=>$pg['Nome'],
-                               'NomeGiocatore'=>$pg['NomeGiocatore'],
-                               'ID'=>$pg['ID'],
-                               'debito'=>$totale);
-            }
-	    }			
-		return View::make('missiva.debiti')->with('lista',$lista);
-	}
-
-    public function azzera_debito($id)
-    {
-
-        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$id])->get(['id']);
-
-        foreach ($lista as $elem)
-        {
-            $missiva= Missiva::find($elem['id']);
-            $missiva['pagato']=1;
-            $missiva->save();        
-        }   
-        return Response::json(['OK']);    
-    }    
+	
     
      /*
 	 * GESTIONE DELLE MISSIVE INTERCETTATE
