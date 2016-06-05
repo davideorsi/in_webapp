@@ -43,7 +43,7 @@
 				</tbody>
 				
 				
-				@if ($tassazione)
+				@if ($tassazione) 
 				<hr>
 				<hr>
 				
