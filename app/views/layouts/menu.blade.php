@@ -91,7 +91,6 @@
 						<li ><a href="{{ URL::to('missive') }}"><small>Cerca</small></a></li>
                         @if (Auth::user()->usergroup == 7)
 						<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
-                        <li><a href="{{ URL::to('admin/debito/') }}"><small>Debiti</small></a></li>
                         <li><a href="{{ URL::to('admin/intercettate/') }}"><small>Intercettate</small></a></li>
                         @else
                         <!-- Disabilitato per live -->
@@ -127,6 +126,8 @@
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('admin/voce') }}"><small>Voci di Locanda</small></a></li>
 						<li ><a href="{{ URL::to('admin/evento') }}"><small>Eventi</small></a></li>
+                        <li><a href="{{ URL::to('admin/debito/') }}"><small>Spese e Debiti</small></a></li>
+                        <li><a href="{{ URL::to('admin/conto/') }}"><small>Banca Ducale</small></a></li>
 						<li ><a href="{{ URL::to('admin/oggetti') }}"><small>Oggetti</small></a></li>
 						<li ><a href="{{ URL::to('admin/economia') }}"><small>Economia</small></a></li>
 						<li ><a href="{{ URL::to('admin/informatori') }}"><small>Informatori</small></a></li>
