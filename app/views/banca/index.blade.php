@@ -68,6 +68,7 @@
             <th>Nome</th>
             <th>Intestatario</th>
             <th>Importo</th>
+            <th>Interessi</th>
             <th></th>
             <th></th>
         </tr>
@@ -78,7 +79,8 @@
         <tr class="{{$elem['Colore']}}">
             <td>{{$elem['Nome']}}<br><small>{{$elem['NomeGiocatore']}}</small></td>
             <td>{{$elem['Intestatario']}}</td>
-            <td>{{$elem['Importo']}}</td>        
+            <td>{{$elem['Importo']}}</td>    
+            <td>{{$elem['Interessi']}}</td>        
             <td>        
                 <span style='font-size: 24px;' class='del glyphicon glyphicon-edit'  onclick="edit_conto({{$elem['ID']}})"></span>
             </td>

@@ -60,7 +60,7 @@ class INtools {
 		
 		$Rame= $Monete%10;
 		$Argento =($Monete-$Rame)/10;
-		if ($Argento%5==0){
+		if ($Argento%5>0){
 			$Oro=floor($Argento/5);
 			$Argento=$Argento-$Oro*5;
 		}

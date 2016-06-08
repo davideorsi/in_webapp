@@ -31,6 +31,7 @@ class BancaController extends \BaseController {
                                'NomeGiocatore'=>$pg['NomeGiocatore'],
                                'ID'=>$ct['ID'],
                                'Importo'=>INtools::convertiMonete($ct['Importo']),
+                               'Interessi'=>INtools::convertiMonete($ct['Interessi']),
                                'Colore'=>$colore,
                                'Intestatario'=>$ct['Intestatario']);
                 }
@@ -109,6 +110,7 @@ class BancaController extends \BaseController {
 		$Conto = new Conto;
 		$Conto->PG=Input::get('PG');
 		$Conto->Importo=Input::get('Importo');
+		$Conto->Interessi=0;
 		$Conto->Intestatario=Input::get('Intestatario');
 		$Conto->save();
 		// redirect
@@ -129,6 +131,8 @@ class BancaController extends \BaseController {
 
 	public function update_interessi()
 	{
+		
+		// se è un credito, aggiungo gli interessi
 		$Conti = Conto::where('Importo','>',0)->get();
 		foreach($Conti as $Conto){
 			$imp=$Conto->Importo;
@@ -136,10 +140,12 @@ class BancaController extends \BaseController {
 			$Conto->save();
 		}
 		
+		// se è un debito, conteggio a parte gli interessi
 		$Conti = Conto::where('Importo','<',0)->get();
 		foreach($Conti as $Conto){
 			$imp=$Conto->Importo;
-			$Conto->Importo=ceil($imp*1.1);
+			$int=$Conto->Interessi;
+			$Conto->Interessi=$int+ceil($imp*0.1); 
 			$Conto->save();
 		}
 		
