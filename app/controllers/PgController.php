@@ -237,6 +237,7 @@ class PgController extends \BaseController {
 			$Px=$ab['PX'];
 			if ($Px <= $PG->PxRimasti()) {
 				$PG->Abilita()->attach($idAbilita);
+				$PG->Sbloccate()->detach($idAbilita);
 				$msg='Abilita aggiunta correttamente!';
 			} else { 
 				$msg='Il PG non ha Px a sufficienza per acquistare l\'abilità selezionata!<br>';

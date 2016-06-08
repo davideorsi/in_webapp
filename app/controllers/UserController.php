@@ -277,6 +277,7 @@ class UserController extends BaseController {
 
 				
 				$PG->Abilita()->attach($add_ab);
+				$PG->Sbloccate()->detach($add_ab);
 				
 			} else { 
 				$msg='Il PG non ha Px a sufficienza per acquistare l\'abilità selezionata!';
