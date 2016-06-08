@@ -37,7 +37,7 @@
 
 	{{ HTML::style('css/bootstrap.min.css');}}
 	{{ HTML::style('css/bootstrap-toggle.min.css');}}
-	{{ HTML::style('css/IN.css');}}
+	{{ HTML::style('css/IN_100.css');}}
 		@section('CSS')
 		
 	
