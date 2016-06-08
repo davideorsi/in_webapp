@@ -64,6 +64,10 @@ class INtools {
 			$Oro=floor($Argento/5);
 			$Argento=$Argento-$Oro*5;
 		}
+		elseif ($Argento>=5){
+			$Oro=floor($Argento/5);
+			$Argento=0;
+		}
 		else{
 			$Oro=0;
 		}
