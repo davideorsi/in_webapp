@@ -110,7 +110,7 @@ class BancaController extends \BaseController {
 		$Conto = new Conto;
 		$Conto->PG=Input::get('PG');
 		$Conto->Importo=Input::get('Importo');
-		$Conto->Interessi=0;
+		$Conto->Interessi=Input::get('Interessi');
 		$Conto->Intestatario=Input::get('Intestatario');
 		$Conto->save();
 		// redirect
