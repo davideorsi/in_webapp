@@ -26,7 +26,7 @@
 			</div>
 			<div class='col-xs-12 col-sm-12'>
 			{{ Form::label('Intestatario','Intestatario',['style'=>'width:100%']) }}		
-			{{ Form::input('text','Intestatario','se diverso dal Personaggio, e.g. per doppia identità', ['class'=>'form-control'])}}
+			{{ Form::input('text','Intestatario','', ['class'=>'form-control'])}}
 			</div>
 			<div class='col-xs-12 col-sm-4 col-md-6'>
 			{{ Form::label('Importo','Importo (in monete di Rame)',['style'=>'width:100%']) }}		
