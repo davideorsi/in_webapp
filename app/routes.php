@@ -145,8 +145,8 @@
         Route::get('admin/intercettate/','MissivaController@intercettate');
         Route::post('admin/intercettate/','MissivaController@inoltra_intercettate');
         Route::post('missive/{id}/toggle','MissivaController@toggle_rispondere');
-        Route::post('admin/debito/{id}','BancaController@azzera_debito');
-        Route::post('admin/spesa/{id}','BancaController@azzera_spesa');
+        Route::post('admin/debito/{id}/{alla_banca?}','BancaController@azzera_debito');
+        Route::post('admin/spesa/{id}/{alla_banca?}','BancaController@azzera_spesa');
         Route::post('admin/spesa','BancaController@store_spesa');
         Route::get('admin/debito/','BancaController@debiti_e_spese');
         Route::post('admin/conto/','BancaController@store_conto');

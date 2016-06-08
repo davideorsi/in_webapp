@@ -364,34 +364,65 @@ function toggle_rispondere(id){
 	}
 }
 
-function azzera_debito(id){
-    var conf = confirm("Azzero il debito?");
-    if (conf){
-       $.ajax({
-                type: 'POST',
-				async: false,
-                url:  "debito/"+id,
-                success: function(){
-                    location.reload();
-                },
-                dataType: "json"
-        });
-     } 
+function azzera_debito(id,alla_banca){
+	if (alla_banca==1) {
+	    var conf = confirm("Accredito il debito sul conto?");
+	    if (conf){
+	       $.ajax({
+	                type: 'POST',
+					async: false,
+	                url:  "debito/"+id+"/1",
+	                success: function(){
+	                    location.reload();
+	                },
+	                dataType: "json"
+	        });
+	    } 
+		
+	} else if (alla_banca==0) {
+	    var conf = confirm("Debito pagato in contanti?");
+	    if (conf){
+	       $.ajax({
+	                type: 'POST',
+					async: false,
+	                url:  "debito/"+id,
+	                success: function(){
+	                    location.reload();
+	                },
+	                dataType: "json"
+	        });
+	    } 
+    }
 }
 
-function azzera_spesa(id){
-    var conf = confirm("Azzero la spesa?");
-    if (conf){
-       $.ajax({
-                type: 'POST',
-				async: false,
-                url:  "spesa/"+id,
-                success: function(){
-                    location.reload();
-                },
-                dataType: "json"
-        });
-     } 
+function azzera_spesa(id,alla_banca){
+	if (alla_banca==1) {
+	    var conf = confirm("Accredito la spesa sul conto?");
+	    if (conf){
+	       $.ajax({
+	                type: 'POST',
+					async: false,
+	                url:  "spesa/"+id+"/1",
+	                success: function(){
+	                    location.reload();
+	                },
+	                dataType: "json"
+	        });
+	    } 
+	} else if (alla_banca==0) {	
+	    var conf = confirm("Spesa pagata in contanti?");
+	    if (conf){
+	       $.ajax({
+	                type: 'POST',
+					async: false,
+	                url:  "spesa/"+id,
+	                success: function(){
+	                    location.reload();
+	                },
+	                dataType: "json"
+	        });
+	    } 
+	}
 }
 
 function azzera_conto(id){

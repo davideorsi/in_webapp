@@ -37,6 +37,7 @@
             <th>Importo</th>
             <th>Causale</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     
@@ -47,7 +48,10 @@
             <td>{{$elem['Spesa']}}</td>
             <td>{{$elem['Causale']}}</td>
             <td>        
-                <span style='font-size: 24px' class='del glyphicon glyphicon-remove-sign'  onclick="azzera_spesa({{$elem['ID']}})"></span>
+                <span style='font-size: 24px' title="Addebita sul conto" class='del glyphicon glyphicon-folder-open'  onclick="azzera_spesa({{$elem['ID']}},1)"></span>
+            </td>
+            <td>        
+                <span style='font-size: 24px' class='del glyphicon glyphicon-remove-sign'  title="Pagato in contanti" onclick="azzera_spesa({{$elem['ID']}},0)"></span>
             </td>
         </tr>	
 	
@@ -64,6 +68,7 @@
             <th>Nome</th>
             <th>Debito Missive</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>    
@@ -72,7 +77,10 @@
             <td>{{$elem['Nome']}}<br><small>{{$elem['NomeGiocatore']}}</small></td>
             <td>{{$elem['debito']}}</td>
             <td>        
-                <span style='font-size: 24px' class='del glyphicon glyphicon-remove-sign'  onclick="azzera_debito({{$elem['ID']}})"></span>
+                <span style='font-size: 24px' title="Addebita sul conto" class='del glyphicon glyphicon-folder-open'  onclick="azzera_debito({{$elem['ID']}},1)"></span>
+            </td>
+            <td>        
+                <span style='font-size: 24px' title="Pagato in contanti" class='del glyphicon glyphicon-remove-sign'  onclick="azzera_debito({{$elem['ID']}},0)"></span>
             </td>
         </tr>
         @endforeach

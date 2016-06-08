@@ -20,17 +20,21 @@
 		<!-- AGGIUNGI MANUALMENTE UN CONTO -->
 		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin/conto/', 'class'=>'pure-form')) }}
 			
-			<div class='col-xs-12 col-sm-12 col-md-6'>
+			<div class='col-xs-12 col-sm-12'>
 			{{ Form::label('PG', 'Personaggio',['style'=>'width:100%']) }}
 			{{ Form::select('PG', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}
 			</div>
-			<div class='col-xs-12 col-sm-12 col-md-6'>
+			<div class='col-xs-12 col-sm-12'>
 			{{ Form::label('Intestatario','Intestatario',['style'=>'width:100%']) }}		
-			{{ Form::input('text','Intestatario','', ['class'=>'form-control'])}}
+			{{ Form::input('text','Intestatario','se diverso dal Personaggio, e.g. per doppia identità', ['class'=>'form-control'])}}
 			</div>
-			<div class='col-xs-12 col-sm-4 col-md-3'>
+			<div class='col-xs-12 col-sm-4 col-md-6'>
 			{{ Form::label('Importo','Importo (in monete di Rame)',['style'=>'width:100%']) }}		
 			{{ Form::input('number','Importo','10', ['class'=>'form-control'])}}
+			</div>
+			<div class='col-xs-12 col-sm-4 col-md-6'>
+			{{ Form::label('Interessi','Interessi (in monete di Rame)',['style'=>'width:100%']) }}		
+			{{ Form::input('number','Interessi','0', ['class'=>'form-control'])}}
 			</div>
 			<div class='col-xs-4 col-sm-2 col-md-2'>
 			{{ Form::submit('Aggiungi conto', array('class' => 'btn btn-success','style'=>'margin-top: 24px;')) }}
@@ -39,21 +43,25 @@
 		</div>
 	</div>
 	
-	<div class="col-sm-12" id="edit_conto" style='display:none;'>
+	<div class="col-sm-12" id="edit_conto" style='display:none; margin:15px;'>
 		<div class='row panel panel-default' style='padding:10px; margin: 0px'>
-		<!-- AGGIUNGI MANUALMENTE UN CONTO -->
+		<!-- EDITA MANUALMENTE UN CONTO -->
 			{{ Form::model([], array('files'=>true, 'method' => 'PUT', 'url' => 'admin/conto/', 'class'=>'pure-form', 'id'=>'form_edit')) }}
 				
-			<div class='col-xs-12 col-sm-12 col-md-6'>
+			<div class='col-xs-12 col-sm-12'>
 			<h4 id='PG'></h4>
 			</div>
-			<div class='col-xs-12 col-sm-12 col-md-6'>
+			<div class='col-xs-12 col-sm-12 '>
 			{{ Form::label('Intestatario','Intestatario',['style'=>'width:100%']) }}		
 			{{ Form::input('text','Intestatario','', ['class'=>'form-control'])}}
 			</div>
-			<div class='col-xs-12 col-sm-4 col-md-3'>
+			<div class='col-xs-12 col-sm-4 col-md-6'>
 			{{ Form::label('Importo','Importo (in monete di Rame)',['style'=>'width:100%']) }}		
 			{{ Form::input('number','Importo','10', ['class'=>'form-control'])}}
+			</div>
+			<div class='col-xs-12 col-sm-4 col-md-6'>
+			{{ Form::label('Interessi','Interessi (in monete di Rame)',['style'=>'width:100%']) }}		
+			{{ Form::input('number','Interessi','0', ['class'=>'form-control'])}}
 			</div>
 			<div class='col-xs-4 col-sm-2 col-md-2'>
 			{{ Form::submit('Modifica conto', array('class' => 'btn btn-success','style'=>'margin-top: 24px;')) }}

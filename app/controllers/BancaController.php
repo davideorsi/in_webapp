@@ -122,6 +122,7 @@ class BancaController extends \BaseController {
 	{
 		$Conto = Conto::find($id);
 		$Conto->Importo=Input::get('Importo');
+		$Conto->Interessi=Input::get('Interessi');
 		$Conto->Intestatario=Input::get('Intestatario');
 		$Conto->save();
 		// redirect
@@ -154,12 +155,32 @@ class BancaController extends \BaseController {
 
 	
 
-    public function azzera_spesa($id)
+    public function azzera_spesa($id,$alla_banca = 0)
     {
-
-        $spese= Spese::find($id);
-        $spese->delete();        
-                       
+		$spese= Spese::find($id);
+		
+		// se addebitato alla banca
+		if ($alla_banca==1) {
+			$PG=PG::find($spese->PG);
+			$conto=$PG->Conto;
+			
+			//se il conto non esiste lo crea
+			if ($conto->isEmpty()) {
+				$NewConto = new Conto;
+				$NewConto->PG=$spese->PG;
+				$NewConto->Importo=-$spese->Spesa;
+				$NewConto->save();
+				
+			//se il conto esiste addebita e basta
+			} else {
+				$OldConto=Conto::find($conto[0]['ID']);
+				$OldConto->Importo=$OldConto->Importo-$spese->Spesa;
+				$OldConto->save();
+			}
+		} 
+		
+		$spese->delete();        
+		               
         return Response::json(['OK']);    
     }  
     
@@ -182,10 +203,32 @@ class BancaController extends \BaseController {
     }  
 
     
-    public function azzera_debito($id)
+    public function azzera_debito($id,$alla_banca = 0)
     {
 
-        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$id])->get(['id']);
+        $lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$id])->get(['id','costo']);
+        $costi=INtools::select_column($lista,'costo');
+		$totale = array_sum($costi);
+    
+		// se addebitato alla banca
+		if ($alla_banca==1) {
+			$PG=PG::find($id);
+			$conto=$PG->Conto;
+
+			//se il conto non esiste lo crea
+			if ($conto->isEmpty()) {
+				$NewConto = new Conto;
+				$NewConto->PG=$id;
+				$NewConto->Importo=-$totale;
+				$NewConto->save();
+				
+			//se il conto esiste addebita e basta
+			} else {
+				$OldConto=Conto::find($conto[0]['ID']);
+				$OldConto->Importo=$OldConto->Importo-$totale;
+				$OldConto->save();
+			}
+		} 
 
         foreach ($lista as $elem)
         {
