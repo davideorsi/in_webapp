@@ -440,6 +440,20 @@ function azzera_conto(id){
      } 
 }
 
+function aggiorna_interessi(id){
+    var conf = confirm("Aggiorno gli interessi del conto?");
+    if (conf){
+		$.ajax({
+			type: 'POST',
+			url:  "interessi/"+id,
+			success: function(){
+				location.reload();
+				$("#info").html('Interessi Calcolati con Successo!');
+			},  
+			dataType: "html"
+		});
+    } 
+}
 
 function get_conto(pos) {
     var tmp = null;

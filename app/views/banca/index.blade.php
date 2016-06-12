@@ -9,7 +9,6 @@
     <div class="col-sm-12">
 	    <div class="btn-group" role="group">
 			<span id="toggle_conto" class='btn btn-primary'>Aggiungi</span>
-			<span id="calcola_interessi" class='btn btn-success'>Aggiorna Interessi</span>
 	    </div>
     </div>
     
@@ -79,6 +78,7 @@
             <th>Interessi</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     
@@ -90,10 +90,13 @@
             <td>{{$elem['Importo']}}</td>    
             <td>{{$elem['Interessi']}}</td>        
             <td>        
-                <span style='font-size: 24px;' class='del glyphicon glyphicon-edit'  onclick="edit_conto({{$elem['ID']}})"></span>
+                <span style='font-size: 24px;' title='aggiorna gli interessi' class='del glyphicon glyphicon-refresh'  onclick="aggiorna_interessi({{$elem['ID']}})"></span>
             </td>
             <td>        
-                <span style='font-size: 24px' class='del glyphicon glyphicon-remove-sign'  onclick="azzera_conto({{$elem['ID']}})"></span>
+                <span style='font-size: 24px;' title='modifica il conto' class='del glyphicon glyphicon-edit'  onclick="edit_conto({{$elem['ID']}})"></span>
+            </td>
+            <td>        
+                <span style='font-size: 24px' title='elimina il conto' class='del glyphicon glyphicon-remove-sign'  onclick="azzera_conto({{$elem['ID']}})"></span>
             </td>
         </tr>	
 	
@@ -112,19 +115,6 @@ $(document).ready(function(){
     $("#toggle_conto").click(function(){
         $("#aggiungi_conto").slideToggle();
     });
-    
-    $("#calcola_interessi").click(function(){    
-		$.ajax({
-			type: 'POST',
-			url:  "interessi",
-			success: function(){
-				location.reload();
-				$("#info").html('Interessi Calcolati con Successo!');
-			},  
-			dataType: "html"
-		});
-		
-		});
 });
 
 @stop

@@ -130,26 +130,19 @@ class BancaController extends \BaseController {
 		return Redirect::to('admin/conto');
 	}
 
-	public function update_interessi()
+	public function update_interessi($id)
 	{
-		
 		// se è un credito, aggiungo gli interessi
-		$Conti = Conto::where('Importo','>',0)->get();
-		foreach($Conti as $Conto){
-			$imp=$Conto->Importo;
+		$Conto = Conto::find($id);
+		$imp=$Conto->Importo;
+		if($imp>0){
 			$Conto->Importo=floor($imp*1.05);
 			$Conto->save();
-		}
-		
-		// se è un debito, conteggio a parte gli interessi
-		$Conti = Conto::where('Importo','<',0)->get();
-		foreach($Conti as $Conto){
-			$imp=$Conto->Importo;
+		} elseif ($imp<0) {
 			$int=$Conto->Interessi;
 			$Conto->Interessi=$int+ceil($imp*0.1); 
 			$Conto->save();
 		}
-		
         return Response::json(['OK']);    
 	}
 
