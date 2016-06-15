@@ -93,4 +93,82 @@ class HomeController extends BaseController {
 		Auth::logout(); // log the user out of our application
 		return Redirect::to('/'); // redirect the user to the login screen
 	}
+	
+	public function sendMail()
+	{
+		//regole del validatore
+		$rules = array(
+			'testo' => 'required',
+			'oggetto' => 'required'
+		);
+		$validator = Validator::make(Input::all(), $rules);
+
+		// process the login
+		if ($validator->fails()) {
+			return Redirect::to('mail')
+				->withErrors($validator);
+		} else {
+			
+			$indirizzi=array();
+			
+			$opzione=Input::get('destinatari');
+			$oggetto=Input::get('oggetto');
+			$testo=Input::get('testo');
+			
+			
+			$pgs=PG::whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+			$Evento = Evento::orderBy('Data','Desc')->take(1)->get();
+			$iscritti = $Evento[0]->PG;
+			
+			switch ($opzione) {
+				case 0: // VIVI
+					foreach($pgs as $pg){
+							$user=$pg->User;
+							$user_id=$user['user'];
+							if ($user_id) {
+								$user_email=User::find($user_id)->email;
+								array_push($indirizzi,$user_email);
+							}
+						}
+					break;
+				case 1: // VIVI,  iscritti all'evento
+					foreach($iscritti as $pg){
+							$user=$pg->User;
+							$user_id=$user['user'];
+							if ($user_id) {
+								$user_email=User::find($user_id)->email;
+								array_push($indirizzi,$user_email);
+							}
+						}
+					break;
+				case 2: // VIVI, non iscritti all'evento
+					$iscritti_id=INtools::select_column($iscritti,'ID');
+					$pg_id=INtools::select_column($pgs,'ID');
+					
+					$noniscritti=PG::findMany(array_diff($pg_id,$iscritti_id));
+					foreach($noniscritti as $pg){
+							$user=$pg->User;
+							$user_id=$user['user'];
+							if ($user_id) {
+								$user_email=User::find($user_id)->email;
+								array_push($indirizzi,$user_email);
+							}
+						}
+					break;
+			}
+			
+			$data['testo']=$testo;
+			Mail::send('emails.email', $data, function($message) use ($indirizzi,$oggetto)
+			{
+				$message->to($indirizzi)->subject($oggetto);
+			});
+			
+			
+			Session::flash('message', 'Email inviata con successo!');
+			return Redirect::to('mail');
+		
+		}
+		
+	}	
+	
 }

@@ -1,14 +1,9 @@
 @extends('admin')
 
-@section('CSS')
-
-{{ HTML::style('css/jquery.jqplot.min.css');}}
-
-@stop
 
 @section('content')
 <div>
-		<h3>{{$Evento['Titolo']}} <small>{{$Evento['Data']}}</small></h2>
+		<h3>{{$Evento['Titolo']}} <small>{{$Evento['Data']}}</small></h3>
 </div>
 
 
@@ -203,9 +198,4 @@
 
 @stop
 
-@section('JS')
-	
-@stop
 
-@section('Scripts')
-@stop

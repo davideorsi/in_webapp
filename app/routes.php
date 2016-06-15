@@ -35,6 +35,10 @@
 	Route::post('admin', 'UserController@updateAccount')->before('master');
 	Route::put('admin', 'UserController@updatePagato')->before('master');
 	Route::delete('admin', 'UserController@unsuscribe')->before('master');
+	Route::post('/mail', 'HomeController@sendMail')->before('master');
+	Route::get('/mail',function () {
+		return View::make('mail');
+	});
 	
 	// route per le Voci di Locanda
 	Route::get('voce','VoceController@show');
