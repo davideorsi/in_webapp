@@ -81,7 +81,6 @@ class VoceController extends \BaseController {
 		//mostra solo le voci che non sono bozze
 		$voci=Voce::orderBy('Data', 'desc')->orderBy('ID', 'desc')->where('Bozza','!=','1')
 				->where('Testo', 'like', '%'.$text.'%')
-				->orWhere('Data', 'like', '%'.$text.'%')
 				->paginate(2);	
 		
 		if (!$voci->isEmpty()) {
