@@ -24,7 +24,7 @@ class UserpgController extends \BaseController {
 					'idpg'=>$PG['ID']);
 				$PGusati[]=$PG['ID'];
 			} else {
-				$freeUser[$user['id']]=$user['username'];
+				$freeUser[$user['id']]=$user['username']." - ".$user['email'];
 			}
 		}
 
