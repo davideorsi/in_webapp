@@ -101,9 +101,9 @@
 						            $idpg = Session::get('idpg');
 									$abilita_del_PG=PG::find($idpg)->Abilita()->get();
 									$lista=INtools::select_column($abilita_del_PG,'Ability');			
-									$leggere=in_array('Leggere',$lista)|in_array('Leggere e scrivere',$lista);
+									$scrivere=in_array('Scrivere',$lista)|in_array('Leggere e scrivere',$lista);
 		                        ?>
-									@if ($leggere)
+									@if ($scrivere)
 										<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
 									@endif
 		                    @endif
