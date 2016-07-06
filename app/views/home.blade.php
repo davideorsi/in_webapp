@@ -37,7 +37,8 @@
 						<button class="btn-left" id='voce_next'  onclick="" data-toggle="tooltip" data-placement="top">
 							<span class='glyphicon glyphicon-step-backward'></span>
 						</button>
-						{{Form::text('testo_voce','',array('id'=>'testo_voce','placeholder'=>'...testo da cercare...'))}}
+						{{Form::text('testo_voce','',array('id'=>'testo_voce','placeholder'=>'testo da cercare','style'=>'width: calc(100% - 160px);'))}}
+						
 						<button class="btn-right" id='voce_last'  onclick="" data-toggle="tooltip" data-placement="top">
 							<span class='glyphicon glyphicon-fast-forward' data-toggle="tooltip" data-placement="top"></span>
 						</button>
