@@ -108,8 +108,8 @@ class HomeController extends BaseController {
 			return Redirect::to('mail')
 				->withErrors($validator);
 		} else {
-			
-			$indirizzi=array();
+			$emails_master=User::where('usergroup','=',7)->get(array('email'));
+			$indirizzi=INtools::select_column($emails_master,'email');
 			
 			$opzione=Input::get('destinatari');
 			$oggetto=Input::get('oggetto');
