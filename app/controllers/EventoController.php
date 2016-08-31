@@ -97,6 +97,19 @@ class EventoController extends \BaseController {
 		}
 	}
 	
+	public function show_master($id)
+	{
+		//mostra partecipanti all'evento
+		$evento = Evento::findOrFail($id);	
+		$evento->PG()->get(['Nome']);
+		$pgs=$evento['PG'];
+		$pgar=array();
+		foreach($pgs as $pg){
+				$pgar[$pg['Affiliazione']][]=$pg['Nome'].' ('.$pg['NomeGiocatore'].')';
+			}
+		return Response::json($pgar);
+	}
+	
 	public function show_info($id)
 	{
 		$evento = Evento::findOrFail($id);//->get(['ID','Titolo','Data']);

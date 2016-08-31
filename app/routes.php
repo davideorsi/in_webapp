@@ -51,6 +51,7 @@
 	Route::get('evento/{id}','EventoController@show');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/evento', 'EventoController');
+		Route::get('admin/evento/{id}/list', 'EventoController@show_master');
 	});
 
 	// route per gli Informatori	

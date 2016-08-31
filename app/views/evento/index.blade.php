@@ -29,14 +29,21 @@
 			{{ Form::submit('Cancella', array('class' => 'btn btn-warning')) }}
 			{{ Form::close() }}
 			</div>
+			
+			<div>
+				<h4>PG partecipanti</h4>
+				<p id="evento_testo" class='justified'></p>
+			</div>
 		</div>
 	</div>
 @stop
 @section('Scripts')
 		$(function(ready) {
+			get_evento_master($('#selectevento').val());
 			$('#selectevento').change( function() {
 				$('#editevento').attr('href', 'evento/'+$(this).val()+'/edit');
 				$('#delevento').attr('action', 'evento/'+$(this).val());
+				get_evento_master($(this).val());
 			});
 		});
 @stop
