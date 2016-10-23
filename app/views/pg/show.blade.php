@@ -5,6 +5,7 @@
 	<div style='margin-top: -20px;'>
 		<h2 class='nomepg'>{{$PG['Nome']}}<br></h2>
 	</div>
+
 	
 	<!--######## INFORMAZIONI GENERALI-->
 	<div class='row'>
@@ -77,6 +78,10 @@
 		@endif
 	</div>		
 
+	<hr></hr>
+	<div  class='initialcap justified withcolumns'>
+		<p>{{ $bg }}</p>
+	</div>
 	
 			
 @stop

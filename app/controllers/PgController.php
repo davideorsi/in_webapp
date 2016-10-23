@@ -107,12 +107,14 @@ class PgController extends \BaseController {
 		$PG['Erbe']=$PG->Erbe();
 		$PG['CartelliniPotere']=$PG->CartelliniPotere();
 		$PG['Note']=$PG->Note();
+		$bg=nl2br($PG['background']);
 
 		unset($PG['background']);
 		
 		$data=array(
 			'name' 		=> Auth::user()->username,
-			'PG'		=> $PG
+			'PG'		=> $PG,
+			'bg'		=> $bg
 		);
 		return View::make('pg.show',$data);
 	}
