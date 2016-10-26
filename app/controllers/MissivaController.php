@@ -117,7 +117,7 @@ class MissivaController extends \BaseController {
 			}
 		}
 		if (!$condizione){$condizione="1"; }
-		$missive=Missiva::whereRaw($condizione,$params)->orderBy('id','desc')->paginate(10);
+		$missive=Missiva::whereRaw($condizione,$params)->orderBy('id','desc')->paginate(8);
 
 		foreach ($missive as $missiva){
 			$data= new Datetime($missiva['data']);
