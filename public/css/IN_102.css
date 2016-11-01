@@ -262,11 +262,39 @@ article{
 	margin-right: 2px;
 }
 
+.with_margin_icon_left{
+	font-size: 2em;
+	padding: 5px;
+}
+
+.icona_tipo_missiva{
+	height: 100%;
+	margin-right: 5px; 
+	font-size: 1.4em; 
+	float: left;
+}
+
+.icona_interc_missiva{
+	height: 100%;
+	margin-right: 5px; 
+	font-size: 1.4em; 
+	float: left;
+	color:#FF6600; 
+	margin-top: 2px;
+}
+
+.data_missiva{
+	height: 100%;
+	font-weight: bold; 
+	float: right;
+}
+
+
 .pdfbutton{
-	color: #7A378B;
+	color: #A74CAB;
 }
 .pdfbutton:hover{
-	color: #A74CAB;
+	color: #7A378B;
 }
 
 .media{
