@@ -262,13 +262,7 @@ article{
 	margin-right: 2px;
 }
 
-<<<<<<< HEAD
-.pdfbutton{
-	color: #7A378B;
-}
-.pdfbutton:hover{
-	color: #A74CAB;
-=======
+
 .with_margin_icon_left{
 	font-size: 2em;
 	padding: 5px;
@@ -302,7 +296,6 @@ article{
 }
 .pdfbutton:hover{
 	color: #7A378B;
->>>>>>> message_ui
 }
 
 .media{
