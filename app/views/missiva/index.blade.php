@@ -4,138 +4,114 @@
 
 
 		
-		<h2 >Missive</h2>
 		@if ( Session::has('message'))
 			<div id='info' class="alert alert-info">
 				{{ Session::get('message') }}
 			</div>
 		@endif
 		
-		<div>
+		<!-- SEARCH LATERAL MENU -->
+		<div class='col-sm-4'>
+			
+			<h2 class='hidden-xs'>Missive</h2>
+			
 			@if (Auth::user()->usergroup == 7)
 			{{Form::open(array('onsubmit'=>'get_list_missive(1,1); return false;')) }}
 			@else
 			{{Form::open(array('onsubmit'=>'get_list_missive(1,0); return false;')) }}
 			@endif
+	
+			<div class="form-group" >
+				<div class="input-group margin-bottom">
+				<span class="input-group-addon" id="basic-addon-PG">PG</span>	
+				{{ Form::select('PG', $selPG, Input::old('PG'), ['class'=>'form-control','describedby'=>"basic-addon-PG"]) }}
+				</div>
+			</div>
 			
-				<div class='row'>
-					<div class='form-group col-xs-12 col-sm-6'>
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-PG">PG</span>	
-						{{ Form::select('PG', $selPG, Input::old('PG'), ['class'=>'form-control','describedby'=>"basic-addon-PG"]) }}
-						</div>
+			<div id="other_inputs" class="hidden-xs">
+				<div class="form-group" > 
+					<div class="input-group margin-bottom">
+					<span class="input-group-addon" id="basic-addon-PNG">PNG</span>	
+					{{ Form::text('PNG', Input::old('PNG'), ['class'=>'form-control','describedby'=>"basic-addon-PNG",'placeholder'=>'Nome del PNG']) }}
 					</div>
-					
-					<div class='form-group col-xs-12 col-sm-6 '>
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-PNG">PNG</span>	
-						{{ Form::text('PNG', Input::old('PNG'), ['class'=>'form-control','describedby'=>"basic-addon-PNG",'placeholder'=>'Nome del PNG']) }}
-						</div>
-					</div>
-					
-					
-					<div class='form-group col-xs-12 col-sm-6 '>
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-testo">Testo</span>	
-						{{ Form::text('Testo', Input::old('testo'), ['class'=>'form-control','describedby'=>"basic-addon-testo",'placeholder'=>'Parole chiave, es: "spia"']) }}
-						</div>
-					</div>
-
-
-
-					<div class='form-group  col-xs-12 col-sm-6' >
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-data">Data</span>	
-						{{ Form::text('Data', Input::old('Data'), ['class'=>'form-control','describedby'=>"basic-addon-data"]) }}
-						</div>
-					</div>
-
-					@if (Auth::user()->usergroup == 7)
-					<div class='form-group col-xs-3 col-sm-2' title='Mostra solo le missive intercettate'>
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-intercettato"><span class="glyphicon glyphicon-flash" style="color:#FF6600;"></span></span>	
-						{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox','describedby'=>"basic-addon-intercettato"]) }}
-						</div>
-					</div>
-					<div class='form-group col-xs-3 col-sm-2' title='Mostra solo le missive a cui dobbiamo ancora rispondere'>
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-nonrisp">
-							<span class="glyphicon glyphicon-check" style="color: #f00"></span>
-						</span>	
-						{{ Form::checkbox('Solononrisp',1, Input::old('rispondere'), ['class'=>'checkbox','describedby'=>'basic-addon-nonrisp']) }}
-						</div>
-					</div>
-					@endif
-
-					<div class='form-group col-xs-6 col-sm-3' title='Mostra solo le missive per PNG'>
-						<div class="input-group">
-						<span class="input-group-addon" id="basic-addon-solopng">
-							Solo PNG
-						</span>	
-						{{ Form::checkbox('ConPNG',1, Input::old('ConPNG'), ['class'=>'checkbox','describedby'=>'basic-addon-solopng']) }}
-					</div>
-					</div>
-
-
-					<div class='btn-group col-xs-12 col-sm-4'>
-						{{ Form::submit('Cerca', array('class' => 'btn btn-success ')) }}
-	
-	
-						<button type="button" class="btn btn-default" data-toggle="collapse" data-target="#legenda">
-						Legenda
-						</button>
-					</div>
-
 				</div>
-				<div class='row'>
-					<div id="legenda" class="collapse col-xs-12">
-						<div class='row'>
-							<div class='col-xs-4 '>
-								<p><span class=' pdfbutton glyphicon glyphicon-print'></span> Genera PDF</p>
-							</div>
-							<div class='col-xs-4 '>
-								<p><span class=' glyphicon glyphicon-comment text-success'></span> Missiva tra PG</p>
-							</div>
-							<div class='col-xs-4 '>
-								<p><span class=' glyphicon glyphicon-tower text-primary'></span> Nel Ducato</p>
-							</div>
-							<div class='col-xs-4 '>
-								<p><span class=' glyphicon glyphicon-globe text-warning'></span> Missiva Estera</p>
-							</div>
-							<div class='col-xs-4 '>
-								<p><span class=' glyphicon glyphicon-certificate text-danger'></span> Missiva Sicura</p>
-							</div>
-	
-	
-							@if (Auth::user()->usergroup == 7)
-							<div class='col-xs-4 '>
-								<p><span class='glyphicon glyphicon-flash' style='color:#FF6600;'></span> Intercettato</p>
-							</div>
-							@endif
-
-						</div>
-					</div>
 				
+				
+				<div class="form-group" > 
+					<div class="input-group margin-bottom">
+					<span class="input-group-addon" id="basic-addon-testo">Testo</span>	
+					{{ Form::text('Testo', Input::old('testo'), ['class'=>'form-control','describedby'=>"basic-addon-testo",'placeholder'=>'Parole chiave, es: "spia"']) }}
+					</div>
 				</div>
+	
+	
+	
+				<div class="form-group" > 
+					<div class="input-group margin-bottom">
+					<span class="input-group-addon" id="basic-addon-data">Data</span>	
+					{{ Form::text('Data', Input::old('Data'), ['class'=>'form-control','describedby'=>"basic-addon-data"]) }}
+					</div>
+				</div>
+	
+				@if (Auth::user()->usergroup == 7)
+				<div   class="form-group"  title='Mostra solo le missive intercettate'>
+					<div class="input-group margin-bottom">
+					<span class="input-group-addon" id="basic-addon-intercettato"><span class="glyphicon glyphicon-flash" style="color:#FF6600;"></span></span>	
+					{{ Form::checkbox('Intercettato',1, Input::old('intercettato'), ['class'=>'checkbox','describedby'=>"basic-addon-intercettato"]) }}
+					</div>
+				</div>
+				<div  class="form-group"   title='Mostra solo le missive a cui dobbiamo ancora rispondere'>
+					<div class="input-group margin-bottom">
+					<span class="input-group-addon" id="basic-addon-nonrisp">
+						<span class="glyphicon glyphicon-check" style="color: #f00"></span>
+					</span>	
+					{{ Form::checkbox('Solononrisp',1, Input::old('rispondere'), ['class'=>'checkbox','describedby'=>'basic-addon-nonrisp']) }}
+					</div>
+				</div>
+				@endif
+	
+				<div  class="form-group" title='Mostra solo le missive per PNG'>
+					<div class="input-group ">
+					<span class="input-group-addon" id="basic-addon-solopng">
+						Solo PNG
+					</span>	
+					{{ Form::checkbox('ConPNG',1, Input::old('ConPNG'), ['class'=>'checkbox','describedby'=>'basic-addon-solopng']) }}
+					</div>
+				</div>
+			</div>
+
+			<div class='btn-group'> 
+				<a class='btn btn-primary visible-xs-block' title='Mostra ricerca avanzata'><span class='glyphicon glyphicon-plus' href='#' onclick='mostra_controlli();'></span></a> 
+				{{ Form::submit('Cerca', array('class' => 'btn btn-success ')) }}
+			</div>
+
+				
+				
 				{{Form::close()}}
 		</div>
-		<hr>
+
 	
-	{{--##### PAGINATOR ###########################################--}}
-	<div id='pagine'></div>
+	
+
+
 
 	
 	{{--##### LIST OF ELEMENTS ###########################################--}}
-	<div class='row'>
-		<div class='col-sm-6'>
-			<ul class='media-list' id='results'></ul> 
-		
+	<div class='col-sm-8' style='position:relative;'>
+		<div id='parent-list' style='position: absolute; top: 40px; left:0px; width:100%'>
+			<div id='pagine' class='col-sm-8'></div>
+			<div class='col-sm-12'>
+				<ul class='media-list' id='results'></ul> 
+			</div>
 		</div>
-		<div id='lateral_panel' class='col-sm-6 hidden-xs'>
-			<div class='media-body'>
+		<div id='panel_missiva' style='position: absolute; top: 40px; left:10px; padding: 0px; background-color: #fff;'>
+			<div class='col-sm-12' class='media-body'>
+				
+				
+				<div id='missiva_icon_bar'></div>
 				<header>
-					<h5 id='mittente_sm'></h5>
-					<h5 id='destinatario_sm'></h5>
+					<h4 id='mittente_sm'></h4>
+					<h4 id='destinatario_sm'></h4>
 				</header>
 				
 				<p id='testo_sm' class='justified '></p>
@@ -147,6 +123,7 @@
 @stop
 
 @section('JS')
+	{{ HTML::script('js/jquery-ui.min.js');}}
 @stop
 
 @section('Scripts')
@@ -157,9 +134,16 @@
 			var show_delete=false;
 		@endif
 		get_list_missive(1,show_delete);
-		
-	
+		$('#panel_missiva').toggle(0);
+		$('.bodyfooter').hide()
 	});
+	
+	function hide_missiva() {
+			$('#panel_missiva').toggle(0);
+		}
 
+	function mostra_controlli() {
+			$('#other_inputs').toggle().removeClass('hidden-xs');
+		}
 
 @stop

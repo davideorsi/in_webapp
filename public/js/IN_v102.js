@@ -275,7 +275,7 @@ $.ajax({
 	success: function(output){
 		$('#pagine').bootpag({
 			total: output.last_page,
-			maxVisible: 10
+			maxVisible: 7
 		}).on("page", function(event, num){get_list_missive(num,show_delete)} );
 		
 		var missive=output.data;
@@ -312,21 +312,18 @@ $.ajax({
 			if (missiva.rispondere==0 && show_delete){
 			icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")'></a>");	
 			}
-			if (missiva.intercettato==1 && show_delete){
-				icon_area.append("<span class='pull-right glyphicon glyphicon-flash' style='font-size: 1.4em; color:#FF6600; margin-top: 2px;'>");
-				}
-
-			// Aggiungi PDF print button
-			icon_area.append("<a class='pdfbutton with_margin_icon glyphicon glyphicon-print' ' href='missive/"+missiva.id+"'></a>")
 			
 				
 			mediacollapse.append(header);
 			header.append("<input type='hidden' name='id' value='"+missiva.id+"' />");
 			
 			// Aggiungi icone con il tipo di missiva, come glyph
-			header.append("<span class='"+missiva.tipo['icon']+"' style='margin-top: 3px; font-size: 1.4em'></span>");
+			header.append("<span class='icona_tipo_missiva "+missiva.tipo['icon']+"' ></span>");
+			if (missiva.intercettato==1 && show_delete){
+				header.append("<span class='icona_interc_missiva glyphicon glyphicon-flash'>");
+				}
 			
-			header.append(' ('+missiva.data+') ');
+			header.append("<span style='font-weight:bold; margin-right:5px;'> ("+missiva.data+") </span>")	
 			header.append(missiva.mitt);
 			header.append("<span class='with_margin glyphicon glyphicon-arrow-right' ></span>")
 			header.append(missiva.dest);
@@ -336,21 +333,45 @@ $.ajax({
 			
 		});
 		$('.media .media-heading').on('click', function(e) {
-	    e.preventDefault();
-	    $('.media-heading').removeClass('missiva_clicked');
-	    $(this).addClass('missiva_clicked');
-	    var is_small = $('#lateral_panel').css('display') == 'none';
-	    if (is_small){
-	    var collapse = $(this).closest('.collapse-group').find('.collapse');
-			collapse.collapse('toggle');
-		} else {
+			e.preventDefault();
+			$('.media-heading').removeClass('missiva_clicked');
+			$(this).addClass('missiva_clicked');
+
 			get_missiva($(this).children('[name="id"]').val());
-		}
-});
+			var HH=$('#parent-list').height();
+			var WW=$('#parent-list').width();
+			$('#panel_missiva').css('min-height',HH);
+			$('#panel_missiva').css('width',WW);
+			$('#panel_missiva').toggle(0); // show panel with missiva
+			var pos=$('#parent-list').offset();
+			window.scrollTo(pos.left, pos.top-100);
+		});
+		$('#panel_missiva').hide();
 	},  
 	dataType: "json"
 });
 }
+
+
+function get_missiva(id){
+$.ajax({
+	type: "GET",
+	url:  "missive/"+id,
+	async: false,
+	success: function(output){
+		$("#missiva_icon_bar").html("<a class='with_margin_icon_left glyphicon glyphicon-remove' href='#' title='Ritorna alla lista delle missive' onclick='hide_missiva()'></a>");
+		$("#missiva_icon_bar").append("<a class='pdfbutton with_margin_icon_left glyphicon glyphicon-print' title='Genera PDF stampabile' href='missive/"+id+"'></a>");
+		$("#missiva_icon_bar").append("<h4 class='data_missiva' >"+output.data+"</h4>");
+		
+		$("#mittente_sm").html(' Da: '+output.mitt);
+		$("#destinatario_sm").html(' Per: '+output.dest);
+		$("#testo_sm").html(output.testo);
+	},  
+	dataType: "json"
+});
+}
+
+
 
 function destroy_missiva(id){
 	var conf = confirm("Cancello la missiva n°"+id+"?");
@@ -505,20 +526,6 @@ function edit_conto(id) {
 		$('#form_edit #Interessi').val(conto.Interessi);
 		$('#form_edit #Intestatario').val(conto.Intestatario);
 	}
-}
-
-
-function get_missiva(id){
-$.ajax({
-	type: "GET",
-	url:  "missive/"+id,
-	success: function(output){
-		$("#mittente_sm").html(' Da: '+output.mitt);
-		$("#destinatario_sm").html(' Per: '+output.dest);
-		$("#testo_sm").html(output.testo);
-	},  
-	dataType: "json"
-});
 }
 
 
