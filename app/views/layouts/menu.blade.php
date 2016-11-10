@@ -1,4 +1,15 @@
 <!--Navigation menu-->
+<?php  
+	$idpg = Session::get('idpg');
+	if ($idpg) {
+	$abilita_del_PG=PG::find($idpg)->Abilita()->get();
+	$lista=INtools::select_column($abilita_del_PG,'Ability');			
+	$scrivere=in_array('Scrivere',$lista)|in_array('Leggere e scrivere',$lista);
+	} else {
+	$scrivere=false;
+	}
+?>
+
 <nav class="navbar navbar-inverse navbar-fixed-top titlebar" role="navigation">
 <div>
 <div class="container-fluid centerbar">
@@ -70,9 +81,11 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li ><a href="{{ URL::to('info') }}"><small>I tuoi dati</small></a></li>
+							@if ($idpg | Auth::user()->usergroup == 7) 
 							<li ><a href="{{ URL::to('account') }}"><small>Iscrizione</small></a></li>
 							<li ><a href="{{ URL::to('pg') }}"><small>Il tuo PG</small></a></li>
 							<li ><a href="{{ URL::to('pg/info') }}"><small>Info Speciali</small></a></li>
+							@endif
 						</ul>
 				</li>
 				@endif		
@@ -89,7 +102,9 @@
 						<h6 class='hidden-xs didascalia'>Missive</h6>
 					</a>
 					<ul class="dropdown-menu" role="menu">
+						@if ($idpg | Auth::user()->usergroup == 7) 
 						<li ><a href="{{ URL::to('missive') }}"><small>Cerca</small></a></li>
+						@endif
                         @if (Auth::user()->usergroup == 7)
 						<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
                         <li><a href="{{ URL::to('admin/intercettate/') }}"><small>Intercettate</small></a></li>
@@ -97,16 +112,6 @@
                         <!-- Disabilitato per live -->
                         
 	                        @if (!app('prelive'))
-		                        <?php  
-						            $idpg = Session::get('idpg');
-						            if ($idpg) {
-									$abilita_del_PG=PG::find($idpg)->Abilita()->get();
-									$lista=INtools::select_column($abilita_del_PG,'Ability');			
-									$scrivere=in_array('Scrivere',$lista)|in_array('Leggere e scrivere',$lista);
-									} else {
-									$scrivere=false;
-									}
-		                        ?>
 									@if ($scrivere)
 										<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
 									@endif
