@@ -94,6 +94,7 @@
 
 			<!--############# MISSIVE ########################-->
 			@if (Auth::check())
+				@if ($idpg | Auth::user()->usergroup == 7) 
 				<li class='dropdown'>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span class='glyphicon glyphicon-envelope'></span>
@@ -102,9 +103,9 @@
 						<h6 class='hidden-xs didascalia'>Missive</h6>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						@if ($idpg | Auth::user()->usergroup == 7) 
+						
 						<li ><a href="{{ URL::to('missive') }}"><small>Cerca</small></a></li>
-						@endif
+
                         @if (Auth::user()->usergroup == 7)
 						<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
                         <li><a href="{{ URL::to('admin/intercettate/') }}"><small>Intercettate</small></a></li>
@@ -120,6 +121,7 @@
                         @endif
                     </ul>
 				</li>
+                @endif
 			@endif
 
 
