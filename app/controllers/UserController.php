@@ -135,6 +135,7 @@ class UserController extends BaseController {
 				return View::make('account')
 							->with('in_tempo',false)
 							->with('pg',$pg)
+							->with('data_iscrizione',$datalimite)
 							->with('evento',$evento[0])
 							->with('iscritto',$iscritto)
 							->with('iscrizione',$iscrizione[0])
