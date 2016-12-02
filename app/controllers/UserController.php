@@ -55,7 +55,7 @@ class UserController extends BaseController {
 			$evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
 
 
-			$limite=$limite->sub(new DateInterval('P0D'));
+			$limite=$limite->sub(new DateInterval('P1D'));
 			$today=new Datetime();
 
 			// Verifica l'Iscrizione
