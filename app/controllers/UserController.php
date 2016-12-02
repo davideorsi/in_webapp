@@ -115,8 +115,8 @@ class UserController extends BaseController {
 				}
 
 			
+			$datalimite=$limite->format("d/m/Y");
 			if ($today < $limite)	{
-				$datalimite=$limite->format("d/m/Y");
 				return View::make('account')
 							->with('in_tempo',true)
 							->with('data_iscrizione',$datalimite)
