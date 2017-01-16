@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'inforum',
 			'username'  => 'root',
-			'password'  => 'cioppa0091',
+			'password'  => 'cioccolatovolante',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
