@@ -17,7 +17,18 @@ public static function AbilitaSbloccate($PG){
 		$sbloccate		=$PG->Sbloccate()->get();
 
 		// trova abilità disponibili per l'acquisto
-		$possessed = $PG['Abilita']->lists('ID');
+		$possessed = $PG['Abilita'];
+		// trova le abilità eventualmente escluse da quelle acquistabili da una abilità già posseduta
+		$escluse=array();
+		foreach ($possessed as $pos){
+			$escab=$pos->Esclusi;
+			$esc=INtools::select_column($escab,'ID');
+			foreach ($esc as $escid){
+				array_push($escluse,$escid);
+			}
+		}
+		$possessed = $possessed->lists('ID');
+
 		$categorie = $PG['Categorie']->lists('Categoria');
 
 		$categorie_poss=$categorie;
@@ -38,14 +49,17 @@ public static function AbilitaSbloccate($PG){
 			}
 			
 		foreach ($all_ab as $ab){
+
 			 $reqab=$ab->Requisiti;
 			 $req=INtools::select_column($reqab,'ID');
+
 			 
 			 // se l'abilità è nelle categorie giuste, non è già stata
 			 //acquistata, oppure è stata sbloccata, allora aggiungi alla lista
 			 if (array_intersect($req,$possessed)==$req &
 				 in_array($ab['Categoria'],$categorie) &
-				 (!in_array($ab['ID'],$possessed) | in_array('Mistiche',$categorie) &$ab['ID']==57 & $cart_pot_supl<8)) {
+				 (!in_array($ab['ID'],$possessed) | in_array('Mistiche',$categorie) &$ab['ID']==57 & $cart_pot_supl<8) &
+				 !in_array($ab['ID'],$escluse) ) {
 				$sbloccate[]=$ab;	
 				}
 			}
@@ -96,6 +110,8 @@ public static function AbilitaSbloccate($PG){
 			}
 		return INtools::array_unshift_assoc($selSbloccate,'0','');
 	}
+
+
 
 	/* dato un PG
 	 * $PG= PG::find($id);
