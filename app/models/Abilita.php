@@ -9,6 +9,10 @@ class Abilita extends Eloquent {
 	public function Requisiti() {
 		return $this->belongsToMany('Abilita', 'Ability-Req', 'AB', 'REQ');
 	}
+	
+	public function Esclusi() {
+		return $this->belongsToMany('Abilita', 'Ability-Esc', 'AB', 'ESC');
+	}
 
 	public function PG() {
 		return $this->belongsToMany('PG', 'Ability-PG', 'ID Abil', 'ID PG');

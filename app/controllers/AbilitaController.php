@@ -131,6 +131,7 @@ class AbilitaController extends \BaseController {
 		}
 		
 		$abilita->Requisiti;
+		$abilita->Esclusi;
 		//dd($abilita['req']);
 		
 		// show the edit form and pass the object
@@ -261,5 +262,32 @@ class AbilitaController extends \BaseController {
 		Session::flash('message', 'Requisito rimosso correttamente!');
 		return Redirect::to('admin/abilita/'.$ab.'/edit');
 	}
+
+	//######## GESTIONE ABILITA ESCLUSE #########################################
+	public function add_esclusa()
+	{
+		$ab=Input::get('ID');
+		$esc=Input::get('Esc');
+
+		$AB=Abilita::find($ab);
+		$AB->Esclusi()->attach($esc);
+		
+		Session::flash('message', 'Abilità esclusa aggiunta correttamente!');
+		return Redirect::to('admin/abilita/'.$ab.'/edit');
+		
+	}
+
+	public function del_esclusa()
+	{
+		$ab=Input::get('ID');
+		$esc=Input::get('Esc');
+
+		$AB=Abilita::find($ab);
+		$AB->Esclusi()->detach($esc);
+
+		Session::flash('message', 'Abilità esclusa rimossa correttamente!');
+		return Redirect::to('admin/abilita/'.$ab.'/edit');
+	}
+
 
 }

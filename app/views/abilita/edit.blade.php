@@ -68,7 +68,8 @@
 				</div>
 
 				
-		        <div class="col-md-6">
+				<!--############## REQUISITI ABILITA'############################ -->
+		        <div class="form-group col-md-6">
 					<table class='table table-striped'>
 						<thead>
 							<th >Requisiti</th>
@@ -104,8 +105,47 @@
 						</tbody>
 					</table>
 				</div>
+				
+				
+				<!--############## ESCLUDI ABILITA'############################ -->
+		        <div class="form-group col-md-6">
+					<table class='table table-striped'>
+						<thead>
+							<th >Abilità escluse</th>
+							<th class='center_tx'>Elimina</th>
+						</thead>
+						<tbody>
+						
+						@foreach ($abilita['Esclusi'] as $esc)
+							<tr>
+								<td>{{$esc['Ability']}}</td>
+								<td class='center_tx'>
+								{{ Form::model($esc, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin/abilita_esclusa', 'class'=>'pure-form')) }}
+								{{ Form::hidden('Esc',$esc['ID'])}}
+								{{ Form::hidden('ID',$abilita['ID']) }}
+								{{ Form::submit('Elimina', array('class' => 'btn btn-warning')) }}
+								{{ Form::close()}}
+								</td>
+							</tr>
+						
+						@endforeach	
+
+							<tr>
+								<td colspan='1'>
+									{{ Form::model($abilita, array('files'=>true, 'method' => 'POST', 'url' => 'admin/abilita_esclusa', 'class'=>'pure-form')) }}
+									{{ Form::select('Esc', $tutte, null, ['class'=>'form-control']) }}
+									{{ Form::hidden('ID',$abilita['ID'])}}
+								</td>
+								<td colspan='1'>
+									{{ Form::submit('Aggiungi', array('class' => 'btn btn-success')) }}
+									{{ Form::close()}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>	
 					
-					
+				<!--############## OPZIONI ABILITA'############################ -->	
 		        <div class="form-group col-md-6">
 					<table>
 						<thead>
