@@ -277,7 +277,9 @@ class VicendasController extends \BaseController {
 				->with('master',$ilmaster);
 		} else {
 			
-			$attivita=array(array(),array(),array(),array(),array());
+			$attivita=array(array());
+			foreach($Masters as $master) array_push($attivita,array());
+			
 			foreach($elementi as $key=>$elemento){
 				$elemento->PNGminori;
 				$elemento->PNG;
