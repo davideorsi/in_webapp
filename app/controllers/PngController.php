@@ -9,17 +9,35 @@ class PngController extends \BaseController {
 	 */
 	public function index()
 	{
-		$Morti=PNG::orderBy('Nome','asc')->where('Morto','=','1')->get();
-		$Vivi=PNG::orderBy('Nome','asc')->where('Morto','=','0')->get();
+		$Morti=PNG::orderBy('Master', 'asc')->orderBy('Nome','asc')->where('Morto','=','1')->get();
+		$Vivi=PNG::orderBy('Master', 'asc')->orderBy('Nome','asc')->where('Morto','=','0')->get();
+
+		$Masters = User::orderBy('ID','desc')->where('usergroup','=',7)->get();
+		$Aiutomasters = User::orderBy('ID','desc')->where('usergroup','=',15)->get();
+		$selMaster=array();
+		foreach ($Masters as $Master){
+			$selMaster[(string)$Master->id] = $Master['username'];
+		}
+		foreach ($Aiutomasters as $Master){
+			$selMaster[(string)$Master->id] = $Master['username'];
+		}
 
 		$selMorti=array('NULL' => '');
 		foreach ($Morti as $morto){
-			$selMorti[(string)$morto->ID] = $morto['Nome'].' ('.$morto['Ruolo'].')';
+			if (is_numeric($morto->Master)){
+				$selMorti[$selMaster[(string)$morto->Master]][(string)$morto->ID] = $morto['Nome'].' ('.$morto['Ruolo'].')';
+			}else{
+				$selMorti[$morto->Master][(string)$morto->ID] = $morto['Nome'].' ('.$morto['Ruolo'].')';
+			}
 		}
 
 		$selVivi=array('NULL' => '');
 		foreach ($Vivi as $vivo){
-			$selVivi[(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['Ruolo'].')';
+			if (is_numeric($vivo->Master)){
+				$selVivi[$selMaster[(string)$vivo->Master]][(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['Ruolo'].')';
+			}else{
+				$selVivi[$vivo->Master][(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['Ruolo'].')';
+			}
 		}
 
 		return View::make('png.index')
@@ -36,8 +54,12 @@ class PngController extends \BaseController {
 	public function create()
 	{
 		$Masters = User::orderBy('ID','desc')->where('usergroup','=',7)->get();
+		$Aiutomasters = User::orderBy('ID','desc')->where('usergroup','=',15)->get();
 		$selMaster=array();
 		foreach ($Masters as $Master){
+			$selMaster[(string)$Master->id] = $Master['username'];
+		}
+		foreach ($Aiutomasters as $Master){
 			$selMaster[(string)$Master->id] = $Master['username'];
 		}
 			
@@ -109,8 +131,12 @@ class PngController extends \BaseController {
 	{
 
 		$Masters = User::orderBy('ID','desc')->where('usergroup','=',7)->get();
+		$Aiutomasters = User::orderBy('ID','desc')->where('usergroup','=',15)->get();
 		$selMaster=array();
 		foreach ($Masters as $Master){
+			$selMaster[(string)$Master->id] = $Master['username'];
+		}
+		foreach ($Aiutomasters as $Master){
 			$selMaster[(string)$Master->id] = $Master['username'];
 		}
 		

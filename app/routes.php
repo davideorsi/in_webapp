@@ -137,6 +137,11 @@
 		Route::delete('admin/png_incanto', 'PngController@del_incanto');
 	});
 	
+	
+	Route::group(array('before'=>'aiutomaster'), function() { 
+		Route::get('png/{id}', 'PngController@show');
+	});
+	
 	// route per le missive
 	Route::group(array('before'=>'auth'), function() {
 		Route::get('missive/search','MissivaController@search');

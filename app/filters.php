@@ -71,6 +71,24 @@ Route::filter('master', function()
 	}
 });
 
+Route::filter('aiutomaster', function()
+{
+	if (Auth::guest()){
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
+		}
+	} else {
+		if ((Auth::user()->usergroup != 7) & (Auth::user()->usergroup != 15) ) {
+			return Response::make('Unauthorized', 401);
+		}
+	}
+});
+
 Route::filter('scrivere', function()
 {
 	if (Auth::guest()){
