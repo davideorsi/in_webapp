@@ -6,6 +6,7 @@
 	@stop
 		
 	@section('content')
+		<h3>{{$Evento['Tipo']}} - {{$Evento['Titolo']}}</h3>
 		<h3>Dettagli della trama - {{$master['username']}} <a href="{{ URL::previous() }}" class='btn btn-success'><span class='glyphicon glyphicon-arrow-left' aria-hidden="true"></span></a></h3>
 		</br>
 	@foreach( $elementi as $elemento)	
@@ -29,7 +30,11 @@
 				<h5>PNG</h5>
 				<ul>
 					@foreach($elemento->png as $png)
+						@if (Auth::user()->usergroup == 15)
+						<li style='color: {{$png->color}}'><a style='color: {{$png->color}}' href="{{URL::to('png/'.$png->ID)}}">{{$png->Nome}}</a> ({{$png->nomeuser}})</li>
+						@else
 						<li style='color: {{$png->color}}'><a style='color: {{$png->color}}' href="{{URL::to('admin/png/'.$png->ID)}}">{{$png->Nome}}</a> ({{$png->nomeuser}})</li>
+						@endif
 					@endforeach
 				</ul>
 				<h5>PNG minori</h5>

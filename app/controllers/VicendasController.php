@@ -125,10 +125,12 @@ class VicendasController extends \BaseController {
 			'black',
 			'red',
 			'green',
-			'blue'
+			'blue',
+			'purple',
+			'orange'
 		);
 
-		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
 		$coloreMaster=array();
 		$nomeMaster=array();
 		foreach ($Masters as $key2=>$Master){
@@ -139,17 +141,20 @@ class VicendasController extends \BaseController {
 		foreach ($vicende as $key=>$vicenda){
 				$elementi=$vicenda->Elementi;
 				foreach ($elementi as $elemento) {
+						
 						$elemento->png;
 						$elemento->PNGminori;
-						
-						foreach ($elemento['png'] as $key3=>$png){
+						if (!empty($elemento['png'])) {
+							foreach ($elemento['png'] as $key3=>$png){
 								$elemento['png'][$key3]['color']=$coloreMaster[$png['Master']];
 								$elemento['png'][$key3]['nomeuser']=$nomeMaster[$png['Master']];
+							}
 						}
-						
-						foreach ($elemento['pngminori'] as $key4=>$png){
+						if (!empty($elemento['pngminori'])) {
+							foreach ($elemento['pngminori'] as $key4=>$png){
 								$elemento['pngminori'][$key4]['color']=$coloreMaster[$png['User']];
 								$elemento['pngminori'][$key4]['nomeuser']=$nomeMaster[$png['User']];
+							}
 						}
 					}
 					
@@ -177,14 +182,18 @@ class VicendasController extends \BaseController {
 	public function show_all_master($id_evento,$idmaster=null)
 	{
 
+	if ((Auth::user()->usergroup == 7) | (Auth::user()->usergroup == 15 & Auth::user()->id == $idmaster)){
+	
 		$palette_png=array(
 			'black',
 			'red',
 			'green',
-			'blue'
+			'blue',
+			'purple',
+			'orange'
 		);
 
-		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
 		$coloreMaster=array();
 		$nomeMaster=array();
 		foreach ($Masters as $key2=>$Master){
@@ -332,6 +341,10 @@ class VicendasController extends \BaseController {
 			//return Response::json(['Masters'=>$Masters,'Elementi'=>$attivita,'Vicende'=>$vicende]);
 			
 		}
+	} else {
+		# se sei un aiuto master ma cerchi di vedere le trame di un master o di un altro aiutomaster, non puoi.
+		return Redirect::to('/');
+	}
 	}
 
 	/**
@@ -398,4 +411,39 @@ class VicendasController extends \BaseController {
 		return Redirect::to('vicenda');;
 	}
 
+	public function eventi_aiutomaster() {
+		
+		$idmaster=Auth::user()->id;
+		$eventi = Evento::orderBy('ID', 'desc')->get();
+		
+		$selEventi=array();
+		foreach($eventi as $evento){
+			$vicende = $evento->Vicende;
+			$elenco=INtools::select_column($vicende,'ID');	
+			$elenco = array_map(
+				create_function('$value', 'return (int)$value;'),
+				$elenco
+			);					
+			$elementi= Elemento::orderBy('start', 'asc')->whereIn('vicenda',$elenco)->get();
+
+			$ok=false;
+			foreach ($elementi as $elemento) {
+				$elemento->PNGminori;
+				$elemento->PNG;
+				
+				$elenco1=INtools::select_column($elemento['pngminori'],'User');
+				$elenco2=INtools::select_column($elemento['png'],'Master');
+				
+				
+				if (in_array($idmaster, $elenco1) | in_array($idmaster, $elenco2)) {
+					$ok=true;
+				}
+			}
+			if ($ok)  $selEventi[$evento->ID]=$evento->Titolo;
+				
+		}
+		return View::make('vicendas.eventi_aiutomaster')
+				->with('selectEventi', $selEventi);
+		
+	}
 }

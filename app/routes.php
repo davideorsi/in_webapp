@@ -198,6 +198,12 @@
 		Route::post('elemento_png_minor_remove/{id}', 'ElementosController@remove_png_minor');
     });
     
+    
+	Route::group(array('before'=>'aiutomaster'), function() {    
+        Route::get('eventi/','VicendasController@eventi_aiutomaster');
+        Route::get('vicende/{id}/master/{num?}','VicendasController@show_all_master');
+    });
+      
 	########## Trame ###############################
 	Route::group(array('before'=>'master'), function() {    
         Route::get('admin/oggetti','OggettiController@index');

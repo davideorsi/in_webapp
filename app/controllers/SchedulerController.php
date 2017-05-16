@@ -16,14 +16,17 @@ class SchedulerController extends \BaseController {
 			'black',
 			'red',
 			'green',
-			'blue'
+			'blue',
+			'purple',
+			'orange'
 		);
 		
-		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
 		foreach ($Masters as $key2=>$Master){
 			$Master['color'] = $palette_png[$key2];		
 			$Master->PNG;
 		}
+
 		
 		$selMaster=array();
 		foreach ($Masters as $Master){

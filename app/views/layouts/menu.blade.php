@@ -188,6 +188,7 @@
 				</a>
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('png') }}"><small>PNG</small></a></li>
+						<li ><a href="{{ URL::to('eventi') }}"><small>Trame</small></a></li>
 					</ul>
 					
 				</li>
