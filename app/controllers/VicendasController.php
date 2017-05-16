@@ -144,18 +144,16 @@ class VicendasController extends \BaseController {
 						
 						$elemento->png;
 						$elemento->PNGminori;
-						if (!empty($elemento['png'])) {
 							foreach ($elemento['png'] as $key3=>$png){
 								$elemento['png'][$key3]['color']=$coloreMaster[$png['Master']];
 								$elemento['png'][$key3]['nomeuser']=$nomeMaster[$png['Master']];
 							}
-						}
-						if (!empty($elemento['pngminori'])) {
+						
 							foreach ($elemento['pngminori'] as $key4=>$png){
 								$elemento['pngminori'][$key4]['color']=$coloreMaster[$png['User']];
 								$elemento['pngminori'][$key4]['nomeuser']=$nomeMaster[$png['User']];
 							}
-						}
+						
 					}
 					
 				$vicenda['schedule']=$elementi;
