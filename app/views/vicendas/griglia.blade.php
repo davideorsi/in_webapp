@@ -6,6 +6,7 @@
 	@stop
 		
 	@section('content')
+		<?php $widthperc=90/(count($data['Masters'])+1); ?>
 		<h3>Griglia degli avvenimenti <a href="{{ URL::previous() }}" class='btn btn-success'><span class='glyphicon glyphicon-arrow-left' aria-hidden="true"></span></a></h3>
 		<p style="margin-bottom:20px;">Porta il mouse sopra la griglia per vedere i dettagli di ogni elemento.</p>
 		
@@ -16,9 +17,9 @@
 					<tr>
 						<th style='width:10%'>Ore:</th>
 						@foreach ($data['Masters'] as $master)
-							<th style='width:18%'>{{$master->username}}</th>
+							<th style="width:{{$widthperc}}%">{{$master->username}}</th>
 						@endforeach
-						<th style='width:18%'>Altro</th>
+						<th style="width:{{$widthperc}}%">Altro</th>
 					</tr>
 			    </thead>
 			    <tbody>
@@ -46,8 +47,7 @@
 					class='griglia master{{$key}}' 
 					data-toggle="tooltip" title="<b>{{$elemento['Titolo']}}</b></br>{{strip_tags($elemento['Info'])}}" 
 					data-placement="auto left"
-					style="background-color:{{$data['Vicende'][$keyVicenda]['color']}}; top:{{$elemento['Start']*3+38}}px; left:{{$key*18+10}}%; height:{{($elemento['End']-$elemento['Start'])*3-2}}px"
-				>
+					style="background-color:{{$data['Vicende'][$keyVicenda]['color']}}; width:{{$widthperc-0.1}}%; top:{{$elemento['Start']*3+38}}px; left:{{$key*$widthperc+10}}%; height:{{($elemento['End']-$elemento['Start'])*3-2}}px">
 					<h5>{{$elemento['Titolo']}}</h5>
 					
 					<p>PNG: {{$elemento['Png']}}</br>
@@ -82,7 +82,7 @@
 				if (i%2) {
 					var pos=list.eq(i).position();
 					var posleft=pos.left / list.eq(i).parent().width() * 100;
-					list.eq(i).css({top: pos.top, left: posleft+9+'%'});
+					list.eq(i).css({top: pos.top, left: posleft+{{$widthperc/2}}+'%'});
 				}
 			}
 			
