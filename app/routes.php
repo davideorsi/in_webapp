@@ -140,6 +140,7 @@
 	
 	Route::group(array('before'=>'aiutomaster'), function() { 
 		Route::get('png/{id}', 'PngController@show');
+		Route::get('png', 'PngController@png_list');
 	});
 	
 	// route per le missive

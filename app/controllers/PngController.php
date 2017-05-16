@@ -197,6 +197,21 @@ class PngController extends \BaseController {
 		Session::flash('message', 'PNG cancellato correttamente!');
 		return Redirect::to('admin/png');
 	}
+	
+	
+	public function png_list()
+	{
+		$USER=Auth::user();
+		$PNG=PNG::orderBy('Nome','asc')->where('Master','=',$USER->id)->get();
+
+		$selPNG=array('NULL' => '');
+		foreach ($PNG as $png){
+				$selPNG[(string)$png->ID] = $png['Nome'].' ('.$png['Ruolo'].')';
+		}
+		
+		return View::make('png.list')
+				->with('selPNG',$selPNG);
+	}
 
 //######## GESTIONE CATEGORIE #########################################
 	public function add_categoria()

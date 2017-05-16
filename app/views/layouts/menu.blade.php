@@ -179,6 +179,20 @@
 					
 				</li>
 			@endif
+			@if (Auth::user()->usergroup == 15) <!-- Aiuto Masters -->
+				<li class='dropdown'><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span class='glyphicon glyphicon-user'></span>
+					<div class='visible-xs-inline'>Master</div>
+					<span class="caret"></span>
+					<h6 class='hidden-xs didascalia'>Master</h6>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+						<li ><a href="{{ URL::to('png') }}"><small>PNG</small></a></li>
+					</ul>
+					
+				</li>
+				
+			@endif
 			@endif
 
 
