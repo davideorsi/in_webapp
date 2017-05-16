@@ -40,10 +40,12 @@ class ElementosController extends \BaseController {
 			'black',
 			'red',
 			'green',
-			'blue'
+			'blue',
+			'purple',
+			'orange'
 		);
 		
-		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->get();
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
 		$coloreMaster=array();
 		foreach ($Masters as $key=>$Master){
 			$coloreMaster[$Master->id] = $palette[$key];
