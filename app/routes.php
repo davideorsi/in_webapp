@@ -170,11 +170,12 @@
         Route::post('admin/interessi/{id}','BancaController@update_interessi');
     });
 
-	Route::group(array('before'=>'master'), function() {
+	Route::group(array('before'=>'aiutomaster'), function() {
         Route::get('admin/pozioni/','PozioniController@index');
         Route::get('admin/infopozioni/','PozioniController@info');
         Route::get('admin/ricetta/','PozioniController@ricetta');
     });
+    
     
 	Route::group(array('before'=>'master'), function() {
         Route::get('admin/economia/','EconomiaController@index');
