@@ -69,7 +69,7 @@
 
 		@for ($i = 1; $i <= 40; $i++)
 		<article class='retro'>
-			<div style='width:60%; margin-left:20%;'>
+			<div style='width:80%; margin-left:10%;'>
 			<p style='text-align: left; font-size: 9pt; line-height: 10pt; margin:-5px;   display: inline-block; vertical-align: middle;
   line-height: normal;'>
 				{{$effetto}}
