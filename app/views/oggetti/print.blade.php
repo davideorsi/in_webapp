@@ -42,7 +42,7 @@
 
 	<div class='panel' style=' page-break-after: always;'>
 
-		@for ($i = 1; $i <= 21; $i++)
+		@for ($i = 1; $i <= 40; $i++)
 		<article class='oggetto'>
 			<header>
 				<h4>Intempesta Noctis</h4>
@@ -55,7 +55,7 @@
 			<footer>
 			</footer>
 		</article>
-			@if (!($i%3))
+			@if (!($i%4))
 				<div style='clear:both'></div>
 			@endif
 		@endfor
@@ -65,13 +65,13 @@
 	
 	<div class='panel'>
 
-		@for ($i = 1; $i <= 21; $i++)
+		@for ($i = 1; $i <= 40; $i++)
 		<article class='retro'>
 			<p style='font-size: {{$Size}}pt; line-height: {{$Size}}pt; margin:-5px;'>
 				{{$Testo}}
 			</p>
 		</article>
-			@if (!($i%3))
+			@if (!($i%4))
 				<div style='clear:both'></div>
 			@endif
 		@endfor
