@@ -24,6 +24,9 @@
 				{{ Form::select('veleni', $selectVeleni, null, ['class'=>'form-control', 'id'=>'selectveleni']) }}
 				{{ Form::close() }}
 			</div>
+				<div class="btn-group" style='margin-bottom:10px;'>
+				<a id='print_pozione' class="btn btn-default" href="{{ URL::to('admin/pozioni/1/stampa') }}">Stampa Cartellini</a>
+			</div>
 			<?php $keys_poz= array_keys($selectPozioni); ?>
 			<?php $keys_vel= array_keys($selectVeleni); ?>
 
@@ -80,7 +83,8 @@
 						$('#selettoreEffetti').hide();
 					}
 				$('#selectveleni').val(1);
-				get_info_pozioni()
+				get_info_pozioni();
+				$('#print_pozione').attr('href', 'pozioni/'+$(this).val()+'/stampa');
 			});
 			
 			$('#selectveleni').change(function(){

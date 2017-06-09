@@ -8,7 +8,7 @@ class PozioniController extends \BaseController {
 	 */
 	public function index()
 	{
-		$pozioni = Pozione::orderBy('Nome', 'asc')->get(array('ID','Nome'));
+		$pozioni = Pozione::orderBy('ID', 'asc')->get(array('ID','Nome'));
 
 		$selectPozioni = array();
 		foreach($pozioni as $pozione) {
@@ -88,6 +88,18 @@ class PozioniController extends \BaseController {
 			
 		// load the view and pass the nerds
 		return Response::json($output);
+	}
+	
+	public function stampa($id)
+	{	
+
+		
+		$pozione=Pozione::find($id);
+
+        $effetto = str_replace('il pg subisce','subisci',$pozione->Effetto);
+		
+		return View::make('pozioni.print')
+			->with('effetto',$effetto);
 	}
 
 }
