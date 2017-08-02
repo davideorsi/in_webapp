@@ -27,8 +27,10 @@ class Missiva extends Eloquent {
 
 	public function getMittAttribute() {
 		if ($this->tipo_mittente=='PG') {
-			$pg=PG::find($this->mittente);
-			return $pg->Nome;
+			//$Pg=PG::find($this->Firma_Mitt);
+			$Firma=IDENTITAPG::find($this->Firma_Mitt);
+			return $Firma->FIRMA;
+			//return $Pg->Nome;
 			}
 		else {
 			return $this->mittente;
@@ -37,14 +39,16 @@ class Missiva extends Eloquent {
 
 	public function getDestAttribute() {
 		if ($this->tipo_destinatario=='PG') {
-			$pg=PG::find($this->destinatario);
-			return $pg->Nome;
+			//$Pg=PG::find($this->Firma_Dest);
+			$Firma=IDENTITAPG::find($this->Firma_Dest);
+			return $Firma->FIRMA;
+			//return $Pg->Nome;
 			}
 		else {
 			return $this->destinatario;
 			}
 		}
-
+		
 }
 
 ?>

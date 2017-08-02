@@ -33,7 +33,10 @@ class PG extends Eloquent {
 		return $this->hasMany('Conto','PG','ID');
 	}
 	
-
+	public function Firme(){
+		return $this->hasMany('IDENTITAPG','ID_PG','ID');
+	}
+	
 	public function PxRimasti(){
 		return intval($this->Px - $this->Abilita->sum('PX'));
 		}

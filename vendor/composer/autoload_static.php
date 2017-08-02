@@ -315,6 +315,7 @@ class ComposerStaticInit5b235658c026b17cc81958f48e40ed4f
         'GD_Adapter' => __DIR__ . '/..' . '/dompdf/dompdf/include/gd_adapter.cls.php',
         'Giocatore' => __DIR__ . '/../..' . '/app/models/Giocatore.php',
         'HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
+        'IDENTITAPG' => __DIR__ . '/../..' . '/app/models/IDENTITA-PG.php',
         'INtools' => __DIR__ . '/../..' . '/app/libraries/INtools.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
         'Image_Cache' => __DIR__ . '/..' . '/dompdf/dompdf/include/image_cache.cls.php',

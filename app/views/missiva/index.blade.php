@@ -3,7 +3,6 @@
 @section('content')
 
 
-		
 		@if ( Session::has('message'))
 			<div id='info' class="alert alert-info">
 				{{ Session::get('message') }}
@@ -16,9 +15,9 @@
 			<h2 class='hidden-xs'>Missive</h2>
 			
 			@if (Auth::user()->usergroup == 7)
-			{{Form::open(array('onsubmit'=>'get_list_missive(1,1); return false;')) }}
+			{{Form::open(array('onsubmit'=>'get_list_missive(1,1,0); return false;')) }}
 			@else
-			{{Form::open(array('onsubmit'=>'get_list_missive(1,0); return false;')) }}
+			{{Form::open(array('onsubmit'=>'get_list_missive(1,0,' . $idpg . '); return false;')) }}
 			@endif
 	
 			<div class="form-group" >
@@ -43,7 +42,6 @@
 					{{ Form::text('Testo', Input::old('testo'), ['class'=>'form-control','describedby'=>"basic-addon-testo",'placeholder'=>'Parole chiave, es: "spia"']) }}
 					</div>
 				</div>
-	
 	
 	
 				<div class="form-group" > 
@@ -85,8 +83,6 @@
 				{{ Form::submit('Cerca', array('class' => 'btn btn-success ')) }}
 			</div>
 
-				
-				
 				{{Form::close()}}
 		</div>
 
@@ -130,12 +126,14 @@
 	$( document ).ready(function() {
 		@if (Auth::user()->usergroup == 7)
 			var show_delete=true;
+			var idPG = 0;
 		@else
 			var show_delete=false;
+			var idPG = {{Session::get('idpg');}}
 		@endif
-		get_list_missive(1,show_delete);
+		get_list_missive(1,show_delete,idPG);
 		$('#panel_missiva').toggle(0);
-		$('.bodyfooter').hide()
+		$('.bodyfooter').hide();
 	});
 	
 	function hide_missiva() {

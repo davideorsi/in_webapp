@@ -217,6 +217,39 @@
 							</tr>
 						</tbody>
 					</table>
+					
+					<!-- IDENTITA'-->
+					<table class='table table-striped'>
+						<thead>
+							<th >Identità</th>
+							<th class='center_tx'>Elimina</th>
+						</thead>
+						<tbody>
+						@foreach ($PG['FIRME'] as $Firma)
+							<tr>
+								<td>{{ $Firma['FIRMA'] }}</td>
+								<td class='center_tx'>
+									{{ Form::model($PG, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin/pg_id', 'class'=>'pure-form')) }}
+									{{ Form::hidden('ID',$PG['ID'])}}
+									{{ Form::hidden('Firma',$Firma['ID']) }}
+									{{ Form::submit('Elimina', array('class' => 'btn btn-warning')) }}
+									{{ Form::close()}}
+								</td>
+							</tr>
+						@endforeach
+							<tr>
+								<td colspan='1'>
+									{{ Form::model($PG, array('files'=>true, 'method' => 'PUT', 'url' => 'admin/pg_id', 'class'=>'pure-form')) }}
+									{{ Form::text('Firma', null,['class'=>'form-control']) }}
+									{{ Form::hidden('ID',$PG['ID'])}}
+								</td>
+								<td colspan='1'>
+									{{ Form::submit('Aggiungi', array('class' => 'btn btn-success')) }}
+									{{ Form::close()}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>		
 	

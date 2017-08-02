@@ -71,6 +71,11 @@ class PgController extends \BaseController {
 		$PG->Sesso				=	Input::get('Sesso');
 		$PG->background			=	Input::get('background');
 		$PG->save();
+		
+		$ID = new IDENTITAPG;
+		$ID->ID_PG = $PG->ID;
+		$ID->FIRMA = $PG->Nome;
+		$ID->save();
 		// redirect
 		Session::flash('message', 'PG creato con successo!');
 		return Redirect::to('admin/pg');
@@ -323,6 +328,32 @@ class PgController extends \BaseController {
 		return Redirect::to('admin/pg/'.$idPg.'/edit');
 	}
 
+	//######## GESTIONE FIRME #########################################
+	public function add_firma()
+	{
+		$idPg=Input::get('ID');
+		
+		$id= new IDENTITAPG;
+		$id->ID_PG = $idPg;
+		$id->FIRMA = Input::get('Firma');
+		$id->save();
+
+		Session::flash('message', 'Firma aggiunta correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+		
+	}
+
+	public function del_firma()
+	{
+		$idPg=Input::get('ID');
+		$idFirma=Input::get('Firma');
+
+		IDENTITAPG::Destroy($idFirma);
+		
+
+		Session::flash('message', 'Firma rimossa correttamente!');
+		return Redirect::to('admin/pg/'.$idPg.'/edit');
+	}
 
 	//######## SCHEDE PG #########################################
 	public function schede()

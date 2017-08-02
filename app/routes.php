@@ -120,10 +120,12 @@
 		Route::put('admin/pg_abilita', 'PgController@add_abilita');
 		Route::put('admin/pg_sbloccate', 'PgController@add_sbloccate');
 		Route::put('admin/pg_incanto', 'PgController@add_incanto');
+		Route::put('admin/pg_id','PgController@add_firma');
 		Route::delete('admin/pg_categoria', 'PgController@del_categoria');
 		Route::delete('admin/pg_abilita', 'PgController@del_abilita');
 		Route::delete('admin/pg_sbloccate', 'PgController@del_sbloccate');
 		Route::delete('admin/pg_incanto', 'PgController@del_incanto');
+		Route::delete('admin/pg_id', 'PgController@del_firma');
 	});
 
 	// route per editare i PNG
@@ -150,11 +152,13 @@
 		Route::resource('missive', 'MissivaController',array('except' => array('update','edit')));
 	});	
 	Route::group(array('before'=>'scrivere'), function() {
+		Route::get('missive/{id}/rispondi','MissivaController@rispondi');
 		Route::resource('missive', 'MissivaController',array('only' => array('create')));
 	});
 	
 	
     Route::group(array('before'=>'master'), function() {
+		Route::get('missive/{id}/inoltra','MissivaController@Inoltra');
         Route::get('admin/intercettate/','MissivaController@intercettate');
         Route::post('admin/intercettate/','MissivaController@inoltra_intercettate');
         Route::post('missive/{id}/toggle','MissivaController@toggle_rispondere');

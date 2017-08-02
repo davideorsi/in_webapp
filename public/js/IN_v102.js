@@ -265,7 +265,7 @@ $.ajax({
 });
 }
 
-function get_list_missive(page,show_delete){
+function get_list_missive(page,show_delete,idpg){
 var data = $( "form" ).serializeArray();
 data.push({name: 'page', value: page});
 $.ajax({
@@ -276,7 +276,7 @@ $.ajax({
 		$('#pagine').bootpag({
 			total: output.last_page,
 			maxVisible: 7
-		}).on("page", function(event, num){get_list_missive(num,show_delete)} );
+		}).on("page", function(event, num){get_list_missive(num,show_delete,idpg)} );
 		
 		var missive=output.data;
 		var main=$('#results');
@@ -304,16 +304,29 @@ $.ajax({
 			if (show_delete) {
 				// Aggiungi bottone per cancellare missiva, come glyph
 				icon_area.append("<a class='with_margin_icon glyphicon glyphicon-remove-sign' href='#' onclick='destroy_missiva("+missiva.id+")'></a>");
-				// Aggiungi bottone per cancellare missiva, come glyph
-			}
-			if (missiva.rispondere==1 && show_delete){
-			icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")' style='color: #f00'></a>");
-			} 
-			if (missiva.rispondere==0 && show_delete){
-			icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")'></a>");	
+				// Aggiungi Toggle Rispondere
+				if (missiva.rispondere==1){
+				icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")' style='color: #f00'></a>");
+				} 
+				if (missiva.rispondere==0){
+				icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='#' onclick='toggle_rispondere("+missiva.id+")'></a>");	
+				}
+				if (missiva.costo > 0){
+				// Aggiungi bottone per inoltrare missiva, come glyph
+					if (missiva.tipo_mittente == "PG") {
+						icon_area.append("<a class='with_margin_icon glyphicon glyphicon-circle-arrow-right' href='#' title='Inoltra' onclick='inoltra("+missiva.id+")'></a>");
+					}
+					if (missiva.Firma_Mitt != 0){
+						icon_area.append("<a class='with_margin_icon glyphicon glyphicon-circle-arrow-left' href='#' title='Rispondi' onclick='rispondi("+missiva.id+")'></a>");
+					}	
+				}
 			}
 			
-				
+			//per Giocatori
+			if (!show_delete && missiva.destinatario == idpg && missiva.Firma_Mitt != 0){
+				icon_area.append("<a class='with_margin_icon glyphicon glyphicon-circle-arrow-left' href='#' onclick='rispondi("+missiva.id+")'></a>");
+			}
+	
 			mediacollapse.append(header);
 			header.append("<input type='hidden' name='id' value='"+missiva.id+"' />");
 			
@@ -337,7 +350,7 @@ $.ajax({
 			$('.media-heading').removeClass('missiva_clicked');
 			$(this).addClass('missiva_clicked');
 
-			get_missiva($(this).children('[name="id"]').val());
+			get_missiva($(this).children('[name="id"]').val(),idpg);
 			var HH=$('#parent-list').height();
 			var WW=$('#parent-list').width();
 			$('#panel_missiva').css('min-height',HH);
@@ -353,14 +366,29 @@ $.ajax({
 }
 
 
-function get_missiva(id){
+function get_missiva(id,idpg){
 $.ajax({
 	type: "GET",
 	url:  "missive/"+id,
 	async: false,
 	success: function(output){
+		
 		$("#missiva_icon_bar").html("<a class='with_margin_icon_left glyphicon glyphicon-remove' href='#' title='Ritorna alla lista delle missive' onclick='hide_missiva()'></a>");
 		$("#missiva_icon_bar").append("<a class='pdfbutton with_margin_icon_left glyphicon glyphicon-print' title='Genera PDF stampabile' href='missive/"+id+"'></a>");
+		if (idpg == 0) {
+			if (output.costo > 0){
+				if (output.Firma_Mitt != 0){
+					$("#missiva_icon_bar").append("<a class='pdfbutton with_margin_icon_left glyphicon glyphicon-circle-arrow-left' href='#' title='Rispondi' onclick='rispondi("+id+")'></a>");
+				}
+				if (output.tipo_mittente == "PG") {
+					$("#missiva_icon_bar").append("<a class='pdfbutton with_margin_icon_left glyphicon glyphicon-circle-arrow-right' href='#' title='Inoltra' onclick='inoltra("+id+")'></a>");
+				}
+			}
+		}
+		if (output.destinatario == idpg && output.Firma_Mitt != 0){
+			$("#missiva_icon_bar").append("<a class='pdfbutton with_margin_icon_left glyphicon glyphicon-circle-arrow-left' href='#' title='Rispondi al Mittente' onclick='rispondi("+id+")'></a>");
+		}
+		
 		$("#missiva_icon_bar").append("<h4 class='data_missiva' >"+output.data+"</h4>");
 		
 		$("#mittente_sm").html(' Da: '+output.mitt);
@@ -402,6 +430,15 @@ function toggle_rispondere(id){
 			dataType: "html"
 		});
 	}
+}
+
+function rispondi(id){
+		window.location.href = "missive/"+id+"/rispondi";
+		
+	}
+
+function inoltra(id){
+	window.location.href = "missive/"+id+"/inoltra";
 }
 
 function azzera_debito(id,alla_banca){
