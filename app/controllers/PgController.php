@@ -418,8 +418,15 @@ class PgController extends \BaseController {
 	public function sanita()
 	{
 		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
-		$PG=$Evento[0]->PG()->orderby('Arrivo','asc')->get()
+		$PGs=$Evento[0]->PG()->orderby('Arrivo','asc')->get();
 		
-		return View::make('pg.sanita')->with('PG',$data['PG']);
+		$data=array();
+		foreach($PGs as $key=>$pg){
+				$data[$key]['Nome']=$pg->Nome;
+				$data[$key]['Ferite']=intval($pg->Ferite());
+		}
+		
+		//return Response::json($data);
+		return View::make('pg.ferite')->with('PG',$data);
 	}
 }

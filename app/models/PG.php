@@ -36,7 +36,16 @@ class PG extends Eloquent {
 	public function Firme(){
 		return $this->hasMany('IDENTITAPG','ID_PG','ID');
 	}
-	
+
+	public function Ferite(){
+		$pf=2;
+		$ab=$this->Abilita()->get();
+		$ab=INtools::select_column($ab,'Ability');
+		if(in_array('Costituzione debole',$ab)){$pf-=1;}
+		if(in_array('Robustezza',$ab)){$pf+=1;}
+		if(in_array('Robustezza 2',$ab)){$pf+=1;}
+		return $pf;
+		}
 	public function PxRimasti(){
 		return intval($this->Px - $this->Abilita->sum('PX'));
 		}

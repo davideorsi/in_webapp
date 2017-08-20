@@ -274,6 +274,7 @@ class AbilitaController extends \BaseController {
 		$AB=Abilita::find($ab);
 		$AB->Esclusi()->attach($esc);
 		
+		
 		Session::flash('message', 'Abilità esclusa aggiunta correttamente!');
 		return Redirect::to('admin/abilita/'.$ab.'/edit');
 		

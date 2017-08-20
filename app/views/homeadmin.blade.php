@@ -16,6 +16,8 @@
 				<div class="input-group">
 					<span class="input-group-addon">Schede iscritti</span>
 					{{ HTML::link('/admin/schede', 'Genera!', array('class' => 'btn btn-primary form-control'), false)}}
+					<span class="input-group-addon">Cartellini PF iscritti</span>
+					{{ HTML::link('/admin/sanita', 'Genera!', array('class' => 'btn btn-success form-control'), false)}}
 				</div>
 			</div>
 		
