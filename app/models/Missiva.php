@@ -10,7 +10,12 @@ class Missiva extends Eloquent {
 	public function getTipoAttribute() {
 		switch ($this->costo) {
 			case 0:
-				$tipo = array('icon'=>'text-success glyphicon glyphicon-comment','text'=>'Missiva tra PG');
+				if ($this->tipo_mittente == 'PNG') {
+					$tipo = array('icon'=>'text-warning glyphicon glyphicon-globe','text'=>'Missiva Estera');
+				}
+				else  {
+					$tipo = array('icon'=>'text-success glyphicon glyphicon-comment','text'=>'Missiva tra PG');	
+				}
 				break;
 			case 2:
 				$tipo = array('icon'=>'text-primary glyphicon glyphicon-tower','text'=>'Missiva nel Ducato');
@@ -26,7 +31,7 @@ class Missiva extends Eloquent {
 	}
 
 	public function getMittAttribute() {
-		if ($this->tipo_mittente=='PG') {
+		if ($this->costo =='0' || $this->tipo_mittente == 'PG') {
 			//$Pg=PG::find($this->Firma_Mitt);
 			$Firma=IDENTITAPG::find($this->Firma_Mitt);
 			return $Firma->FIRMA;

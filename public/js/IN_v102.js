@@ -287,7 +287,9 @@ $.ajax({
 			} else if  (missiva.tipo_destinatario=='PNG') {
 				var clr='green_border';
 			} else {
-				var clr='gray_border';
+				
+					var clr='gray_border';
+				
 			}
 				
 			media=$('<li></li>').addClass('media '+clr);

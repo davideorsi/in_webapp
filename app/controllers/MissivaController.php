@@ -123,7 +123,7 @@ class MissivaController extends \BaseController {
 			$data= new Datetime($missiva['data']);
 			$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
 			}
-			
+		
 		return Response::json($missive);
 	}
 
@@ -379,9 +379,12 @@ class MissivaController extends \BaseController {
 				$destinatario_PNG=Input::get('destinatario_PNG');
 				$missiva->pagato			= 0;
 				$missiva->mittente     	= $idpg;
-				$missiva->tipo_mittente	 = 'PG';
 				$missiva->Firma_Mitt = Input::get('firma');
-				
+				$primaIdentità = IDENTITAPG::where('ID_PG','=',$idpg)->orderBy('ID','asc')->take(1)->pluck('FIRMA');
+				if ( Input::get('firma') == 'Non Firmata' || Input::get('firma') != $primaIdentità)
+				{$missiva->tipo_mittente	 = 'PNG';}
+				else
+				{$missiva->tipo_mittente	 = 'PG';}
 				if ($destinatario_PG && !$destinatario_PNG)
 					{
 					$missiva->destinatario = $destinatario_PG;
@@ -664,7 +667,7 @@ class MissivaController extends \BaseController {
 	 }
 	 
 	 
-	 public function inoltra_intercettate(){
+public function inoltra_intercettate(){
 		 
 		 $personaggi=Input::get('PG');
 		 $missive=Input::get('missiva');
@@ -724,6 +727,8 @@ class MissivaController extends \BaseController {
 			
 			}
 		 }
+		 
+
 		 
 		 return Redirect::to('missive');
 	 }
