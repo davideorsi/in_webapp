@@ -123,7 +123,7 @@ class MissivaController extends \BaseController {
 			$data= new Datetime($missiva['data']);
 			$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
 			}
-		
+			
 		return Response::json($missive);
 	}
 
@@ -680,11 +680,14 @@ class MissivaController extends \BaseController {
 			$time= new Datetime($missiva['data']);
 			$data=strftime("%d %B %Y",$time->gettimestamp());
 			
+			$idfirma_dest = IDENTITAPG::where("ID_PG", "=", $personaggi[$key])->orderby("Asc")->take(1)->pluck("ID");
+			
 			
 			$intercetto= new Missiva;
 			$intercetto->data=$currtime;
 			$intercetto['mittente']='STAFF, Abilità "Infiltrato", missiva intercettata del mese di '.strftime("%B %Y",$time->gettimestamp());
 			$intercetto->destinatario=$personaggi[$key];
+			$intercetto->Firma_Dest=$idfirma_dest;
 			$intercetto->costo=10;
 			$intercetto->pagato=1;
 			$intercetto->rispondere	= 0;
