@@ -69,6 +69,7 @@ class AbilitaController extends \BaseController {
 			$abilita->Note	  = Input::get('Note');
 			$abilita->CartelliniPotere = Input::get('CartelliniPotere');
 			$abilita->Erbe	  = Input::get('Erbe');
+			$abilita->Oggetti	  = Input::get('Oggetti');
 			$abilita->Rendita	  = Input::get('Rendita');
 			$abilita->Generica	  = Input::get('Generica',0);
 			$abilita->save();
@@ -174,6 +175,7 @@ class AbilitaController extends \BaseController {
 			$abilita->Note	  = Input::get('Note');
 			$abilita->CartelliniPotere = Input::get('CartelliniPotere');
 			$abilita->Erbe	  = Input::get('Erbe');
+			$abilita->Oggetti	  = Input::get('Oggetti');
 			$abilita->Rendita	  = Input::get('Rendita');
 			$abilita->Generica	  = Input::get('Generica',0);
 			$abilita->save();

@@ -39,6 +39,12 @@
 					{{ Form::selectRange('Erbe', 0, 20, Input::old('Erbe'), ['class'=>'form-control']) }}
 				</div>
 					
+
+				<div class="form-group col-xs-3">
+					{{ Form::label('Oggetti', 'Oggetti') }}
+					{{ Form::selectRange('Oggetti', 0, 20, Input::old('Oggetti'), ['class'=>'form-control']) }}
+				</div>
+					
 				<div class="form-group col-xs-3">
 					{{ Form::label('Rendita', 'Rendita') }}
 					{{ Form::selectRange('Rendita', 0, 100, Input::old('Rendita'), ['class'=>'form-control']) }}

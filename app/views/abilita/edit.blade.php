@@ -28,22 +28,27 @@
 		</div>
 		<div class='row'>
 						
-		        <div class="form-group col-xs-3">
+		        <div class="form-group col-xs-2">
 					{{ Form::label('PX', 'PX') }}
 					{{ Form::selectRange('PX', -5, 12, null, ['class'=>'form-control']) }}
 				</div>
 
-		        <div class="form-group col-xs-3">
+		        <div class="form-group col-xs-2">
 					{{ Form::label('CartelliniPotere', 'Cart. Pot.') }}
 					{{ Form::selectRange('CartelliniPotere', 0, 20, null, ['class'=>'form-control']) }}
 				</div>
 
-				<div class="form-group col-xs-3">
+				<div class="form-group col-xs-2">
 					{{ Form::label('Erbe', 'Erbe') }}
 					{{ Form::selectRange('Erbe', 0, 20, null, ['class'=>'form-control']) }}
 				</div>
+				
+				<div class="form-group col-xs-2">
+					{{ Form::label('Oggetti', 'Oggetti') }}
+					{{ Form::selectRange('Oggetti', 0, 20, null, ['class'=>'form-control']) }}
+				</div>
 					
-				<div class="form-group col-xs-3">
+				<div class="form-group col-xs-2">
 					{{ Form::label('Rendita', 'Rendita') }}
 					{{ Form::selectRange('Rendita', 0, 100, null, ['class'=>'form-control']) }}
 				</div>
