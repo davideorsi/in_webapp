@@ -380,8 +380,8 @@ class MissivaController extends \BaseController {
 				$missiva->pagato			= 0;
 				$missiva->mittente     	= $idpg;
 				$missiva->Firma_Mitt = Input::get('firma');
-				$primaIdentità = IDENTITAPG::where('ID_PG','=',$idpg)->orderBy('ID','asc')->take(1)->pluck('FIRMA');
-				if ( Input::get('firma') == 'Non Firmata' || Input::get('firma') != $primaIdentità)
+				
+				if ( Input::get('firma') != IDENTITAPG::where('ID_PG','=',$idpg)->orderBy('ID','asc')->take(1)->pluck('FIRMA'))
 				{$missiva->tipo_mittente	 = 'PNG';}
 				else
 				{$missiva->tipo_mittente	 = 'PG';}
