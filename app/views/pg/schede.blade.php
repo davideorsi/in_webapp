@@ -61,6 +61,7 @@
 					<b>PX: </b >{{$pers['Px']}} ({{intval($pers['PxRimasti'])}} disponibili)<br>
 					<b>Rendita: </b> {{$pers['Rendita']}}<br>
 					<b>Erbe: </b>{{$pers['Erbe']}}<br>
+					<b>Oggetti: </b>{{$pers['Oggetti']}}<br>
 					<b>Cart. Pot.: </b>{{$pers['CartelliniPotere']}}
 				</p>
 			</div>

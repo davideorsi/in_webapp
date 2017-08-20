@@ -154,6 +154,10 @@
 					{{$PG->Erbe()}}&nbsp;erbe
 					<br>
 					@endif
+					@if($PG->Oggetti()>0)
+					{{$PG->Oggetti()}}&nbsp;oggetti
+					<br>
+					@endif
 					@if($PG->CartelliniPotere()>0)
 					{{$PG->CartelliniPotere()}}&nbsp;potere
 					@endif

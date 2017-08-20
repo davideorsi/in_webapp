@@ -182,6 +182,9 @@ class UserController extends BaseController {
 		} else {
 			$note=Input::get('Note');
 		}
+		if (!empty($note)){
+				$note.="<br>";
+			}
 		
 		if ($numero_oggetti) {
 			$totale=0;

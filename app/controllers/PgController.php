@@ -373,6 +373,7 @@ class PgController extends \BaseController {
 				$data['PG'][$key]['Rendita']=INtools::convertiMonete($pg->Rendita());
 				$data['PG'][$key]['PxRimasti']=intval($pg->PxRimasti());
 				$data['PG'][$key]['Erbe']=intval($pg->Erbe());
+				$data['PG'][$key]['Oggetti']=intval($pg->Oggetti());
 				$data['PG'][$key]['CartelliniPotere']=intval($pg->CartelliniPotere());
 				$data['PG'][$key]['Note']=$pg->Note();
 				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();
@@ -407,9 +408,18 @@ class PgController extends \BaseController {
 		
 		
 		
-		$pdf = PDF::loadView('pg.schede',$data);
+		//$pdf = PDF::loadView('pg.schede',$data);
 		//return $pdf->setWarnings(false)->stream();
 		return View::make('pg.schede')->with('PG',$data['PG']);
 	}
-
+	
+	
+	//######## CARTELLINI SANITA' #########################################
+	public function sanita()
+	{
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+		$PG=$Evento[0]->PG()->orderby('Arrivo','asc')->get()
+		
+		return View::make('pg.sanita')->with('PG',$data['PG']);
+	}
 }
