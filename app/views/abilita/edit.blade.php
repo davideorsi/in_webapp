@@ -47,6 +47,10 @@
 					{{ Form::label('Oggetti', 'Oggetti') }}
 					{{ Form::selectRange('Oggetti', 0, 20, null, ['class'=>'form-control']) }}
 				</div>
+				<div class="form-group col-xs-2">
+					{{ Form::label('Lettere', 'Lettere') }}
+					{{ Form::selectRange('Lettere', 0, 20, null, ['class'=>'form-control']) }}
+				</div>
 					
 				<div class="form-group col-xs-2">
 					{{ Form::label('Rendita', 'Rendita') }}

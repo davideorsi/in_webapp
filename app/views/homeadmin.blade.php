@@ -156,8 +156,8 @@
 					{{$PG->Erbe()}}&nbsp;erbe
 					<br>
 					@endif
-					@if($PG->Oggetti()>0)
-					{{$PG->Oggetti()}}&nbsp;oggetti
+					@if($PG->Lettere()>0)
+					{{$PG->Lettere()}}&nbsp;lettere
 					<br>
 					@endif
 					@if($PG->CartelliniPotere()>0)

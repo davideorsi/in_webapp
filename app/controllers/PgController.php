@@ -374,6 +374,7 @@ class PgController extends \BaseController {
 				$data['PG'][$key]['PxRimasti']=intval($pg->PxRimasti());
 				$data['PG'][$key]['Erbe']=intval($pg->Erbe());
 				$data['PG'][$key]['Oggetti']=intval($pg->Oggetti());
+				$data['PG'][$key]['Lettere']=intval($pg->Lettere());
 				$data['PG'][$key]['CartelliniPotere']=intval($pg->CartelliniPotere());
 				$data['PG'][$key]['Note']=$pg->Note();
 				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();

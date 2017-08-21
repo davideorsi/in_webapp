@@ -60,9 +60,15 @@
 					<b>Affiliazione: </b>{{$pers['Affiliazione']}}<br>
 					<b>PX: </b >{{$pers['Px']}} ({{intval($pers['PxRimasti'])}} disponibili)<br>
 					<b>Rendita: </b> {{$pers['Rendita']}}<br>
-					<b>Erbe: </b>{{$pers['Erbe']}}<br>
-					<b>Oggetti: </b>{{$pers['Oggetti']}}<br>
-					<b>Cart. Pot.: </b>{{$pers['CartelliniPotere']}}
+					<div style='float:left; width:50%'>
+						<b>Erbe: </b>{{$pers['Erbe']}}  <br>
+						<b>Oggetti: </b>{{$pers['Oggetti']}}
+					</div>
+					<div style='float:left; width:50%'>						
+						<b>Cart. Pot.: </b>{{$pers['CartelliniPotere']}}<br>
+						<b>Lettere: </b>{{$pers['Lettere']}}<br>
+					</div>
+
 				</p>
 			</div>
 			

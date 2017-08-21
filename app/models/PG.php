@@ -55,6 +55,9 @@ class PG extends Eloquent {
 	public function Oggetti(){
 		return intval($this->Abilita()->sum('Oggetti'));
 		}
+	public function Lettere(){
+		return intval($this->Abilita()->sum('Lettere'));
+		}
 	public function Rendita(){
 		return intval(2 + $this->Abilita()->sum('Rendita'));
 		}
