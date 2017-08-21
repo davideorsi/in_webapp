@@ -93,16 +93,7 @@ class UserController extends BaseController {
 							$sel[$ab['Ability']][$opt['Opzione']]=$opt['Opzione'];
 							}
 						break;
-					case "Rotte commerciali locali":
-						$sel[$ab['Ability']]=array();
-						foreach ($ab['Opzioni'] as $opt){
-							$sel[$ab['Ability']][]=array(
-									'Opzione'=>$opt['Opzione'],
-									'Costo'=>$opt['Costo']);
-								}
-						break;
-
-					case "Rotte commerciali d'oltremare":
+					default:
 						$sel[$ab['Ability']]=array();
 						foreach ($ab['Opzioni'] as $opt){
 							$sel[$ab['Ability']][]=array(

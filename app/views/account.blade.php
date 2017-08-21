@@ -26,7 +26,6 @@
 					@if ($in_tempo)
 					<p>
 						<h5>Iscrizioni aperte fino al {{$data_iscrizione}} incluso!</h5>
-						Non risulti ancora iscritto! Cosa aspetti?</br>
 						Partecipa come {{$pg['Nome']}}!
 					</p>
 		
