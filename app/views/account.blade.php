@@ -55,24 +55,23 @@
 	
 
 
-				
+			<div class='row'></div>	
 
 				@foreach ($abilita_con_opzioni as $key=>$ab)
 					@if ($posseduta[$key])
 					<div class='col-sm-6'>
 						<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
 						<table >
-						<p class=justified'>
-							Alcune tue abilità ti consentono di effettuare una scelta prima dell'evento. Riceverai quanto scelto qui con la tua scheda personaggio.
-						</p>
 						<tr><th colspan=3>{{$ab['Ability']}}</th></tr>
-							
 						@if (in_array($ab['Ability'],array('Informatori','Ragno tessitore',"Iscritto all'albo")) )
+							<tr><td colspan=3>Questa abilità ti consente selezionare una tra le seguenti possibilità, che riceverai nella scheda personaggio: </td></tr>	
 							<!-- Abilità con scelta singola e zero costo -->
 							<tr><td colspan=3>{{ Form::select('Opzioni[]', 	$sel[$ab['Ability']], null, ['class'=>'form-control']) }}</td></tr>
 						@else
 							
 							<!-- Abilità con scelta multipla e costo da pagare -->
+							
+							<tr><td colspan=3>Questa abilità ti consente di comprare i seguenti oggetti: </td></tr>
 							<tr><td>Numero</td><td>Oggetto</td><td>Costo</td></tr>
 							@foreach($sel[$ab['Ability']] as $opt)
 								<tr>
