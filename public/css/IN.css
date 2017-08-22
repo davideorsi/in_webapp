@@ -670,6 +670,7 @@ textarea{
 	height: 300px;
 	border: 1px solid #000;
 	position: relative;
+	page-break-inside:avoid;
 }
 
 .ferita .pf{
