@@ -40,7 +40,7 @@
 <body style="-webkit-print-color-adjust:exact;">
 
 	@foreach ( $PG as $pers)
-	<div style=' page-break-after: always; padding:10px;'>
+	<!--<div style=' page-break-after: always; padding:10px;'>-->
 		
 		<!--############# cartellino ferita ###################################-->
 		@for ($i = 0; $i<$pers['Ferite']; $i++)
@@ -58,7 +58,7 @@
 			</div>
 		@endfor
 		
-	</div>
+	<!--</div>-->
 	
 	@endforeach
 </body>
