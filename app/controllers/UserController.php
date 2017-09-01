@@ -404,12 +404,20 @@ class UserController extends BaseController {
 					$pg['Rendita_tot']+=10;
 				}
 			}
+			
+			######### DEBITI PER MISSIVE INVIATE #############################################################################
 			$lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
 			$costi=INtools::select_column($lista,'costo');
 			$debtotale = array_sum($costi);
 			$pg['Debiti_tot']=INtools::convertiMonete($debtotale);
 			
-			$inbusta=$pg['Rendita_tot']-$debtotale;
+			
+			######### DEBITI PER ALTRE SPESE / AZIONI FG #############################################################################
+			$spesetotale=Spese::where('PG','=',$pg['ID'])->sum('Spesa');
+			$pg['Spese_tot']=INtools::convertiMonete($spesetotale);
+			
+			######### TOLTE TUTTE LE SPESE, RESTA ############################################################################
+			$inbusta=$pg['Rendita_tot']-$debtotale-$spesetotale;
 			
 			if ($inbusta<0) {
 				$pg['class_denaro']='text-danger';	

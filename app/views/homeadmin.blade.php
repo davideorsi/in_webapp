@@ -122,6 +122,7 @@
 				<th>Pernotto</th>
 				<th>Rendita<br>Totale</th>
 				<th>Debiti<br>Missive</th>
+				<th>Spese<br>(azioni&nbsp;FG)</th>
 				<th>Denaro&nbsp;in<br>Busta</th>
 				<th>Oggetti&nbsp;in<br>Busta</th>
 				<th>Note-Altro</th>
@@ -150,6 +151,7 @@
 				</td>
 				<td>{{$PG['Rendita_tot']}}</td>
 				<td>{{$PG['Debiti_tot']}}</td>
+				<td>{{$PG['Spese_tot']}}</td>
 				<td class='{{$PG['class_denaro']}}'>{{$PG['Denaro_busta']}}</td>
 				<td>
 					@if($PG->Erbe()>0)
