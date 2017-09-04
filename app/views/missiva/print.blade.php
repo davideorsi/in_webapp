@@ -47,7 +47,7 @@
 			<h4>{{$missiva['dest']}}</h4>
 		</header>
 
-		<p style='margin-top:20px'>
+		<p style='margin-top:20px;'>
 			{{$missiva['testo']}}
 		</p>
 		
