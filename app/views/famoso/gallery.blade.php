@@ -20,7 +20,7 @@
 	</div>
 
 	@foreach($famosi as $famoso)
-	{{ HTML::image('images/famoso/'.$famoso['Foto']) }}
+	{{ HTML::image('images/famoso/'.$famoso['ID']) }}
 	
 	<!---<div class="col-xs-6 col-sm-3 col-ds-2" style='margin-bottom:10px'>
 		<a href="famoso/{{$famoso['ID']}}">
