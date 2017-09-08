@@ -20,8 +20,9 @@
 	</div>
 
 	@foreach($famosi as $famoso)
-
-	<div class="col-xs-6 col-sm-3 col-ds-2" style='margin-bottom:10px'>
+	{{ HTML::image('images/famoso/'.$famoso['Foto']) }}
+	
+	<!---<div class="col-xs-6 col-sm-3 col-ds-2" style='margin-bottom:10px'>
 		<a href="famoso/{{$famoso['ID']}}">
 			<div class='panel panel-default' >
 				<div class='panel-title'>
@@ -29,7 +30,7 @@
 				</div>
 			</div>
 		</a>
-	</div>
+	</div>-->
 
 	@endforeach
 
