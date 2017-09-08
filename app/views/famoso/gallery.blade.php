@@ -19,8 +19,11 @@
 				{{ HTML::image('img/divider.png') }}
 	</div>
 
-	@foreach($famosi as $famoso)
+	@foreach($famosi as $famoso)		
+	
+	<a href="famoso/{{$famoso['ID']}}" title="{{$famoso['Nome']}}">
 	{{ HTML::image('images/famoso/'.$famoso['ID']) }}
+	</a>
 	
 	<!---<div class="col-xs-6 col-sm-3 col-ds-2" style='margin-bottom:10px'>
 		<a href="famoso/{{$famoso['ID']}}">
