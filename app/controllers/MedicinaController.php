@@ -48,7 +48,8 @@ class MedicinaController extends \BaseController {
 		
 		
 		foreach ($pgs as $key=>$pg){
-				if (in_array($pg,$cibo)) {$valCibo=1;} else {$valCibo=0;}
+				$valCibo=0;
+				if (!is_null($cibo) & in_array($pg,$cibo)) {$valCibo=1;} 
 				if (is_null($cicatrici[$key])) {$cicatrici[$key]=0;}
 				$Evento->PG()->updateExistingPivot($pg,array('Cicatrici'=>$cicatrici[$key],'Cibo'=>$valCibo));
 				}
