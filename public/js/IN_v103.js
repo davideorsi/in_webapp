@@ -821,8 +821,9 @@ $.ajax({
 			// header con nome Famiglia
 			html.append("<h4>"+ key+"</h4>");
 			
-			var table=$('<table></table>').addClass("table");
-			table.append('<tr><th>PG</th><th>Cicatrici</th><th>Cicatrici Rimaste</th><th>%</th><th>Cibo</th></tr>')
+			var table=$('<table id="'+key.replace(/\s/g, '')+'"></table>').addClass("table");
+			table.append('<tr><th>PG</th><th>Cicatrici</th><th>Cicatrici Rimaste</th>'+
+						 '<th>%</th><th>Cibo<br><a href="javascript:$(\'.checkbox\',\'#'+key.replace(/\s/g, '')+'\').prop(\'checked\', true).change();">Tutti</a></th></tr>')
 			// elenco PG con cicatrici e cibo;
 			for(var idpg in output[key]){
 				var rowpg = $('<tr></tr>');
