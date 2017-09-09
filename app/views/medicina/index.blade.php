@@ -41,12 +41,10 @@
 		$(function(ready) {
 			get_cicatrici_evento($('#selectevento').val());
 			$('#idevento').val($('#selectevento').val());
-			$('.checkbox').bootstrapToggle({on: 'Si',off: 'No'});
 
 			$('#selectevento').change( function() {
 				get_cicatrici_evento($(this).val());
 				$('#idevento').val($(this).val());
-				$('.checkbox').bootstrapToggle({on: 'Si',off: 'No'});
 			});
 		});
 @stop

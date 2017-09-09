@@ -839,6 +839,7 @@ $.ajax({
 			html.append(table);
 		}
 		$("#evento_testo").html(html);
+		$('.checkbox').bootstrapToggle({on: 'Si',off: 'No'});
 	},  
 	dataType: "json"
 });
