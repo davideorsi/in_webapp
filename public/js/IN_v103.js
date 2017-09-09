@@ -822,7 +822,7 @@ $.ajax({
 			html.append("<h4>"+ key+"</h4>");
 			
 			var table=$('<table></table>').addClass("table");
-			table.append('<tr><th>PG</th><th>Cicatrici</th><th>Cicatrici Rimaste</th><th>Cibo</th></tr>')
+			table.append('<tr><th>PG</th><th>Cicatrici</th><th>Cicatrici Rimaste</th><th>%</th><th>Cibo</th></tr>')
 			// elenco PG con cicatrici e cibo;
 			for(var idpg in output[key]){
 				var rowpg = $('<tr></tr>');
@@ -830,6 +830,7 @@ $.ajax({
 				rowpg.append('<td><input type="hidden" name="pg[]" value="'+pg['ID']+'"></input>' +pg['Nome'] + ' (' +pg['NomeGiocatore'] + ")</td>");
 				rowpg.append('<td>' +pg['Cicatrici'] + "</td>");
 				rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cicatrici[]" type="number" value="'+pg['CicatriciRimaste']+'"> </td>');
+				rowpg.append('<td>'+pg['CicatriciRimaste']/pg['Cicatrici']+'%</td>');
 				//rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cibo[]"      type="number" value="'+pg['Cibo']+'" ></input></td>');
 				if (pg['Cibo']==1) {var ValCibo='checked';} else {var ValCibo='';}
 				rowpg.append('<td><input class="checkbox" name="cibo[]"  type="checkbox" '+ValCibo+' value="'+pg['ID']+'" ></input></td>');
