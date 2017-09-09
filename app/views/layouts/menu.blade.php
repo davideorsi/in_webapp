@@ -69,6 +69,7 @@
 						<li><a href="{{ URL::to('admin') }}"><small>Gestione</small></a></li>
 						<li><a href="{{ URL::to('mail') }}"><small>Invia Mail</small></a></li>
 						<li><a href="{{ URL::to('admin/px') }}"><small>Aggiungi Px</small></a></li>
+						<li><a href="{{ URL::to('admin/medicina') }}"><small>Cicatrici e Cibo</small></a></li>
 						</ul>
 					</li>
 				@else
