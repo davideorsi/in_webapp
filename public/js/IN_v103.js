@@ -829,8 +829,8 @@ $.ajax({
 				var pg = output[key][idpg];
 				var Perc=Math.round(100*pg['CicatriciRimaste']/pg['Cicatrici']);
 				var tablecolor='';
-				if (Perc<50) {tablecolor='danger';}
-				else if (Perc<25) {tablecolor='warning';}
+				if (Perc<50) {tablecolor='warning';}
+				if (Perc<25) {tablecolor='danger';}
 				
 				var rowpg = $('<tr class="'+tablecolor+'"></tr>');
 				rowpg.append('<td><input type="hidden" name="pg[]" value="'+pg['ID']+'"></input>' +pg['Nome'] + ' (' +pg['NomeGiocatore'] + ")</td>");
