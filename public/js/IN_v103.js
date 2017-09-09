@@ -826,12 +826,17 @@ $.ajax({
 						 '<th>%</th><th>Cibo<br><a href="javascript:$(\'.checkbox\',\'#'+key.replace(/\s/g, '')+'\').prop(\'checked\', true).change();">Tutti</a></th></tr>')
 			// elenco PG con cicatrici e cibo;
 			for(var idpg in output[key]){
-				var rowpg = $('<tr></tr>');
 				var pg = output[key][idpg];
+				var Perc=Math.round(100*pg['CicatriciRimaste']/pg['Cicatrici']);
+				var tablecolor='';
+				if (Perc<50) {tablecolor='danger';}
+				else if (Perc<25) {tablecolor='warning';}
+				
+				var rowpg = $('<tr class="'+tablecolor+'"></tr>');
 				rowpg.append('<td><input type="hidden" name="pg[]" value="'+pg['ID']+'"></input>' +pg['Nome'] + ' (' +pg['NomeGiocatore'] + ")</td>");
 				rowpg.append('<td>' +pg['Cicatrici'] + "</td>");
 				rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cicatrici[]" type="number" value="'+pg['CicatriciRimaste']+'"> </td>');
-				rowpg.append('<td>'+Math.round(100*pg['CicatriciRimaste']/pg['Cicatrici'])+'%</td>');
+				rowpg.append('<td>'+Perc+'%</td>');
 				//rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cibo[]"      type="number" value="'+pg['Cibo']+'" ></input></td>');
 				if (pg['Cibo']==1) {var ValCibo='checked';} else {var ValCibo='';}
 				rowpg.append('<td><input class="checkbox" name="cibo[]"  type="checkbox" '+ValCibo+' value="'+pg['ID']+'" ></input></td>');
