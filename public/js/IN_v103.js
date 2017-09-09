@@ -830,7 +830,7 @@ $.ajax({
 				rowpg.append('<td><input type="hidden" name="pg[]" value="'+pg['ID']+'"></input>' +pg['Nome'] + ' (' +pg['NomeGiocatore'] + ")</td>");
 				rowpg.append('<td>' +pg['Cicatrici'] + "</td>");
 				rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cicatrici[]" type="number" value="'+pg['CicatriciRimaste']+'"> </td>');
-				rowpg.append('<td>'+round(100*pg['CicatriciRimaste']/pg['Cicatrici'])+'%</td>');
+				rowpg.append('<td>'+Math.round(100*pg['CicatriciRimaste']/pg['Cicatrici'])+'%</td>');
 				//rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cibo[]"      type="number" value="'+pg['Cibo']+'" ></input></td>');
 				if (pg['Cibo']==1) {var ValCibo='checked';} else {var ValCibo='';}
 				rowpg.append('<td><input class="checkbox" name="cibo[]"  type="checkbox" '+ValCibo+' value="'+pg['ID']+'" ></input></td>');
