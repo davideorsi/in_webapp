@@ -809,20 +809,35 @@ function initialize_scheduler(string){
 //#####################################################################
 //########### MEDICINA ################################################
 
-function get_evento_master(pos){
+function get_cicatrici_evento(pos){
 $.ajax({
 	type: "GET",
-	url:  "evento/"+pos+"/list",
+	url:  "medicina/evento/"+pos,
 	async: true,
 	success: function(output){
-		var testo="";
+		var html=$('<div></div>');
+		
 		for (var key in output) { 
-			testo+= "<b>"+ key+"</b></br>";
-			for(var pg in output[key]){
-				testo += output[key][pg] + "<br>";
+			// header con nome Famiglia
+			html.append("<h4>"+ key+"</h4>");
+			
+			var table=$('<table></table>').addClass("table");
+			table.append('<tr><th>PG</th><th>Cicatrici</th><th>Cicatrici Rimaste</th><th>Cibo</th></tr>')
+			// elenco PG con cicatrici e cibo;
+			for(var idpg in output[key]){
+				var rowpg = $('<tr></tr>');
+				var pg = output[key][idpg];
+				rowpg.append('<td><input type="hidden" name="pg[]" value="'+pg['ID']+'"></input>' +pg['Nome'] + ' (' +pg['NomeGiocatore'] + ")</td>");
+				rowpg.append('<td>' +pg['Cicatrici'] + "</td>");
+				rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cicatrici[]" type="number" value="'+pg['CicatriciRimaste']+'"> </td>');
+				//rowpg.append('<td><input style="max-width:60px;" class="form-control" name="cibo[]"      type="number" value="'+pg['Cibo']+'" ></input></td>');
+				if (pg['Cibo']==1) {var ValCibo='checked';} else {var ValCibo='';}
+				rowpg.append('<td><input class="checkbox" name="cibo[]"  type="checkbox" '+ValCibo+' value="'+pg['ID']+'" ></input></td>');
+				table.append(rowpg);
 			}
+			html.append(table);
 		}
-		$("#evento_testo").html(testo);
+		$("#evento_testo").html(html);
 	},  
 	dataType: "json"
 });
