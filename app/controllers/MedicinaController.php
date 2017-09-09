@@ -43,13 +43,14 @@ class MedicinaController extends \BaseController {
 		$idEvento=Input::get('evento');
 		$cicatrici=Input::get('cicatrici');
 		$cibo=Input::get('cibo');
+		if (is_null($cibo)) {$cibo=array();}
 		
 		$Evento=Evento::find($idEvento);
 		
 		
 		foreach ($pgs as $key=>$pg){
 				$valCibo=0;
-				if (!is_null($cibo) & in_array($pg,$cibo)) {$valCibo=1;} 
+				if (in_array($pg,$cibo)) {$valCibo=1;} 
 				if (is_null($cicatrici[$key])) {$cicatrici[$key]=0;}
 				$Evento->PG()->updateExistingPivot($pg,array('Cicatrici'=>$cicatrici[$key],'Cibo'=>$valCibo));
 				}
