@@ -827,7 +827,7 @@ $.ajax({
 			// elenco PG con cicatrici e cibo;
 			for(var idpg in output[key]){
 				var pg = output[key][idpg];
-				var Perc=Math.round(100*pg['CicatriciRimaste']/pg['Cicatrici']);
+				var Perc=0.1*Math.round(1000*pg['CicatriciRimaste']/pg['Cicatrici']);
 				var tablecolor='';
 				if (Perc<50) {tablecolor='warning';}
 				if (Perc<25) {tablecolor='danger';}
