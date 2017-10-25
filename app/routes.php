@@ -98,6 +98,7 @@
 	// route per la Medicina, le cicatrici, le malattie etc.
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/medicina', 'MedicinaController');
+		Route::resource('admin/malattie', 'MalattiaController');
 		Route::get('admin/medicina/evento/{id}', 'MedicinaController@showCicatriciEvento');
 	    Route::post('admin/medicina/evento',     'MedicinaController@setCicatriciEvento');
 	
