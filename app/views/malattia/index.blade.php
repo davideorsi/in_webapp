@@ -2,8 +2,8 @@
 
 	
 	@section('content')
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
+	<div class="row bs-callout bs-callout-defaults">
+		<div class="col-sm-6 col-sm-offset-3 ">
 			<h3>Malattie</h3>
 			@if ( Session::has('message'))
 				<div class="alert alert-info">
@@ -32,10 +32,12 @@
 			{{ Form::submit('Cancella', array('class' => 'btn btn-warning')) }}
 			{{ Form::close() }}
 			</div>
-			
-			
+		</div>
+	</div>
+	<div class="row bs-callout bs-callout-default">	
+		<div class="col-sm-6 col-sm-offset-3">
+	
 			<!--Elenco degli ammalati-->
-			<div>
 			<h4>Ammalati</h4>
 			<table class="table table-striped">
 				<thead class="thead-inverse">
@@ -64,15 +66,10 @@
 					{{ Form::close()}}			
 				</tr>
 			</table>
-			
-
-			
-			</div>
-			
-			
-			
-			
-			<div>
+		</div>
+	</div>
+	<div class='row bs-callout bs-callout-default'>						
+		<div class="col-sm-6 col-sm-offset-3">
 			<p>
 			<h4>Probabilità di ammalarsi</h4>
 			Non tutte le patologie hanno un’alta incidenza. Quando un pg risulta essersi ammalato, se la trama non prevede diversamente, allora subirà un ulteriore tiro di dado percentuale per stabilire la malattia.</br>
@@ -82,11 +79,8 @@
 			Sifilide: da 86% a 95%. <br>
 			Peste bubbonica: da 96% a 100%.<br>
 			</p>
-			</div>
-			
-			
-
 		</div>
+
 	</div>
 @stop
 
