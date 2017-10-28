@@ -89,9 +89,7 @@ class MalattiaController extends \BaseController {
 	public function edit($id)
 	{
 		$Malattia=Malattia::find($id);
-		
-		$data=$Malattia->get(['ID','Nome']);
-		$data=$data[0]->toArray();
+		$data=$Malattia->toArray();
 		$data['Stadi']=$Malattia->Stadi->toArray();
 		$data['Cure']=$Malattia->Cure->toArray();
 		return View::make('malattia.edit')
