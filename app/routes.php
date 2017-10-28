@@ -104,6 +104,8 @@
 		Route::post('admin/malattie/nuovo_stadio','MalattiaController@nuovoStadio');
 		Route::put('admin/stadio/{id}','MalattiaController@aggiornaStadio');
 		Route::delete('admin/stadio/{id}','MalattiaController@cancellaStadio');
+		Route::post('admin/stadiopg','MalattiaController@aggiungiMalato');
+		Route::delete('admin/stadiopg','MalattiaController@cancellaMalato');
 	});
 	
 	// route per le Abilita

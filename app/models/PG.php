@@ -36,6 +36,10 @@ class PG extends Eloquent {
 	public function Firme(){
 		return $this->hasMany('IDENTITAPG','ID_PG','ID');
 	}
+	
+	public function Malattie(){
+		return $this->belongsToMany('Stadio', 'Malattie-PG', 'PG', 'Stadio');
+	}
 
 	public function Ferite(){
 		$pf=2;

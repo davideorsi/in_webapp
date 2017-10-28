@@ -33,6 +33,45 @@
 			{{ Form::close() }}
 			</div>
 			
+			
+			<!--Elenco degli ammalati-->
+			<div>
+			<h4>Ammalati</h4>
+			<table class="table table-striped">
+				<thead class="thead-inverse">
+					<tr><th>PG</th><th>Malattia</th><th>Stadio</th><th></th></tr>
+				</thead>
+			@foreach($selMalati as $Malati)
+				<tr>
+					<td>{{$Malati['Nome']}}</td>
+					<td>{{$Malati['Malattia']}}</td>
+					<td>{{$Malati['Stadio']}}</td>
+					<td>
+						{{ Form::model($Malati, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin/stadiopg', 'class'=>'pure-form')) }}
+						{{ Form::hidden('PG',$Malati['ID'])}}
+						{{ Form::hidden('Stadio',$Malati['Stadio']) }}
+						{{ Form::submit("x", array('class' => 'btn btn-warning')) }}
+						{{ Form::close()}}
+
+					</td>
+				</tr>
+			@endforeach
+				<tr>
+					{{ Form::open(array('class'=>'form form-horizontal','method'=>'POST','url' => 'admin/stadiopg')) }}
+					<td>{{ Form::select('pg_vivi', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}</td>
+					<td colspan="2">{{ Form::select('malattia', $selStadi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}</td>
+					<td>{{ Form::submit("+", array('class' => 'btn btn-primary')) }}</td>
+					{{ Form::close()}}			
+				</tr>
+			</table>
+			
+
+			
+			</div>
+			
+			
+			
+			
 			<div>
 			<p>
 			<h4>Probabilità di ammalarsi</h4>
@@ -44,6 +83,8 @@
 			Peste bubbonica: da 96% a 100%.<br>
 			</p>
 			</div>
+			
+			
 
 		</div>
 	</div>

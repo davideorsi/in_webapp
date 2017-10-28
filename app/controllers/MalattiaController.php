@@ -16,8 +16,34 @@ class MalattiaController extends \BaseController {
 			$selMalattie[(string)$malattia->ID] = $malattia['Nome'];
 		}
 		
+		$malati=PG::has('Malattie')->get(['Nome','ID']);
+		$malati->load('Malattie');
+		$selMalati=array();
+		foreach($malati as $malato){
+			$idstadio=INtools::select_column($malato->Malattie,'ID');
+			$stadio=Stadio::find($idstadio[0])->toArray();
+			$Malattia=Malattia::find($stadio['Malattia']);
+			$selMalati[]=array('ID'=>$malato->ID,'Nome'=>$malato->Nome,'Stadio'=>$idstadio[0],'Malattia'=>$Malattia['Nome']);
+			}
+			
+		$Vivi=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+		$selVivi=array('NULL' => '');
+		foreach ($Vivi as $vivo){
+			$selVivi[$vivo['Affiliazione']][(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['NomeGiocatore'].')';
+		}
+		
+		$Stadi=Stadio::orderBy('Malattia','asc')->get();
+		$selStadi=array('NULL' => '');
+		foreach ($Stadi as $stadio){
+			$Malattia=Malattia::find($stadio['Malattia']);
+			$selStadi[$Malattia['Nome']][(string)$stadio['ID']] = 'Stadio '.$stadio['Numero'];
+		}
+			
 		return View::make('malattia.index')
-				->with('selMalattie',$selMalattie);
+				->with('selMalattie',$selMalattie)
+				->with('selMalati',$selMalati)
+				->with('selVivi',$selVivi)
+				->with('selStadi',$selStadi);
 	}
 
 
@@ -156,5 +182,30 @@ class MalattiaController extends \BaseController {
 		return Redirect::to('admin/malattie/'.$malattia.'/edit');
 	}
 
+	public function cancellaMalato()
+	{
+		$idPg=Input::get('PG');
+		$idStadio=Input::get('Stadio');
+
+
+		$Stadio=Stadio::find($idStadio);
+		$Stadio->PG()->detach($idPg);
+
+		Session::flash('message', 'Malattia rimossa correttamente!');
+		return Redirect::to('admin/malattie/');
+	}
+	public function aggiungiMalato()
+	{
+		$idPg=Input::get('pg_vivi');
+		$idStadio=Input::get('malattia');
+
+
+		$Stadio=Stadio::find($idStadio);
+		$Stadio->PG()->attach($idPg);
+
+		Session::flash('message', 'Malattia assegnata correttamente!');
+		return Redirect::to('admin/malattie/');
+	}
+	
 
 }
