@@ -18,7 +18,7 @@
 			<div class="col-md-6 col-md-offset-0">
 		        <div class="form-group">
 					{{ Form::label('Nome', 'Nome') }}
-					{{ Form::text('Nome', Input::old('Nome'),['class'=>'form-control']) }}
+					{{ Form::text('Nome', $Malattia['Nome'],['class'=>'form-control']) }}
 				</div>	
 
 		        <div class="btn-group">
