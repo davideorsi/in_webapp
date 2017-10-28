@@ -32,6 +32,18 @@
 			{{ Form::submit('Cancella', array('class' => 'btn btn-warning')) }}
 			{{ Form::close() }}
 			</div>
+			
+			<div>
+			<p>
+			<h4>Probabilità di ammalarsi</h4>
+			Non tutte le patologie hanno un’alta incidenza. Quando un pg risulta essersi ammalato, se la trama non prevede diversamente, allora subirà un ulteriore tiro di dado percentuale per stabilire la malattia.
+			Influenza virale: da 1% a 50%. <br>
+			Infezione batterica: da 50% a 70%. <br>
+			Tubercolosi: da 71% a 85%. <br>
+			Sifilide: da 86% a 95%. <br>
+			Peste bubbonica: da 96% a 100%.<br>
+			</p>
+			</div>
 
 		</div>
 	</div>
