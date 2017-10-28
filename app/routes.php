@@ -101,7 +101,9 @@
 		Route::resource('admin/malattie', 'MalattiaController');
 		Route::get('admin/medicina/evento/{id}', 'MedicinaController@showCicatriciEvento');
 	    Route::post('admin/medicina/evento',     'MedicinaController@setCicatriciEvento');
-	
+		Route::post('admin/malattie/nuovo_stadio','MalattiaController@nuovoStadio');
+		Route::put('admin/stadio/{id}','MalattiaController@aggiornaStadio');
+		Route::delete('admin/stadio/{id}','MalattiaController@cancellaStadio');
 	});
 	
 	// route per le Abilita

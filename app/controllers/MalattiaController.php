@@ -17,7 +17,7 @@ class MalattiaController extends \BaseController {
 		}
 		
 		return View::make('malattia.index')
-				->with('selMalattie',$selMalattie);;
+				->with('selMalattie',$selMalattie);
 	}
 
 
@@ -48,6 +48,24 @@ class MalattiaController extends \BaseController {
 		return Redirect::to('admin/malattie');
 	
 	}
+	
+	
+	public function nuovoStadio()
+	{
+		$Stadio = new Stadio;
+		$Stadio->Numero	= Input::get('Numero');
+		$Stadio->Malattia	= Input::get('Malattia');
+		$Stadio->Descrizione	= Input::get('Descrizione');
+		$Stadio->Effetti	= Input::get('Effetti');
+		$Stadio->Contagio	= Input::get('Contagio');
+		$Stadio->save();
+		
+		// redirect
+		Session::flash('message', 'Stadio creato con successo!');
+		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');
+	
+	}
+
 
 
 	/**
@@ -70,7 +88,14 @@ class MalattiaController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$Malattia=Malattia::find($id);
+		
+		$data=$Malattia->get(['ID','Nome']);
+		$data=$data[0]->toArray();
+		$data['Stadi']=$Malattia->Stadi->toArray();
+		$data['Cure']=$Malattia->Cure->toArray();
+		return View::make('malattia.edit')
+				->with('Malattia',$data);
 	}
 
 
@@ -82,7 +107,27 @@ class MalattiaController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$Malattia=Malattia::find($id);
+		$Malattia->Nome	= Input::get('Nome');
+		$Malattia->save();
+		
+		// redirect
+		Session::flash('message', 'Malattia modificata con successo!');
+		return Redirect::to('admin/malattie/'.$id.'/edit');
+	}
+
+	public function aggiornaStadio($id)
+	{
+		$Stadio = Stadio::find($id);
+		$Stadio->Numero	= Input::get('Numero');
+		$Stadio->Descrizione	= Input::get('Descrizione');
+		$Stadio->Effetti	= Input::get('Effetti');
+		$Stadio->Contagio	= Input::get('Contagio');
+		$Stadio->save();
+		
+		// redirect
+		Session::flash('message', 'Stadio modificato con successo!');
+		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');
 	}
 
 
@@ -99,6 +144,18 @@ class MalattiaController extends \BaseController {
 
 		Session::flash('message', 'Malattia cancellata correttamente!');
 		return Redirect::to('admin/malattie');
+	}
+	
+	
+	public function cancellaStadio($id)
+	{
+		
+		$Stadio = Stadio::find($id);
+		$malattia=$Stadio->Malattia;
+		$Stadio -> delete();
+
+		Session::flash('message', 'Stadio cancellato correttamente!');
+		return Redirect::to('admin/malattie/'.$malattia.'/edit');
 	}
 
 
