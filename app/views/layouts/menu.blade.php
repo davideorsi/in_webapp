@@ -144,6 +144,7 @@
                         <li><a href="{{ URL::to('admin/conto/') }}"><small>Banca Ducale</small></a></li>
 						<li ><a href="{{ URL::to('admin/oggetti') }}"><small>Oggetti</small></a></li>
 						<li ><a href="{{ URL::to('admin/economia') }}"><small>Economia</small></a></li>
+						<li ><a href="{{ URL::to('admin/malattia') }}"><small>Malattia</small></a></li>
 						<li ><a href="{{ URL::to('admin/informatori') }}"><small>Informatori</small></a></li>
 						<li ><a href="{{ URL::to('admin/post') }}"><small>Ambientazione</small></a></li>
 						<li ><a href="{{ URL::to('admin/famoso') }}"><small>PG Famosi</small></a></li>
