@@ -102,7 +102,12 @@ class MalattiaController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$Malattia=Malattia::find($id);
+		$data=$Malattia->toArray();
+		$data['Stadi']=$Malattia->Stadi->toArray();
+		$data['Cure']=$Malattia->Cure->toArray();
+		return View::make('malattia.show')
+				->with('Malattia',$data);
 	}
 
 
