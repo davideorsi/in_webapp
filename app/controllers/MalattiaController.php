@@ -23,7 +23,7 @@ class MalattiaController extends \BaseController {
 			$idstadio=INtools::select_column($malato->Malattie,'ID');
 			$stadio=Stadio::find($idstadio[0])->toArray();
 			$Malattia=Malattia::find($stadio['Malattia']);
-			$selMalati[]=array('ID'=>$malato->ID,'Nome'=>$malato->Nome,'Stadio'=>$idstadio[0],'Malattia'=>$Malattia['Nome']);
+			$selMalati[]=array('ID'=>$malato->ID,'Nome'=>$malato->Nome,'Stadio'=>$Stadio['Numero'],'Malattia'=>$Malattia['Nome']);
 			}
 			
 		$Vivi=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
