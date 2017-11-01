@@ -88,10 +88,25 @@ class MalattiaController extends \BaseController {
 		
 		// redirect
 		Session::flash('message', 'Stadio creato con successo!');
-		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');
-	
+		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');	
 	}
 
+	public function nuovaCura()
+	{
+		$Stadio = new Cura;
+		$Stadio->Estratto	= Input::get('Estratto');
+		$Stadio->NumeroEstratti	= Input::get('NumeroEstratti');
+		$Stadio->Malattia	= Input::get('Malattia');
+		$Stadio->Rosse	= Input::get('Rosse');
+		$Stadio->Verdi	= Input::get('Verdi');
+		$Stadio->Blu	= Input::get('Blu');
+		$Stadio->Effetti	= Input::get('Effetti');
+		$Stadio->save();
+		
+		// redirect
+		Session::flash('message', 'Cura creata con successo!');
+		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');	
+	}
 
 
 	/**
@@ -158,6 +173,24 @@ class MalattiaController extends \BaseController {
 		Session::flash('message', 'Stadio modificato con successo!');
 		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');
 	}
+	
+	
+	public function aggiornaCura($id)
+	{
+		$Stadio = Cura::find($id);
+		$Stadio->Estratto	= Input::get('Estratto');
+		$Stadio->NumeroEstratti	= Input::get('NumeroEstratti');
+		$Stadio->Malattia	= Input::get('Malattia');
+		$Stadio->Rosse	= Input::get('Rosse');
+		$Stadio->Verdi	= Input::get('Verdi');
+		$Stadio->Blu	= Input::get('Blu');
+		$Stadio->Effetti	= Input::get('Effetti');
+		$Stadio->save();
+		
+		// redirect
+		Session::flash('message', 'Cura modificata con successo!');
+		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');	
+	}
 
 
 	/**
@@ -184,6 +217,16 @@ class MalattiaController extends \BaseController {
 		$Stadio -> delete();
 
 		Session::flash('message', 'Stadio cancellato correttamente!');
+		return Redirect::to('admin/malattie/'.$malattia.'/edit');
+	}
+	public function cancellaCura($id)
+	{
+		
+		$Cura = Cura::find($id);
+		$malattia=$Cura->Malattia;
+		$Cura -> delete();
+
+		Session::flash('message', 'Cura cancellata correttamente!');
 		return Redirect::to('admin/malattie/'.$malattia.'/edit');
 	}
 

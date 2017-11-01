@@ -102,8 +102,11 @@
 		Route::get('admin/medicina/evento/{id}', 'MedicinaController@showCicatriciEvento');
 	    Route::post('admin/medicina/evento',     'MedicinaController@setCicatriciEvento');
 		Route::post('admin/malattie/nuovo_stadio','MalattiaController@nuovoStadio');
+		Route::post('admin/malattie/nuova_cura','MalattiaController@nuovaCura');
 		Route::put('admin/stadio/{id}','MalattiaController@aggiornaStadio');
 		Route::delete('admin/stadio/{id}','MalattiaController@cancellaStadio');
+		Route::put('admin/cura/{id}','MalattiaController@aggiornaCura');
+		Route::delete('admin/cura/{id}','MalattiaController@cancellaCura');
 		Route::post('admin/stadiopg','MalattiaController@aggiungiMalato');
 		Route::delete('admin/stadiopg','MalattiaController@cancellaMalato');
 	});
