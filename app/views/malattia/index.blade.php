@@ -34,6 +34,38 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="row bs-callout bs-callout-default">	
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4>Cure delle Malattie</h4>
+			<table class="table table-striped">
+				<thead class="thead-inverse">
+					<tr><th>Malattia</th><th>Estratto</th><th>Matrice</th><th>Effetti</th></tr>
+				</thead>
+			@foreach($Cure as $Cura)
+				<tr>
+					<td>{{$Cura['NomeMalattia']['Nome']}}</td>
+					<td>{{$Cura['Estratto']}}</td>
+					<td>
+						<div class="input-group">
+						<span class="input-group-addon danger" id="sizing-addon3">
+							{{$Cura['Rosse']}}
+						</span>								
+						<span class="input-group-addon success" id="sizing-addon3">
+							{{$Cura['Verdi']}}
+						</span>								
+						<span class="input-group-addon primary" id="sizing-addon3">
+							{{$Cura['Blu']}}
+						</span>
+						</div>
+					</td>
+					<td>{{$Cura['Effetti']}}</td>
+				</tr>
+			@endforeach
+			</table>
+		</div>
+	</div>	
+	
 	<div class="row bs-callout bs-callout-default">	
 		<div class="col-sm-6 col-sm-offset-3">
 	

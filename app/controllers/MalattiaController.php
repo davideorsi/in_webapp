@@ -10,6 +10,9 @@ class MalattiaController extends \BaseController {
 	public function index()
 	{
 		$Malattie=Malattia::orderBy('Nome','asc')->get();
+		$Cure=Cura::orderBy('Malattia','asc')->get();
+		
+		
 		
 		$selMalattie=array('NULL' => '');
 		foreach ($Malattie as $malattia){
@@ -41,6 +44,7 @@ class MalattiaController extends \BaseController {
 			
 		return View::make('malattia.index')
 				->with('selMalattie',$selMalattie)
+				->with('Cure',$Cure)
 				->with('selMalati',$selMalati)
 				->with('selVivi',$selVivi)
 				->with('selStadi',$selStadi);
