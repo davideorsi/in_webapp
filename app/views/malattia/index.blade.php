@@ -36,17 +36,18 @@
 	</div>
 	
 	<div class="row bs-callout bs-callout-default">	
-		<div class="col-sm-8 col-sm-offset-2">
+		<div class="col-sm-6 col-sm-offset-3">
 			<h4>Cure delle Malattie</h4>
 			<table class="table table-striped">
 				<thead class="thead-inverse">
-					<tr><th>Malattia</th><th>Estratto</th><th>Matrice</th><th>Effetti</th></tr>
+					<tr><th>Malattia</th><th>Estratto</th><th>Matrice</th></tr>
 				</thead>
 			@foreach($Cure as $Cura)
-				<tr>
+				<tr title="Effetti: {{$Cura['Effetti']}}">
 					<td>{{$Cura['NomeMalattia']['Nome']}}</td>
 					<td>{{$Cura['Estratto']}}</td>
 					<td>
+						Siero Medico, <br>
 						<div class="input-group">
 						<span class="input-group-addon danger" id="sizing-addon3">
 							{{$Cura['Rosse']}}
@@ -59,7 +60,6 @@
 						</span>
 						</div>
 					</td>
-					<td>{{$Cura['Effetti']}}</td>
 				</tr>
 			@endforeach
 			</table>
