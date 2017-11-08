@@ -127,6 +127,12 @@ class VicendasController extends \BaseController {
 			'green',
 			'blue',
 			'purple',
+			'orange',
+			'black',
+			'red',
+			'green',
+			'blue',
+			'purple',
 			'orange'
 		);
 
@@ -183,6 +189,12 @@ class VicendasController extends \BaseController {
 	if ((Auth::user()->usergroup == 7) | (Auth::user()->usergroup == 15 & Auth::user()->id == $idmaster)){
 	
 		$palette_png=array(
+			'black',
+			'red',
+			'green',
+			'blue',
+			'purple',
+			'orange',
 			'black',
 			'red',
 			'green',
