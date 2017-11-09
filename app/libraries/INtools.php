@@ -7,20 +7,20 @@ class INtools {
 		
 	$percentuale=array(0.05,0.1,0.01);
 	$intercettato=0;
-	$perc=mt_rand(0,100)/100;
+	$perc=mt_rand(0,10000)/10000;
 
 	switch ($costo){
 		case 0:
 			$intercettato=0;
 			break;
 		case 2:
-			$intercettato=$perc<$percentuale[0];
+			$intercettato=$perc<=$percentuale[0];
 			break;
 		case 4:
-			$intercettato=$perc<$percentuale[1];
+			$intercettato=$perc<=$percentuale[1];
 			break;
 		case 10:
-			$intercettato=$perc<$percentuale[2];
+			$intercettato=$perc<=$percentuale[2];
 			break;
 	}
 

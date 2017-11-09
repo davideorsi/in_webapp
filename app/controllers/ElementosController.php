@@ -42,6 +42,12 @@ class ElementosController extends \BaseController {
 			'green',
 			'blue',
 			'purple',
+			'orange',
+			'black',
+			'red',
+			'green',
+			'blue',
+			'purple',
 			'orange'
 		);
 		
