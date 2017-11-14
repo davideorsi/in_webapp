@@ -362,7 +362,7 @@ class PgController extends \BaseController {
 		$InfoList = Evento::find($Evento[0]['ID'])->Informatori;
 		$Informatori=array();
 		foreach ($InfoList as $inf) {
-			$Informatori[$inf->Categoria]=$inf->Testo;
+			$Informatori[$inf->Categoria][]=$inf->Testo;
 			}
 		
 		$data['Evento']=$Evento[0]->toArray();
@@ -384,7 +384,9 @@ class PgController extends \BaseController {
 				$opzioni=explode('<br>',$pg['pivot']['Note']);
 				foreach ($opzioni as $ii => $opt) {
 					if (array_key_exists($opt,$Informatori)) {
-						$data['PG'][$key]['Opzioni'][$ii]=$Informatori[$opt];
+						$num=count($Informatori[$opt]);
+						$quale=mt_rand(0,$num-1);
+						$data['PG'][$key]['Opzioni'][$ii]=$Informatori[$opt][$quale];
 					} else {
 						if ($opt) {
 							$data['PG'][$key]['Opzioni'][$ii]="Riceve: ".$opt;
