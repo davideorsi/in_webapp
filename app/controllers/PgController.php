@@ -356,6 +356,17 @@ class PgController extends \BaseController {
 	}
 
 	//######## SCHEDE PG #########################################
+	public function buste()
+	{
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+
+
+		$PG=$Evento[0]->PG()->orderby('Arrivo','asc')->get();
+		
+		return View::make('pg.buste')->with('PG',$PG);
+		
+	}
+	
 	public function schede()
 	{
 		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));

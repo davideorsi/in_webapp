@@ -132,6 +132,7 @@
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/pg', 'PgController');
 		Route::get('admin/schede', 'PgController@schede');
+		Route::get('admin/buste', 'PgController@buste');
 		Route::get('admin/sanita', 'PgController@sanita');
 		Route::put('admin/pg_categoria', 'PgController@add_categoria');
 		Route::put('admin/pg_abilita', 'PgController@add_abilita');
