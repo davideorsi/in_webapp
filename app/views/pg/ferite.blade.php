@@ -57,6 +57,9 @@
 				
 			</div>
 		@endfor
+		@if($i & 1)
+			<div class='ferita'></div>
+		@endif
 		
 	<!--</div>-->
 	
