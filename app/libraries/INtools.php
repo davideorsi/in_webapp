@@ -3,7 +3,7 @@
 class INtools {
 
 	// determina, in base al costo e ad un tiro casuale, se una missiva viene intercettata
-	public static function is_intercettato($costo){
+	public static function is_intercettato($costo, $non_firmata=false){
 		
 	$percentuale=array(0.05,0.1,0.01);
 	$intercettato=0;
@@ -14,7 +14,10 @@ class INtools {
 			$intercettato=0;
 			break;
 		case 2:
-			$intercettato=$perc<=$percentuale[0];
+			if ($non_firmata){$intercettato=0;}
+			else {
+				$intercettato=$perc<=$percentuale[0];
+			}
 			break;
 		case 4:
 			$intercettato=$perc<=$percentuale[1];

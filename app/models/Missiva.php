@@ -31,10 +31,16 @@ class Missiva extends Eloquent {
 	}
 
 	public function getMittAttribute() {
-		if ($this->costo =='0' || $this->tipo_mittente == 'PG') {
+		if (is_numeric($this->mittente) || $this->tipo_mittente == 'PG') {
 			//$Pg=PG::find($this->Firma_Mitt);
 			$Firma=IDENTITAPG::find($this->Firma_Mitt);
-			return $Firma->FIRMA;
+			// se sei un master, mostra il nome pg, altrimenti solo la firma
+			if ((Auth::user()->usergroup == 7) & $this->Firma_Mitt==0){
+				$pg=PG::find($this->mittente);
+				return '('.$pg->Nome.') '.$Firma->FIRMA;
+			} else {
+				return $Firma->FIRMA;
+				}
 			//return $Pg->Nome;
 			}
 		else {
