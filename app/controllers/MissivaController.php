@@ -409,7 +409,7 @@ class MissivaController extends \BaseController {
 				else
                       {$missiva->tipo_mittente	 = 'PG';}
 			
-				if (Input::get('firma')==0){
+				if (Input::get('firma')==0 && !$destinatario_PNG){
 						$missiva->costo = 2; //missive non firmate costano 2 rame
 						$missiva->pagato			= 0;
 					}
