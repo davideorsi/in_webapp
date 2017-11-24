@@ -380,12 +380,7 @@ class MissivaController extends \BaseController {
 				$missiva->pagato			= 0;
 				$missiva->mittente     	= $idpg;
 				$missiva->Firma_Mitt = Input::get('firma');
-
-				if ( Input::get('firma') != IDENTITAPG::where('ID_PG','=',$idpg)->orderBy('ID','asc')->take(1)->pluck('ID'))
-			          {$missiva->tipo_mittente	 = 'PNG';}	
-				else
-                                  {$missiva->tipo_mittente	 = 'PG';}
-				
+			
 				if ($destinatario_PG && !$destinatario_PNG)
 					{
 					$missiva->destinatario = $destinatario_PG;
@@ -405,7 +400,19 @@ class MissivaController extends \BaseController {
 				else {
 					Session::flash('message', 'Errore! Indica come destinatario un pg OPPURE un png!');
 					return Redirect::to('missive/create');
-					}				
+					}		
+					
+				if ( Input::get('firma') != IDENTITAPG::where('ID_PG','=',$idpg)->orderBy('ID','asc')->take(1)->pluck('ID'))
+			          {
+						  $missiva->tipo_mittente	 = 'PNG';
+					  }	
+				else
+                      {$missiva->tipo_mittente	 = 'PG';}
+			
+				if (Input::get('firma')==0){
+						$missiva->costo = 2; //missive non firmate costano 2 rame
+						$missiva->pagato			= 0;
+					}
 			}
 			
 			// salva
