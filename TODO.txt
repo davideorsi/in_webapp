@@ -1,6 +1,0 @@
-0) nelle schede PG, mettere un pG su un foglio solo.
-
-1) aggiungere una spunta per segnare le missive a cui deve essere ancora data risposta
-
-2) Pagina di economia con debiti missive, conti in banca, beni del mercato.
-

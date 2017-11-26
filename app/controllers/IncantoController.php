@@ -85,7 +85,8 @@ class IncantoController extends \BaseController {
 		if (Request::ajax()){
 			return Response::json($incanto);
 		} else {
-			return Response::make('Not available', 401);
+			return View::make('incanto.print')
+				->with('incanto',$incanto);
 		}
 			
 	}

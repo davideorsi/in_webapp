@@ -2,6 +2,10 @@
 header{
 	text-align: center;
 }
+footer{
+	text-align: left;
+	font-size: 0.9em;
+}
 
 p{
 	text-align: left;
@@ -35,6 +39,30 @@ article h3{
 	
 }
 
+.pergamena {
+	float: left;
+	padding: 15px;
+	border: 2px solid black;
+	width:  50%;
+	
+}
+
+.pergamena h4{
+	font-size: 2.4em; 
+	margin-top: 1em; 
+	margin-bottom: 1em;
+}
+.pergamena h3{
+	font-family: 'Italianno', cursive; 
+	font-size: 1.8em;   
+}
+
+.pergamena header{
+	margin: 2em;
+}
+.pergamena footer{
+	margin-top: 2em;
+}
 .retro {
 	float: left;
 	padding: 15px;
