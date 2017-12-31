@@ -78,12 +78,12 @@ class MissivaController extends \BaseController {
 						$params[]=$pg;
 						$params[]=$pg;
 						$params[]=$idpg;
-						$condizione.="((`mittente` = ? AND `destinatario` = ?) OR (`mittente` = ? AND `destinatario` = ?))";
+						$condizione.="(((`mittente` = ? AND `destinatario` = ?) OR (`mittente` = ? AND `destinatario` = ?)) AND (`Firma_Mitt`!=0)) ";
 
 					} else {
 						$params[]=$idpg;
 						$params[]=$idpg;
-						$condizione.="(`mittente` = ? OR `destinatario` = ?)";
+						$condizione.="((`mittente` = ? OR `destinatario` = ?)) ";
 					}
 		}
 		if ($png){
