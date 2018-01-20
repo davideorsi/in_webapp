@@ -19,7 +19,7 @@ class Missiva extends Eloquent {
 				break;
 			case 2:
 				// la missiva non firmata costa 2 ma ha l'icona estera
-				if ($this->Firma_mitt == 0) {
+				if ($this->Firma_Mitt == 0) {
 					$tipo = array('icon'=>'text-warning glyphicon glyphicon-globe','text'=>'Missiva Estera');
 				} else {
 					$tipo = array('icon'=>'text-primary glyphicon glyphicon-tower','text'=>'Missiva nel Ducato');
