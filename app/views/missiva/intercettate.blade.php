@@ -4,6 +4,9 @@
 
 
 <h3>Inoltro Missive Intercettate</h3>
+
+{{ Form::open(array('url'=>'admin/intercettate','class'=>'form-inline')) }}
+
 <div class='col-md-6'>
 	<h4>Ultime missive intercettate</h4>
 	<p class='justified'>Qui sotto sono elencate le missive intercettate nel corso del mese precedente a quello della voce di locanda corrente.</p>
@@ -21,7 +24,13 @@
 					<p class='justified'>
 					{{nl2br($missiva['testo'])}}
 					</p>
+					
+					{{ Form::hidden('idmissiva[]', $missiva['id']) }}
+					{{ Form::label('nota[]', 'Note del master') }}
+					{{ Form::textarea('nota[]',NULL, array('class'=>'form-control selectform', 'placeholder' => 'Eventuale nota del master relativa alla missiva.')) }}
+					
 				</div>
+				
 			</div>
 		</li>
 	</ul>
@@ -33,7 +42,6 @@
 <div class='col-md-6'>
 	<h4>Destinatari</h4>
 	
-	{{ Form::open(array('url'=>'admin/intercettate','class'=>'form-inline')) }}
 			
 	@foreach($PG as $pers)
 	<div class="form-group">
@@ -46,9 +54,9 @@
 	<div class="form-group">
 		{{ Form::submit('Invia Missive', array('class' => 'btn btn-primary', "onclick"=>"if(!confirm('Sei sicuro di voler inviare?')){return false;};")) }}
 	</div>
-	{{ Form::close() }}
 </div>    
 
+{{ Form::close() }}
 
 
 @stop

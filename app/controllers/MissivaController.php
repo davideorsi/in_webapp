@@ -637,9 +637,9 @@ class MissivaController extends \BaseController {
 				$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
 				$selMissiva[$missiva['id']]=$key+1;
 				if ($missiva['tipo_mittente']=='PG') {
-					$coinvolto[$key]=$missiva['mittente'];
+					$coinvolto[$missiva['id']]=intval($missiva['mittente']);
 				} else{
-					$coinvolto[$key]=$missiva['destinatario'];
+					$coinvolto[$missiva['id']]=intval($missiva['destinatario']);
 				}
 			} else {
 				unset($missive[$key]);
@@ -649,21 +649,28 @@ class MissivaController extends \BaseController {
 		$infiltrato=Abilita::where('Ability','=','Infiltrato')->get(['ID']);
 		$abilita = Abilita::find($infiltrato[0]['ID']);
 		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get(['PG.ID','Nome','NomeGiocatore']);
-		
 		$elenco=array_keys($selMissiva);
 		unset($elenco[0]);
 		if ($elenco) {
 		foreach( $PG as $pers) {
 			$index=array_rand($elenco);
 			$quale=$elenco[$index];
-			
-			$pers['missiva']=$quale;
+			// se la missiva coinvolge il PG, ritira.
+			if ($coinvolto[$quale]==$pers['ID'] & sizeof($elenco)==1){
+				$quale='';
+				} else {
+				while ($coinvolto[$quale]==$pers['ID']){
+						$index=array_rand($elenco);
+						$quale=$elenco[$index];
+					}
+				$pers['missiva']=$quale;
+				}
 			}
 		} else {
+		//non ci sono missive intercettate, elenco vuoto
 		foreach( $PG as $pers) {
 			$pers['missiva']='';
 			}
-				
 		}
 
 		return View::make('missiva.intercettate')
@@ -679,12 +686,13 @@ public function inoltra_intercettate(){
 		 
 		 $personaggi=Input::get('PG');
 		 $missive=Input::get('missiva');
+		 $note=Input::get('nota');
+		 $idmissive=Input::get('idmissiva');
 
 	     $currtime=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
 					 
 		 foreach ($missive as $key=>$idmiss) {
-		 #$idmiss=$missive[0];
-		 #$key=0;
+			 
 		    if ($idmiss) {
 			$missiva=Missiva::find($idmiss);
 			
@@ -692,7 +700,7 @@ public function inoltra_intercettate(){
 			$data=strftime("%d %B %Y",$time->gettimestamp());
 			
 			$idfirma_dest = IDENTITAPG::where("ID_PG", "=", $personaggi[$key])->orderby("Asc")->take(1)->pluck("ID");
-			
+			$testonota=$note[array_search($idmiss,$idmissive)];
 			
 			$intercetto= new Missiva;
 			$intercetto->data=$currtime;
@@ -708,7 +716,12 @@ public function inoltra_intercettate(){
 			$intercetto['testo']='DATA: '.$data.'</br>';
 			$intercetto['testo'].='DESTINATARIO: '.$missiva['dest'].'</br>';	
 			$intercetto['testo'].='</br>';
-			$intercetto['testo'].=$missiva['testo'];	
+			$intercetto['testo'].=$missiva['testo'];
+			$intercetto['testo'].='</br></br>';
+			if ($testonota){
+				$intercetto['testo'].='<b>Nota dei Master</b></br>';
+				$intercetto['testo'].=$testonota;	
+			}
 			$intercetto->save();		 
 			
 			$pers=PG::find($personaggi[$key]);
