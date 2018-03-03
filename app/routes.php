@@ -174,7 +174,7 @@
 		Route::resource('missive', 'MissivaController',array('only' => array('create')));
 	});
 	
-	
+	// Missive Intercettate, spese delle missive, costi e spese dei PG
     Route::group(array('before'=>'master'), function() {
 		Route::get('missive/{id}/inoltra','MissivaController@Inoltra');
         Route::get('admin/intercettate/','MissivaController@intercettate');
@@ -233,3 +233,17 @@
         Route::get('admin/oggetti','OggettiController@index');
         Route::post('admin/oggetti/stampa','OggettiController@stampa');
 	});
+	
+	
+	// route per il mercato dei Prezioni
+	Route::group(array('before'=>'master'), function() { 
+		Route::resource('admin/preziosi', 'PreziosiController',array('except' => array('update','edit')));
+		Route::put('admin/preziosi/{id}/vendita/{acquirenti?}/{prezzo_acquisto?}','PreziosiController@vendita');
+		Route::put('admin/preziosi/vendita_random','PreziosiController@vendita_random');
+	});
+	Route::group(array('before'=>'mercante_arte'), function() { 
+		Route::resource('preziosi', 'PreziosiController',array('except' => array('update','edit','create','store')));
+		Route::post('preziosi/{id}/offerta/{importo}','PreziosiController@fai_offerta');
+		Route::delete('preziosi/{id}/rimuovi_offerta','PreziosiController@rimuovi_offerta');
+	});
+	

@@ -1,13 +1,24 @@
 <?php
 
 class INtools {
+	
+	//trova indici di array multidimensionale con valore massimo in una colonna.
+	public static function is_maximum($arr,$column){
+			$valori=array_map('intval', INtools::select_column($arr,$column));
+			$max = array_keys($valori,max($valori));
+			$massimi=array();
+			foreach($max as $m){
+				$massimi[]=$m;
+			}
+			return $massimi;
+		}
 
 	// determina, in base al costo e ad un tiro casuale, se una missiva viene intercettata
 	public static function is_intercettato($costo, $non_firmata=false){
 		
-	$percentuale=array(0.05,0.1,0.01);
+	$percentuale=array(5,10,1);
 	$intercettato=0;
-	$perc=mt_rand(0,10000)/10000;
+	$perc=mt_rand(1,100);
 
 	switch ($costo){
 		case 0:

@@ -121,6 +121,38 @@ Route::filter('scrivere', function()
 });
 
 
+
+Route::filter('mercante_arte', function()
+{
+	if (Auth::guest()){
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
+		}
+	} else {
+		$group=Auth::user()->usergroup;
+		
+		if ( $group!= 7) {
+			$idpg = Session::get('idpg');
+			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
+
+			$lista=INtools::select_column($abilita_del_PG,'Ability');			
+
+			$mercante_arte=in_array("Mercante d'Arte",$lista);
+		} else {
+			$mercante_arte=true;
+		}
+			
+		if (!$mercante_arte) {
+			return Response::make('Unauthorized', 401);
+		}
+	}
+});
+
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();
