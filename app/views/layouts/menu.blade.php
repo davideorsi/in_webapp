@@ -185,7 +185,6 @@
 				</li>
 			@endif
 			
-<!--
 			@if ($mercante_arte)
 				<li class='dropdown'><a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<span class='glyphicon glyphicon-list-alt'></span>
@@ -198,7 +197,6 @@
 					</ul>
 				</li>
 			@endif
--->
 			
 			@if (Auth::user()->usergroup == 15) <!-- Aiuto Masters -->
 				<li class='dropdown'><a href="#" class="dropdown-toggle" data-toggle="dropdown">
