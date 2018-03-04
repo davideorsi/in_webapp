@@ -212,7 +212,7 @@ class PreziosiController extends \BaseController {
 	 */
 	public function vendita_random(){
 		// Sorteggia oggetti da vendere a caso al mercato.
-		$Preziosi = Preziosi::whereNull('Comprato')->orderBy('Data', 'Asc')->get()->toArray();
+		$Preziosi = Preziosi::whereNull('Comprato')->orderBy('Data', 'Asc')->get();
 		$Fazioni = Fazione::orderBy('ID', 'asc')->take(2)->get();
 		$CondizioneMigliore=max(array($Fazioni[0]['Condizione'],$Fazioni[1]['Condizione']));
 		
@@ -224,8 +224,8 @@ class PreziosiController extends \BaseController {
 		
 		$venduti=0;
 		foreach ($Preziosi as $prezioso){
-			if($venduti<$Numero){
-				
+			$offerte=$prezioso->Offerte->toArray();
+			if($venduti<$Numero and !$offerte){
 				$perc=mt_rand(1,100);
 				if($perc<=$Percentuale){
 					$this->vendita($prezioso['ID']);

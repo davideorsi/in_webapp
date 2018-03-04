@@ -28,7 +28,7 @@
 			@endif
 			
 			@foreach($Preziosi as $key=>$prezioso)
-				<div title="" style='border:1px solid #ea0; border-left: 5px solid #ea0; padding:5px; margin-right:1%; margin-bottom:5px; width:24%; float:left; '>
+				<div title="" style='border:1px solid #ea0; border-left: 5px solid #ea0; padding:5px; margin-right:1%; margin-bottom:5px; width:31%; float:left; '>
 					<h4>{{$key+1}}) {{$prezioso['Nome'];}}</h4>
 					<p>{{$prezioso['Aspetto'];}}</p>
 					<p>	
@@ -78,7 +78,7 @@
 						@endif
 					@endif
 				</div>
-				@if(($key+1)% 4 == 0)
+				@if(($key+1)% 3 == 0)
 					<div style='clear:both'></div>
 				@endif
 			@endforeach
