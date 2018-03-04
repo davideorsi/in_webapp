@@ -34,9 +34,11 @@ class PreziosiController extends \BaseController {
 			if (count($massima)==1) {
 				$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
 				$Preziosi[$key]['OffertaMassima']=array('Nome'=>$offertamassima->PG->Nome,'PG'=>intval($offertamassima['ID_PG']),'Offerta'=>$offertamassima['Offerta']);
-			} else {
+			} elseif(count($massima)>1) { 
+				$Preziosi[$key]['OffertaMassima']='Almeno due offerte uguali.';
+			} else { 
 				$Preziosi[$key]['OffertaMassima']=NULL;
-				}
+			}
 			$data= new Datetime($prezioso['Data']);
 			$Preziosi[$key]['Data']=strftime("%d %B %Y",$data->gettimestamp());
 			}
