@@ -72,11 +72,11 @@ class INtools {
 			$monetestr='Debito di ';
 			}
 		
-		$Rame= $Monete%10;
-		$Argento =($Monete-$Rame)/10;
-		if ($Argento%5>0){
+		$Rame= floor($Monete%10);
+		$Argento =floor(($Monete-$Rame)/10);
+		if (floor($Argento%5)>0){
 			$Oro=floor($Argento/5);
-			$Argento=$Argento-$Oro*5;
+			$Argento=floor($Argento-$Oro*5);
 		}
 		elseif ($Argento>=5){
 			$Oro=floor($Argento/5);
