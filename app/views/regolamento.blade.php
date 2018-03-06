@@ -16,14 +16,14 @@
 
 <div class='col-sm-6' style='text-align: center;'>
 
-	<a href={{URL::to('files/tomo_delle_regole.pdf')}}>
+	<a href={{URL::to('files/tomo_delle_regole_5_1.pdf')}}>
 	{{ HTML::image('img/regole.jpg','Regolamento',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
 
 </div>
 
 <div class='col-sm-6' style='text-align: center;'>
-	<a href={{URL::to('files/tomo_della_economia.pdf')}}>
+	<a href={{URL::to('files/tomo_della_economia_5_0.pdf')}}>
 	{{ HTML::image('img/economia.jpg','Economia',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
 
