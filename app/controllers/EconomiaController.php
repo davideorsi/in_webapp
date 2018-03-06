@@ -34,12 +34,14 @@ class EconomiaController extends \BaseController {
 		$PBA=array(0,30,20,10,5);
 		$PBV=array(0,40,30,20,10);
 		
+		
 		foreach ($Beni as $bene){
-			$bene['PA']=INtools::convertiMonete($PBA[$max]*$bene['IR']);
-			$bene['PV']=INtools::convertiMonete($PBV[$min]*$bene['IR']);
+			$bene['PA']=INtools::convertiMonete($PBA[$max]*intval($bene['IR']));
+			$bene['PV']=INtools::convertiMonete($PBV[$min]*intval($bene['IR']));
 		
 		}
 
+		// dd($Beni);
 		// load the view and pass the nerds
 		return View::make('economia.index')
 			->with('Fazioni', $Fazioni)
