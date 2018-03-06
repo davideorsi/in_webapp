@@ -36,8 +36,8 @@ class EconomiaController extends \BaseController {
 		
 		
 		foreach ($Beni as $bene){
-			$bene['PA']=INtools::convertiMonete($PBA[$max]*intval($bene['IR']));
-			$bene['PV']=INtools::convertiMonete($PBV[$min]*intval($bene['IR']));
+			$bene['PA']=INtools::convertiMonete($PBA[$max]*floatval($bene['IR']));
+			$bene['PV']=INtools::convertiMonete($PBV[$min]*floatval($bene['IR']));
 		
 		}
 
