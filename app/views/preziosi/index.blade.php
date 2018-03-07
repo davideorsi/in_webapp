@@ -44,7 +44,11 @@
 						@endif
 						@if($master)
 							@if($prezioso['OffertaMassima'])
+							@if(is_string($prezioso['OffertaMassima']))
+								<b>{{$prezioso['OffertaMassima']}}</b>
+							@else
 								<b>Offerta Massima:</b> {{INtools::convertiMonete($prezioso['OffertaMassima']['Offerta']);}} ({{$prezioso['OffertaMassima']['Nome'];}})</br>
+							@endif
 							@endif
 						@else
 							@if($offertepg[$key])
@@ -56,13 +60,16 @@
 					@if($master)	
 						<div class="btn-group" style='margin-bottom:10px;'>	
 						@if($prezioso['OffertaMassima'])
-						{{ Form::open(array('id'=>'vendita_prezioso','url' => 'admin/preziosi/'.$prezioso['ID'].'/vendita/'.$prezioso['OffertaMassima']['PG'].'/'.$prezioso['OffertaMassima']['Offerta'], 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
+							@if (!is_string($prezioso['OffertaMassima']))
+							{{ Form::open(array('id'=>'vendita_prezioso','url' => 'admin/preziosi/'.$prezioso['ID'].'/vendita/'.$prezioso['OffertaMassima']['PG'].'/'.$prezioso['OffertaMassima']['Offerta'], 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
+							@else
+							{{ Form::open(array('id'=>'vendita_prezioso','url' => 'admin/preziosi/'.$prezioso['ID'].'/vendita', 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
+							@endif
 						@else
-						{{ Form::open(array('id'=>'vendita_prezioso','url' => 'admin/preziosi/'.$prezioso['ID'].'/vendita', 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
-						@endif
 						{{ Form::hidden('_method', 'PUT') }}
 						{{ Form::submit('Venduto', array('class' => 'btn btn-primary btn-xs')) }}
 						{{ Form::close() }}
+						@endif
 						{{ Form::open(array('id'=>'delete_prezioso','url' => 'admin/preziosi/'.$prezioso['ID'], 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
 						{{ Form::hidden('_method', 'DELETE') }}
 						{{ Form::submit('Elimina', array('class' => 'btn btn-warning btn-xs')) }}
