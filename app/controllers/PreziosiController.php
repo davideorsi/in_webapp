@@ -227,12 +227,22 @@ class PreziosiController extends \BaseController {
 		$venduti=0;
 		foreach ($Preziosi as $prezioso){
 			$offerte=$prezioso->Offerte->toArray();
-			if($venduti<$Numero and !$offerte){
-				$perc=mt_rand(1,100);
-				if($perc<=$Percentuale){
+			if ($offerte){
+				$massima=INtools::is_maximum($offerte,'Offerta');
+			}
+			
+			
+			$perc=mt_rand(1,100);
+			if($venduti<$Numero and $perc<=$Percentuale){
+				if(!$offerte){
 					$this->vendita($prezioso['ID']);
 					$venduti=$venduti+1;
-					}
+					} 
+				elseif (count($massima)>1) {
+					$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
+					$this->vendita($prezioso['ID'],NULL,$offertamassima['Offerta']+1);
+					$venduti=$venduti+1;
+					} 
 				}
 			}
 		return Redirect::to('admin/preziosi');			
