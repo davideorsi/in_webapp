@@ -76,12 +76,14 @@
 						{{ Form::close() }}
 						</div>
 					@else
-						<a href="#" onclick="fai_offerta({{$prezioso['ID'];}});" class="btn btn-warning btn-xs">Inserisci offerta</a>
-						@if($offertepg[$key])
-							{{ Form::open(array('url' => 'preziosi/'.$prezioso['ID'].'/rimuovi_offerta', 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
-							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('Elimina Offerta', array('class' => 'btn btn-danger btn-xs')) }}
-							{{ Form::close() }}
+						@if !app('prelive')
+							<a href="#" onclick="fai_offerta({{$prezioso['ID'];}});" class="btn btn-warning btn-xs">Inserisci offerta</a>
+							@if($offertepg[$key])
+								{{ Form::open(array('url' => 'preziosi/'.$prezioso['ID'].'/rimuovi_offerta', 'style'=>'display:inline-block; margin-left: -2px', 'onsubmit'=>"return confirm('Sei sicuro di voler procedere?');")) }}
+								{{ Form::hidden('_method', 'DELETE') }}
+								{{ Form::submit('Elimina Offerta', array('class' => 'btn btn-danger btn-xs')) }}
+								{{ Form::close() }}
+							@endif
 						@endif
 					@endif
 				</div>

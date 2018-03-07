@@ -35,7 +35,7 @@ class PreziosiController extends \BaseController {
 				$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
 				$Preziosi[$key]['OffertaMassima']=array('Nome'=>$offertamassima->PG->Nome,'PG'=>intval($offertamassima['ID_PG']),'Offerta'=>$offertamassima['Offerta']);
 			} elseif(count($massima)>1) { 
-				$Preziosi[$key]['OffertaMassima']='Almeno due offerte uguali.';
+				$Preziosi[$key]['OffertaMassima']='Almeno due offerte uguali';
 			} else { 
 				$Preziosi[$key]['OffertaMassima']=NULL;
 			}
