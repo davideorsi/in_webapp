@@ -115,12 +115,16 @@
                         @else
                         <!-- Disabilitato per live -->
                         
+<!--
 	                        @if (!app('prelive'))
+-->
 									@if ($scrivere)
 										<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
 									@endif
 									
+<!--
 		                    @endif
+-->
                         @endif
                     </ul>
 				</li>
