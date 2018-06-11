@@ -20,12 +20,12 @@
 		<div class='row' style='margin-left:5px; margin-right:5px;'>
 			
 		@if (app('prelive'))
-			<div class='col-sm-6'>
+			<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
 				<h5>Iscrizioni chiuse!</h5>
 				@if (!$iscritto)
-					<p>Il tuo personaggio {{$pg['Nome']}} non risulta iscritto a questo evento.</p>
+					<p>Il tuo personaggio, {{$pg['Nome']}}, non risulta iscritto a questo evento.</p>
 				@else
-					<p>Risulti iscritto con il pg {{$pg['Nome']}}.</p>
+					<p>Risulti iscritto con il personaggio {{$pg['Nome']}}. Ci vediamo al live!</p>
 				@endif
 			</div>
 		@else	
