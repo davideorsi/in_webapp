@@ -18,6 +18,17 @@
 		</div>
 		
 		<div class='row' style='margin-left:5px; margin-right:5px;'>
+			
+		@if (app('prelive'))
+			<div class='col-sm-6'>
+				<h5>Iscrizioni chiuse!</h5>
+				@if (!$iscritto)
+					<p>Il tuo personaggio {{$pg['Nome']}} non risulta iscritto a questo evento.</p>
+				@else
+					<p>Risulti iscritto con il pg {{$pg['Nome']}}.</p>
+				@endif
+			</div>
+		@else	
 		@if (!$iscritto)
 
 			<div class='col-sm-6'>
@@ -149,7 +160,7 @@
 			</div>
 			
 		@endif
-		
+		@endif
 
 		</div>
 	</div>
