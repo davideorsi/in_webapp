@@ -44,7 +44,7 @@
 				</span></a>
 				<ul class="dropdown-menu" role="menu">
 					<li ><a href="{{ URL::to('/') }}"><small>Home</small></a></li>
-					<li ><a href="http://in_forum.boru.it"><small>Forum</small></a></li>
+					<li ><a href="http://www.boru.it/IN/forum"><small>Forum</small></a></li>
 					<li ><a href="{{ URL::to('/ambientazione') }}"><small>Ambientazione</small></a></li>
 					<li ><a href="{{ URL::to('/famoso') }}"><small>Notabili del Ducato</small></a></li>
 					<li ><a href="{{ URL::to('/regolamento') }}"><small>Regolamento</small></a></li>
