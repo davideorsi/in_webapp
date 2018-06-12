@@ -203,7 +203,7 @@ class VicendasController extends \BaseController {
 			'orange'
 		);
 
-		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
+		$Masters = User::orderBy('usergroup','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
 		$coloreMaster=array();
 		$nomeMaster=array();
 		foreach ($Masters as $key2=>$Master){
