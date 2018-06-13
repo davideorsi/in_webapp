@@ -370,6 +370,16 @@ class PgController extends \BaseController {
 	public function schede()
 	{
 		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+		$EventoPrecedente = Evento::orderBy('Data','Desc')->where('Tipo','=','EVENTO LIVE')->take(2)->get(array('Data','Titolo','ID'));
+	
+		$PG = $EventoPrecedente[1]->PG()->orderby('Affiliazione','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
+		$PGR=array();
+		foreach($PG as $pg){
+				if ($pg['pivot']['Armi']!='1'){
+				$PGR[]=intval($pg['ID']);
+				}
+			}
+		
 		$InfoList = Evento::find($Evento[0]['ID'])->Informatori;
 		$Informatori=array();
 		foreach ($InfoList as $inf) {
@@ -390,7 +400,17 @@ class PgController extends \BaseController {
 				$data['PG'][$key]['Note']=$pg->Note();
 				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();
 				$data['PG'][$key]['Incanti']=$pg->Incanti()->orderBy('Livello','asc')->get();
-		
+				
+				$ha_armi=false;
+				if (in_array('Uso del coltello',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))){$ha_armi=true;}
+				if (in_array('Uso di armi da Lancio',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))){$ha_armi=true;}
+				if (in_array('Armi',INtools::select_column($pg->Categorie->toarray(),'Categoria'))){$ha_armi=true;}
+				
+				if (in_array($pg->ID,$PGR) && $ha_armi ){
+					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> Nello scorso Live non hai pagato (o non è stata pagata per te) la manutenzione delle Armi. Non puoi usare armi in combattimento: per usarle in questo evento, procurati un cartellino manutenzione da un Fabbro e specifica che è per l'evento precedente. Dovrai comunque pagare il mantenimento per il prossimo Live.";
+				}
+				
+				
 				# Aggiungere gli oggetti e gli informatori selezionati alla scheda PG
 				$opzioni=explode('<br>',$pg['pivot']['Note']);
 				foreach ($opzioni as $ii => $opt) {
@@ -419,7 +439,6 @@ class PgController extends \BaseController {
 				} 
 		
 		}
-		
 		
 		
 		//$pdf = PDF::loadView('pg.schede',$data);
