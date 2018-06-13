@@ -30,6 +30,7 @@ class MedicinaController extends \BaseController {
 				$pg['Cicatrici']=5*$pg->Ferite();
 				$pg['CicatriciRimaste']=$pg['pivot']['Cicatrici'];
 				$pg['Cibo']=$pg['pivot']['Cibo'];
+				$pg['Armi']=$pg['pivot']['Armi'];
 				
 				$PGR[$pg['Affiliazione']][]=$pg;
 			}
@@ -43,7 +44,9 @@ class MedicinaController extends \BaseController {
 		$idEvento=Input::get('evento');
 		$cicatrici=Input::get('cicatrici');
 		$cibo=Input::get('cibo');
+		$armi=Input::get('armi');
 		if (is_null($cibo)) {$cibo=array();}
+		if (is_null($armi)) {$armi=array();}
 		
 		$Evento=Evento::find($idEvento);
 		
@@ -51,10 +54,12 @@ class MedicinaController extends \BaseController {
 		foreach ($pgs as $key=>$pg){
 				$valCibo=0;
 				if (in_array($pg,$cibo)) {$valCibo=1;} 
+				$valArmi=0;
+				if (in_array($pg,$armi)) {$valArmi=1;} 
 				if (is_null($cicatrici[$key])) {$cicatrici[$key]=0;}
-				$Evento->PG()->updateExistingPivot($pg,array('Cicatrici'=>$cicatrici[$key],'Cibo'=>$valCibo));
+				$Evento->PG()->updateExistingPivot($pg,array('Cicatrici'=>$cicatrici[$key],'Cibo'=>$valCibo,'Armi'=>$valArmi));
 				}
-		Session::flash('message', 'Cicatrici e Cibo salvati correttamente!');
+		Session::flash('message', 'Cicatrici, Cibo e Armi salvati correttamente!');
 		return Redirect::to('admin/medicina');
 
 	}
