@@ -413,11 +413,7 @@ class PgController extends \BaseController {
 				}
 				//######################################################
 				
-				// CONTROLLO DELLE MALATTIE
-				$Malattie=INtools::select_column($pg->Malattie()->get(),'Effetti');
-				if($Malattie){
-					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> ".$Malattie[0];
-					}
+
 				
 				
 				# Aggiungere gli oggetti e gli informatori selezionati alla scheda PG
