@@ -401,6 +401,8 @@ class PgController extends \BaseController {
 				$data['PG'][$key]['Abilita']=$pg->Abilita()->orderBy('Categoria','asc')->get();
 				$data['PG'][$key]['Incanti']=$pg->Incanti()->orderBy('Livello','asc')->get();
 				
+				//######################################################
+				// CONTROLLO DEL MANTENIMENTO ARMI AL LIVE PRECEDENTE
 				$ha_armi=false;
 				if (in_array('Uso del coltello',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))){$ha_armi=true;}
 				if (in_array('Uso di armi da Lancio',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))){$ha_armi=true;}
@@ -409,6 +411,13 @@ class PgController extends \BaseController {
 				if (in_array($pg->ID,$PGR) && $ha_armi ){
 					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> Nello scorso Live non hai pagato (o non è stata pagata per te) la manutenzione delle Armi. Non puoi usare armi in combattimento: per usarle in questo evento, procurati un cartellino manutenzione da un Fabbro e specifica che è per l'evento precedente. Dovrai comunque pagare il mantenimento per il prossimo Live.";
 				}
+				//######################################################
+				
+				// CONTROLLO DELLE MALATTIE
+				$Malattie=INtools::select_column($pg->Malattie()->get(),'Effetti');
+				if($Malattie){
+					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> ".$Malattie[0];
+					}
 				
 				
 				# Aggiungere gli oggetti e gli informatori selezionati alla scheda PG
