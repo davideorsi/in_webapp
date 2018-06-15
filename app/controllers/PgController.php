@@ -416,7 +416,9 @@ class PgController extends \BaseController {
 				// CONTROLLO DELLE MALATTIE
 				$Malattie=INtools::select_column($pg->Malattie()->get(),'Effetti');
 				if($Malattie){
-					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> ".$Malattie[0];
+					if (!ctype_space($Malattie[0]) && !empty($Malattie[0])){
+						$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> ".$Malattie[0];
+					}
 					}
 				
 				
