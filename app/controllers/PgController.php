@@ -412,7 +412,6 @@ class PgController extends \BaseController {
 					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> Nello scorso Live non hai pagato (o non è stata pagata per te) la manutenzione delle Armi. Non puoi usare armi in combattimento: per usarle in questo evento, procurati un cartellino manutenzione da un Fabbro e specifica che è per l'evento precedente. Dovrai comunque pagare il mantenimento per il prossimo Live.";
 				}
 				//######################################################
-				
 				// CONTROLLO DELLE MALATTIE
 				$Malattie=INtools::select_column($pg->Malattie()->get(),'Effetti');
 				if($Malattie){
@@ -421,6 +420,7 @@ class PgController extends \BaseController {
 					}
 					}
 				
+				//######################################################
 				
 				# Aggiungere gli oggetti e gli informatori selezionati alla scheda PG
 				$opzioni=explode('<br>',$pg['pivot']['Note']);
