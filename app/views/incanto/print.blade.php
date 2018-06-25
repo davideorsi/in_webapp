@@ -64,6 +64,8 @@
 				<i>Formula: </i>{{$incanto['Formula']}}<br>
 				<i>Note: </i>{{$incanto['Descrizione']}}<br>
 				<i>Livello: </i>{{$incanto['Livello']}}<br>
+				<br>
+				Questa pergamena NON può essere utilizzata per apprendere l'incanto
 			</footer>
 		</article>
 		
