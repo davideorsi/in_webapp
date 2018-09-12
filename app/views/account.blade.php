@@ -23,7 +23,7 @@
 			<div class='img-rounded' style='color: #000; background: rgba(255,255,255,0.7); padding:5px; margin-bottom: 10px'>
 				<h5>Iscrizioni chiuse!</h5>
 				@if (!$iscritto)
-					<p>Il tuo personaggio, {{$pg['Nome']}}, non risulta iscritto a questo evento.</p>
+					<p>Il tuo personaggio, {{$pg['Nome']}}, non risulta iscritto a questo evento. Per iscriverti, contatta un master tramite mail / Facebook.</p>
 				@else
 					<p>Risulti iscritto con il personaggio {{$pg['Nome']}}. Ci vediamo al live!</p>
 				@endif
