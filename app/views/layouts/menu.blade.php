@@ -113,13 +113,13 @@
 						<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
                         <li><a href="{{ URL::to('admin/intercettate/') }}"><small>Intercettate</small></a></li>
                         @else
-	                        <!--@//if (!app('prelive'))-->
+	                        @if (!app('blocca_missive'))
 
 									@if ($scrivere)
 										<li ><a href="{{ URL::to('missive/create') }}"><small>Invia</small></a></li>
 									@endif
 
-							<!--@//endif-->
+							@endif
 									
 									
                         @endif

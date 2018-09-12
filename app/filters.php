@@ -19,6 +19,10 @@ App::before(function($request)
         $prelive=true; #true in prelive, false nell'uso normale
         return $prelive; 
     });
+	App::singleton('blocca_missive', function(){
+        $blocca_missive=false; #true blocca le missive
+        return $blocca_missive; 
+    });
 });
 
 
