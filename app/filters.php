@@ -20,7 +20,7 @@ App::before(function($request)
         return $prelive; 
     });
 	App::singleton('blocca_missive', function(){
-        $blocca_missive=true; #true blocca le missive
+        $blocca_missive=false; #true blocca le missive
         return $blocca_missive; 
     });
 });
