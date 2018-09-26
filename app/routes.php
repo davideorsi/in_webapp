@@ -250,7 +250,7 @@
 	
 	// route per le Domande Frequenti
 	Route::get('domanda/{id}','DomandaController@show');
-	Route::get('domanda','DomandaController@list');
+	Route::get('domanda','DomandaController@lista');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/domanda', 'DomandaController',array('except' => array('show')));
 		Route::get('admin/domanda/{id}', 'DomandaController@show_master');

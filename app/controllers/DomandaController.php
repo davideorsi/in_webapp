@@ -22,7 +22,7 @@ class DomandaController extends \BaseController {
 			->with('selectDomande', $selectDomande);
 	}
 
-	public function list()
+	public function lista()
 	{
 		$domande = Domanda::where('Bozza','=',0)->orderBy('ID', 'desc')->get(array('ID','Domanda','Risposta','Bozza'));
 		$selectDomande = array(0=>"");
