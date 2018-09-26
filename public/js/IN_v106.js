@@ -874,3 +874,19 @@ if (offerta == null || offerta == "") {
 }	
 }
 
+
+function get_oggetto_prezioso(pos){
+$.ajax({
+	type: "GET",
+	url:  "preziosi/"+pos,
+	async: true,
+	success: function(output){
+		$("#venduto_Nome").html("Nome: "+output.Nome);
+		$("#venduto_Aspetto").html("Aspetto: "+output.Aspetto);
+		$("#venduto_Materiali").html("Materiali: "+output.Materiali);
+		$("#venduto_Valore").html("Valore: "+output.Valore);
+		$("#venduto_Acquirente").html("Acquirente: "+output.Acquirente);
+	},  
+	dataType: "json"
+});
+}

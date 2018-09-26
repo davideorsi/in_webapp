@@ -240,6 +240,7 @@
 		Route::resource('admin/preziosi', 'PreziosiController',array('except' => array('update','edit')));
 		Route::put('admin/preziosi/{id}/vendita/{acquirenti?}/{prezzo_acquisto?}','PreziosiController@vendita');
 		Route::put('admin/preziosi/vendita_random','PreziosiController@vendita_random');
+		Route::put('admin/preziosi/risolvi_aste','PreziosiController@risolvi_aste');
 	});
 	Route::group(array('before'=>'mercante_arte'), function() { 
 		Route::resource('preziosi', 'PreziosiController',array('except' => array('update','edit','create','store')));

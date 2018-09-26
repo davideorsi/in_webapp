@@ -11,6 +11,11 @@ class PreziosiController extends \BaseController {
 	public function index()
 	{
 		$Preziosi = Preziosi::whereNull('Comprato')->orderBy('Data', 'Asc')->get();
+		$Venduti = Preziosi::where('Comprato','=',1)->orderBy('Data', 'Asc')->get();
+		$selectVenduti = array();
+		foreach($Venduti as $venduto) {
+			$selectVenduti[$venduto->ID] = $venduto->ID.') '. $venduto->Nome;
+		}
 
 		foreach($Preziosi as $key=>$prezioso){
 			if (is_null($prezioso['Creatore'])){$Preziosi[$key]['Creatore']='Sconosciuto';}
@@ -31,11 +36,13 @@ class PreziosiController extends \BaseController {
 			}
 			else $massima=NULL;
 			
-			if (count($massima)==1) {
-				$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
-				$Preziosi[$key]['OffertaMassima']=array('Nome'=>$offertamassima->PG->Nome,'PG'=>intval($offertamassima['ID_PG']),'Offerta'=>$offertamassima['Offerta']);
-			} elseif(count($massima)>1) { 
-				$Preziosi[$key]['OffertaMassima']='Almeno due offerte uguali';
+			if (!is_null($massima)){
+				if (count($massima)==1) {
+					$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
+					$Preziosi[$key]['OffertaMassima']=array('Nome'=>$offertamassima->PG->Nome,'PG'=>intval($offertamassima['ID_PG']),'Offerta'=>$offertamassima['Offerta']);
+				} elseif(count($massima)>1) { 
+					$Preziosi[$key]['OffertaMassima']='Almeno due offerte uguali';
+				}
 			} else { 
 				$Preziosi[$key]['OffertaMassima']=NULL;
 			}
@@ -89,6 +96,7 @@ class PreziosiController extends \BaseController {
 			->with('valutare', $valutare)
 			->with('master', $master)
 			->with('offertepg', $offertepg)
+			->with('selectVenduti', $selectVenduti)
 			->with('Preziosi', $Preziosi->toArray());
 	}
 
@@ -201,7 +209,19 @@ class PreziosiController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		//mostra tutti gli oggetti se sei un master
+		$oggetto = Preziosi::find($id);
+		
+		if (is_numeric($oggetto['Acquirente'])){
+			$pg=PG::find($oggetto['Acquirente']);
+			$oggetto['Acquirente']=$pg['Nome'].' ('.$pg['NomeGiocatore'].')';
+			}
+		else{
+			$oggetto['Acquirente']="Sconosciuto";
+			}
+		
+		$oggetto['Valore']=INtools::convertiMonete($oggetto['Valore']);
+		return Response::json($oggetto);
 	}
 
 
@@ -230,15 +250,19 @@ class PreziosiController extends \BaseController {
 			if ($offerte){
 				$massima=INtools::is_maximum($offerte,'Offerta');
 			}
+			else $massima=NULL;
+			
 			
 			
 			$perc=mt_rand(1,100);
 			if($venduti<$Numero and $perc<=$Percentuale){
 				if(!$offerte){
+					//senza offerte, venduto a caso al mercato
 					$this->vendita($prezioso['ID']);
 					$venduti=$venduti+1;
 					} 
 				elseif (count($massima)>1) {
+					//può essere venduto al mercato anche con offerte!
 					$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
 					$this->vendita($prezioso['ID'],NULL,$offertamassima['Offerta']+1);
 					$venduti=$venduti+1;
@@ -247,6 +271,27 @@ class PreziosiController extends \BaseController {
 			}
 		return Redirect::to('admin/preziosi');			
 	} 
+	
+	public function risolvi_aste(){
+		// Vendi ai migliori offerenti
+		$Preziosi = Preziosi::whereNull('Comprato')->orderBy('Data', 'Asc')->get();
+		
+		
+		foreach ($Preziosi as $prezioso){
+			$offerte=$prezioso->Offerte->toArray();
+			if ($offerte){
+				$massima=INtools::is_maximum($offerte,'Offerta');
+			} else {$massima=array();}
+			
+			if (count($massima)==1) {
+					$offertamassima=PreziosiOfferte::find($offerte[$massima[0]]['ID']);	
+					$this->vendita($prezioso['ID'],$offertamassima['ID_PG'],$offertamassima['Offerta']);
+					} 
+		}
+		return Redirect::to('admin/preziosi');			
+	}
+	
+	
 	 
 	public function vendita($id,$acquirente=NULL,$prezzo_acquisto=NULL)
 	{
@@ -294,7 +339,7 @@ class PreziosiController extends \BaseController {
 			$Spese = new Spese;
 			$Spese->PG=$acquirente;
 			$Spese->Spesa=$somma;
-			$Spese->Causale='Acquisto oggetto prezioso "'.$prezioso['Nome'].'"';
+			$Spese->Causale='Acquisto oggetto prezioso "'.$prezioso['Nome'].'"'.'('.$prezioso['Aspetto'].' - Valore:'.$prezioso['Valore'].')';
 			$Spese->save();
 			}
 			
