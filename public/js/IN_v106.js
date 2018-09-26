@@ -890,3 +890,31 @@ $.ajax({
 	dataType: "json"
 });
 }
+
+////// DOMANDE FREQUENTI
+
+function get_domanda_master(pos){
+$.ajax({
+	type: "GET",
+	url:  "domanda/"+pos,
+	async: true,
+	success: function(output){
+		$("#domanda_domanda").html(output.Domanda);
+		$("#domanda_risposta").html(output.Risposta);
+	},  
+	dataType: "json"
+});
+}
+
+function get_domanda(pos){
+$.ajax({
+	type: "GET",
+	url:  "domanda/"+pos,
+	async: true,
+	success: function(output){
+		$("#domanda_domanda").html(output.Domanda);
+		$("#domanda_risposta").html(output.Risposta);
+	},  
+	dataType: "json"
+});
+}

@@ -48,6 +48,7 @@
 					<li ><a href="{{ URL::to('/ambientazione') }}"><small>Ambientazione</small></a></li>
 					<li ><a href="{{ URL::to('/famoso') }}"><small>Notabili del Ducato</small></a></li>
 					<li ><a href="{{ URL::to('/regolamento') }}"><small>Regolamento</small></a></li>
+					<li ><a href="{{ URL::to('/domanda') }}"><small>Domande Frequenti</small></a></li>
 					<li ><a href="{{ URL::to('/istruzioni') }}"><small>Come Iniziare</small></a></li>
 				</ul>
 			</li>
@@ -151,6 +152,7 @@
 						<li ><a href="{{ URL::to('admin/malattie') }}"><small>Malattie</small></a></li>
 						<li ><a href="{{ URL::to('admin/informatori') }}"><small>Informatori</small></a></li>
 						<li ><a href="{{ URL::to('admin/post') }}"><small>Ambientazione</small></a></li>
+						<li ><a href="{{ URL::to('admin/domanda') }}"><small>Domande Frequenti</small></a></li>
 						<li ><a href="{{ URL::to('admin/famoso') }}"><small>PG Famosi</small></a></li>
 						<li ><a href="{{ URL::to('admin/pozioni') }}"><small>Pozioni</small></a></li>
 						<li ><a href="{{ URL::to('admin/incanto') }}"><small>Incanti</small></a></li>
