@@ -9,7 +9,7 @@ class DomandaController extends \BaseController {
 	public function index()
 	{
 		$domande = Domanda::orderBy('ID', 'desc')->get(array('ID','Domanda','Risposta','Bozza'));
-		$selectDomande = array(0=>"");
+		$selectDomande = array();
 		foreach($domande as $domanda) {
 			$selectDomande[$domanda->ID] = $domanda->ID.') '. $domanda->Domanda;
 			if  ($domanda->Bozza==1){
