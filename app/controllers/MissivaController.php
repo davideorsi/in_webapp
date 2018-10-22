@@ -17,8 +17,13 @@ class MissivaController extends \BaseController {
 			foreach($PG as $p){
 				$selPG[$p->ID]=$p->Nome .' ('. $p->NomeGiocatore.')';
 				}
+			$Masters = User::orderBy('ID','desc')->where('usergroup','=',7)->get();
+			$selMasters=array(0=>'');
+			foreach($Masters as $m){
+				$selMasters[$m['username']] = $m['username'];
+   			}
 			
-			return View::make('missiva.index')->with('selPG',$selPG)->with('idpg',$idpg);
+			return View::make('missiva.index')->with('selPG',$selPG)->with('idpg',$idpg)->with('selMasters',$selMasters);
 		} else {
 			return Redirect::to('/');
 		}
@@ -39,6 +44,7 @@ class MissivaController extends \BaseController {
 		$interc=Input::get('Intercettato',0);
 		$solononrisp=Input::get('Solononrisp',0);
 		$conpng=Input::get('ConPNG',0);
+		$master=Input::get('Master');
 
 		
 		$condizione='';
@@ -116,6 +122,12 @@ class MissivaController extends \BaseController {
 				if ($parola=== end($words)) {$condizione.=")";}
 			}
 		}
+		if ($master){
+			if ($condizione) {$condizione.=" AND ";}
+				$params[]=$master;
+				$condizione.= "`Master` = ?";
+			}
+
 		if (!$condizione){$condizione="1"; }
 		$missive=Missiva::whereRaw($condizione,$params)->orderBy('id','desc')->paginate(10);
 
@@ -584,6 +596,18 @@ class MissivaController extends \BaseController {
 		Session::flash('message', 'Missiva aggiornata!');
 		return Redirect::to('missive');
 	}
+	
+	public function aggiorna_master($id,$master)
+    {
+   	 $missiva = Missiva::find($id);
+   	 
+   	 $missiva -> Master = $master;
+   	 $missiva -> save();
+
+   	 Session::flash('message', 'Missiva aggiornata!');
+   	 return Redirect::to('missive');
+    }
+
 
 
 	/*

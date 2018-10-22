@@ -165,6 +165,7 @@
 	
 	// route per le missive
 	Route::group(array('before'=>'auth'), function() {
+		Route::post('missive/{id}/{master}/aggiorna_master','MissivaController@aggiorna_master');
 		Route::get('missive/search','MissivaController@search');
 		Route::get('debito/{id}','MissivaController@debito');
 		Route::resource('missive', 'MissivaController',array('except' => array('update','edit')));

@@ -278,7 +278,7 @@ $.ajax({
 			total: output.last_page,
 			maxVisible: 7
 		}).on("page", function(event, num){get_list_missive(num,show_delete,idpg)} );
-		
+		var masters = [" ","ordaldm","maximilien","birzzum","filippo","loyankee"];	
 		var missive=output.data;
 		var main=$('#results');
 		main.html('');
@@ -297,6 +297,17 @@ $.ajax({
 			mediacollapse=$('<div></div>').addClass(' collapse-group');
 			header=$('<div></div>').addClass('media-heading '+clr);
 			body=$('<div></div>').addClass('collapse');
+			var masterCombo = "<select name='master' id='"+missiva.id+"' class='dropdown' onchange='update_master("+missiva.id+")'>" ;
+			for (var i=0; i<masters.length; i++)
+			{
+   			 if (masters[i] == missiva.Master){
+   				 masterCombo = masterCombo + "<option value='"+masters[i]+"' selected = 'selected'>"+masters[i]+"</option>";
+   			 }else {
+   				 masterCombo = masterCombo + "<option value='"+masters[i]+"'>"+masters[i]+"</option>";
+   			 }
+			}
+			masterCombo = masterCombo + "</select>";
+
 			testo=$('<p></p>').addClass('visible-xs justified');
 			icon_area=$('<div></div>').addClass('icon_area');
 			
@@ -322,6 +333,7 @@ $.ajax({
 					if (missiva.Firma_Mitt != 0){
 						icon_area.append("<a class='with_margin_icon glyphicon glyphicon-circle-arrow-left' href='#' title='Rispondi' onclick='rispondi("+missiva.id+")'></a>");
 					}	
+					icon_area.append(masterCombo); //dentro al controllo (se costo >0)
 				}
 			}
 			
@@ -433,6 +445,22 @@ function toggle_rispondere(id){
 			dataType: "html"
 		});
 	}
+}
+
+
+function update_master(id){
+    var e = document.getElementById(id);
+    var strMaster = e.options[e.selectedIndex].value;
+    $.ajax({
+   		 type: 'POST',
+   		 url:  "missive/"+id+"/"+strMaster+"/aggiorna_master",
+   		 success: function(){
+			// questi sono commentati per non ricaricare la pagina, altrimenti dopo ogni selezione bisognerebbe tornare a cercare le missive da aggiornare. il combo rimane impostato comunque
+   			 //location.reload();
+   			 //$("#info").html('Missiva Aggiornata con Successo!');
+   		 },  
+   		 dataType: "html"
+   	 });
 }
 
 function rispondi(id){

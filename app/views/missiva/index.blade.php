@@ -66,6 +66,13 @@
 					{{ Form::checkbox('Solononrisp',1, Input::old('rispondere'), ['class'=>'checkbox','describedby'=>'basic-addon-nonrisp']) }}
 					</div>
 				</div>
+				<div class="form-group" title='mostro solo le missive assegnate ad Master'>
+					<div class="input-group margin-bottom">
+					<span class="input-group-addon" id="basic-addon-Master">Master</span>    
+					{{ Form::select('Master', $selMasters, Input::old('Master'),['class'=>'form-control','describedby'=>"basic-addon-Master"]) }}
+					</div>
+				</div>
+
 				@endif
 	
 				<div  class="form-group" title='Mostra solo le missive per PNG'>
