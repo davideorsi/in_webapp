@@ -83,7 +83,7 @@
 					<td>
 						{{ Form::model($Malati, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin/stadiopg', 'class'=>'pure-form')) }}
 						{{ Form::hidden('PG',$Malati['ID'])}}
-						{{ Form::hidden('Stadio',$Malati['Stadio']) }}
+						{{ Form::hidden('Stadio',$Malati['StadioID']) }}
 						{{ Form::submit("x", array('class' => 'btn btn-warning')) }}
 						{{ Form::close()}}
 

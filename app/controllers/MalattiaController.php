@@ -26,7 +26,7 @@ class MalattiaController extends \BaseController {
 			$idstadio=INtools::select_column($malato->Malattie,'ID');
 			$stadio=Stadio::find($idstadio[0])->toArray();
 			$Malattia=Malattia::find($stadio['Malattia']);
-			$selMalati[]=array('ID'=>$malato->ID,'Nome'=>$malato->Nome,'Stadio'=>$stadio['Numero'],'Malattia'=>$Malattia['Nome']);
+			$selMalati[]=array('ID'=>$malato->ID,'Nome'=>$malato->Nome,'Stadio'=>$stadio['Numero'],'StadioID'=>$stadio['ID'],'Malattia'=>$Malattia['Nome']);
 			}
 			
 		$Vivi=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
@@ -238,19 +238,17 @@ class MalattiaController extends \BaseController {
 	{
 		$idPg=Input::get('PG');
 		$idStadio=Input::get('Stadio');
-
-
 		$Stadio=Stadio::find($idStadio);
 		$Stadio->PG()->detach($idPg);
-
+		#DB::delete('DELETE FROM `Malattie-PG` WHERE PG = ? AND Stadio = ?',[$idPg, $idStadio]);
 		Session::flash('message', 'Malattia rimossa correttamente!');
 		return Redirect::to('admin/malattie/');
 	}
+	
 	public function aggiungiMalato()
 	{
 		$idPg=Input::get('pg_vivi');
 		$idStadio=Input::get('malattia');
-
 
 		$Stadio=Stadio::find($idStadio);
 		$Stadio->PG()->attach($idPg);
