@@ -754,18 +754,19 @@ public function inoltra_intercettate(){
 			$data['mittente']=$intercetto->mittente;
 			$PG=PG::find($intercetto->destinatario);
 			$data['destinatario']=$pers['Nome'];
-
+			$data['missiva']=$intercetto;
+			
 			$emails=User::where('usergroup','=',7)->get(array('email'));
 			$emails=INtools::select_column($emails,'email');
 
 			
 			$user_id=$pers->User;
 			$user_id=$user_id['user'];
-			$user_email=User::find($user_id)->email;					
-			array_push($emails,$user_email);
-			
-			$data['missiva']=$intercetto;
-			
+			$user_email=User::find($user_id)->email;
+								
+			if (!empty($user_mail)){
+				array_push($emails,$user_email);
+			}
 			Mail::send('emails.missiva', $data, function($message) use ($emails){
 				$message->to($emails)->subject('Missiva inviata');
 			});

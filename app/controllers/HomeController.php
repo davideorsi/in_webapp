@@ -127,7 +127,9 @@ class HomeController extends BaseController {
 							$user_id=$user['user'];
 							if ($user_id) {
 								$user_email=User::find($user_id)->email;
-								array_push($indirizzi,$user_email);
+								if (!empty($user_mail)){
+									array_push($indirizzi,$user_email);
+								}
 							}
 						}
 					break;
@@ -137,7 +139,9 @@ class HomeController extends BaseController {
 							$user_id=$user['user'];
 							if ($user_id) {
 								$user_email=User::find($user_id)->email;
-								array_push($indirizzi,$user_email);
+								if (!empty($user_mail)){
+									array_push($indirizzi,$user_email);
+								}
 							}
 						}
 					break;
@@ -151,7 +155,9 @@ class HomeController extends BaseController {
 							$user_id=$user['user'];
 							if ($user_id) {
 								$user_email=User::find($user_id)->email;
-								array_push($indirizzi,$user_email);
+								if (!empty($user_mail)){
+									array_push($indirizzi,$user_email);
+								}
 							}
 						}
 					break;
