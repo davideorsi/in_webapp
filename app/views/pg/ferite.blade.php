@@ -49,6 +49,7 @@
 				<h1 >
 					{{$pers['Nome']}} 
 				</h1>
+				<p style='text-align:center; width:100%'>{{$giorno}}</p>
 				@for ($j = 0; $j<5; $j++)
 					<div class='pf' style='left: {{$j*20}}%'>
 						<p>Cicatrice</p>

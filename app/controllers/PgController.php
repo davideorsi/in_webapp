@@ -463,6 +463,11 @@ class PgController extends \BaseController {
 	{
 		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
 		$PGs=$Evento[0]->PG()->orderby('Arrivo','asc')->get();
+		$giorno=$Evento[0]['Data'];
+		$interval = new DateInterval('P191Y');
+		$giorno= new Datetime($giorno);
+		$giorno->sub($interval);
+		$giorno=strftime("%d %B %Y",$giorno->gettimestamp());
 		
 		$data=array();
 		foreach($PGs as $key=>$pg){
@@ -471,6 +476,6 @@ class PgController extends \BaseController {
 		}
 		
 		//return Response::json($data);
-		return View::make('pg.ferite')->with('PG',$data);
+		return View::make('pg.ferite')->with('PG',$data)->with('giorno',$giorno);
 	}
 }
