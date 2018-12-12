@@ -29,7 +29,8 @@
 				</div>
 		
 		        <div class="form-group">
-					{{ Form::submit('Crea PDF', array('class' => 'btn btn-primary')) }}
+					{{ Form::submit('Crea PDF', array('class' => 'btn btn-primary','name'=>'PDF','value'=>'PDF')) }}
+					{{ Form::submit('Crea Etichetta', array('class' => 'btn btn-primary','name'=>'Etichetta','value'=>'Etichetta')) }}
 				</div>
 				{{ Form::close() }}
 				

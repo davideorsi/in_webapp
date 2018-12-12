@@ -197,6 +197,7 @@
         Route::get('admin/pozioni/','PozioniController@index');
         Route::get('admin/infopozioni/','PozioniController@info');
         Route::get('admin/pozioni/{id}/stampa','PozioniController@stampa');
+        Route::get('admin/pozioni/{id}/etichetta','PozioniController@etichetta');
         Route::get('admin/ricetta/','PozioniController@ricetta');
     });
     

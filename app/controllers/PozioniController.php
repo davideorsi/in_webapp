@@ -91,14 +91,21 @@ class PozioniController extends \BaseController {
 	}
 	
 	public function stampa($id)
-	{	
-
-		
+	{			
 		$pozione=Pozione::find($id);
 
         $effetto = str_replace('il pg subisce','subisci',$pozione->Effetto);
 		
 		return View::make('pozioni.print')
+			->with('effetto',$effetto);
+	}	
+	public function etichetta($id)
+	{			
+		$pozione=Pozione::find($id);
+
+        $effetto = str_replace('il pg subisce','subisci',$pozione->Effetto);
+		
+		return View::make('pozioni.etichette')
 			->with('effetto',$effetto);
 	}
 

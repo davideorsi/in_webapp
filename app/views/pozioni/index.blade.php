@@ -26,6 +26,7 @@
 			</div>
 				<div class="btn-group" style='margin-bottom:10px;'>
 				<a id='print_pozione' class="btn btn-default" href="{{ URL::to('admin/pozioni/1/stampa') }}">Stampa Cartellini</a>
+				<a id='print_etichetta' class="btn btn-default" href="{{ URL::to('admin/pozioni/1/etichetta') }}">Stampa Etichetta</a>
 			</div>
 			<?php $keys_poz= array_keys($selectPozioni); ?>
 			<?php $keys_vel= array_keys($selectVeleni); ?>
@@ -85,6 +86,7 @@
 				$('#selectveleni').val(1);
 				get_info_pozioni();
 				$('#print_pozione').attr('href', 'pozioni/'+$(this).val()+'/stampa');
+				$('#print_etichetta').attr('href', 'pozioni/'+$(this).val()+'/etichetta');
 			});
 			
 			$('#selectveleni').change(function(){

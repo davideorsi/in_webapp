@@ -38,6 +38,16 @@ article h3{
 	width:  25%;
 	
 }
+.etichetta {
+	float: left;
+	margin-top: 8px;
+	margin-left: 16px;
+	padding: 8px;
+	border: 2px solid white;
+	height: 110px;
+	width:  44%;
+	
+}
 
 .pergamena {
 	float: left;
