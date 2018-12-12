@@ -53,6 +53,7 @@
 				@for ($j = 0; $j<5; $j++)
 					<div class='pf' style='left: {{$j*20}}%'>
 						<p>Cicatrice</p>
+						<p>{{$giorno}}</p>
 					</div>
 				@endfor
 				
