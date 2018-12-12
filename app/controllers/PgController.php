@@ -467,7 +467,7 @@ class PgController extends \BaseController {
 		$interval = new DateInterval('P191Y');
 		$giorno= new Datetime($giorno);
 		$giorno->sub($interval);
-		$giorno=strftime("%d %B %Y",$giorno->gettimestamp());
+		$giorno=strftime("%d/%m/%Y",$giorno->gettimestamp());
 		
 		$data=array();
 		foreach($PGs as $key=>$pg){

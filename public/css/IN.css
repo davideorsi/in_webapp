@@ -685,12 +685,13 @@ textarea{
 .pf p{
 
 	font-family: Italianno; 
-	font-size: 24pt;
+	font-size: 20pt;
 	transform: rotate(90deg);
 	transform-origin: 0 top 0;
 	margin-left:80%;
 	margin-top:5px;
 }
+
 
 .ferita img{
 	width:90%;
