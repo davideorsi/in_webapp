@@ -93,6 +93,7 @@
 	// route per gli Incanti
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/incanto', 'IncantoController');
+		Route::get('admin/incanto/{id}/imparabile', 'IncantoController@imparabile');
 	});
 
 	// route per la Medicina, le cicatrici, le malattie etc.

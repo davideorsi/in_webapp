@@ -90,6 +90,23 @@ class IncantoController extends \BaseController {
 		}
 			
 	}
+	
+	
+	public function imparabile($id)
+	{
+		// mostra solo le incanti che non sono bozze
+
+		$incanto = Incanto::find($id);
+		
+		$incanto['Descrizione']=nl2br($incanto['Descrizione']);
+		if (Request::ajax()){
+			return Response::json($incanto);
+		} else {
+			return View::make('incanto.imparabile')
+				->with('incanto',$incanto);
+		}
+			
+	}
 
 
 	/**
