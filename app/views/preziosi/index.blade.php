@@ -103,7 +103,7 @@
 
 		</div>
 		
-		
+		@if (Auth::user()->usergroup == 7)
 		<div class="col-md-12 col-md-offset-0">
 			<h4>Oggetti già venduti</h4>
 			<div class='form-group'>
@@ -122,6 +122,7 @@
 				</p>
 			</div>
 		</div>	
+		@endif
 	</div>
 @stop
 
