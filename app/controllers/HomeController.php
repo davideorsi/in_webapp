@@ -38,7 +38,7 @@ class HomeController extends BaseController {
 		// validate the info, create rules for the inputs
 		$rules = array(
 			'email'  => 'required|email',
-			'password' 	=> 'required|min:6' // password can only be alphanumeric and has to be greater than 3 characters
+			'password' 	=> 'required|min:8' // password can only be alphanumeric and has to be greater than 3 characters
 		);
 
 		// run the validation rules on the inputs from the form

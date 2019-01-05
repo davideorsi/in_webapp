@@ -762,8 +762,10 @@ public function inoltra_intercettate(){
 			
 			$user_id=$pers->User;
 			$user_id=$user_id['user'];
-			$user_email=User::find($user_id)->email;
-								
+			try {
+				$user_email=User::find($user_id)->email;
+			} catch (Exception $e) {}	
+							
 			if (!empty($user_mail)){
 				array_push($emails,$user_email);
 			}

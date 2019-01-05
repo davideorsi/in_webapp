@@ -14,15 +14,122 @@ class UserController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	
 
+
+	public function index()
+	{
+		$Users=User::orderby('usergroup','desc')->get();
+		$Utenti=$Users->toarray();
+		
+		foreach($Users as $key=>$user){
+			$PG=$user->PG->toarray();
+			if (!empty($PG)){
+				$Utenti[$key]['PG']=$PG[0]['Nome'];
+				}
+			else {$Utenti[$key]['PG']='';}
+			}	
+		return View::make('users')
+			->with('Users',$Utenti);
+	}
+
+	public function delete($id)
+	{
+		$User=User::find($id);
+		
+		$User->delete();
+		
+		Session::flash('message', 'Utente cancellato correttamente!');
+		return Redirect::to('/users');
+	}
+	
+	public function register_form($chiave)
+	{
+		$Inviti = Invito::orderby('ID','asc')->get();
+		$ok=false;
+		
+		$salt="hash_intempesta_noctis";
+		foreach ($Inviti as $Invito){
+				$chiavedb=hash('sha256',$Invito['Email'].$Invito['Key'].$salt);
+				if ($chiavedb==$chiave) {
+						$ok=true;
+					}
+			}
+		if ($ok){
+			return View::make('register')->with('chiave',$chiave);
+			} 
+		else {
+			return Redirect::to('/');
+			}
+	}
+	
+	public function register_user($chiave)
+	{
+		$Inviti = Invito::orderby('ID','asc')->get();
+		$ok=null;
+		
+		$salt="hash_intempesta_noctis";
+		foreach ($Inviti as $Invito){
+				$chiavedb=hash('sha256',$Invito['Email'].$Invito['Key'].$salt);
+				if ($chiavedb==$chiave) {
+						$ok=$Invito['ID'];
+						
+					}
+			}
+		if ($ok){
+			$rules = array(
+				'username'  => 'required',
+				'email'  =>    'required|email',
+				'password' 	=> 'required|min:8' // password can only be alphanumeric and has to be greater than 3 characters
+			);
+	
+			// run the validation rules on the inputs from the form
+			$validator = Validator::make(Input::all(), $rules);
+	
+			// if the validator fails, redirect back to the form
+			if ($validator->fails()) {
+				return Redirect::to('registrazione/'.$chiave)
+					->withErrors($validator) // send back all errors to the login form
+					->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+			} else {
+				
+				$User= new User;
+				$User->username = Input::get('username');
+				$User->email = Input::get('email');
+				$User->password = Hash::make(Input::get('password'));
+				$User->usergroup = 2;
+				$User -> save();
+				
+				$Invito = Invito::find($ok);
+				$Invito-> delete();
+				
+				$userdata = array(
+					'email' 	=> Input::get('email'),
+					'password' 	=> Input::get('password')
+				);
+				$remember=false;
+				Auth::attempt($userdata,$remember);
+				
+				//redirect to homepage
+				return Redirect::to('/');
+			}
+		} else {
+				return Redirect::to('/');
+			
+		}
+		
+	}
+		
 
 	public function showInfo()
 	{
 		$USER=Auth::user();
 
 		$email=$USER->email;
+		$username=$USER->username;
 		return View::make('info')
-			->with('email',$email);
+			->with('email',$email)
+			->with('username',$username);
 
 	}
 
@@ -30,7 +137,7 @@ class UserController extends BaseController {
 	{
 		$USER=Auth::user();
 		$USER->email = Input::get('email');
-
+		$USER->username = Input::get('username');
 		$USER->save();
 		
 		return Redirect::to('/info');
