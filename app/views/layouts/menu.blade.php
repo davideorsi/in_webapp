@@ -44,12 +44,11 @@
 				</span></a>
 				<ul class="dropdown-menu" role="menu">
 					<li ><a href="{{ URL::to('/') }}"><small>Home</small></a></li>
-					<li ><a href="http://www.boru.it/IN/forum"><small>Forum</small></a></li>
+					<li ><a href="{{ URL::to('/istruzioni') }}"><small>Come Iniziare</small></a></li>
 					<li ><a href="{{ URL::to('/ambientazione') }}"><small>Ambientazione</small></a></li>
 					<li ><a href="{{ URL::to('/famoso') }}"><small>Notabili del Ducato</small></a></li>
 					<li ><a href="{{ URL::to('/regolamento') }}"><small>Regolamento</small></a></li>
 					<li ><a href="{{ URL::to('/domanda') }}"><small>Domande Frequenti</small></a></li>
-					<li ><a href="{{ URL::to('/istruzioni') }}"><small>Come Iniziare</small></a></li>
 				</ul>
 			</li>
 			
@@ -75,6 +74,19 @@
 						<li><a href="{{ URL::to('admin/medicina') }}"><small>Cicatrici e Cibo</small></a></li>
 						</ul>
 					</li>
+					<li class='dropdown'>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class='glyphicon glyphicon-tags'></span>
+							<div class='visible-xs-inline'>Account</div>
+							<span class="caret"></span>
+							<h6 class='hidden-xs didascalia'>Account</h6>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li ><a href="{{ URL::to('info') }}"><small>I tuoi dati</small></a></li>
+							<li ><a href="{{ URL::to('admin/invito') }}"><small>Invito</small></a></li>
+							<li ><a href="{{ URL::to('users') }}"><small>Utenti</small></a></li>
+						</ul>
+				</li>
 				@else
 					<li class='dropdown'>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -85,7 +97,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li ><a href="{{ URL::to('info') }}"><small>I tuoi dati</small></a></li>
-							@if ($idpg | Auth::user()->usergroup == 7) 
+							@if ($idpg) 
 							<li ><a href="{{ URL::to('account') }}"><small>Iscrizione</small></a></li>
 							<li ><a href="{{ URL::to('pg') }}"><small>Il tuo PG</small></a></li>
 							<li ><a href="{{ URL::to('pg/info') }}"><small>Info Speciali</small></a></li>

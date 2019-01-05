@@ -25,7 +25,7 @@
 
 	<p class='justified'>
 	<ol class='justified'>
-		<li><strong>Iscriviti al nostro Forum! </strong> Segui la procedura guidata, è rapida e semplice. Fatto ciò, sempre usando gli strumenti del Forum contatta un "Master" con un messaggio privato. Email e password immessi nella registrazione al forum ti permetteranno anche di accedere alle parti "private" del nostro sito.</li>
+		<li><strong>Fai richiesta di iscrizione! </strong> Contatta uno dei master, se già li conosci, oppure invia una mail di presentazione a inazionifg@gmail.com indicando come hai conosciuto Intempesta Noctis e perchè ti piacerebbe farne parte. Ti verrà poi inviato un invito alla registrazione.</li>
 		<li><strong>Crea il tuo personaggio!</strong> Armati di carta e penna, scegli le abilità seguendo il regolamento e metti nero su bianco la sua storia (il "background"), scegliendo anche la Fazione di cui eventualmente sarà membro. Più il background è dettagliato, meglio è! Una volta che il tuo personaggio è pronto, comunica tutti i suoi dati a uno dei Master tramite messaggio privato sul Forum: il personaggio, dopo una rapida procedura di valutazione/approvazione, verrà inserito nel nostro database e collegato al tuo account</li>
 		<li><strong>Iscriviti ad un evento di gioco! </strong> Potrai farlo direttamente su questo sito. Ti invitiamo anche ad iscriverti, su Facebook, <a style='color:#41A317' href='https://www.facebook.com/groups/257481273458/'>al gruppo “Intempesta Noctis”</a>. Sul gruppo vengono pubblicati annunci, avvisi, date degli eventi e quant’altro possa essere utile, in particolare verrai avvisato quando viene pubblicata una nuova "Voce di Locanda".</li>
 

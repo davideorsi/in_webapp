@@ -22,6 +22,9 @@
 
 					{{ Form::model([], array('files'=>false, 'method' => 'PUT', 'url' => 'info', 'class'=>'form-inline')) }}
 
+					{{ Form::label('username','Username',['style'=>'width:100%']) }}
+					{{ Form::text('username',$username, ['class'=>'form-control'])}}
+					
 					{{ Form::label('email','Email',['style'=>'width:100%']) }}
 					{{ Form::email('email',$email, ['class'=>'form-control'])}}
 					<p style='margin-top: 5px;'>Modifica qui l'email del tuo account. Essa viene usata per <strong>il login e per l'invio delle notifiche</strong> di ricezione di missive, pertanto ti consigliamo di inserire una mail che controlli normalmente.</p>

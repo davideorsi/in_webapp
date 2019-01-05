@@ -164,6 +164,9 @@
 		Route::get('png', 'PngController@png_list');
 	});
 	
+	
+	
+	
 	// route per le missive
 	Route::group(array('before'=>'auth'), function() {
 		Route::post('missive/{id}/{master}/aggiorna_master','MissivaController@aggiorna_master');
@@ -258,3 +261,14 @@
 		Route::resource('admin/domanda', 'DomandaController',array('except' => array('show')));
 		Route::get('admin/domanda/{id}', 'DomandaController@show_master');
 	});
+
+	// UTENTI ###########################################################
+	Route::get('registrazione/{chiave}',  array('uses' => 'UserController@register_form'));
+	Route::post('registrazione/{chiave}',  array('uses' => 'UserController@register_user'));
+	Route::controller('password', 'RemindersController');
+	Route::group(array('before'=>'master'), function() { 	
+		Route::get('users',  'UserController@index');
+		Route::delete('users/{id}',  'UserController@delete');
+		Route::resource('admin/invito', 'InvitoController',array('except' => array('create','show','edit')));
+	});
+	
