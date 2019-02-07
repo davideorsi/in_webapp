@@ -561,7 +561,7 @@ class UserController extends BaseController {
 		############## Admin page: editare iscrizione agli eventi ##########
 	public function showAdminPx()
 	{
-		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID','Tipo'));
 		$data=new Datetime($Evento[0]['Data']);
 		$Evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
 		
