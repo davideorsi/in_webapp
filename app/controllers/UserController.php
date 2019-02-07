@@ -561,15 +561,15 @@ class UserController extends BaseController {
 		############## Admin page: editare iscrizione agli eventi ##########
 	public function showAdminPx()
 	{
-		$Evento = Evento::orderBy('Data','Desc')->take(2)->get(array('Data','Titolo','ID'));
-		$data=new Datetime($Evento[1]['Data']);
-		$Evento[1]['Data']=strftime("%d %B %Y",$data->gettimestamp());
+		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID'));
+		$data=new Datetime($Evento[0]['Data']);
+		$Evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
 		
-		$Evento[1]['PG'] = $Evento[1]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Px','NomeGiocatore'));
+		$Evento[0]['PG'] = $Evento[0]->PG()->orderby('Arrivo','asc')->get(array('Nome','PG.ID','Px','NomeGiocatore'));
 
 		
 		return View::make('adminpx')
-				->with('Evento',$Evento[1]);
+				->with('Evento',$Evento[0]);
 
 	}
 	
