@@ -36,7 +36,12 @@
 			</div>	
 			<div class='col-xs-2'>
 			{{Form::hidden('pg[]',$PG['ID'] )}}
+			@if (strcmp($Evento['Tipo'], "EVENTO LIVE") !== 0)
 			{{Form::input('number','px[]','3',array('style'=>'max-width:40px;'))}}
+			@else
+			
+			{{Form::input('number','px[]','1',array('style'=>'max-width:40px;'))}}
+			@endif
 			</div>
 		</div>	
 		
