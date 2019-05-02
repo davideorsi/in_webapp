@@ -94,6 +94,8 @@ class HomeController extends BaseController {
 		return Redirect::to('/'); // redirect the user to the login screen
 	}
 	
+	
+	
 	public function sendMail()
 	{
 		//regole del validatore
@@ -126,7 +128,9 @@ class HomeController extends BaseController {
 							$user=$pg->User;
 							$user_id=$user['user'];
 							if ($user_id) {
-								$user_email=User::find($user_id)->email;
+								try {
+									$user_email=User::find($user_id)->email;
+								} catch (Exception $e) {}	
 								if (!empty($user_mail)){
 									array_push($indirizzi,$user_email);
 								}
@@ -138,7 +142,9 @@ class HomeController extends BaseController {
 							$user=$pg->User;
 							$user_id=$user['user'];
 							if ($user_id) {
-								$user_email=User::find($user_id)->email;
+								try {
+									$user_email=User::find($user_id)->email;
+								} catch (Exception $e) {}	
 								if (!empty($user_mail)){
 									array_push($indirizzi,$user_email);
 								}
@@ -154,7 +160,10 @@ class HomeController extends BaseController {
 							$user=$pg->User;
 							$user_id=$user['user'];
 							if ($user_id) {
-								$user_email=User::find($user_id)->email;
+								try {
+									$user_email=User::find($user_id)->email;
+								} catch (Exception $e) {}	
+
 								if (!empty($user_mail)){
 									array_push($indirizzi,$user_email);
 								}
