@@ -93,7 +93,10 @@ class UserController extends BaseController {
 					->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
 			} else {
 				
+				$nuovoid=User::max('id')+1;
+				
 				$User= new User;
+				$User->id=$nuovoid;
 				$User->username = Input::get('username');
 				$User->email = Input::get('email');
 				$User->password = Hash::make(Input::get('password'));
