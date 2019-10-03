@@ -114,7 +114,7 @@ class EventoController extends \BaseController {
 	{
 		$evento = Evento::findOrFail($id);//->get(['ID','Titolo','Data']);
 		if (Request::ajax()){
-			return Response::json(["Data"=> $evento['Data'], "Titolo"=> $evento['Titolo'],]);
+			return Response::json(["ID" => $id,"Data"=> $evento['Data'], "Titolo"=> $evento['Titolo'],]);
 		} else {
 			return Redirect::to('/');
 		}

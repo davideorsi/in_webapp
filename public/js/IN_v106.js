@@ -755,9 +755,16 @@ function initialize_scheduler(string){
 	var evento=return_infoevento_to_scheduler($('#selectevento').val());
 	var m0=moment(evento.Data,"YYYY-MM-DD");
 	var mm=m0.clone();
+	if (evento.ID==54){
+		 var Start=evento.Data+" 19:00";
+		 var Stop=mm.add(2,"d").format("YYYY-MM-DD")+" 02:00";
+		} else {
+		 var Start=evento.Data+" 14:00";
+		 var Stop=mm.add(1,"d").format("YYYY-MM-DD")+" 02:00";
+		}
 	$(string).timeSchedule({
-		startTime: evento.Data+" 14:00", // schedule start time(HH:ii)
-		endTime: mm.add(1,"d").format("YYYY-MM-DD")+" 02:00",   // schedule end time(HH:ii)
+		startTime: Start, // schedule start time(HH:ii)
+		endTime: Stop,   // schedule end time(HH:ii)
 		widthTime:15*60,  // cell timestamp example 15 minutes
 		timeLineY:100,       // height(px)
 		verticalScrollbar:20,   // scrollbar (px)

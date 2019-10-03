@@ -300,7 +300,12 @@ class VicendasController extends \BaseController {
 				
 				$start=Datetime::createFromFormat('Y-m-d H:i',$elemento['start']);
 				$end=Datetime::createFromFormat('Y-m-d H:i',$elemento['end']);
-				$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 14:00');
+				if ($id_evento==54) {
+					$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 19:00');
+				} else {
+					$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 14:00');
+					}
+				
 				
 				$end=$giorno->diff($end);
 				$end_h = $end->i;
@@ -349,7 +354,7 @@ class VicendasController extends \BaseController {
 				}	
 			}
 			return View::make('vicendas.griglia')
-				->with('data',['Masters'=>$Masters,'Attivita'=>$attivita,'Vicende'=>$vicende]);
+				->with('data',['ID'=>$id_evento,'Masters'=>$Masters,'Attivita'=>$attivita,'Vicende'=>$vicende]);
 			//return Response::json(['Masters'=>$Masters,'Elementi'=>$attivita,'Vicende'=>$vicende]);
 			
 		}

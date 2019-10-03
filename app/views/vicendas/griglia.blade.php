@@ -24,8 +24,12 @@
 			    </thead>
 			    <tbody>
 					<!--### CREAZIONE DELLA GRIGLIA DELLE ORE ########-->
-					<?php  $date = Datetime::createFromFormat('Y-m-d H:i','2000-01-01 13:30'); ?>
-					@for ($i = 0; $i < 25; $i++)
+					<?php 
+						if($data['ID']==54){$date = Datetime::createFromFormat('Y-m-d H:i','2000-01-01 18:30'); $NN=63;} 
+						else {$date = Datetime::createFromFormat('Y-m-d H:i','2000-01-01 13:30'); $NN=25;} 
+						
+					?>
+					@for ($i = 0; $i < $NN; $i++)
 					<tr style='height:90px'>	
 						<?php  $date = $date->add(new DateInterval('PT30M')); ?>
 						<th>{{ $date->format('H:i'); }}</th>
