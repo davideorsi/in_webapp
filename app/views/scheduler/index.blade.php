@@ -6,6 +6,46 @@
 	{{ HTML::style('css/scheduler.css');}}
 	@stop
 	
+	@section('content_outside')
+	<!-- ELENCO PNG E MASTER-->
+	<div >
+		<div id="png-sidebar" data-spy="affix">
+		<div class='row'>
+			<h4> Lista dei PNG</h4>
+			<ul class="nav nav-tabs nav-stacked ">
+			@foreach ($Masters as $key=>$Master)
+				<li><a data-toggle="tab" href="#menu{{$key}}">{{$Master['username']}}</a></li>
+			@endforeach
+			</ul>	
+		</div>	
+			
+			<div class="tab-content " >
+			@foreach ($Masters as $key=>$Master)
+				<div id="menu{{$key}}" class="tab-pane fade">
+				<ul id='elencopng' style='list-style-type: none; padding:0; margin:10px'>
+			
+				@foreach($Master['PNG'] as $png)
+					<li style='position:relative'>
+						<p>
+							<span class='glyphicon glyphicon-user todrag' style=' margin:0px; font-size:1.6em; color: {{$Master["color"]}}' title='{{$png["Nome"]}}'>
+								<input type='hidden' value="{{$png['ID']}}" class='png'></input>
+							</span>
+							{{$png["Nome"]}} </br> <small>{{$png["Ruolo"]}}</small>		
+						</p>
+						
+					</li>
+				@endforeach
+				
+				</ul>
+				</div>
+			@endforeach
+			</div>
+		</div>		
+	</div>
+	
+	
+	@stop
+	
 	@section('content')
 	<div class='row'>
 		<div class="col-xs-offset-1 col-xs-11 ">
@@ -44,44 +84,6 @@
 		</div>	
 	</div>	
 	
-	<!-- ELENCO PNG E MASTER-->
-	<div id="png-sidebar-remnant">
-		<h4> Scorri qui per la lista dei PNG</h4>
-	</div>	
-	<div id="png-sidebar">
-	<div class='row'>
-		<h4> Lista dei PNG</h4>
-		<ul class="nav nav-tabs nav-stacked ">
-		@foreach ($Masters as $key=>$Master)
-			<li><a data-toggle="tab" href="#menu{{$key}}">{{$Master['username']}}</a></li>
-		@endforeach
-		</ul>	
-	</div>	
-	
-	<div class='row'>	
-		<div class="tab-content " >
-		@foreach ($Masters as $key=>$Master)
-			<div id="menu{{$key}}" class="tab-pane fade">
-			<ul id='elencopng' style='list-style-type: none; padding:0; margin:10px'>
-		
-			@foreach($Master['PNG'] as $png)
-				<li style='position:relative'>
-					<p>
-						<span class='glyphicon glyphicon-user todrag' style=' margin:0px; font-size:1.6em; color: {{$Master["color"]}}' title='{{$png["Nome"]}}'>
-							<input type='hidden' value="{{$png['ID']}}" class='png'></input>
-						</span>
-						{{$png["Nome"]}} </br> <small>{{$png["Ruolo"]}}</small>		
-					</p>
-					
-				</li>
-			@endforeach
-			
-			</ul>
-			</div>
-		@endforeach
-	</div>
-	</div>	
-	</div>		
 	
 	<!-- MODIFICA ELEMENTO -->
 	<div class="overlay" id="overlay" style="display:none;"></div>
@@ -209,6 +211,7 @@
 @section('JS')
 {{ HTML::script('js/jquery-ui.min.js');}}
 {{ HTML::script('js/jq.schedule.js');}}
+{{ HTML::script('js/jquery.mousewheel.min.js');}}
 @stop
 
 
@@ -224,6 +227,11 @@
 					return 'vicende/'+idevento+'/master/'+$(this).attr('id')
 					});
 				initialize_scheduler("#schedule");
+				$(".sc_main_box").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 150);
+					event.preventDefault();
+				});			
+
 			});
 			
 			
@@ -233,6 +241,12 @@
 			$('#showevento').attr('href', 'vicende/'+$('#selectevento').val());
 			$('#grigliaevento').attr('href', 'vicende/'+$('#selectevento').val()+'/master/');
 		    initialize_scheduler("#schedule");
+		    $(".sc_main_box").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 150);
+					event.preventDefault();
+				});	
+							
+				
 			
 			$(".chiudi").click(
 				function(){

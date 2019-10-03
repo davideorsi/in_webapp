@@ -61,6 +61,9 @@
 
 	<!--Container -->
 <div id="wrap">
+	
+	<div class="container_fluid">
+	@yield('content_outside')
 	<div class="container">
 
 			<!--<div id='titlebar' class='hidden-xs'>
@@ -78,6 +81,7 @@
 
 
 	</div><!-- container -->
+	</div><!-- container fluid-->
 	<div id="push"></div>
 
 </div>	
