@@ -261,12 +261,5 @@
 				appendTo: '.container'
 				}).tooltip();
 			
-			/*
-			$('#png-sidebar').hide('slide');
-			$("body").on("mousemove",function(event) {
-				if (event.pageX < 20) $('#png-sidebar').show('slide'); 
-				$("#png-sidebar").mouseleave(function(){$('#png-sidebar').hide('slide');})
-			});
-			*/
 		});
 @stop

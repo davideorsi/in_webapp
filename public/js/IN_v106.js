@@ -779,8 +779,12 @@ function initialize_scheduler(string){
                 data: param,
                 url: "elemento_png/"+data.id
             });
+            var posL=$(".sc_main_box").scrollLeft();
+            var posT=$(window).scrollTop();
             $("#schedule").empty();
 			initialize_scheduler("#schedule");
+			$(".sc_main_box").scrollLeft(posL);
+            $(window).scrollTop(posT);
 		},
 		on_out: function(data,png,minore) {
 			if (!minore){
@@ -798,8 +802,12 @@ function initialize_scheduler(string){
 	                url: "elemento_png_minor_remove/"+png
 	            });				
 			}
+            var posL=$(".sc_main_box").scrollLeft();
+            var posT=$(window).scrollTop();
             $("#schedule").empty();
 			initialize_scheduler("#schedule");
+			$(".sc_main_box").scrollLeft(posL);
+            $(window).scrollTop(posT);
 		},
 		change: function(node,data){
 			var param = $.param({'start':data.start, 'end':data.end});
@@ -809,9 +817,12 @@ function initialize_scheduler(string){
                 data: param,
                 url: "elemento/"+data.id
             });
+            var posL=$(".sc_main_box").scrollLeft();
+            var posT=$(window).scrollTop();
             $("#schedule").empty();
 			initialize_scheduler("#schedule");
-            
+			$(".sc_main_box").scrollLeft(posL);
+            $(window).scrollTop(posT);
 		},
 		click: function(node,data){
 			var elemento=get_elemento(data.id);
