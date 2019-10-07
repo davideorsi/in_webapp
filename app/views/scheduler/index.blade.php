@@ -217,6 +217,9 @@
 
 
 @section('Scripts')
+
+	
+
 		$(function(ready) {
 			$('#selectevento').change( function() {
 				var idevento=$(this).val();
@@ -227,6 +230,10 @@
 					return 'vicende/'+idevento+'/master/'+$(this).attr('id')
 					});
 				initialize_scheduler("#schedule");
+				if (localStorage.tempScrollTop) {
+					$(window).scrollTop(localStorage.tempScrollTop);
+					$(".sc_main_box").scrollLeft(localStorage.tempScrollLeft);
+				};
 				$(".sc_main_box").mousewheel(function(event, delta) {
 					this.scrollLeft -= (delta * 150);
 					event.preventDefault();
@@ -240,7 +247,11 @@
 					});
 			$('#showevento').attr('href', 'vicende/'+$('#selectevento').val());
 			$('#grigliaevento').attr('href', 'vicende/'+$('#selectevento').val()+'/master/');
-		    initialize_scheduler("#schedule");
+		    initialize_scheduler("#schedule");		    
+			if (localStorage.tempScrollTop) {
+				$(window).scrollTop(localStorage.tempScrollTop);
+				$(".sc_main_box").scrollLeft(localStorage.tempScrollLeft);
+			};
 		    $(".sc_main_box").mousewheel(function(event, delta) {
 					this.scrollLeft -= (delta * 150);
 					event.preventDefault();
@@ -260,6 +271,13 @@
 				helper: 'clone',
 				appendTo: '.container'
 				}).tooltip();
+				
+			window.onbeforeunload = function() {
+			  var tempScrollTop = $(window).scrollTop();
+			  var tempScrollLeft = $(".sc_main_box").scrollLeft();
+			  localStorage.setItem("tempScrollTop", tempScrollTop);
+			  localStorage.setItem("tempScrollLeft", tempScrollLeft);
+			};
 			
 		});
 @stop
