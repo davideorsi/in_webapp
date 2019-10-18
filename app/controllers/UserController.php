@@ -1,4 +1,4 @@
-<?php
+x<?php
 
 class UserController extends BaseController {
 
@@ -515,6 +515,14 @@ class UserController extends BaseController {
 				}
 			}
 			
+			
+			// evento di due giorni, aumento le rendite
+			if($Evento[0]['ID']==54) {
+				if ($pg['Rendita_tot']<=2) {$pg['Rendita_tot']=$pg['Rendita_tot']*2;}
+				elseif ($pg['Rendita_tot']>2 & $pg['Rendita_tot']<=5) {round($pg['Rendita_tot']=$pg['Rendita_tot']*2);}
+				elseif ($pg['Rendita_tot']>5 & $pg['Rendita_tot']<=20) {round($pg['Rendita_tot']=$pg['Rendita_tot']*1.5);}
+				elseif ($pg['Rendita_tot']>20 ) {round($pg['Rendita_tot']=$pg['Rendita_tot']*1.1);}
+			}
 			######### DEBITI PER MISSIVE INVIATE #############################################################################
 			$lista = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
 			$costi=INtools::select_column($lista,'costo');
