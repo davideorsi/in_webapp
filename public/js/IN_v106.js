@@ -974,7 +974,7 @@ $.ajax({
 	async: true,
 	success: function(output){
 		$("#errata_errata").html(output.Titolo);
-		$("#errata_risposta").html(output.Test);
+		$("#errata_risposta").html(output.Testo);
 	},  
 	dataType: "json"
 });
