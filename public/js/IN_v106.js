@@ -964,3 +964,31 @@ $.ajax({
 	dataType: "json"
 });
 }
+
+////// ERRATA CORRIGE
+
+function get_errata_master(pos){
+$.ajax({
+	type: "GET",
+	url:  "errata/"+pos,
+	async: true,
+	success: function(output){
+		$("#errata_errata").html(output.Titolo);
+		$("#errata_risposta").html(output.Test);
+	},  
+	dataType: "json"
+});
+}
+
+function get_errata(pos){
+$.ajax({
+	type: "GET",
+	url:  "errata/"+pos,
+	async: true,
+	success: function(output){
+		$("#errata_errata").html(output.Titolo);
+		$("#errata_risposta").html(output.Testo);
+	},  
+	dataType: "json"
+});
+}

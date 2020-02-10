@@ -261,6 +261,15 @@
 		Route::resource('admin/domanda', 'DomandaController',array('except' => array('show')));
 		Route::get('admin/domanda/{id}', 'DomandaController@show_master');
 	});
+	
+	// route per le Errata Corrige
+	Route::get('errata/{id}','ErrataController@show');
+	Route::get('errata','ErrataController@lista');
+	Route::group(array('before'=>'master'), function() { 
+		Route::resource('admin/errata', 'ErrataController',array('except' => array('show')));
+		Route::get('admin/errata/{id}', 'ErrataController@show_master');
+	});
+
 
 	// UTENTI ###########################################################
 	Route::get('registrazione/{chiave}',  array('uses' => 'UserController@register_form'));
