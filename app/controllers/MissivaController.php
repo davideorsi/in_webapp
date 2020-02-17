@@ -12,10 +12,20 @@ class MissivaController extends \BaseController {
 		$idpg = Session::get('idpg');
 
 		if ($idpg | (Auth::user()->usergroup == 7)){
-			$PG=PG::whereRaw('Morto = 0 AND InLimbo=0')->orderBy('Nome','asc')->get(array('ID','Nome','NomeGiocatore'));
+			if (Auth::user()->usergroup == 7) {
+				$PG=PG::orderBy('Nome','asc')->get(array('ID','Nome','NomeGiocatore','Morto','InLimbo'));
+			} else {
+				$PG=PG::whereRaw('Morto = 0 AND InLimbo=0')->orderBy('Nome','asc')->get(array('ID','Nome','NomeGiocatore'));
+			}
 			$selPG=array(0=>'');
 			foreach($PG as $p){
-				$selPG[$p->ID]=$p->Nome .' ('. $p->NomeGiocatore.')';
+				if (Auth::user()->usergroup == 7) {
+					$selPG[$p->ID]=$p->Nome .' ('. $p->NomeGiocatore.')';
+					if($p->Morto == 1) {$selPG[$p->ID].= ' (Morto)';}
+					if($p->InLimbo == 1) {$selPG[$p->ID].= ' (In Limbo)';}
+				} else {
+					$selPG[$p->ID]=$p->Nome .' ('. $p->NomeGiocatore.')';
+				}
 				}
 			$Masters = User::orderBy('ID','desc')->where('usergroup','=',7)->get();
 			$selMasters=array(0=>'');
