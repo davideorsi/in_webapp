@@ -19,7 +19,7 @@
 .jqte * {
 	color:#333;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:14px;
+	/*font-size:14px*/
 }
 .jqte_focused {
 	border-color:#00AAE7;
@@ -180,7 +180,7 @@
 	outline:none
 }
 .jqte_linktypetext {
-	font-size:12px;
+	/*font-size:12px*/
 }
 .jqte_linktypearrow {
 	position:absolute;
@@ -202,7 +202,7 @@
 .jqte_linktypes a {
 	display:block;
 	padding:4px 5px;
-	font-size:12px;
+	/*font-size:12px*/
 }
 .jqte_linktypes a:hover {
 	background:#DDD
@@ -229,7 +229,7 @@
 	background:#AAA;
 	border:#333 1px solid;
 	color:#FFF;
-	font-size:12px;
+	/*font-size:14px*/
 	font-weight:bold;
 	cursor:pointer;
 	border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;
@@ -258,7 +258,7 @@
 .jqte_format {
 	display:block;
 	padding:4px 7px;
-	font-size:13px
+	/*font-size:13px*/
 }
 .jqte_format:hover {
 	background:#DDD
@@ -267,22 +267,22 @@
 	font-weight:bold
 }
 .jqte_format_1 {
-	font-size:22px
+	font-size:200%
 }
 .jqte_format_2 {
-	font-size:20px
+	font-size:160%
 }
 .jqte_format_3 {
-	font-size:18px
+	font-size:140%
 }
 .jqte_format_4 {
-	font-size:16px
+	font-size:120%
 }
 .jqte_format_5 {
-	font-size:14px
+	font-size:110%
 }
 .jqte_format_6 {
-	font-size:12px
+	font-size:100%
 }
 .jqte_format_7 {
 	font-family:"Courier New", Courier, monospace
@@ -369,22 +369,22 @@
 	margin:0 0 3px;
 }
 .jqte_editor h1, .jqte_editor h1 * {
-	font-size:26px
+	font-size:200%
 }
 .jqte_editor h2, .jqte_editor h2 * {
-	font-size:24px
+	font-size:170%
 }
 .jqte_editor h3, .jqte_editor h3 * {
-	font-size:22px
+	font-size:140%
 }
 .jqte_editor h4, .jqte_editor h4 * {
-	font-size:20px
+	font-size:120%
 }
 .jqte_editor h5, .jqte_editor h5 * {
-	font-size:18px
+	font-size:110%
 }
 .jqte_editor h6, .jqte_editor h6 * {
-	font-size:15px
+	font-size:105%
 }
 .jqte_editor pre, .jqte_editor pre * {
 	font-family:"Courier New", Courier, monospace
@@ -402,7 +402,7 @@
 	min-height:100px;
 	font-family:Courier, Arial, sans-serif !important;
 	font-weight:normal;
-	font-size:15px;
+	/*font-size:15px*/
 	overflow:hidden !important;
 	outline:none;
 	resize:none;
@@ -440,7 +440,7 @@
 }
 .jqte_titleText, .jqte_titleText * {
 	color:#FFF;
-	font-size:11px
+	/*font-size:11px*/
 }
 
 /* placeholder */
@@ -452,6 +452,6 @@
 	position:absolute;
 	top:43px;
 	left:10px;
-	font-size:14px;
+	/*font-size:14px*/;
 	color:#CCC;
 }

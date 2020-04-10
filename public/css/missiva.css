@@ -22,20 +22,21 @@ footer img{
 
 article h5{
 	font-family: 'Italianno', cursive;
-	font-size: 1.6em;  
-	line-height: 0.25em;  
+	font-size: 160%;  
+	line-height: 50%;  
 }
 
 article h4{
 	font-family: 'Italianno', cursive;
-	font-size: 2em;  
-	line-height: 0.3em;  
+	font-size: 200%;  
+	line-height: 80%;  
 }
 
 
 article p{
-	font-size: 1.7em;  
-	line-height: 1.1em;  
+	font-family: 'Italianno', cursive;
+	font-size: 160%;  
+	line-height: 160%;  
 
 }
 
