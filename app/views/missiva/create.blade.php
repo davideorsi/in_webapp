@@ -1,8 +1,11 @@
 @extends('layouts.master')
 
+	@section('CSS')
+	{{ HTML::style('css/jquery-te-1.4.0.css');}}
+	@stop
 	@section('content')
 		<div class='row'>
-			<div class='col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+			<div class='col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-2'>
 				<h3>Nuova Missiva</h3>
 				@if ( Session::has('message'))
 					<div id='info' class="alert alert-info">
@@ -57,4 +60,13 @@
 		</div>
 	@show
 	
+@stop
+@section('JS')
+{{ HTML::script('js/jquery-te-1.4.0.min.js');}}
+@stop
+
+@section('Scripts')
+		$(function(ready) {
+			$("textarea").jqte({ol: false, ul:false, sup:false, sub:false, link:false, unlink:false, source:false});			
+		});
 @stop

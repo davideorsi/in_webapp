@@ -564,9 +564,10 @@ class MissivaController extends \BaseController {
 				if (Request::ajax()){
 					return Response::json($missiva);
 				} else {
-					$data['missiva']=$missiva;
-					$pdf = PDF::loadView('missiva.print',$data);
-					return $pdf->setWarnings(false)->stream();
+					return View::make('missiva.print')->with('missiva',$missiva);
+					#$data['missiva']=$missiva;
+					#$pdf = PDF::loadView('missiva.print',$data);
+					#return $pdf->setWarnings(false)->stream();
 				}
 				
 			}
