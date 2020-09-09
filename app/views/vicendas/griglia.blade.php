@@ -26,6 +26,7 @@
 					<!--### CREAZIONE DELLA GRIGLIA DELLE ORE ########-->
 					<?php 
 						if($data['ID']==54){$date = Datetime::createFromFormat('Y-m-d H:i','2000-01-01 18:30'); $NN=63;} 
+						else if($data['ID']==58){$date = Datetime::createFromFormat('Y-m-d H:i','2000-01-01 11:30'); $NN=25;} 
 						else {$date = Datetime::createFromFormat('Y-m-d H:i','2000-01-01 13:30'); $NN=25;} 
 						
 					?>

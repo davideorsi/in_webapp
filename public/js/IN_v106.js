@@ -758,6 +758,9 @@ function initialize_scheduler(string){
 	if (evento.ID==54){
 		 var Start=evento.Data+" 19:00";
 		 var Stop=mm.add(2,"d").format("YYYY-MM-DD")+" 02:00";
+		} else if (evento.ID==58){
+		 var Start=evento.Data+" 12:00";
+		 var Stop=mm.add(1,"d").format("YYYY-MM-DD")+" 00:00";
 		} else {
 		 var Start=evento.Data+" 14:00";
 		 var Stop=mm.add(1,"d").format("YYYY-MM-DD")+" 02:00";
