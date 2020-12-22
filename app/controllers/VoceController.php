@@ -10,9 +10,9 @@ class VoceController extends \BaseController {
 	{
 		$voci = Voce::orderBy('Data', 'desc')->orderBy('ID', 'desc')->get(array('ID','Data','Testo','Bozza'));
 		$selectVoci = array();
-		$id=0;
+		$id=count($voci)+1;
 		foreach($voci as $voce) {
-			$id+=1;
+			$id-=1;
 			$data=new Datetime($voce['Data']);
 			$selectVoci[$voce->ID] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. INtools::first_words($voce->Testo,3).'&hellip;';
 			if  ($voce->Bozza==1){
