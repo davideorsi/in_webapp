@@ -283,5 +283,5 @@
 	
 
 	Route::get('/podcast', function() {
-    return View::make('podcast/');
+	return File::get(public_path() . '/podcast/index.html');
 	});
