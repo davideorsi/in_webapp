@@ -282,6 +282,5 @@
 	});
 	
 
-	Route::get('/podcast', function() {
-	return File::get(public_path() . '/podcastfolder/');
-	});
+	Route::get('/podcast', function() {return File::get(public_path() . '/podcastfolder/index.html');});
+	Route::get('/podcast/podcast.rss', function() {return File::get(public_path() . '/podcastfolder/podcast.rss');});
