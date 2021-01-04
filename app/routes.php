@@ -281,3 +281,7 @@
 		Route::resource('admin/invito', 'InvitoController',array('except' => array('create','show','edit')));
 	});
 	
+
+	Route::get('/podcast', function() {
+    return View::make('podcast/');
+	});
