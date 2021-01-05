@@ -13,22 +13,14 @@
 
 App::before(function($request)
 {
-    if( ! Request::secure())
-    {
-        return Redirect::secure(Request::path());
-    }
-});
-
-App::before(function($request)
-{
 	setlocale(LC_TIME, 'it_IT.utf8');
 	
 	App::singleton('prelive', function(){
-        $prelive=true; #true in prelive, false nell'uso normale
+        $prelive=false; #true in prelive, false nell'uso normale
         return $prelive; 
     });
 	App::singleton('blocca_missive', function(){
-        $blocca_missive=true; #true blocca le missive
+        $blocca_missive=false; #true blocca le missive
         return $blocca_missive; 
     });
 });
