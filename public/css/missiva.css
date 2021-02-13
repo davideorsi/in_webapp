@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'Italianno', cursive;
+    font-family: 'Parisienne', cursive;
 
 }
 
 article{
-	font-family: 'Italianno', cursive;
+	font-family: 'Parisienne', cursive;
 }
 
 header{
@@ -21,20 +21,20 @@ footer img{
 }
 
 article h5{
-	font-family: 'Italianno', cursive;
+	font-family: 'Parisienne', cursive;
 	font-size: 160%;  
 	line-height: 50%;  
 }
 
 article h4{
-	font-family: 'Italianno', cursive;
+	font-family: 'Parisienne', cursive;
 	font-size: 200%;  
 	line-height: 80%;  
 }
 
 
 article p{
-	font-family: 'Italianno', cursive;
+	font-family: 'Parisienne', cursive;
 	font-size: 160%;  
 	line-height: 160%;  
 
