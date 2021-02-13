@@ -184,12 +184,12 @@ class MissivaController extends \BaseController {
 			Else {
 				$ids = IDENTITAPG::where('ID_PG','=',$idpg)->get();
 			}
-			$Firme = array(0=>'Non Firmata');
-
+			
+			$Firme = array();
 			foreach ($ids as $id){
 				$Firme[(string)$id->ID] = $id['FIRMA'];
 			}
-			
+			$Firme[0]='Non Firmata';
 			
 			return View::make('missiva.create')
 							->with('Missiva', 0)
