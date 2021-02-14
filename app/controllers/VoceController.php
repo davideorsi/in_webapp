@@ -108,7 +108,9 @@ class VoceController extends \BaseController {
 		$data=new Datetime($voce['Data']);
 		$voce['Data']=strftime("%d %B %Y",$data->gettimestamp());
 		$voce['Testo']=nl2br($voce['Testo']);
+		if($request->ajax()){
 		return Response::json($voce);	
+		}
 	}
 	/**
 	 * Show the form for editing the specified resource.
