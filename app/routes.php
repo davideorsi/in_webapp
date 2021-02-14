@@ -42,6 +42,8 @@
 	
 	// route per le Voci di Locanda
 	Route::get('voce','VoceController@show');
+	Route::get('voce/{id}', 'VoceController@show_master');
+	Route::get('voci','VoceController@fulllist');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/voce', 'VoceController',array('except' => array('show')));
 		Route::get('admin/voce/{id}', 'VoceController@show_master');

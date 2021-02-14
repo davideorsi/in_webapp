@@ -177,6 +177,23 @@ class VoceController extends \BaseController {
 		return Redirect::to('admin/voce');
 	}
 	
+	public function fulllist()
+	{
+		$voci = Voce::Where('Bozza','=',0)->orderBy('Data', 'desc')->orderBy('ID', 'desc')->get(array('ID','Data','Testo','Chiusa'));
+		$selectVoci = array();
+		$id=count($voci)+1;
+		foreach($voci as $voce) {
+			$id-=1;
+			$data=new Datetime($voce['Data']);
+			$selectVoci[$voce->ID] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. $voce->Chiusa;
+
+		}
+		// load the view and pass the nerds
+		return View::make('voce.lista')
+			->with('voci', $voci)
+			->with('selectVoci', $selectVoci);
+	}
+
 	
 
 

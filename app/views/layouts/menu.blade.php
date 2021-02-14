@@ -200,6 +200,18 @@
 					</ul>
 					
 				</li>
+			@else
+				<li class='dropdown'>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class='glyphicon glyphicon-book'></span>
+						<div class='visible-xs-inline'>Voci</div>
+						<span class="caret"></span>
+						<h6 class='hidden-xs didascalia'>Voci</h6>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li ><a href="{{ URL::to('voci') }}"><small>Elenco</small></a></li>
+					</ul>
+				</li>
 			@endif
 			
 			@if ($mercante_arte)
