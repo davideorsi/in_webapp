@@ -196,6 +196,70 @@ class VoceController extends \BaseController {
 	}
 
 	
+	public function search()
+	{
+
+		$data=Input::get('Data');
+		$testo=Input::get('Testo');
+		$chiusa=Input::get('Chiusa');
+
+		
+		$condizione='';
+		$params=array();
+
+		if ($data){
+			if ($condizione) {$condizione.=" AND ";}
+			$words=explode(' ', $data);
+			$i=0;
+			foreach ($words as $parola){
+				$i++;
+				if ($i>1) {$condizione.=" AND ";} else {$condizione.="(";}
+				$params[]="%".$parola."%";
+				$condizione.="`Data` LIKE ?";
+				if ($parola=== end($words)) {$condizione.=")";}
+			}
+		}
+
+		if ($testo){
+			if ($condizione) {$condizione.=" AND ";}
+			$words=explode(' ', $testo);
+			$i=0;
+			foreach ($words as $parola){
+				$i++;
+				if ($i>1) {$condizione.=" AND ";} else {$condizione.="(";}
+				$params[]="% ".$parola." %";
+				$condizione.="`Testo` LIKE ?";
+				if ($parola=== end($words)) {$condizione.=")";}
+			}
+		}
+
+		if ($chiusa){
+			if ($condizione) {$condizione.=" AND ";}
+			$words=explode(' ', $chiusa);
+			$i=0;
+			foreach ($words as $parola){
+				$i++;
+				if ($i>1) {$condizione.=" AND ";} else {$condizione.="(";}
+				$params[]="% ".$parola." %";
+				$condizione.="`Chiusa` LIKE ?";
+				if ($parola=== end($words)) {$condizione.=")";}
+			}
+		}
+
+
+		if (!$condizione){$condizione="1"; }
+		$voci=Voce::Where('Bozza','=',0)->whereRaw($condizione,$params)->orderBy('Data', 'desc')->get(array('ID','Data','Testo','Chiusa'));
+		$selectVoci = array();
+		$id=count($voci)+1;
+		foreach($voci as $voce) {
+			$id-=1;
+			$data=new Datetime($voce['Data']);
+			$selectVoci[$voce->ID] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. $voce->Chiusa;
+
+		}
+		
+		return Response::json($selectVoci);
+	}
 
 
 }
