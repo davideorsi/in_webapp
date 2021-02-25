@@ -8,15 +8,15 @@ class VoceController extends \BaseController {
 	 */
 	public function index()
 	{
-		$voci = Voce::orderBy('Data', 'desc')->orderBy('ID', 'desc')->get(array('ID','Data','Testo','Bozza'));
+		$voci = Voce::orderBy('Data', 'desc')->get(array('rowid','Data','Testo','Bozza'));
 		$selectVoci = array();
 		$id=count($voci)+1;
 		foreach($voci as $voce) {
 			$id-=1;
 			$data=new Datetime($voce['Data']);
-			$selectVoci[$voce->ID] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. INtools::first_words($voce->Testo,3).'&hellip;';
+			$selectVoci[$voce->rowid] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. INtools::first_words($voce->Testo,3).'&hellip;';
 			if  ($voce->Bozza==1){
-				$selectVoci[$voce->ID].= ' (Bozza)';
+				$selectVoci[$voce->rowid].= ' (Bozza)';
 			}
 		}
 		// load the view and pass the nerds
@@ -81,7 +81,7 @@ class VoceController extends \BaseController {
 	{
 		$text=Input::get('testo');
 		//mostra solo le voci che non sono bozze
-		$voci=Voce::orderBy('Data', 'desc')->orderBy('ID', 'desc')->where('Bozza','!=','1')
+		$voci=Voce::orderBy('Data', 'desc')->orderBy('rowid', 'desc')->where('Bozza','!=','1')
 				->where('Testo', 'like', '%'.$text.'%')
 				->paginate(2);	
 		
@@ -171,8 +171,10 @@ class VoceController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$voce = Voce::find($id);
-		$voce -> delete();
+		//$voce = Voce::find($id);
+		//$voce -> delete();	
+		DB::table('Voci di Locanda')->where('rowid', '=', $id)->delete();
+	
 
 		Session::flash('message', 'Voce cancellata correttamente!');
 		return Redirect::to('admin/voce');
@@ -180,13 +182,13 @@ class VoceController extends \BaseController {
 	
 	public function fulllist()
 	{
-		$voci = Voce::Where('Bozza','=',0)->orderBy('Data', 'desc')->orderBy('ID', 'desc')->get(array('ID','Data','Testo','Chiusa'));
+		$voci = Voce::whereRaw('Bozza = 0')->orderBy('Data', 'desc')->get(array('rowid','Data','Testo','Chiusa'));
 		$selectVoci = array();
 		$id=count($voci)+1;
 		foreach($voci as $voce) {
 			$id-=1;
 			$data=new Datetime($voce['Data']);
-			$selectVoci[$voce->ID] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. $voce->Chiusa;
+			$selectVoci[$voce->rowid] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. $voce->Chiusa;
 
 		}
 		// load the view and pass the nerds
@@ -204,57 +206,37 @@ class VoceController extends \BaseController {
 		$chiusa=Input::get('Chiusa');
 
 		
-		$condizione='';
-		$params=array();
+		$condizione='Bozza = 0 AND "Voci di Locanda" MATCH "';
 
 		if ($data){
-			if ($condizione) {$condizione.=" AND ";}
 			$words=explode(' ', $data);
-			$i=0;
 			foreach ($words as $parola){
-				$i++;
-				if ($i>1) {$condizione.=" AND ";} else {$condizione.="(";}
-				$params[]="%".$parola."%";
-				$condizione.="`Data` LIKE ?";
-				if ($parola=== end($words)) {$condizione.=")";}
+				$condizione.=" Data:".$parola." ";
 			}
 		}
 
 		if ($testo){
-			if ($condizione) {$condizione.=" AND ";}
 			$words=explode(' ', $testo);
-			$i=0;
 			foreach ($words as $parola){
-				$i++;
-				if ($i>1) {$condizione.=" AND ";} else {$condizione.="(";}
-				$params[]="% ".$parola." %";
-				$condizione.="`Testo` LIKE ?";
-				if ($parola=== end($words)) {$condizione.=")";}
+				$condizione.=" Testo:".$parola." ";
 			}
 		}
 
 		if ($chiusa){
-			if ($condizione) {$condizione.=" AND ";}
 			$words=explode(' ', $chiusa);
-			$i=0;
 			foreach ($words as $parola){
-				$i++;
-				if ($i>1) {$condizione.=" AND ";} else {$condizione.="(";}
-				$params[]="% ".$parola." %";
-				$condizione.="`Chiusa` LIKE ?";
-				if ($parola=== end($words)) {$condizione.=")";}
+				$condizione.=" Chiusa:".$parola." ";
 			}
 		}
+		$condizione.='"';
 
-
-		if (!$condizione){$condizione="1"; }
-		$voci=Voce::Where('Bozza','=',0)->whereRaw($condizione,$params)->orderBy('Data', 'desc')->get(array('ID','Data','Testo','Chiusa'));
+		$voci=Voce::whereRaw($condizione)->orderBy('Data', 'desc')->get(array('rowid','Data','Testo','Chiusa'));
 		$selectVoci = array();
 		$id=count($voci)+1;
 		foreach($voci as $voce) {
 			$id-=1;
 			$data=new Datetime($voce['Data']);
-			$selectVoci[$voce->ID] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. $voce->Chiusa;
+			$selectVoci[$voce->rowid] = $id.') '. strftime("%d %B %Y",$data->gettimestamp()) .' - '. $voce->Chiusa;
 
 		}
 		
