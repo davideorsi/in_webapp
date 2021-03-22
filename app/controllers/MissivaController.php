@@ -169,7 +169,7 @@ class MissivaController extends \BaseController {
 	
 			$Vivi=PG::orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 	
-			$data=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
+			$data=Voce::whereRaw('Bozza = 0')->orderBy('Data','desc')->take(1)->pluck('Data');
 			$data= new Datetime($data);
 			$data=strftime("%d %B %Y",$data->gettimestamp());
 	
