@@ -172,7 +172,7 @@ class MissivaController extends \BaseController {
 			$data=Voce::whereRaw('Bozza = 0')->orderBy('Data','desc')->take(1)->pluck('Data');
 			$data= new Datetime($data);
 			$data=strftime("%d %B %Y",$data->gettimestamp());
-	
+			
 			$selVivi=array(0=>'');
 			foreach ($Vivi as $vivo){
 				$selVivi[(string)$vivo->ID] = $vivo['Nome'].' ('.$vivo['NomeGiocatore'].')';
@@ -221,7 +221,7 @@ class MissivaController extends \BaseController {
 			
 			$Vivi=PG::orderBy('Nome','asc')->where('ID','=', $Missiva[0]->mittente)->get();
 			
-			$data=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
+			$data=Voce::whereRaw('Bozza = 0')->orderBy('Data','desc')->take(1)->pluck('Data');
 			$data= new Datetime($data);
 			$data=strftime("%d %B %Y",$data->gettimestamp());
 			
@@ -373,7 +373,7 @@ class MissivaController extends \BaseController {
 		} else {
 			//variables
 
-			$time=Voce::where('Bozza','=',0)->orderBy('Data','desc')->take(1)->pluck('Data');
+			$time=Voce::whereRaw('Bozza = 0')->orderBy('Data','desc')->take(1)->pluck('Data');
 
 			$costo=Input::get('tipo');
 			$intercettato = INtools::is_intercettato($costo);
