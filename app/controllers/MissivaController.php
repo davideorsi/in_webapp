@@ -144,6 +144,10 @@ class MissivaController extends \BaseController {
 		foreach ($missive as $missiva){
 			$data= new Datetime($missiva['data']);
 			$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
+			$missiva['testo'] = preg_replace('/(<([^>]*))(id=("[^"]*"|[^" >]*))/', '$1', $missiva['testo']); 
+
+			$missiva['testo'] = str_replace(array("\r\n", "\r", "\n"), "<br />", 	$missiva['testo']);
+			$missiva['testo']=nl2br($missiva['testo']);
 			}
 		
 		return Response::json($missive);

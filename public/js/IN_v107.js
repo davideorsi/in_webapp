@@ -1,7 +1,8 @@
 
 function nl2br (str, is_xhtml) {   
     var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
-    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
+    return (str + '').replace(/([^>\r\n]?)(\r\n\r\n|\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
+    
 }
 
 // SCRIPT HOMEPAGE ####################################################/
@@ -348,7 +349,7 @@ $.ajax({
 			header.append(missiva.dest);
 			mediacollapse.append(body);
 			body.append(testo);
-			testo.append(nl2br(missiva.testo));
+			testo.append((missiva.testo));
 			
 		});
 		$('.media .media-heading').on('click', function(e) {
