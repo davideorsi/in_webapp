@@ -10,7 +10,7 @@
 			<div class='col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
 				<h3>Modifica Voce di Locanda</h3>
 		
-				{{ Form::model($voce, array('method' => 'PUT', 'url' => 'admin/voce/'.$voce->ID)) }}
+				{{ Form::model($voce, array("method" => "PUT", "url" => "admin/voce/".$id)) }}
 
 		
 		        <div class="form-group">
@@ -30,7 +30,7 @@
 				
 		        <div class="form-group">
 					{{Form::label('Bozza', 'Bozza')}}
-					{{ Form::checkbox('Bozza', 1, null)}}
+					{{ Form::checkbox('Bozza', '1', null)}}
 				</div>
 		
 		        <div class="form-group">

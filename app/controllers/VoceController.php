@@ -120,10 +120,9 @@ class VoceController extends \BaseController {
 	public function edit($id)
 	{
 		$voce = Voce::find($id);
-
 		// show the edit form and pass the object
 		return View::make('voce.edit')
-			->with('voce', $voce);
+			->with('voce', $voce)->with('id',$id);
 	}
 
 
@@ -149,12 +148,13 @@ class VoceController extends \BaseController {
 				->withInput(Input::except('password'));
 		} else {
 			// store
-			$voce = Voce::find($id);
+			/*$voce = Voce::find($id);
 			$voce->Data       = Input::get('Data');
 			$voce->Testo      = Input::get('Testo');
 			$voce->Chiusa 	  = Input::get('Chiusa');
-			$voce->Bozza 	  = Input::get('Bozza',0);
-			$voce->save();
+			$voce->Bozza 	  = Input::get('Bozza','0');
+			$voce->save();*/
+			DB::table('Voci di Locanda')->where('rowid', '=', $id)->update(['Data'=>Input::get('Data'),'Testo'=>Input::get('Testo'),'Chiusa'=>Input::get('Chiusa'),'Bozza'=>Input::get('Bozza','0')]);
 
 			// redirect
 			Session::flash('message', 'Voce aggiornata con successo!');
