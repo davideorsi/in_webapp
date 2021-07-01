@@ -246,6 +246,18 @@ $.ajax({
 });
 }
 
+function get_rotte(pos){
+$.ajax({
+	type: "GET",
+	url:  "rotte/"+pos,
+	async: false,
+	success: function(output){
+		$("#tabella_rotte").html(output.tabella);
+	},  
+	dataType: "json"
+});
+}
+
 function get_abilita(pos){
 $.ajax({
 	type: "GET",

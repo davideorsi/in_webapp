@@ -17,14 +17,16 @@ class Missiva extends Eloquent {
 					$tipo = array('icon'=>'text-success glyphicon glyphicon-comment','text'=>'Missiva tra PG');	
 				}
 				break;
+			case 1:
 			case 2:
-				// la missiva non firmata costa 2 ma ha l'icona estera
+				// la missiva non firmata costa 1 ma ha l'icona estera
 				if ($this->Firma_Mitt == 0 & is_numeric($this->mittente)) {
 					$tipo = array('icon'=>'text-warning glyphicon glyphicon-globe','text'=>'Missiva Estera');
 				} else {
 					$tipo = array('icon'=>'text-primary glyphicon glyphicon-tower','text'=>'Missiva nel Ducato');
 				}
 				break;
+			case 3:
 			case 4:
 				$tipo = array('icon'=>'text-warning glyphicon glyphicon-globe','text'=>'Missiva Estera');
 				break;

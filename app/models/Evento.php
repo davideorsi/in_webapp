@@ -18,6 +18,9 @@ class Evento extends Eloquent {
 	public function Vicende() {
 		return $this->hasMany('Vicenda', 'live', 'ID');
 	}
-
+	
+	public function RotteCommerciali(){
+		return $this->hasMany('RottaCommerciale','Evento','ID');
+	}
 }
 ?>

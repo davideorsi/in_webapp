@@ -169,7 +169,9 @@
 				<td>
 					@if (!empty($PG['pivot']['Note']))
 						{{$PG['pivot']['Note']}}
+						<br>
 					@endif
+					{{$PG->Rotte($Evento['ID'])}}
 				</td>
 				
 				<td align = "center">

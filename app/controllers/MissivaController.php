@@ -167,8 +167,8 @@ class MissivaController extends \BaseController {
 		if ($idpg | (Auth::user()->usergroup == 7)){
 			$costo= array(
 				0  => 'Missiva tra PG (gratuita)',
-				2  => 'Missiva nel Ducato (2 Rame)',
-				4  => 'Missiva Estera (4 Rame)',
+				1  => 'Missiva nel Ducato (1 Rame)',
+				3  => 'Missiva Estera (3 Rame)',
 				10 => 'Missiva Sicura (1 Argento)');
 	
 			$Vivi=PG::orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
@@ -215,8 +215,8 @@ class MissivaController extends \BaseController {
 		if ($idpg | (Auth::user()->usergroup == 7)){
 			$costo= array(
 				0  => 'Missiva tra PG (gratuita)',
-				2  => 'Missiva nel Ducato (2 Rame)',
-				4  => 'Missiva Estera (4 Rame)',
+				1  => 'Missiva nel Ducato (1 Rame)',
+				3  => 'Missiva Estera (3 Rame)',
 				10 => 'Missiva Sicura (1 Argento)');
 			$missivaOriginale = $idMissiva;		
 			$Missiva=Missiva::where('ID', '=', $idMissiva)->get();
@@ -305,8 +305,8 @@ class MissivaController extends \BaseController {
 			//Elenco Costi Missive
 			$costo= array(
 				0  => 'Missiva tra PG (gratuita)',
-				2  => 'Missiva nel Ducato (2 Rame)',
-				4  => 'Missiva Estera (4 Rame)',
+				1  => 'Missiva nel Ducato (1 Rame)',
+				3  => 'Missiva Estera (3 Rame)',
 				10 => 'Missiva Sicura (1 Argento)');
 			$costoDefault =$Missiva[0]->costo;
 			
@@ -436,8 +436,8 @@ class MissivaController extends \BaseController {
                       {$missiva->tipo_mittente	 = 'PG';}
 			
 				if (Input::get('firma')==0 && !$destinatario_PNG){
-						$missiva->costo = 2; //missive non firmate costano 2 rame
-						$missiva->pagato			= 0;
+						$missiva->costo = 1; //missive non firmate costano 1 rame
+						$missiva->pagato = 0;
 					}
 			}
 			

@@ -16,7 +16,7 @@
 
 <div class='col-sm-4' style='text-align: center;'>
 
-	<a href={{URL::to('files/tomo_delle_regole_5.3.pdf')}}>
+	<a href={{URL::to('files/tomo_delle_regole.pdf')}}>
 	{{ HTML::image('img/regole.jpg','Regolamento',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
 

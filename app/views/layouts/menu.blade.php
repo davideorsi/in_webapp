@@ -5,10 +5,14 @@
 		$abilita_del_PG=PG::find($idpg)->Abilita()->get();
 		$lista=INtools::select_column($abilita_del_PG,'Ability');			
 		$scrivere=in_array('Scrivere',$lista)|in_array('Leggere e scrivere',$lista);
-		$mercante_arte=in_array("Mercante d'Arte",$lista);
+		$mercante_arte=in_array("Appassionato d'Arte",$lista);
+		$rotte_commerciali = in_array('Rotte commerciali locali',$lista);
+        $mercante = $mercante_arte|$rotte_commerciali;
 	} else {
 		$scrivere=false;
-		$mercante_arte=false;
+		 $rotte_commerciali=false;
+        $mercante_arte=false;
+        $mercante = false;
 	}
 ?>
 
@@ -158,6 +162,7 @@
 						<li ><a href="{{ URL::to('admin/voce') }}"><small>Voci di Locanda</small></a></li>
 						<li ><a href="{{ URL::to('admin/evento') }}"><small>Eventi</small></a></li>
                         <li><a href="{{ URL::to('admin/preziosi/') }}"><small>Mercato dei Preziosi</small></a></li>
+                        <li><a href="{{ URL::to('admin/rotte/') }}"><small>Rotte Commerciali</small></a></li>
                         <li><a href="{{ URL::to('admin/debito/') }}"><small>Spese e Debiti</small></a></li>
                         <li><a href="{{ URL::to('admin/conto/') }}"><small>Banca Ducale</small></a></li>
 						<li ><a href="{{ URL::to('admin/oggetti') }}"><small>Oggetti</small></a></li>
@@ -214,7 +219,7 @@
 				</li>
 			@endif
 			
-			@if ($mercante_arte)
+			@if ($mercante)
 				<li class='dropdown'><a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<span class='glyphicon glyphicon-list-alt'></span>
 					<div class='visible-xs-inline'>Mercato</div>
@@ -222,7 +227,12 @@
 					<h6 class='hidden-xs didascalia'>Mercato</h6>
 				</a>
 					<ul class="dropdown-menu" role="menu">
-						<li ><a href="{{ URL::to('preziosi') }}"><small>Mercato dei Preziosi</small></a></li>
+						@if ($mercante_arte)
+                        <li ><a href="{{ URL::to('preziosi') }}"><small>Mercato dei Preziosi</small></a></li>
+                        @endif
+                        @if ($rotte_commerciali)
+                        <li ><a href="{{ URL::to('rotte') }}"><small>Rotte Commerciali</small></a></li>
+                        @endif
 					</ul>
 				</li>
 			@endif

@@ -291,3 +291,17 @@
 	Route::get('/podcast/Capitolo%200%20-%20Introduzione.mp3', function() {return File::get(public_path() . '/podcastfolder/Capitolo%200%20-%20Introduzione.mp3');});
 	Route::get('/podcast/Capitolo%201%20-%20Assi%20nella%20Manica.mp3', function() {return File::get(public_path() . '/podcastfolder/Capitolo%201%20-%20Assi%20nella%20Manica.mp3');});
 	Route::get('/podcast/Capitolo%202%20-%20Il%20primo%20maggiordomo.mp3', function() {return File::get(public_path() . '/podcastfolder/Capitolo%202%20-%20Il%20primo%20maggiordomo.mp3');});
+
+
+	// route per Rotte commerciali
+	Route::group(array('before'=>'master'), function() { 
+		Route::resource('admin/rotte', 'RotteController',array('except' => array('update','create','store','destroy')));
+		Route::get('admin/rotte/{id}/modifica',  array('uses' => 'RotteController@modifica'));
+		Route::put('admin/rotte/genera',  array('uses' => 'RotteController@genera'));
+	});
+	/*
+	Route::group(array('before'=>'Rotte_Commerciali'), function() { 
+		Route::resource('rotte', 'RotteController',array('except' => array('update','edit','create','store','destroy')));
+		Route::put('rotte',  array('uses' => 'RotteController@update'));
+	});
+	*/

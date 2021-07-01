@@ -37,6 +37,10 @@ class PG extends Eloquent {
 		return $this->hasMany('IDENTITAPG','ID_PG','ID');
 	}
 	
+	public function RotteCommerciali(){
+		return $this->hasMany('RottaCommerciale','IDPG','ID');
+	}
+	
 	public function Malattie(){
 		return $this->belongsToMany('Stadio', 'Malattie-PG', 'PG', 'Stadio');
 	}
@@ -73,5 +77,23 @@ class PG extends Eloquent {
 	public function Note(){
 		return implode('<br>',$this->Abilita()->where('Note','!=','')->lists('Note'));
 		}
+		
+	public function Rotte($id_evento){
+		$acquisti = '';
+		$id_rotteGruppo = RottaCommercialeGruppo::where('id_evento',$id_evento)->Orderby('ID','Desc')->first()->ID;
+		$rotte_pg = $this->RotteCommerciali()->where('Evento',$id_rotteGruppo)->get();
+		
+		foreach ($rotte_pg as $Rotta){
+			$num = $Rotta['Acquistati'];
+			$nome = $Rotta->Materiale()->pluck('Nome');
+			if ($num > 0) {
+				if ($acquisti != '')  $acquisti .= '<br>';
+				$acquisti .= $nome.' x'.$num;
+				}
+			
+			}
+		
+		return $acquisti;
+	}
 }
 ?>

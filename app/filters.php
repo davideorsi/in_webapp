@@ -28,7 +28,7 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-	//
+	
 });
 
 /*
@@ -152,6 +152,37 @@ Route::filter('mercante_arte', function()
 		}
 			
 		if (!$mercante_arte) {
+			return Response::make('Unauthorized', 401);
+		}
+	}
+});
+
+Route::filter('rotte_commerciali', function()
+{
+	if (Auth::guest()){
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
+		}
+	} else {
+		$group=Auth::user()->usergroup;
+		
+		if ( $group!= 7) {
+			$idpg = Session::get('idpg');
+			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
+
+			$lista=INtools::select_column($abilita_del_PG,'Ability');			
+
+			$rotte_commerciali=in_array("Rotte commerciali locali",$lista);
+		} else {
+			$rotte_commerciali=true;
+		}
+			
+		if (!$rotte_commerciali) {
 			return Response::make('Unauthorized', 401);
 		}
 	}
