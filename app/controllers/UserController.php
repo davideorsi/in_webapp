@@ -499,9 +499,11 @@ class UserController extends BaseController {
 			}
 			$abilita_del_PG=$pg->Abilita()->get();
 			$abilita_del_PG=INtools::select_column($abilita_del_PG,'ID');
+			
+			// Conteggio di Nobile e Diplomatico per la rendita personale
 			if (!in_array(8,$abilita_del_PG)){
 				if (in_array(43,$abilita_del_PG)){
-					$secondaria[$pg['Affiliazione']]+=20;
+					$secondaria[$pg['Affiliazione']]+=15;
 				} else {
 					$secondaria[$pg['Affiliazione']]+=10;
 				}
@@ -509,7 +511,7 @@ class UserController extends BaseController {
 			} else {
 				$pg['Rendita_tot']=$pg->Rendita();
 				if (in_array(43,$abilita_del_PG)){
-					$pg['Rendita_tot']+=20;
+					$pg['Rendita_tot']+=15;
 				} else {
 					$pg['Rendita_tot']+=10;
 				}
