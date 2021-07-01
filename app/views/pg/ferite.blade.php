@@ -50,8 +50,8 @@
 					{{$pers['Nome']}} 
 				</h1>
 				<p style='text-align:center; width:100%'>{{$giorno}}</p>
-				@for ($j = 0; $j<5; $j++)
-					<div class='pf' style='left: {{$j*20}}%'>
+				@for ($j = 0; $j<3; $j++)
+					<div class='pf' style='left: {{$j*33.3}}%'>
 						<p>Cicatrice</p><br>
 						<span style="font-size: 10pt; margin-left:5pt ">{{$giorno}}</span>
 					</div>
