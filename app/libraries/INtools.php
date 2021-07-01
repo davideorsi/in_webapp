@@ -24,11 +24,20 @@ class INtools {
 		case 0:
 			$intercettato=0;
 			break;
+		case 1:
+			if ($non_firmata){$intercettato=0;}
+			else {
+				$intercettato=$perc<=$percentuale[0];
+			}
+			break;
 		case 2:
 			if ($non_firmata){$intercettato=0;}
 			else {
 				$intercettato=$perc<=$percentuale[0];
 			}
+			break;
+		case 3:
+			$intercettato=$perc<=$percentuale[1];
 			break;
 		case 4:
 			$intercettato=$perc<=$percentuale[1];
