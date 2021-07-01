@@ -685,11 +685,10 @@ textarea{
 .pf p{
 
 	font-family: Italianno; 
-	font-size: 20pt;
-	transform: rotate(90deg);
+	font-size: 30pt;
+	transform: rotate(0deg);
 	transform-origin: 0 top 0;
-	margin-left:80%;
-	margin-top:5px;
+	text-align: center; 
 }
 
 
@@ -701,8 +700,7 @@ textarea{
 
 .ferita h1{
 	font-family: Italianno; 
-	margin: 10px 0px 0px 0px ;
-	
+	margin: 10px 0px 0px 0px ;	
 	text-align: center; 
 	width:100%;
 }
