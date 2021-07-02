@@ -23,7 +23,7 @@
 </div>
 
 <div class='col-sm-4' style='text-align: center;'>
-	<a href={{URL::to('files/tomo_della_economia_5_0.pdf')}}>
+	<a href={{URL::to('files/tomo_della_economia.pdf')}}>
 	{{ HTML::image('img/economia.jpg','Economia',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
 
