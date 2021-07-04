@@ -99,6 +99,14 @@
 		Route::get('admin/incanto/{id}/imparabile', 'IncantoController@imparabile');
 	});
 
+	// route per le Licenze
+	Route::group(array('before'=>'master'), function() { 
+		Route::resource('admin/licenza', 'LicenzaController');
+		Route::put('admin/licenza-pg', 'LicenzaController@add_licenza');
+		Route::put('admin/licenza-pg-scaduta', 'LicenzaController@scade_licenza');
+		Route::put('admin/rinnova-licenza-pg', 'LicenzaController@rinnova_licenza');
+	});
+
 	// route per la Medicina, le cicatrici, le malattie etc.
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/medicina', 'MedicinaController');

@@ -311,8 +311,7 @@ class PgController extends \BaseController {
 		$PG->Incanti()->attach($idIncanto);
 
 		Session::flash('message', 'Incanto aggiunto correttamente!');
-		return Redirect::to('admin/pg/'.$idPg.'/edit');
-		
+		return Redirect::to('admin/pg/'.$idPg.'/edit');		
 	}
 
 	public function del_incanto()
@@ -327,6 +326,9 @@ class PgController extends \BaseController {
 		Session::flash('message', 'Incanto rimosso correttamente!');
 		return Redirect::to('admin/pg/'.$idPg.'/edit');
 	}
+
+
+
 
 	//######## GESTIONE FIRME #########################################
 	public function add_firma()

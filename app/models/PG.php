@@ -78,6 +78,12 @@ class PG extends Eloquent {
 		return implode('<br>',$this->Abilita()->where('Note','!=','')->lists('Note'));
 		}
 		
+		
+	public function Licenza() {
+		return $this->belongsToMany('Licenza', 'Licenze-PG', 'IDPG', 'IDLicenza')
+					->withPivot('Inizio','UltimoRinnovo','Scaduta','Rinnovi','Prezzo');
+	}
+		
 	public function Rotte($id_evento){
 		$acquisti = '';
 		$id_rotteGruppo = RottaCommercialeGruppo::where('id_evento',$id_evento)->Orderby('ID','Desc')->first()->ID;
