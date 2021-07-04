@@ -163,6 +163,7 @@
 						<li ><a href="{{ URL::to('admin/evento') }}"><small>Eventi</small></a></li>
                         <li><a href="{{ URL::to('admin/preziosi/') }}"><small>Mercato dei Preziosi</small></a></li>
                         <li><a href="{{ URL::to('admin/rotte/') }}"><small>Rotte Commerciali</small></a></li>
+						<li ><a href="{{ URL::to('admin/licenza') }}"><small>Licenze Commerciali</small></a></li>
                         <li><a href="{{ URL::to('admin/debito/') }}"><small>Spese e Debiti</small></a></li>
                         <li><a href="{{ URL::to('admin/conto/') }}"><small>Banca Ducale</small></a></li>
 						<li ><a href="{{ URL::to('admin/oggetti') }}"><small>Oggetti</small></a></li>
