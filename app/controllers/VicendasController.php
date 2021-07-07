@@ -304,6 +304,8 @@ class VicendasController extends \BaseController {
 					$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 19:00');
 				} else if ($id_evento==58) {
 					$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 12:00');
+				} else if ($id_evento==59) {
+					$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 11:00');
 				} else {
 					$giorno=Datetime::createFromFormat('Y-m-d H:i',$evento['Data'].' 14:00');
 					}
