@@ -100,6 +100,9 @@
 	});
 
 	// route per le Licenze
+	
+	Route::get('licenza', 'LicenzaController@lista');
+	Route::get('licenza/{id}', 'LicenzaController@showpg');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/licenza', 'LicenzaController');
 		Route::put('admin/licenza-pg', 'LicenzaController@add_licenza');

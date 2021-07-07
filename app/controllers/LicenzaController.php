@@ -61,6 +61,21 @@ class LicenzaController extends \BaseController {
 			->with('datacorrente', $datacorrente);
 	}
 
+	public function lista()
+	{
+		$Licenze = Licenza::orderBy('Livello', 'asc')->get(array('ID','Nome','Livello'));
+		
+		$selectLicenze = array();
+		foreach($Licenze as $Licenza) {
+			$selectLicenze[$Licenza->ID] = $Licenza->Nome;
+		}
+		
+		// load the view and pass the nerds
+		return View::make('licenza.lista')
+			->with('Licenze', $Licenze)
+			->with('selectLicenze', $selectLicenze);
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -137,6 +152,18 @@ class LicenzaController extends \BaseController {
 			
 	}
 	
+	public function showpg($id)
+	{
+
+		$Licenza = Licenza::find($id);
+		
+		$Licenza['Permette']=nl2br($Licenza['Permette']);
+		$Licenza['Limitazioni']=nl2br($Licenza['Limitazioni']);
+		if (Request::ajax()){
+			return Response::json($Licenza);
+		} 
+			
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
