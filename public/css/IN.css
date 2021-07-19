@@ -684,7 +684,7 @@ textarea{
 
 .pf p{
 
-	font-family: Italianno; 
+	font-family: 'Tangerine', cursive;
 	font-size: 30pt;
 	transform: rotate(0deg);
 	transform-origin: 0 top 0;
@@ -699,7 +699,7 @@ textarea{
 }
 
 .ferita h1{
-	font-family: Italianno; 
+	font-family: 'Tangerine', cursive;
 	margin: 10px 0px 0px 0px ;	
 	text-align: center; 
 	width:100%;
