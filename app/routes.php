@@ -88,6 +88,7 @@
 	
 	// route per i Post di ambientazione
 	Route::get('ambientazione','PostController@ambientazione');
+	Route::get('mappa','PostController@mappa');
 	Route::get('post/{cat}/{id}','PostController@show');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/post', 'PostController',array('except' => array('show')));

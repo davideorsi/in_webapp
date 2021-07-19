@@ -200,4 +200,10 @@ class PostController extends \BaseController {
 		return View::make('ambientazione');
 
 	}
+
+	public function mappa()
+	{
+		return View::make('mappa');
+
+	}
 }
