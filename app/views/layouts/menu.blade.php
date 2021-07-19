@@ -50,7 +50,7 @@
 					<li ><a href="{{ URL::to('/') }}"><small>Home</small></a></li>
 					<li ><a href="{{ URL::to('/istruzioni') }}"><small>Come Iniziare</small></a></li>
 					<li ><a href="{{ URL::to('/ambientazione') }}"><small>Ambientazione</small></a></li>
-					<li ><a href="{{ URL::to('/mappa') }}"><small>Mappa d'Italia</small></a></li>
+					<li ><a href="{{ URL::to('/mappa') }}"><small>Mondo di Gioco</small></a></li>
 					<li ><a href="{{ URL::to('/licenza') }}"><small>Licenze Commerciali</small></a></li>
 					<li ><a href="{{ URL::to('/famoso') }}"><small>Notabili del Ducato</small></a></li>
 					<li ><a href="{{ URL::to('/regolamento') }}"><small>Regolamento</small></a></li>
