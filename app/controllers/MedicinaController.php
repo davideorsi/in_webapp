@@ -22,12 +22,14 @@ class MedicinaController extends \BaseController {
 	public function showCicatriciEvento($id)
 	{
 		$Evento = Evento::where('ID','=',$id)->get();
+		if ($id>58){$NN=3;} else {$NN=5;} #3 cartellini per PF dall'evento 5, luglio 2021
+		
 	
 		$PG = $Evento[0]->PG()->orderby('Affiliazione','asc')->get(array('Nome','PG.ID','Affiliazione','NomeGiocatore'));
 
 		$PGR=array();
 		foreach($PG as $pg){
-				$pg['Cicatrici']=5*$pg->Ferite();
+				$pg['Cicatrici']=$NN*$pg->Ferite();
 				$pg['CicatriciRimaste']=$pg['pivot']['Cicatrici'];
 				$pg['Cibo']=$pg['pivot']['Cibo'];
 				$pg['Armi']=$pg['pivot']['Armi'];
