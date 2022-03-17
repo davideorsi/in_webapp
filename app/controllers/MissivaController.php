@@ -671,8 +671,8 @@ class MissivaController extends \BaseController {
 		$coinvolto=array();
 		foreach ($missive as $key=>$missiva){
 			$data= new Datetime($missiva['data']);
-			//in_array($missiva['id'],array(3088,3135,3457)) |
-			if ((strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0 & strcmp($anno_attuale,strftime("%Y",$data->gettimestamp()))==0)){
+			//in_array($missiva['id'],array(9364,9458,9488,9542,9633)) |
+			if ( (strcmp($mese_attuale,strftime("%b",$data->gettimestamp()))==0 & strcmp($anno_attuale,strftime("%Y",$data->gettimestamp()))==0)){
 				$missiva['data']=strftime("%d %b %Y",$data->gettimestamp());
 				$selMissiva[$missiva['id']]=$key+1;
 				if ($missiva['tipo_mittente']=='PG') {
