@@ -13,8 +13,8 @@
 	<meta name="author" content="Intempesta Noctis - Il Borgo e La Ruota">
 	<meta property="og:title" content="Intempesta Noctis" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://intempestanoctis.boru.it" />
-	<meta property="og:image" content="http://intempestanoctis.boru.it/thumb.jpg" />
+	<meta property="og:url" content="https://intempestanoctis.boru.it" />
+	<meta property="og:image" content="https://intempestanoctis.boru.it/thumb.jpg" />
 	<meta property="og:description" content="Gioco di Ruolo dal Vivo nel Ducato di Parma di Inizio Ottocento" />
 	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 
@@ -27,7 +27,9 @@
 
 	{{ HTML::style('css/bootstrap.min.css');}}
 	{{ HTML::style('css/cartellini.css');}}
-	<link href='http://fonts.googleapis.com/css?family=Italianno&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet"> 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->

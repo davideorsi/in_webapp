@@ -39,17 +39,17 @@
 	{{ HTML::style('css/bootstrap-toggle.min.css');}}
 	{{ HTML::style('css/IN_104.css');}}
 		@section('CSS')
-		
-	
+
+
 		@show
-	
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
 	<!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="/favicon.ico">
 
 	<!-- JavaScript
 	================================================== -->
@@ -61,7 +61,7 @@
 
 	<!--Container -->
 <div id="wrap">
-	
+
 	<div class="container_fluid">
 	@yield('content_outside')
 	<div class="container">
@@ -72,11 +72,11 @@
 					<h4 class='subtitle'>Gioco di Ruolo dal vivo nel Ducato di Parma di inizio Ottocento</h4>
 				</div>
 			</div>-->
-			
+
 			@include('layouts.menu')
 
 			<div class="spacer"></div>
-			
+
 			@yield('content')
 
 
@@ -84,7 +84,7 @@
 	</div><!-- container fluid-->
 	<div id="push"></div>
 
-</div>	
+</div>
 
 <footer class='bodyfooter'>
 	<div>
@@ -114,10 +114,10 @@
       off: 'No'
     });
   })
-	
+
 	@section('Scripts')
 
-	
+
 	@show
 </script>
 </body>

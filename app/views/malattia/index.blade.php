@@ -1,28 +1,31 @@
 @extends('admin')
 
-	
+
 	@section('content')
 	<div class="row bs-callout bs-callout-defaults">
-		<div class="col-sm-6 col-sm-offset-3 ">
-			<h3>Malattie</h3>
+			<a id='editParametri' class="btn btn-default" href="{{ URL::to('admin/malattie/parametri/show') }}">MODIFICA PARAMETRI</a>
+		<div class="col-sm-6 col-sm-offset-3">
+
+					<h3>Malattie</h3>
+
 			@if ( Session::has('message'))
 				<div class="alert alert-info">
 					{{ Session::get('message') }}
 				</div>
 			@endif
-			
+
 			{{ Form::open(array('class'=>'pure-form pure-form-aligned')) }}
 
-			
+
 			<div class="form-group">
 			{{ Form::label('malattie','Malattie') }}
 			{{ Form::select('malattie', $selMalattie, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}
 			</div>
 
-			
+
 			{{ Form::close() }}
-			
-			
+
+
 			<div class="btn-group" style='margin-bottom:10px;'>
 			<a id='showmalattia' class="btn btn-default" href="{{ URL::to('admin/malattie/') }}">Status</a>
 			<a id='editmalattia' class="btn btn-primary" href="{{ URL::to('admin/malattie/') }}">Modifica</a>
@@ -32,45 +35,14 @@
 			{{ Form::submit('Cancella', array('class' => 'btn btn-warning')) }}
 			{{ Form::close() }}
 			</div>
+
 		</div>
-	</div>
-	
-	<div class="row bs-callout bs-callout-default">	
+
 		<div class="col-sm-6 col-sm-offset-3">
-			<h4>Cure delle Malattie</h4>
-			<table class="table table-striped">
-				<thead class="thead-inverse">
-					<tr><th>Malattia</th><th>Estratto</th><th>Matrice</th></tr>
-				</thead>
-			@foreach($Cure as $Cura)
-				<tr title="Effetti: {{$Cura['Effetti']}}">
-					<td>{{$Cura['NomeMalattia']['Nome']}}</td>
-					<td>{{$Cura['Estratto']}}</td>
-					<td>
-						Siero Medico, <br>
-						<div class="input-group">
-						<span class="input-group-addon danger" id="sizing-addon3">
-							{{$Cura['Rosse']}}
-						</span>								
-						<span class="input-group-addon success" id="sizing-addon3">
-							{{$Cura['Verdi']}}
-						</span>								
-						<span class="input-group-addon primary" id="sizing-addon3">
-							{{$Cura['Blu']}}
-						</span>
-						</div>
-					</td>
-				</tr>
-			@endforeach
-			</table>
-		</div>
-	</div>	
-	
-	<div class="row bs-callout bs-callout-default">	
-		<div class="col-sm-6 col-sm-offset-3">
-	
+			<br>
+			<br>
 			<!--Elenco degli ammalati-->
-			<h4>Ammalati</h4>
+					<h4>PG Ammalati</h4>
 			<table class="table table-striped">
 				<thead class="thead-inverse">
 					<tr><th>PG</th><th>Malattia</th><th>Stadio</th><th></th></tr>
@@ -95,25 +67,53 @@
 					<td>{{ Form::select('pg_vivi', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}</td>
 					<td colspan="2">{{ Form::select('malattia', $selStadi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}</td>
 					<td>{{ Form::submit("+", array('class' => 'btn btn-primary')) }}</td>
-					{{ Form::close()}}			
+					{{ Form::close()}}
 				</tr>
 			</table>
-		</div>
-	</div>
-	<div class='row bs-callout bs-callout-default'>						
-		<div class="col-sm-6 col-sm-offset-3">
-			<p>
-			<h4>Probabilità di ammalarsi</h4>
-			Non tutte le patologie hanno un’alta incidenza. Quando un pg risulta essersi ammalato, se la trama non prevede diversamente, allora subirà un ulteriore tiro di dado percentuale per stabilire la malattia.</br>
-			Influenza virale: da 1% a 50%. <br>
-			Infezione batterica: da 50% a 70%. <br>
-			Tubercolosi: da 71% a 85%. <br>
-			Sifilide: da 86% a 95%. <br>
-			Peste bubbonica: da 96% a 100%.<br>
-			</p>
+			<div class="form-group">
+				<div class="btn-group" style='margin-bottom:10px;'>
+					<a id='aggiornaAmmalati' class="btn btn-success" href="{{ URL::to('admin/malattie/aggiornaMalati') }}">Aggiorna</a>
+					<a id='stampaReport' class="btn btn-primary" href="{{ URL::to('admin/malattie/stampaMalati') }}">Stampa</a>
+				</div>
+			</div>
 		</div>
 
+
+		<div class="col-sm-6 col-sm-offset-3">
+			<br>
+			<br>
+			<div class="form-group">
+
+				<h4>Cure delle Malattie</h4>
+				<table class="table table-striped">
+					<thead class="thead-inverse">
+						<tr><th>Malattia</th><th>Estratto</th><th>Matrice</th></tr>
+					</thead>
+				@foreach($Cure as $Cura)
+					<tr title="Effetti: {{$Cura['Effetti']}}">
+						<td>{{$Cura['NomeMalattia']['Nome']}}</td>
+						<td>{{$Cura['Estratto']}}</td>
+						<td>
+							Siero Medico, <br>
+							<div class="input-group">
+							<span class="input-group-addon danger" id="sizing-addon3">
+								{{$Cura['Rosse']}}
+							</span>
+							<span class="input-group-addon success" id="sizing-addon3">
+								{{$Cura['Verdi']}}
+							</span>
+							<span class="input-group-addon primary" id="sizing-addon3">
+								{{$Cura['Blu']}}
+							</span>
+							</div>
+						</td>
+					</tr>
+				@endforeach
+				</table>
+			</div>
+		</div>
 	</div>
+
 @stop
 
 @section('Scripts')
@@ -125,5 +125,3 @@
 			});
 		});
 @stop
-		
-

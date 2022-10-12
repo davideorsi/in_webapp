@@ -8,7 +8,7 @@ class Evento extends Eloquent {
 
 	public function PG() {
 		return $this->belongsToMany('PG', 'Eventi-PG', 'Evento', 'PG')
-			->withPivot('Arrivo', 'Pernotto','Cena','Note','Pagato','Cicatrici','Cibo','Armi');
+			->withPivot('Arrivo','Pernotto','Cena','Note','Pagato','Cicatrici','Cibo','Armi','Terapia','IDmalattia','Cura');
 	}
 
 	public function Informatori() {
@@ -18,9 +18,9 @@ class Evento extends Eloquent {
 	public function Vicende() {
 		return $this->hasMany('Vicenda', 'live', 'ID');
 	}
-	
-	public function RotteCommerciali(){
-		return $this->hasMany('RottaCommerciale','Evento','ID');
+
+	public function RotteCommercialiGruppo(){
+		return $this->hasMany('RottaCommercialeGruppo','id_evento','ID');
 	}
 }
 ?>
