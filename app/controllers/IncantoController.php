@@ -12,7 +12,7 @@ class IncantoController extends \BaseController {
 
 		$selectIncanti = array();
 		foreach($incanti as $incanto) {
-			$selectIncanti[$incanto->ID] = $incanto->Nome .'- (liv. '. $incanto->Livello .')';
+			$selectIncanti[$incanto->ID] = $incanto->Nome .' (liv. '. $incanto->Livello .')';
 		}
 		// load the view and pass the nerds
 		return View::make('incanto.index')
@@ -20,6 +20,20 @@ class IncantoController extends \BaseController {
 			->with('selectIncanti', $selectIncanti);
 	}
 
+	public function index_PG()
+	{
+		$incanti = Incanto::orderBy('Livello', 'asc')->where('Base','1')->get(array('ID','Nome','Livello'));
+
+		$selectIncanti = array();
+		foreach($incanti as $incanto) {
+			
+			$selectIncanti[$incanto->ID] = $incanto->Nome .' (liv. '. $incanto->Livello .')';
+		}
+		// load the view and pass the nerds
+		return View::make('incanto.indexPG')
+			->with('incanti', $incanti)
+			->with('selectIncanti', $selectIncanti);
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -89,6 +103,19 @@ class IncantoController extends \BaseController {
 				->with('incanto',$incanto);
 		}
 			
+	}
+	
+	
+	public function showPG($id)
+	{
+		// mostra solo le incanti che non sono bozze
+
+		$incanto = Incanto::find($id);
+		
+		$incanto['Descrizione']=nl2br($incanto['Descrizione']);
+		if (Request::ajax() & $incanto['Base']=='1'){
+			return Response::json($incanto);
+		} 
 	}
 	
 	

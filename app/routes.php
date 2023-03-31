@@ -95,6 +95,9 @@
 	});
 
 	// route per gli Incanti
+	
+	Route::get('incanto', 'IncantoController@index_PG');
+	Route::get('incanto/{id}', 'IncantoController@showPG');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/incanto', 'IncantoController');
 		Route::get('admin/incanto/{id}/imparabile', 'IncantoController@imparabile');
@@ -128,6 +131,9 @@
 	});
 	
 	// route per le Abilita
+	
+	Route::get('abilita', 'AbilitaController@index_PG');
+	Route::get('abilita/{id}', 'AbilitaController@show');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/abilita', 'AbilitaController');
 		Route::post('admin/abilita_opzione', 'AbilitaController@add_opzione');

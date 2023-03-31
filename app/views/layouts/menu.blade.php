@@ -212,12 +212,14 @@
 				<li class='dropdown'>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span class='glyphicon glyphicon-book'></span>
-						<div class='visible-xs-inline'>Voci</div>
+						<div class='visible-xs-inline'>Elenchi</div>
 						<span class="caret"></span>
-						<h6 class='hidden-xs didascalia'>Voci</h6>
+						<h6 class='hidden-xs didascalia'>Elenchi</h6>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li ><a href="{{ URL::to('voci') }}"><small>Elenco</small></a></li>
+						<li ><a href="{{ URL::to('voci') }}"><small>Voci</small></a></li>
+						<li ><a href="{{ URL::to('abilita') }}"><small>Abilità</small></a></li>
+						<li ><a href="{{ URL::to('incanti') }}"><small>Incanti</small></a></li>
 					</ul>
 				</li>
 			@endif

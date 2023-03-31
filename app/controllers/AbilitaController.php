@@ -19,6 +19,26 @@ class AbilitaController extends \BaseController {
 			->with('selectAbilita', $selectAbilita);
 	}
 
+	/**
+	 * Lista di tutti gli eventi, con la scelta tra editare, aggiungere o
+	 * cancellare una abilita
+	 */
+	public function index_PG()
+	{
+		$abilitas = Abilita::orderBy('Categoria', 'asc')->orderBy('Ability', 'asc')->get(array('ID','Ability','Categoria'));
+
+		$selectAbilita = array();
+		foreach($abilitas as $abilita) {
+			if (!in_array($abilita->Categoria,array('Speciali','Spiriti','Innate'))) {
+				$selectAbilita[$abilita->Categoria][$abilita->ID] = $abilita->Ability;
+			}
+		}
+		// load the view and pass the nerds
+		return View::make('abilita.indexPG')
+			->with('selectAbilita', $selectAbilita);
+	}
+
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -91,7 +111,7 @@ class AbilitaController extends \BaseController {
 	{
 		$abilita = Abilita::find($id);
 
-		$abilita['Descrizione']=nl2br('<p>'.$abilita['Descrizione'].'</p>');
+		$abilita['Descrizione']=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br>'.$abilita['Descrizione'].'</p>');
 		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 		
 		$PGab='';
