@@ -219,7 +219,7 @@
 					<ul class="dropdown-menu" role="menu">
 						<li ><a href="{{ URL::to('voci') }}"><small>Voci</small></a></li>
 						<li ><a href="{{ URL::to('abilita') }}"><small>Abilità</small></a></li>
-						<li ><a href="{{ URL::to('incanti') }}"><small>Incanti</small></a></li>
+						<li ><a href="{{ URL::to('incanto') }}"><small>Incanti</small></a></li>
 					</ul>
 				</li>
 			@endif
