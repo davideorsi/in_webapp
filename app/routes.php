@@ -133,7 +133,7 @@
 	// route per le Abilita
 	
 	Route::get('abilita', 'AbilitaController@index_PG');
-	Route::get('abilita/{id}', 'AbilitaController@show');
+	Route::get('abilita/{id}', 'AbilitaController@showPG');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/abilita', 'AbilitaController');
 		Route::post('admin/abilita_opzione', 'AbilitaController@add_opzione');

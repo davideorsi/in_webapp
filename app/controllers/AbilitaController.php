@@ -107,10 +107,34 @@ class AbilitaController extends \BaseController {
 	 *
 	 * 
 	 */
+	public function showPG($id)
+	{
+		$abilita = Abilita::find($id);
+
+		if (!in_array($abilita['Categoria'],array('Speciali','Spiriti','Innate'))) {
+			$abilita['Descrizione']=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br>'.$abilita['Descrizione'].'</p>');
+			$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+			
+			$PGab='';
+			foreach ($PG as $pers) {
+				$PGab.=$pers->Nome.'</br>';
+				}
+			$abilita['PG']=$PGab;	
+	
+			if (Request::ajax()){
+				return Response::json($abilita);
+			} else {
+				return Response::make('Not available', 401);
+			}
+	}
+			
+	}
+
 	public function show($id)
 	{
 		$abilita = Abilita::find($id);
 
+	
 		$abilita['Descrizione']=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br>'.$abilita['Descrizione'].'</p>');
 		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 		
@@ -127,8 +151,6 @@ class AbilitaController extends \BaseController {
 		}
 			
 	}
-
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
