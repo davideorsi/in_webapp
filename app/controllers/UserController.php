@@ -156,7 +156,7 @@ class UserController extends BaseController {
 		if ($idpg){
 
 			$pg=PG::find($idpg);
-			$evento = Evento::orderBy('Data','Desc')->skip(1)->take(1)->get(array('Titolo','Luogo','Data','ID'));
+			$evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Titolo','Luogo','Data','ID'));
 
 			// Parsing della data in formato corretto.
 			$data= new Datetime($evento[0]['Data']);
@@ -574,7 +574,7 @@ class UserController extends BaseController {
 		############## Admin page: editare iscrizione agli eventi ##########
 	public function showAdminPx()
 	{
-		$Evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Data','Titolo','ID','Tipo'));
+		$Evento = Evento::orderBy('Data','Desc')->skip(1)->take(1)->get(array('Data','Titolo','ID','Tipo'));
 		$data=new Datetime($Evento[0]['Data']);
 		$Evento[0]['Data']=strftime("%d %B %Y",$data->gettimestamp());
 		
