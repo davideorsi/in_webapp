@@ -156,7 +156,7 @@ class UserController extends BaseController {
 		if ($idpg){
 
 			$pg=PG::find($idpg);
-			$evento = Evento::orderBy('Data','Desc')->take(1)->get(array('Titolo','Luogo','Data','ID'));
+			$evento = Evento::orderBy('Data','Desc')->skip(1)->take(1)->get(array('Titolo','Luogo','Data','ID'));
 
 			// Parsing della data in formato corretto.
 			$data= new Datetime($evento[0]['Data']);
