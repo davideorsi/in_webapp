@@ -7,7 +7,7 @@ class EventiPG extends Eloquent {
 	protected $primaryKey = 'ID';
 
 	public function PG() {
-		return $this->hasONe('PG', 'ID', 'PG')
+		return $this->hasONe('PG', 'ID', 'PG');
 	}
 
 	public function Eventi() {

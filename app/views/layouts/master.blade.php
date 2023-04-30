@@ -102,7 +102,7 @@
 {{ HTML::script('js/bootstrap.min.js');}}
 {{ HTML::script('js/bootstrap-toggle.min.js');}}
 {{ HTML::script('js/moment.min.js');}}
-{{ HTML::script('js/IN_v111.js');}}
+{{ HTML::script('js/IN_v112.js');}}
 
 @section('JS')
 @show

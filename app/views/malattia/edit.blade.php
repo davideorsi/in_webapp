@@ -208,6 +208,10 @@
 							{{ Form::label('Effetti', 'Effetti') }}
 							{{ Form::textarea('Effetti', $Cura['Effetti'], ['size'=>'50x2','class'=>'form-control']) }}
 						</div>
+						<div class="form-group">
+							{{ Form::label('BonusGuarigione', 'Bonus Guarigione (%)') }}
+							{{Form::input('number', 'BonusGuarigione'  , $Cura['BonusGuarigione'],['id'=>'BonusGuarigione', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
+						</div>
 
 				</div>
 
@@ -264,6 +268,11 @@
 				        <div class="form-group">
 							{{ Form::label('Effetti', 'Effetti') }}
 							{{ Form::textarea('Effetti', null, ['size'=>'50x2','class'=>'form-control']) }}
+						</div>
+						
+						<div class="form-group">
+							{{ Form::label('BonusGuarigione', 'Bonus Guarigione (%)') }}
+							{{Form::input('number', 'BonusGuarigione'  , 20,['id'=>'BonusGuarigione', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
 						</div>
 
 				</div>

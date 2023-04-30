@@ -72,7 +72,9 @@
 			</table>
 			<div class="form-group">
 				<div class="btn-group" style='margin-bottom:10px;'>
-					<a id='aggiornaAmmalati' class="btn btn-success" href="{{ URL::to('admin/malattie/aggiornaMalati') }}">Aggiorna</a>
+					{{ Form::open(array('class'=>'btn-group','method'=>'POST','url' => 'admin/malattie/aggiornaMalati')) }}
+					{{ Form::submit("Aggiorna", array('class' => ' btn btn-success')); }}
+					{{ Form::close()}}
 					<a id='stampaReport' class="btn btn-primary" href="{{ URL::to('admin/malattie/stampaMalati') }}">Stampa</a>
 				</div>
 			</div>

@@ -116,6 +116,7 @@
 
 	// route per la Medicina, le cicatrici, le malattie etc.
 	
+		Route::post('admin/malattie/aggiornaMalati','MalattiaController@aggiornaMalati');
 		Route::get('admin/malattie/stampaMalati','MalattiaController@stampaMalati');
 	Route::group(array('before'=>'master'), function() { 
 		Route::resource('admin/medicina', 'MedicinaController');

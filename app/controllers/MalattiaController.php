@@ -134,15 +134,16 @@ class MalattiaController extends \BaseController {
 
 	public function nuovaCura()
 	{
-		$Stadio = new Cura;
-		$Stadio->Estratto	= Input::get('Estratto');
-		$Stadio->NumeroEstratti	= Input::get('NumeroEstratti');
-		$Stadio->Malattia	= Input::get('Malattia');
-		$Stadio->Rosse	= Input::get('Rosse');
-		$Stadio->Verdi	= Input::get('Verdi');
-		$Stadio->Blu	= Input::get('Blu');
-		$Stadio->Effetti	= Input::get('Effetti');
-		$Stadio->save();
+		$Cura = new Cura;
+		$Cura->Estratto	= Input::get('Estratto');
+		$Cura->NumeroEstratti	= Input::get('NumeroEstratti');
+		$Cura->Malattia	= Input::get('Malattia');
+		$Cura->Rosse	= Input::get('Rosse');
+		$Cura->Verdi	= Input::get('Verdi');
+		$Cura->Blu	= Input::get('Blu');
+		$Cura->Effetti	= Input::get('Effetti');
+		$Cura->BonusGuarigione	= Input::get('BonusGuarigione');
+		$Cura->save();
 
 		// redirect
 		Session::flash('message', 'Cura creata con successo!');
@@ -234,15 +235,16 @@ class MalattiaController extends \BaseController {
 
 	public function aggiornaCura($id)
 	{
-		$Stadio = Cura::find($id);
-		$Stadio->Estratto	= Input::get('Estratto');
-		$Stadio->NumeroEstratti	= Input::get('NumeroEstratti');
-		$Stadio->Malattia	= Input::get('Malattia');
-		$Stadio->Rosse	= Input::get('Rosse');
-		$Stadio->Verdi	= Input::get('Verdi');
-		$Stadio->Blu	= Input::get('Blu');
-		$Stadio->Effetti	= Input::get('Effetti');
-		$Stadio->save();
+		$Cura = Cura::find($id);
+		$Cura->Estratto	= Input::get('Estratto');
+		$Cura->NumeroEstratti	= Input::get('NumeroEstratti');
+		$Cura->Malattia	= Input::get('Malattia');
+		$Cura->Rosse	= Input::get('Rosse');
+		$Cura->Verdi	= Input::get('Verdi');
+		$Cura->Blu	= Input::get('Blu');
+		$Cura->Effetti	= Input::get('Effetti');
+		$Cura->BonusGuarigione	= Input::get('BonusGuarigione');
+		$Cura->save();
 
 		// redirect
 		Session::flash('message', 'Cura modificata con successo!');
