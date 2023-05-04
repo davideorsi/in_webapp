@@ -76,6 +76,7 @@
 					{{ Form::submit("Aggiorna", array('class' => ' btn btn-success')); }}
 					{{ Form::close()}}
 					<a id='stampaReport' class="btn btn-primary" href="{{ URL::to('admin/malattie/stampaMalati') }}">Stampa</a>
+					
 				</div>
 			</div>
 		</div>
