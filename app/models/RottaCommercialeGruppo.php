@@ -7,9 +7,9 @@ class RottaCommercialeGruppo extends Eloquent {
 	protected $primaryKey = 'ID';
 
 	public function RotteCommerciali() {
-		return $this->HasMany('RottaCommerciale','ID', 'Evento');
+		return $this->HasMany('RottaCommerciale','Evento','ID');
 		}
-		
+
 	public function Evento(){
 		return $this->belongsTo('Evento', 'id_evento','ID');
 	}
