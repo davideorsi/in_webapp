@@ -1,0 +1,1246 @@
+
+# Intempesta Noctis - Tomo delle Regole
+
+
+Intempesta Noctis è un GRV (Gioco di ruolo dal vivo) con un'ambientazione basata sul periodo storico seguente la Restaurazione, nella prima metà del XIX secolo. La Storia del mondo di gioco ricalca quella reale fino al 1818, almeno in merito agli eventi più importanti e noti a tutti. Per quanto riguarda eventi storici minori o aspetti del mondo legati alle materie di gioco, quali magia, alchimia, occulto, eventi politici, si sono verificate differenze anche rilevanti rispetto ai fatti storici; è bene chiedere allo staff se avete dubbi. Dopo il 1818, ciò che sanno i personaggi è ciò che il giocatore può leggere sul sito Internet [http://www.intempestanoctis.it](http://www.intempestanoctis.it) nelle sezioni "Voci di Locanda", "Notabili del Ducato" e "Ambientazione". Il resto è da scoprire in gioco, fermo restando che la base è storica. A parte queste informazioni di dominio pubblico, l’ambientazione non è scritta nel dettaglio, in quanto il gioco ha una rilevante componente investigativa.
+
+
+## Premesse
+
+Intempesta Noctis origina dal desiderio di due persone di offrire ai propri amici un gioco diverso, che non avevano mai provato. Questo gioco è di interpretazione, ma diverso dal teatro dove l'attore ha una parte ben definita. Nel gioco di ruolo il giocatore è un attore ma ha la libertà e la difficoltà di crearsi la parte e di recitare in accordo ad essa, rispettando una regola autoimposta sul carattere del proprio personaggio. Questo manuale fornisce le indicazioni e le regole per capire come interagire con gli altri giocatori e con l'ambientazione.
+
+
+## Cenni Generali
+
+L'interazione tra i giocatori avviene mediante un sistema GRV Live Action, interpretativo per quanto riguarda i dialoghi, di abilità per quanto riguarda eventuali combattimenti e azioni fisiche. È fondamentale distinguere il giocatore dal personaggio.
+
+GIOCATORE: è la persona che partecipa al gioco. Quando si parla di giocatore si intende che è la persona a dover compiere una determinata azione.
+
+PERSONAGGIO: detto PG (Personaggio Giocante, nel caso di quelli interpretati dai giocatori) o PNG (Personaggio Non Giocante, nel caso di quelli interpretati dai membri dello staff), è la persona fittizia che il giocatore/membro staff interpreta. Qualunque azione del personaggio non è mai da considerare come azione personale dell'interprete, ma solo parte del gioco.
+
+Alcuni aspetti dell'interazione del personaggio con il mondo di gioco sono regolati mediante delle Abilità, in maniera analoga ai giochi di ruolo da tavolo; l'acquisizione di nuove abilità è subordinato all'acquisizione di punti esperienza (PX) partecipando agli eventi di Intempesta Noctis. Ogni giocatore non può avere più di un personaggio attivo contemporaneamente. Se lo desidera, dopo averne discusso con lo staff, può mettere a riposo per un periodo prolungato (nel gergo di Intempesta, “in limbo”) un personaggio che non ritiene più soddisfacente, e può decidere di interpretare un nuovo personaggio.
+
+Confondere giocatore è personaggio porta a incomprensioni, malessere e al meta-gioco, ossia a utilizzare informazioni del giocatore per portare un beneficio al proprio personaggio. Ogni frase detta dal giocatore durante il periodo di gioco viene attribuita al personaggio ed ogni azione viene ugualmente attribuita al personaggio.
+
+
+## Lingue
+
+Nel mondo di gioco interagiscono personaggi di diverse nazionalità, e si dà per scontato che ciascuno conosca la lingua madre caratteristica della propria, come nel mondo reale. I personaggi, però, sanno tutti parlare la medesima lingua, ossia l’italiano, che è la lingua di gioco. Un personaggio inglese può parlare inglese, se il giocatore conosce la lingua, ma conosce anche l'italiano. Ne consegue che i personaggi possano sempre comunicare tra loro indifferentemente dalla nazionalità. 
+
+IMPORTANTE: sebbene l’uso della lingua straniera sia un elemento di colore e possa favorire l'interpretazione, è opportuno limitare il suo uso solo per brevi espressioni intercalare di chiaro significato. Utilizzare sistematicamente una lingua straniera, quindi non comprensibile a tutti i giocatori, può essere un errore: un personaggio inglese in gioco conosce certamente la lingua inglese, ma forse il giocatore non la parla correttamente o fluentemente.
+
+
+## Master
+
+Il gioco è diretto dai MASTER, che sono i responsabili della gestione del gioco. Essi organizzano il gioco in tutti i suoi aspetti, dagli ambiti più pratici (organizzazione luogo, pagamenti) agli ambiti di gioco (trame, archivi personaggi, regolamento, ambientazione).
+
+I master dirigono il gioco e sono i referenti di ogni domanda riguardante regolamento, ambientazione, eventi. I master possono aggirarsi nell'area di gioco indossando un segno distintivo ossia un corpetto che identifica i membri staff. Tradizionalmente (e ancora a volte) si usavano dei giubbotti catarifrangenti (di cui andiamo molto fieri). Quando fanno ciò devono essere ignorati e sono come arbitri che dirigono il gioco.
+
+I master possono:
+
+
+
+* Utilizzare qualunque effetto in qualsiasi momento;
+* Cambiare le regole anche in corso di gioco;
+* Cambiare l'ambientazione anche in corso di gioco;
+* Risolvere controversie;
+* Organizzare eventi ufficiali di "Intempesta Noctis";
+* Gestire le trame di ogni evento.
+
+Durante un evento **il giudizio di un master è insindacabile**, anche se dovesse superare le regole del gioco, per dare priorità allo svolgimento fluido dell'azione di gioco. Un master è colui che conosce meglio regolamento ed ambientazione; qualora compisse una determinata azione potrebbe esserci una motivazione ignota al giocatore. Inoltre, il master NON GIOCA, perché conosce tutta la trama e interpreta in funzione di essa, per fornire ai giocatori spunti per una avventura costruita da tutti. Il master è la figura alla quale rivolgersi per ogni dubbio. L'insieme dei master costituisce lo STAFF, a cui possono essere aggregati alcuni giocatori con compiti esclusivamente logistici e di supporto.
+
+
+# Eventi
+
+Gli eventi sono le iniziative di vario carattere che lo staff organizza per i giocatori di Intempesta Noctis. Gli eventi possono essere:
+
+
+
+* DI AGGREGAZIONE: cene fuori gioco, riunioni, raduni; Tutto ciò che non è gioco di ruolo. Possono essere organizzati e gestiti dai giocatori stessi in autonomia.
+* DI GIOCO: eventi in gioco in cui i giocatori interpretano il loro personaggio. Gli eventi di gioco possono prevedere un premio in punti esperienza per i personaggi interpretati. Sono organizzati dallo staff, oppure approvati da esso.
+
+    Nel seguito, gli eventi di gioco sono discussi nel dettaglio.
+
+
+
+## Live
+
+Il live è l'evento di gioco base organizzato dallo staff, in cui la storia di Intempesta Noctis procede in tutti i suoi aspetti. In un live il giocatore ha sempre la piena libertà di scegliere le azioni del proprio personaggio, all’interno delle regole di questo manuale. A un live è obbligatorio iscrivere **un solo personaggio, quello attivo nel momento in cui l’evento ha luogo.** Tutti i giocatori che volessero possono partecipare. I live sono ambientati in un luogo - paese, città, o altro- descritto dai master prima dell'inizio dell'evento, e lì si consumano. Un live ha una durata tipica di 12 ore, nell’arco di un fine settimana. I dettagli organizzativi sono comunicati con qualche mese di anticipo.
+
+
+
+* Iscrizione: 1 personaggio per giocatore.
+* Premio: 3 PX per giornata di gioco.
+
+
+## Episodio
+
+Un episodio è un evento di gioco organizzato in una singola giornata; tipicamente ha una durata di alcune ore. Un episodio è ambientato in un luogo limitato e ha una trama o scopo ben definito; sono tipicamente organizzati in conseguenza di azioni intraprese dai personaggi. Di conseguenza, tutti i giocatori sono invitati a partecipare, ma non tutti con il medesimo ruolo. In ogni episodio i master specificano quali personaggi sono direttamente invitati a partecipare, e quali invece saranno esclusi. In altre occasioni, invece, alcuni personaggi potranno decidere se partecipare oppure no. I giocatori dei personaggi che non partecipano ad un episodio sono chiamati dallo staff a interpretare dei PNG.
+
+Durante un Episodio possono essere in vigore regole speciali rispetto a quelle indicate nel manuale, per rappresentare le particolari situazioni o condizioni che lo caratterizzano. Queste regole vengono sempre illustrate dallo staff prima dell’episodio.
+
+
+
+* Iscrizione: Giocatore come PG o PNG a seconda delle istruzioni dei master.
+* Premio: Variabile. L'eventuale differenza di premio tra chi partecipa come PG o PNG è dovuta al fatto che partecipare ad un episodio è rischioso per il PG. Un giocatore che decidesse di far partecipare il proprio PG all'episodio viene quindi ripagato per il rischio. Resta fermo che la possibilità di partecipare come PG è dovuta alla bravura del giocatore o alle circostanze del caso.
+
+
+## Ritrovo
+
+Un gruppo di giocatori ha la possibilità di organizzare un ritrovo per la propria fazione (riconosciuta a livello di ambientazione, oppure un gruppo particolare di PG).
+
+Di seguito enumeriamo le regole relative ai ritrovi:
+
+1. Se è una chat o un incontro vostro al bar non occorre nulla. Non possiamo regolamentarlo e non vogliamo farlo. Non sarà possibile interagire, chiaramente, con l’ambientazione.
+
+2. Ogni ritrovo in costume, o comunque interpretativo, che venga organizzato in una location ben specifica e che abbia caratteristiche simili ad un evento VA OBBLIGATORIAMENTE RICHIESTO AI MASTER. Non scendendo nei contenuti, non un resoconto, ma va proprio segnalato che lo farete. Inoltre bisognerà segnalare chi parteciperà. Usate la mail [inazionifg@gmail.com](mailto:inazionifg@gmail.com). Lo staff valuterà e dirà sì o no al vostro ritrovo (sembra strano ma vi sono casi in cui non è sensato o equo per altri giocatori permetterlo).
+
+3. E’ richiesto buonsenso nell’organizzazione dei ritrovi. Se festeggio qualcosa invitando tutto il paese, la cosa è plausibile, mentre un invito riservato a una o due personaggi magari pescati tra quelli che mi sono nemici non ne ha. Invitiamo tutti a usare il buonsenso. In generale un ritrovo verrà approvato se ha un senso netto in ambientazione e nel giocato pregresso, non se viene organizzato per questioni fuori dal gioco. In aggiunta, sconsigliamo di sovrapporre gioco e vita reale, per esempio il festeggiare compleanni di giocatori in gioco: automaticamente sarebbero esclusi giocatori che hanno personaggi che non amerebbero festeggiare con il vostro personaggio per motivi in gioco (ma che magari vorrebbero partecipare come persone). E’ bene evitare.
+
+4. L’assenza di un personaggio non va mai tenuta in considerazione. Le assenze ad un ritrovo non devono mai essere usate in gioco come accusa ad un determinato pg. Possono esserci infinite motivazioni per un’assenza, non giocateci su.
+
+Questo tipo di evento rimane aperto solo per i giocatori che organizzano l'evento stesso e per gli invitati esterni da loro decisi. Nel momento in cui scelgono di organizzare un evento di ritrovo, i giocatori assumono l'intero peso dell'organizzazione dell'evento stesso (luogo, costi, ecc.) mentre lo staff si riserva di partecipare con PNG (che siano invitati dagli organizzatori o meno, a seconda delle trame). Non sempre è necessaria la presenza dello staff, saranno i master a deciderlo. 
+
+In tutti i casi un ritrovo è un evento in gioco, nel quale però non si possono effettuare tutte le azioni normalmente possibili. Nei ritrovi, un PG non può uccidere un altro PG, ma può metterlo fuori combattimento. In tal caso, coincidente con la "morte", il PG messo fuori combattimento dimentica l'ultimo minuto (come normale) e non può più partecipare all'evento di ritrovo da quel momento in avanti.
+
+Queste regole possono essere cambiate prima dell'inizio dell'evento per varie esigenze e solo dai master. Si sconsiglia di organizzare ritrovi per assassinare un PNG particolare in quanto i master possono decidere insindacabilmente di modificare le regole di ingaggio.
+
+Vige ogni altra regola normalmente in vigore nei periodi interposti tra Eventi LIVE o EPISODI (ad esempio, riguardo l’invio di corrispondenza).
+
+
+
+* Iscrizione: organizzatori e invitati, 1 o più personaggi.
+* Premio: nessuno.
+
+
+### Autorizzazione di un ritrovo
+
+Lo staff si riserva di impedire un evento di ritrovo nel momento in cui vi fossero tra i potenziali personaggi partecipanti dei possibili attriti; il motivo è che tali contrasti dovrebbero più opportunamente trovare sfogo in un evento LIVE o EPISODIO. Per esempio: non è possibile organizzare un ritrovo con i propri alleati e con un solo avversario (ignaro delle intenzioni del primo) allo scopo di derubarlo senza che sia possibile un'interferenza da parte di altri (al ritrovo sono presenti solo gli invitati). Questa considerazione è sempre in mano allo staff. Si consiglia pertanto di organizzare ritrovi tra i membri abituali dei propri gruppi di gioco, per esempio i membri della propria Famiglia (vedi Mondo di Gioco, Le Famiglie).
+
+
+### Come posso invitare un PNG a un ritrovo "in gioco"?
+
+La partecipazione di un master ad un ritrovo tra giocatori è possibile ad alcune condizioni.
+
+I PNG possono essere invitati a un qualunque ritrovo, anche di personaggi appartenente a un gruppo informale. La condizione necessaria (ma non sufficiente) è che i PG abbiano interagito lungamente con il PNG nel corso di un evento di gioco. In particolare, l'accettazione dell'invito avrà una probabilità maggiore più i legami tra il gruppo di personaggi e PNG sono forti, vuoi per "affari" comuni, o per accordi precedenti, oppure per questioni legate all'ambientazione. Dato che la struttura di Intempesta Noctis è costruita sulle famiglie, i due gruppi di personaggi noti come "Famiglia Nottingham" e "Famiglia La Rochelle" possiedono in partenza solidi e ramificati legami con numerosi PNG del Ducato e delle rispettive nazioni, che tipicamente risponderanno più facilmente in modo positivo agli inviti.
+
+Nel caso in cui si voglia invitare un Personaggio Non Giocante, ci sono due condizioni non negoziabili:
+
+
+
+1. L'accettazione dell'invito e la presenza del PNG sono decise dai master in modo insindacabile, in funzione delle esigenze di trama. È comune che un PNG risponda negativamente all'invito, per qualsivoglia motivo legato alle sue attività, alla sua storia, alle sue intenzioni.
+2. il PNG deve essere invitato precedentemente via missiva, al fine di garantire la possibilità che, tramite eventuale intercettazione, l'incontro sia noto ad altri personaggi. Nota che se il PNG è lontano occorre scrivere ragionevolmente per tempo, per dargli modo di presenziare.
+
+La data per l'invito sarà la data reale (giorno e mese) nella quale stai organizzando il ritrovo. Se non coincide con quella di gioco, i master provvederanno a rimediare.
+
+Infine, la riservatezza del ritrovo a cui sono presenti PNG non è mai garantita nel mondo di gioco. Il Borgo è vivo e ricco di persone, e i PNG stessi hanno una loro vita indipendente dalle azioni e dalle volontà dei PG. Anche questo aspetto è insindacabilmente nelle mani dei Master.
+
+
+## Le Informazioni Sono Sempre in Gioco
+
+Intempesta Noctis è un gioco di stile principalmente investigativo; per tanto, raccogliere informazioni è la parte principale del gioco e possedere informazioni riservate è la più grande forma di potere all'interno del gioco. A causa di questo, non è semplice gestire la classica separazione di “ciò che sa il giocatore” e “ciò che sa il PG”. Nella situazione ideale, il giocatore conosce solo informazioni che il suo PG ha ottenuto nel corso di un evento di gioco; in questo caso, trarrà il massimo piacere dal gioco investigativo. Se invece il giocatore ottiene informazioni di gioco al di fuori degli eventi di gioco, il gioco investigativo del giocatore stesso, e degli altri giocatori di Intempesta Noctis, può essere irrimediabilmente rovinato.
+
+Ad esempio, se io giocatore venissi a sapere il colpevole di un certo delitto al di fuori del gioco (ad esempio perché il giocatore del PG vittima lo dice al bar con gli amici), non potrei più giocare quell'indagine serenamente. In tutti casi cadrei nel meta-gioco: se puntassi direttamente al colpevole per ottenerne un vantaggio, starei usando una informazione ottenuta fuori gioco, rovinando contemporaneamente la giocata del delitto al giocatore che interpreta l’assassino; similmente, se al contrario evitassi di indagare starei meta-giocando, poiché il rinunciare all'indagine è comunque conseguenza di una informazione che non è stata ottenuta in gioco.
+
+Per evitare che si instaurino queste situazioni di sicuro meta-gioco, a Intempesta Noctis le informazioni sono considerate “sempre in gioco”, quello che sa il giocatore è quasi sempre coincidente con quello che sa il PG (ci sono alcune doverose eccezioni, spiegate più avanti).
+
+Dato che non possiamo fisicamente impedire alle persone di parlare del gioco quando si incontrano, lo staff ha sancito questa regola in modo da spingere i giocatori a tutelarsi da soli: se stai parlando con il giocatore di un PG alleato sarai ben felice di condividere le informazioni, ma se invece stai parlando con il giocatore di un PG rivale allora stai attento a che informazioni passi, anche se non sei a un evento, perché potrebbe essere usato in gioco. Il modo migliore di evitare che circolino informazioni ottenute fuori dagli eventi di gioco è non parlarne.
+
+Ci sono tre sole eccezioni a questa regola: l'amnesia da perdita di sensi, le informazioni "rubate", e la “morte delle informazioni”.
+
+
+### Amnesia da perdita di sensi
+
+Un PG che perde i sensi scorda tutto ciò che è accaduto nel minuto precedente e rimane all'oscuro di tutto quello che sente o vede il giocatore mentre il PG sarebbe privo di sensi. Usare le informazioni acquisite in questo arco di tempo equivale ad una truffa ai danni degli altri giocatori ed è sanzionata dallo staff
+
+
+### Informazioni rubate
+
+Un giocatore che dovesse ottenere informazioni riguardo al gioco in modi forzosi, oltre a essere moralmente ingiustificabile, non ha il diritto di usarle in gioco. Questo comprende, ad esempio, frugare nella borsa di un giocatore e prendergli documenti di gioco, entrare nel suo account del sito, leggere la sua posta elettronica, ecc. Per esempio: se tizio è al bar e lascia il cellulare sbloccato sul tavolo quando va in bagno e tu glielo prendi e vai a leggere nelle sue e-mail le missive di gioco che ha ricevuto, STAI IMBROGLIANDO. Altre situazioni rispetto a questo punto possono essere più ambigue e vi invitiamo di parlarne con lo staff per valutare il modo migliore di gestirle.
+
+
+### La morte delle informazioni
+
+Nel caso della morte di un PG, il giocatore DEVE seguire queste limitazioni interpretative, volte a preservare il carattere investigativo del gioco, per sé e per gli altri, anche se sono in contrapposizione della regola generale che "le informazioni sono sempre in gioco”:
+
+1) Il Giocatore non può in alcun modo parlare delle informazioni derivate dalle conoscenze in possesso dei propri PG deceduti. Non può quindi fare considerazioni su nulla riguardante i precedenti PG dato che ogni rivelazione può dare indizi agli altri giocatori. Non può suggerire nulla riguardante i propri vecchi PG e ovviamente non può raccontare cosa sia successo loro! Anche una cosa che sembra innocente può pregiudicare l'effetto sorpresa e il gioco degli altri giocatori.
+
+2) Il Giocatore non può, con un eventuale nuovo PG, giocare sugli eventi riguardanti direttamente i propri PG deceduti. Non è possibile, quindi, chiedere agli altri informazioni mirate che erano in possesso del proprio vecchio PG per "risvegliare le conoscenze del vecchio PG", ma dovrà, se gli capita, riprendere genuinamente le informazioni. A tal riguardo si consiglia fortemente di cambiare ambito di gioco, dove possibile; vi sono molti rami differenti che non si toccano (o si toccano poco) con altri.
+
+3) Il giocatore non può in alcun modo indagare sulla morte del proprio vecchio PG. Il motivo è presto detto: non è giocabile nello stile da noi promosso. Mentre gli altri brancolano nel buio e devono solo supporre, il giocatore del PG deceduto sa con certezza dove deve arrivare. In questo caso il giocatore dovrà, col PG nuovo, ignorare o seguire passivamente quell'unico ambito che è l'eventuale indagine sul proprio vecchio PG (significa che può ascoltare, può incamerare informazioni, ma non può indagare attivamente o suggerire).
+
+
+# Personaggio
+
+
+## Scheda del Personaggio
+
+Ogni giocatore interpreta un personaggio che ha diverse caratteristiche che lo distingueranno e che gli forniranno capacità durante l'avventura. Il personaggio giocante (da ora in poi solo PG) viene distinto dal personaggio non giocante (PNG), il quale segue le stesse regole ma viene interpretato dai Master o collaboratori. Ogni giocatore può avere UN SOLO PG attivo in un dato momento; la creazione di un nuovo PG tipicamente presuppone l'abbandono del PG precedente, o la sua morte. L’abbandono di un PG ancora in vita va discusso con lo Staff.
+
+Ogni giocatore alla creazione del personaggio deve indicare le seguenti caratteristiche:
+
+
+
+* NOME: può essere unico o con uno o più cognomi.
+* SESSO: maschio o femmina.
+* FAMIGLIA D'APPARTENENZA: una delle due famiglie disponibili (vedi “Il Mondo di Gioco - Le Famiglie”) oppure "non affiliato" se non appartiene ad alcuna famiglia. Un giocatore che partecipi al suo primo evento di Intempesta è obbligato a creare un personaggio affiliato a una delle due famiglie.
+* ABILITA': una lista di competenze possedute dal PG, che definiscono le modalità con cui il PG può interagire con gli altri PG e con il mondo di gioco. Sono descritte in dettaglio in coda al manuale. Il personaggio dichiara in fase di creazione 3 gruppi di abilità nei quali acquisterà le abilità stesse pagandone il prezzo in PX. Di norma, un nuovo PG ha a disposizione 20 punti esperienza (PX). Non potrà in seguito comprare abilità da altri gruppi di abilità (escluse istruzioni precise di abilità speciali o indicazioni dei master). Oltre alle abilità dei 3 gruppi, un PG può inoltre acquistare una (e una sola) abilità generica.
+* BACKGROUND: una descrizione del passato del PG, che ne delinei le motivazioni ed il carattere. Cosa faceva nella famiglia (o nella vita), perché è entrato a far parte della famiglia oppure di chi è figlio, se ha fratelli, ecc. Tutte queste informazioni sono da concordare con i master che devono approvare il background; in particolare, possono essere in vigore restrizioni a particolari scelte di background legate a esigenze di gioco. Pertanto, fornire il background ai master è obbligatorio e fondamentale. Ogni PG che prenda parte a un evento, all'inizio dello stesso riceve le proprie rendite solo se ha consegnato il background ai master.
+
+
+## Creazione del PG
+
+Per creare un PG è necessario seguire le istruzioni descritte appena qui sopra, ma successivamente occorre registrarlo regolarmente al nostro database. Per farlo consulta la pagina sul sito internet: "Il Gioco - Come iniziare".
+
+Una volta seguite le istruzioni invia la lista delle abilità (con segnati i 3 gruppi di abilità scelti) e il background ad un master tramite qualunque mezzo ti venga comodo. Se hai seguito bene le istruzioni, in breve tempo verrai ricontattato e il tuo PG sarà entrato ufficialmente a far parte del mondo di gioco e potrai subito sfruttare la funzione "Missive" sul sito.
+
+Per trovare tutte le funzioni, una volta registrato, accedi al sito alla pagina "Login" e poi utilizza le sezioni che ti appariranno.
+
+
+## Iscrizione agli eventi
+
+Per iscrivere un PG a un evento di gioco ufficiale, utilizza la sezione "Account - Iscrizione" dopo essere entrato con i tuoi dati nel sito. Da lì potrai confermare la tua presenza, cosa fondamentale a fini organizzativi; inoltre, indicherai il tuo orario di arrivo approssimativo e altre informazioni che ci aiuteranno ad organizzare l'evento al meglio.
+
+
+## Trasmettere l’esperienza
+
+La trasmissione dell’esperienza (PX) è un'operazione che qualunque giocatore può effettuare su un proprio personaggio vivo o morto: tra un evento e un altro, il giocatore può decidere di trasmettere l’esperienza del proprio PG per recuperare da esso un terzo dei PX, senza contare i 20 PX iniziali. (esempio: Giorgio decide di sacrificare il proprio PG Gerard. Gerard ha 29 PX, togliendo i 20 PX della creazione, restano 9 PX, quindi Giorgio recupererà 3 PX da sommare ai 20 PX iniziali del suo PG successivo). Con un PG morto la trasmissione avviene a piacere del giocatore verso un nuovo PG e in un momento a scelta (anche in un secondo tempo). Se la trasmissione dell’esperienza viene effettuata da un PG vivo, esso non può più essere iscritto a nessun evento e normalmente muore in un tempo deciso dallo staff, generalmente tra un evento e un altro. Lo staff ha assoluto controllo sulla sorte del PG in questione e sulle circostanze della sua dipartita. In generale, la trasmissione dell’esperienza determina la fine di un PG (se non è già morto).
+
+
+## Abilità Innate
+
+Un PG può essere dotato dalla nascita di particolari abilità senza che le abbia obbligatoriamente apprese lungo il proprio cammino. Per simulare questo esistono le abilità innate. Le abilità innate non rientrano nei normali gruppi di abilità e possono essere acquistate solo in fase di creazione del PG e mai in seguito. I PG che hanno abilità innate sono pochissimi; per ogni PG creato viene eseguito un sorteggio a probabilità variabile, basata sulla qualità del background a giudizio dello staff. Un PG che non presenti il background non avrà possibilità di avere abilità innate.
+
+Se il sorteggio dell’abilità innata ha successo per un PG, il giocatore viene contattato. Gli verrà solo annunciato che il suo PG ha un'abilità innata, e il costo in PX di quella abilità. Il giocatore, a quel punto, avrà la possibilità di scegliere se acquistare l'abilità innata (conoscendone il costo in PX, ma non la natura) e modificare la propria lista abilità di conseguenza (le abilità innate vengono comunque pagate in PX) oppure se rinunciare all'abilità innata e tenere un PG normale con la lista di abilità scelta.
+
+Se a seguito dell'acquisizione dell'abilità innata il giocatore volesse apportare alcune modifiche al background, questo sarà possibile, altrimenti si supporrà che l'abilità, presente dalla nascita, si sia manifestata solo negli ultimi tempi. La lista delle abilità innate è segreta, non è presente in questo manuale.
+
+
+## Cartellini Salute, Punti Ferita e Locazioni, Cicatrici
+
+Ogni Personaggio riceve, prima di un Evento Live, un certo numero di Cartellini Salute. Si tratta di cartoncini che vengono consegnati nella busta del PG alla registrazione, assieme alla scheda con le abilità. Riporta il nome del PG e la data dell'evento in corso. Il numero di Cartellini Salute ricevuti è determinato dalle abilità acquisite dal PG, a partire dal numero base di 2. La perdita di un Cartellino Salute rappresenta una compromissione a medio termine delle abilità fisiche del personaggio, tipicamente per la durata dell’evento in corso.
+
+
+### Punti Ferita e Locazioni
+
+Al numero di Cartellini Salute corrisponde un uguale numero massimo dI Punti Ferita, ossia di danni che una locazione può subire prima di divenire inutilizzabile. Perdere Cartellini Salute riduce il numero massimo di PF per locazione, ma mai sotto 1 PF per locazione.
+
+Ogni PG possiede 5 locazioni:
+
+
+
+* Busto.
+* Braccio sinistro.
+* Braccio destro.
+* Gamba sinistra.
+* Gamba destra.
+
+Nota: La testa non è una locazione.
+
+A seconda degli effetti che il personaggio subisce, il giocatore dovrà sottrarre mentalmente il corrispondente di punti ferita alla locazione colpita. La perdita di punti ferita rappresenta una diminuzione a breve termine delle abilità fisiche del personaggio, tipicamente fino all’intervento di una attività di cura da parte del PG stesso o di altri PG. Subire danni non influenza i Cartellini Salute (che rappresentano il massimale di salute a disposizione del Personaggio) ma è un conteggio da tenere a mente che determina lo stato attuale delle locazioni:
+
+
+
+* Una locazione che ha almeno 1 PF disponibile (anche se non fosse al suo massimo di PF), non comporta conseguenze sulle capacità fisiche del personaggio.
+* Le braccia e le gambe, se portate a zero punti ferita, portano il personaggio nello stato di FERITO (vedi Personaggio - Stato di Salute)
+* Il busto, se portato a zero punti ferita, porta il personaggio direttamente allo stato di COMA (vedi Personaggio - Stato di Salute).
+
+
+### Cicatrici
+
+Le cicatrici rappresentano la capacità di guarire di un personaggio, quanto il suo fisico può sopportare di essere ricucito e perdere sangue nel tempo di un evento.
+
+Ciascun CARTELLINO SALUTE è composto da 3 cicatrici.
+
+Quando un PG perde una cicatrice (a causa di un effetto o per la regola della guarigione), il PG deve strappare uno dei lembi Cicatrice dal CARTELLINO SALUTE. Non è possibile distribuire le cicatrici tra più CARTELLINI SALUTE, deve essere consumato un intero CARTELLINO SALUTE prima di cominciare a strappare il successivo. Una volta esaurite le cicatrici, il CARTELLINO SALUTE non sarà più disponibile per l'evento in corso, riducendo effettivamente il suo massimale di Punti Ferita in tutte le locazioni. Un PG che ha perso almeno 1 cartellino salute deve indossare una benda insanguinata (reperibile presso l'ospitale in gioco). Al termine dell'evento di gioco, i CARTELLINI SALUTE vanno tutti consegnati allo staff, compresi quelli senza cicatrici che devono quindi essere conservati fino a fine evento.
+
+
+## Stato di Salute
+
+Un personaggio può cadere in COMA e MORIRE in seguito a danni fisici ed essere curato per riprendersi dal COMA. Gli Stati di Salute possibili sono i seguenti:
+
+
+
+* SANO: il PG inizia l'evento in stato SANO e torna ad esserlo quando ha almeno 1 PF in ogni locazione (anche se non fosse al suo massimo di PF) e almeno 1 cartellino salute. In questo stato può agire liberamente senza limitazioni. Se il PG ha perso dei PF è tenuto a interpretare una ferita lieve, ma senza effetti sul gioco.
+* FERITO: una o più locazioni braccia o gambe sono a zero punti ferita. Il PG ha 5 minuti nei quali non può utilizzare le locazioni azzerate, ma è cosciente. Dopo questi cinque minuti, se non curato, la locazione BUSTO va a zero PF, a rappresentazione di una situazione di arresto cardio-circolatorio in seguito alla grande perdita di sangue.
+* COMA: un PG entra in coma se il suo BUSTO viene portato a zero punti ferita (quindi, anche in seguito al termine dello stato di FERITO senza aver ricevuto cure). Il coma dura 6 minuti durante i quali il PG sta a terra privo di sensi, senza poter parlare o interagire con nessuno. Tutto ciò che il giocatore sente non verrà ricordato dal PG. Un PG che cade in coma dimentica l'ultimo minuto in cui era cosciente. Terminati i 6 minuti, se non curato, il PG muore definitivamente. Sebbene esistano modi di prolungare il tempo di coma, esso non può mai essere aumentato oltre i 20 minuti totali.
+* MORIBONDO: Un PG diventa MORIBONDO se si verificano TUTTE le seguenti condizioni:
+
+    1. Il PG non ha più cartellini salute disponibili.
+
+
+    2. Il PG è in COMA
+
+
+    3. Il PG riceve uno o più effetti che lo riporterebbero ad avere almeno 1 PF alla locazione BUSTO.
+
+
+    In questa circostanza, invece che tornare SANO, il PG diventa MORIBONDO.
+
+
+    Un PG MORIBONDO ha 1 PF per locazione, non può correre, non può attaccare nessuno e non può parlare con voce alta, ma può difendersi. Non ha la forza necessaria per lanciare INCANTI. Inoltre, un PG moribondo deve dichiarare Nullo agli effetti Stasi, Cura e Guarigione e ignora l'effetto Cicatrici X. Se un PG moribondo arriva ancora in vita a fine evento, si considera che con il riposo e le cure adeguate recuperi le forze e comincerà il live successivo SANO e con tutti i suoi Cartellini Salute.
+
+* MORTO: un PG è morto se ha terminato lo stato di coma. Nulla può riportarlo in vita a meno che non vi sia una diversa indicazione dei master, ma deve comunque rimanere immobile per 5 minuti a simulare il proprio cadavere. Terminati i 5 minuti si alzerà utilizzando il gesto Invisibile, metterà nel punto in cui è morto il foglio cadavere, porrà sopra di esso ogni suo oggetto di gioco e si dirigerà alla segreteria o da un master per creare un nuovo personaggio (vedi la sezione “Cadavere”).
+
+
+### Riprendersi dal Coma
+
+Un PG in COMA può essere salvato dalla morte con qualsiasi effetto che restituisca PF alle locazioni:
+
+
+
+* Se il PG in COMA ha almeno 1 CARTELLINO SALUTE disponibile, quando riceve effetti che lo porterebbe ad avere almeno 1 PF in ogni locazione, Il PG torna in stato SANO e subisce l'effetto DEBOLEZZA (Vedi “Effetti”). Inoltre, Il PG perde una CICATRICE e il lembo cicatrice rimosso dal CARTELLINO SALUTE deve essere consegnato nel minor tempo possibile al PG che lo ha curato.
+* Se il PG in COMA ha 1 SOLA CICATRICE disponibile (nell’ultimo cartellino salute), quando riceve effetti che lo porterebbe ad avere almeno 1 PF alla locazione BUSTO, deve consegnare l’ultima cicatrice e il PG passa in stato MORIBONDO.
+* NOTA BENE: se un PG ha più di una locazione a 0 PF, tutte devono essere curate di almeno 1 PF per far risvegliare il PG dal coma.
+
+
+### Analisi dei Corpi
+
+Analizzare un corpo, che sia cosciente, incosciente o morto, segue regole ben precise legate agli effetti e alle proprie abilità.
+
+Il giocatore deve tenere a mente che:
+
+
+
+* TUTTI I PG possono utilizzare l'effetto “Analizzo lo stato di salute” e il PG bersaglio DEVE rispondere con lo stato generale (sano, coma, morto o moribondo) e con lo stato delle ferite (ferito a "locazione").
+* UN GIOCATORE il cui personaggio sia INCOSCIENTE (Vedi “Le Informazioni Sono Sempre in Gioco”), DEVE LIMITARSI a fornire esclusivamente STATO e FERITE. Non può in nessun caso rispondere ad un'analisi con informazioni riguardanti la ferita che ha contratto il proprio PG o qualunque altra informazione che non sia STATO E FERITE. 
+* Un Giocatore il cui PG sia cosciente può fornire a sua discrezione le informazioni in suo possesso relative alle ferite che ha subito, sempre che ne sia in grado (deve essere sicuro che i fatti non siano accaduti nel minuto di amnesia provocato dal coma o svenimento, Vedi “Le Informazioni Sono Sempre in Gioco”.)
+* I PG MEDICI CHE ABBIANO L'ABILITÀ "DIAGNOSTICARE" possono analizzare corpi sani o in coma e dedurne informazioni aggiuntive, vedi l’effetto "DIAGNOSTICARE".
+* I PG MEDICI CHE ABBIANO L'ABILITÀ "AUTOPSIA" possono analizzare corpi morti (o fogli cadavere) e, TRAMITE UN MASTER OPPORTUNAMENTE CHIAMATO, dedurne informazioni sulla morte (morte violenta o meno e come, tempi, sostanze eventuali ingerite o altro).
+
+ 
+
+
+## Il Cadavere
+
+Uno dei problemi in gioco consiste nel simulare il cadavere, essendo che non è possibile obbligare il giocatore a simulare realmente per più di 5 minuti. Per ovviare a questo esiste la seguente regola.
+
+Ogni PG che muore rimane materialmente nel luogo in cui è morto fino al termine dei 5 minuti dello stato di morte, durante i quali può subire ancora effetti come Risveglio (al termine della cui durata il PG torna nello stato di morte, non di coma). Durante questo tempo qualunque PG o PNG può spostarlo con le normali regole di trasporto di PG incoscienti. Se durante il trasporto termina il tempo dello stato di morte, il giocatore che interpreta il PG morto è tenuto a rimanere ancora a simulare il cadavere fino a quando il PG o PNG trasportatore lo lascia. In quel momento il PG morto sparisce e lascia sul terreno ESATTAMENTE NEL PUNTO IN CUI SI TROVA UNA QUALUNQUE PARTE DEL CORPO un foglio giallo (in dotazione) detto FOGLIO CADAVERE in cui è scritto il nome del proprio PG. Tale foglio simula il cadavere per il tempo successivo dell'evento. Appena a fianco del foglio dovrà lasciare tutti gli oggetti di gioco di cui è ancora in possesso. Ogni PG o PNG che trovasse il foglio giallo, dovrà interpretare il ritrovamento di un cadavere.
+
+Sul cadavere in questione è possibile utilizzare l'abilità "Autopsia". Non è consentito lo spostamento di un foglio cadavere. Il corpo può essere spostato solamente fino a quando è presente materialmente il giocatore interprete. Il foglio cadavere non può subire l'effetto Risveglio. Questa norma, oltre a simulare una situazione realistica, permette lo scoprire per certo l'avvenuta (o meno) uccisione di un PG o PNG. È infatti possibile che anche PNG principali lascino sul campo di gioco un foglio cadavere.
+
+
+## Spiriti
+
+Alcuni giocatori o master possono impersonare PG o PNG spiriti. Per gli spiriti non valgono le regole normali per i PG o PNG. Un giocatore o master che impersoni uno spirito indosserà un velo chiaro: il "velo da spirito". Quando un giocatore o master si trova nell'area di gioco con il velo da spirito, è invisibile a tutti i PG o PNG al pari del gesto Invisibile. Per l'interazione con gli spiriti non si seguono le normali regole e queste non sono spiegate in questo regolamento essendo materia di gioco.
+
+
+## Malattie
+
+Nel Mondo di I.N. esistono diverse malattie, dalla semplice influenza alla peste bubbonica. Le malattie comportano sempre dei malus a chi le contrae, che generalmente perdurano per tutta la durata di un evento e in certi casi possono influenzare il gioco tra gli eventi.
+
+Una malattia può essere contratta per contagio diretto, a causa delle ferite oppure per malnutrizione. In termini di gioco, significa che la probabilità di ammalarsi aumenta proporzionalmente alle cicatrici perse, se non si è consumato cibo e se si ha avuto a che fare con persone malate. Ciascuna malattia ha i suoi gradi e modi di infettività quindi "avere a che fare" con un malato può assumere diversi significati.
+
+Un personaggio Malato ha una certa probabilità di guarire oppure la malattia si aggrava, in base alle caratteristiche della malattia e delle condizioni del personaggio. Più una malattia si aggrava più i malus diventano incapacitanti, un personaggio può anche morire a causa di una malattia.
+
+Un personaggio malato avrà sulla sua scheda, prima di un Evento Live, delle indicazioni di quali effetti sta subendo dalla malattia, sia in termini di gioco che narrativi; inoltre avrà anche indicazioni di quali sintomi deve riferire ad un medico che usa la chiamata Diagnosi.
+
+
+## Interazioni tra Personaggi
+
+È possibile compiere delle azioni sui PG e PNG durante il gioco.
+
+
+### Trasportare
+
+Può capitare di dover trasportare materialmente dei PG o PNG che sono in coma o morti. In tal caso, per simulare il trasporto, è sufficiente che un PG sano tocchi il PG o PNG in coma o morto per spostarlo. Il PG o PNG incosciente dovrà seguire la direzione del proprio portatore finché verrà toccato. Quando viene lasciato, il PG o PNG incosciente torna immediatamente a terra. Si consiglia di simulare il trasporto e di evitare solamente il tocco sulla spalla.
+
+
+### Perquisire
+
+Si dichiara al personaggio che si sta compiendo una perquisizione, contando fino a 30 secondi a volume udibile dal bersaglio. Un PG può opporsi alla perquisizione se cosciente. All'inizio del conteggio, il giocatore DEVE iniziare immediatamente a raccogliere gli averi del PG. Alla fine del tempo il PG o PNG che perquisisce dichiara Perquisizione. A quel punto il PG o PNG bersaglio deve consegnare tutti i propri beni a chi effettua l'azione. Si devono consegnare denaro, oggetti, sostanze, risorse, ma NON armi o vestiario.
+
+Un PG che compie una perquisizione può richiedere di svelare le armi del PG perquisito. Se lo fa, il PG perquisito DEVE dichiarare tutte le sue armi. Una perquisizione può essere effettuata anche solo allo scopo di svelare le armi. In quel caso si contano i 30 secondi, ma non si utilizza l'effetto Perquisizione.
+
+
+### Derubare
+
+Ogni oggetto in possesso di un PG o PNG può essere rubato, ESCLUSE armi, vestiario e oggetti personali. Documenti scritti (come diari o appunti) seppur oggetti personali possono essere rubati. Il furto non segue regole precise, basta appropriarsi dell'oggetto voluto. Tuttavia, non è possibile frugare all'interno di borse o tasche. È possibile rubare solo oggetti palesemente visibili. Per compiere un'azione completa di furto è necessario effettuare una perquisizione. Non è possibile aprire borse anche se lasciate incustodite, ma si può compiere una perquisizione su borse, bisacce o quant'altro incustoditi e comunicare l'azione a un master che provvederà a contattare il proprietario dell'oggetto e a comunicargli l'effetto.
+
+
+### Legare e Imbavagliare
+
+Per legare un PG o PNG è sufficiente utilizzare una corda e compiere alcuni giri attorno alle mani SENZA fare un nodo vero e proprio. Un PG legato deve accettare le istruzioni di chi lo ha in custodia. Il PG legato non può muoversi se non toccato da un altro personaggio. Per liberarsi è necessaria l'azione di un altro personaggio che lo sleghi oppure incanti o abilità. Per ridurre al silenzio un personaggio legato (notare che non è possibile imbavagliare personaggi non legati) è necessario apporre un bavaglio fisico attorno al collo del personaggio bersaglio senza imbavagliarlo davvero. In quell'istante il PG imbavagliato non potrà più parlare.
+
+
+### Travestirsi
+
+Un personaggio può travestirsi coprendo il proprio costume con altri oppure sostituendo alcune parti del costume o in altri modi. Questo avviene quando non si vuole essere riconosciuti. Tuttavia, per ovviare al problema che spesso alcuni personaggi, per necessità, si differenziano di pochi particolari, è possibile utilizzare un effetto per togliersi ogni dubbio. Se un giocatore ha il sospetto che un personaggio sia in realtà un altro travestito, può utilizzare l'effetto "Analizzo il travestimento, sei -nome PG-?" toccando il bersaglio. Il bersaglio risponderà di conseguenza (vedi "Effetti").
+
+ 
+
+
+### Disarmare
+
+Un personaggio potrebbe voler disarmare un altro per la propria sicurezza o altre ragioni. Per disarmare un personaggio senza andare contro alla regola della proprietà degli oggetti personali, è possibile utilizzare questa procedura. Se un personaggio è incosciente è possibile togliergli di mano le armi che impugna oppure togliergli tutte le armi che ha indosso se lo si perquisisce con l'intento di svelare le sue armi (vedi sopra). Le armi così tolte al personaggio possono essere poste a distanza di alcuni metri in un luogo noto al giocatore e possibilmente visibile, ma in modo che non siano immediatamente fruibili al suo personaggio. Chi partecipa a Intempesta Noctis deve accettare questa procedura.  
+
+
+### Prendere in ostaggio
+
+Il prendere in ostaggio è una sequenza di azioni e chiamate che simula una categoria di situazioni in cui un personaggio disposto a tutto, messo alle strette, prova a trarsi d'impaccio mediante la minaccia all'incolumità fisica di un altro personaggio. La giocata si innesca quando un PG o PNG porta un coltello alla gola (o un'arma da fuoco alla schiena o alla tempia) di un altro PNG o PG, dicendo AD ALTA VOCE la frase-chiave "Fermi tutti!". A questo punto, il PG/PNG minacciato è considerato OSTAGGIO.
+
+Nel caso in cui il PG minacciante sia bersaglio di un qualsiasi effetto offensivo (fisica o incanto o altro), oppure se l'OSTAGGIO prova a divincolarsi, può cercare di colpire l'ostaggio. Se l'ostaggio finisce in coma in seguito a questo attacco, deve dichiarare "Nullo" a ogni tentativo di cura (di medico, con pozione o incanto) fino all'arrivo di un master; lo stato di coma si prolunga automaticamente fino all'arrivo del master, anche oltre i 6 minuti standard. Il master interviene IN OGNI CASO a confermare la giocata. Il master indagherà sulla scena appena conclusa, e provvederà A SUO INSINDACABILE GIUDIZIO a confermare la giocata, dichiarando eventualmente la morte definitiva dell'ostaggio, o a rimediare ad eventuali abusi.
+
+NOTE: La giocata è innescabile solo in presenza di un congruo gruppo di persone (a giudizio del master), oltre all'ostaggio e a chi minaccia. Il master giudicherà la validità della giocata anche tenendo conto della sua plausibilità. Le uniche armi valide per innescare la giocata di presa in ostaggio sono un coltello chiaramente identificabile come tale, oppure una pistola, pistola monocolpo o fucile.
+
+
+### Torturare
+
+Quello di Intempesta Noctis è un mondo difficile, e le informazioni sono la merce più preziosa di tutte. È possibile che qualcuno sia pronto a tutto, ma proprio a tutto, per ottenerle. Qualcun altro, invece, potrebbe essere semplicemente sadico... Esiste quindi la possibilità di torturare PG o PNG.
+
+La tortura può essere praticata esclusivamente da un PG o PNG in possesso dell’abilità “Torturatore”, nelle seguenti condizioni:
+
+
+
+* la vittima è legata. 
+* il torturatore deve essere in possesso di **una clessidra da 1 minuto e di un set di “segnalini tortura” **per tenere il conto delle cicatrici inflitte alla vittima, possibilmente esteticamente in tema (ad esempio, unghie o denti finti).
+
+
+#### Fasi della Tortura
+
+Il torturatore ha a disposizione due azioni, che può alternare nell’ordine che preferisce e per quante volte desidera, fino alla fine della tortura:
+
+
+
+1. Torturare: il torturatore infierisce sulla vittima con un sistema opportuno che sia un danno da arma o una ferita a mani nude (l’importante è che l’azione sia rappresentata in modo verosimile). \
+All’inizio di ciascuna azione “Torturare”, il torturatore gira la clessidra e simula la tortura per 1 minuto. Alla fine del tempo della clessidra il torturatore pone un “segnalino tortura” visibile alla vittima E DICHIARA l’effetto “DOLORE”. Se vi sono già 2 segnalini tortura sul tavolo (NOTA BENE: non possono mai essere presenti più di 2 segnalini), il torturatore dichiara “_CICATRICI 1”_ e la vittima strappa un cartellino cicatrice. Se c’è 1 solo segnalino sul tavolo si aggiunge semplicemente il secondo.
+2. Dare tregua: il torturatore concede sollievo alla vittima (questa azione è da rappresentare in modo verosimile). Con questa azione il torturatore toglie un segnalino tortura dal tavolo.
+
+La vittima deve:
+
+
+
+1. Interpretare gli effetti della tortura come ritiene più adatto e realistico.
+2. Tenere a mente quante cicatrici ha a disposizione in ogni momento, e strappare i cartellini cicatrice che sono stati tolti dalle dichiarazioni “Cicatrici 1” che ha subito non appena gli sia possibile, compatibilmente con il fatto di avere le mani legate durante la tortura.
+3. Obbligatoriamente, deve far capire mediante interpretazione al Torturatore il momento in cui abbia appena  strappato il suo PENULTIMO cartellino cicatrice.
+
+Fine della Tortura
+
+La tortura finisce 
+
+
+
+* se la vittima muore.
+* quando lo decide il torturatore slegando la vittima.
+* quando il torturatore si allontana palesemente dalla zona (ad esempio, esce dalla stanza).
+* se il torturatore cade in coma.
+* se la vittima riesce a slegarsi e a fuggire. 
+
+In ognuno di questi casi, **la vittima strappa un numero di cartellini cicatrice pari al numero di “segnalini tortura” sul tavolo in quel momento**, possibilmente in presenza del torturatore o di un master.
+
+**NOTA BENE:** in caso una tortura fosse interrotta in modo improvviso il torturatore dovrà avvisare un master della sua azione di tortura, riportando inoltre il numero di “segnalini tortura” rimasti sul tavolo.
+
+Esempio: Terzieri, noto generale dell’Esercito per l’Indipendenza, vuole conoscere l’ubicazione di un deposito di armi ducali. Ha catturato un sergente e lo ha legato. Procede quindi con la tortura. Terzieri cerca di farsi dare risposte, ma il sergente non collabora. Allora il giocatore di Terzieri gira la clessidra e simula di strappare le unghie del militare. Alla fine pone il primo segnalino tortura sul tavolo. Il sergente ha coraggio e sputa su Terzieri. Così il torturatore procede con un’ulteriore azione “torturare” aspettando un’altra clessidra e ponendo un secondo segnalino sul tavolo. Ma il sergente ancora non vuole cedere quindi Terzieri lo tortura ancora aspettando una clessidra. A questo punto ci sono già 2 segnalini tortura, quindi Terzieri dichiara Cicatrici 1 sul torturato e il sergente strappa un cartellino cicatrice. Ora ci sono ancora 2 segnalini sul tavolo. Il sergente inizia a temere per la propria vita perché con 2 segnalini sul tavolo e una cicatrice persa al termine della tortura perderebbe tutto un cartellino salute (e un PF) e decide di parlare. Terzieri gli crede e decide di “Dare tregua” al sergente togliendo un segnalino tortura dal tavolo. Ora c’è 1 solo segnalino sul tavolo. Il sergente ha parlato e Terzieri è soddisfatto così. Termina la tortura. Essendoci ancora 1 segnalino tortura, il sergente strappa 1 ulteriore cartellino cicatrice. La tortura è terminata.
+
+
+## Le Eccezioni Interpretative
+
+Le eccezioni interpretative sono condizioni che il giocatore può sfruttare in determinati casi in modo da arricchire il gioco. Queste eccezioni sono a tutti gli effetti elementi di gioco dando al giocatore un vantaggio e uno svantaggio.
+
+
+### La morte epica
+
+Capita sempre nelle migliori storie che nel momento dell'apice qualcuno muoia nel modo più epico e rumoroso possibile.
+
+A tal fine, è possibile utilizzare un'interessante opzione interpretativa durante gli eventi, ossia "la morte epica". In un qualunque momento del coma, un PG può decidere di rendersi immune a Stasi, Cura e Guarigione. Questa decisione è irreversibile. Un PG che sta morendo in questo modo torna cosciente per un minuto durante il quale potrà parlare a bassissima voce (equivalente al bisbigliare) interpretando lo stato morente. NOTA BENE: non si può, durante il minuto, dare informazioni su un eventuale aggressore e si deve restare il più vaghi possibile su informazioni complesse (il PG sta comunque morendo). Alla fine del minuto, passa definitivamente nello stato di morte. Questo può essere effettuato per interpretare una morte epica.
+
+Le condizioni perché un'azione del genere sia considerata "Morte Epica" sono le seguenti:
+
+1) Il PG può essere curato agevolmente perché è stato notato ed esiste il modo per curarlo.
+
+2) Il PG non deve essere da solo.
+
+3) Il giocatore decide egli stesso di uccidere il proprio PG, non deve esserne in qualche modo costretto.
+
+4) I PG o PNG presenti con lui devono volere la sua guarigione e non deve esserci una contesa in atto sul volerlo curare o meno.
+
+Se le quattro condizioni sono rispettate allora si tratta di Morte Epica e il giocatore potrà recuperare dal PG morto, se lo sacrifica, il 66% dei PX guadagnati (esclusi come sempre i 20 iniziali).
+
+NOTA BENE: si può utilizzare questa opzione anche senza le condizioni sopra citate nel qual caso si otterrà l'effetto interpretativo, ma senza alcun riscontro sul recupero di PX.
+
+ATTENZIONE! Questa norma vuole implementare l'aspetto interpretativo dando la possibilità di apportare contributi alla bellezza del gioco per tutti dando un piccolo premio. Si consiglia di stare molto attenti a valutare la situazione, perché in caso di errore non verranno recuperati i PX supplementari dati da questa regola. Si chiede, inoltre, di non approfittare di eventuali situazioni dubbie a proprio vantaggio. Nel qual caso questa possibilità verrà cancellata dal regolamento.
+
+
+### Uso di armi senza abilità
+
+Potrebbe capitare che un personaggio che non possiede nessuna abilità nell'uso delle armi, si trovi messo alle strette da un aggressore e benché non addestrato è poco credibile, che in mancanza di possibilità di fuga, non possa nemmeno provare a difendersi. Se un PG ha un coltello a disposizione ma non sa usarlo, può impugnarlo ugualmente ma con le seguenti limitazioni:
+
+
+
+* Quando colpisce deve dichiarare TOUCHÈ.
+* Quando para i colpi, subisce il danno dichiarato dall'aggressore all'arto che impugna l'arma.
+
+Per maggiori dettagli, vedi le sezioni Combattimento, Effetti e Abilità.
+
+
+# 
+
+
+# Il Mondo di Gioco
+
+
+## Valuta di Gioco
+
+In tutto il mondo di Intempesta Noctis le monete di gioco sono fornite dallo staff in base alle abilità possedute dai personaggi. La moneta di rame è la valuta di base. Esistono due tagli superiori che sono la moneta d'argento e la moneta d'oro. La relazione tra i tre tagli è la seguente:
+
+
+
+* 1 moneta d'oro = 5 monete d'argento.
+* 1 moneta d'argento = 10 monete di rame.
+
+
+## Le Famiglie
+
+Le famiglie di Intempesta Noctis sono dei gruppi che raccolgono i PG sotto un'unica bandiera. Nessun PG è obbligato a fare parte di una famiglia (tranne quelli creati da nuovi giocatori), reclamando la propria libertà, ma questo determinerà ovviamente alcune difficoltà in gioco.
+
+Un PG affiliato ad una famiglia ha tipicamente trascorso larga parte della sua vita nella nazione corrispondente (Francia e Rgno Unito) ed è a essa estremamente fedele.
+
+Un PG che sia affiliato ad una famiglia potrà godere di alcuni vantaggi.
+
+Ogni famiglia possiede:
+
+
+
+* STEMMA: il disegno rappresentativo della famiglia, nulla più.
+* PALAZZO: una stanza di gioco protetta dove la famiglia risiede come quartier generale. Nel palazzo sono presenti tutti i beni della famiglia e si ritiene che sia presente anche quasi tutto il necessario per varie operazioni. In ogni palazzo è possibile sintetizzare pozioni e veleni.
+* ZONA AGRICOLA: ogni famiglia ha in gestione una zona agricola dalla quale può ottenere le tasse (vedi "Tomo della Economia").
+
+
+## Rendite
+
+Per i sudditi e cittadini è un'epoca difficile, il potere è rientrato nelle mani dei nobili in buona parte del mondo e questi posseggono la maggior parte della ricchezza. Per questo ogni PG avrà una rendita base e una rendita secondaria. PG con abilità dedicate potranno variare, a seconda di queste abilità, le proprie rendite. La rendita base sarà in possesso del PG mentre la rendita secondaria andrà direttamente in possesso del capofamiglia. In assenza del capofamiglia la rendita secondaria viene divisa in parti uguali tra i nobili di quella famiglia. In caso in una famiglia non vi fossero PG nobili, le rendite secondarie vengono perse. Le rendite secondarie vengono calcolate e consegnate ad inizio evento. L'arrivo di PG dopo l'inizio dell'evento determina la perdita della sua rendita secondaria. Al pari, l'arrivo di un unico nobile dopo l'inizio dell'evento non significa il recupero delle rendite secondarie. 
+
+
+
+* RENDITA BASE: 2 monete di rame.
+* RENDITA SECONDARIA: 1 moneta d'argento.
+
+N.B. : Un PG non affiliato non possiede una rendita secondaria fino a che non decide di affiliarsi a meno che non sia Nobile.
+
+
+## Palazzi
+
+Ogni famiglia riconosciuta viene dotata di una stanza che funge da palazzo privato. La presenza di un palazzo è garantita in un live mentre durante un episodio potrebbe non essere presente. Il palazzo è il quartier generale della famiglia e dove generalmente la famiglia stessa inizia un evento.
+
+Un palazzo ha le seguenti caratteristiche:
+
+
+
+* *Portone: è dotato di una e solo una porta d'accesso chiusa da un Portone dotato di serratura speciale. Tale serratura può essere aperta da ogni PG registrato nella famiglia come se avesse la chiave; è possibile sostituire questa serratura solo con altre serrature speciali definite "di fazione", mentre è possibile applicare al portone della magione una singola serratura verde, come di consueto.
+* Tesoreria: è dotato di una tesoreria cioè una cassa materiale dove porre qualunque oggetto che i famigliari volessero. La cassa è da considerarsi come un a porta: si può aprire forzandola con 1 colpo di arma da fuoco o 10 colpi di arma bianca. L'effetto Oggetto distrutto conta come un colpo di arma da fuoco. È dotato di una serratura speciale che segue le stesse regole di quella del portone del palazzo.
+* Laboratorio: Ogni palazzo è dotato di un laboratorio per la sintesi delle sostanze, per maggiori dettagli vedi il paragrafo "Sintetizzare Sostanze". Questo implica che i PG affiliati avranno sempre la possibilità di sintetizzare sostanze, mentre i PG non affiliati devono trovare un altro laboratorio per la sintesi (che può esserci oppure no in ogni dato evento in base alle condizioni di trama) oppure ottenere il permesso da una delle famiglie di utilizzare il loro.
+
+ Porte e Serrature
+
+L’interazione con porte e serrature, ovviamente presenti nelle location in cui si svolgono gli eventi, segue regole particolari per simulare interazioni anche distruttive senza rischiare di arrecare danni reali. Cartellini apposti alle porte delle location indicano, con istruzioni dettagliate, che tipo di interazioni sono possibili, e quali invece non lo sono. 
+
+
+### Porte
+
+Ogni porta della location indicata da un cartellino PORTA o PORTONE è effettivamente una porta così come è normalmente nella realtà, ossia una struttura materiale che divide due zone limitrofe e che può essere aperta, chiusa o distrutta materialmente. Le porte che non hanno uno di questi cartelli sono da considerarsi aperture sempre transitabili, se così indicato dai master prima dell’evento. In caso contrario, sono da considerarsi come pareti.
+
+PORTE e PORTONI sono da considerarsi normalmente aperta, ma ad ognuna si possono applicare le serrature che la possono rendere chiusa a seconda delle regole della serratura. Tuttavia, una porta chiusa da una serratura RESTA VULNERABILE IN QUANTO PORTA, è quindi possibile distruggerla utilizzando la forza bruta.
+
+
+
+* PORTA. Non può essere trasformata in PORTONE, salvo l’intervento di un Master Può essere distrutta, ma si ripara automaticamente una volta che viene richiusa dopo essere stata distrutta. Normalmente una porta si distrugge con 1 colpo di arma da fuoco o 10 colpi di arma bianca. L'effetto Oggetto distrutto conta come un colpo di arma da fuoco.
+
+    NOTA BENE: una porta senza serratura è aperta!
+
+* PORTONE: il portone è una porta robusta con dei segnalatori del proprio stato fisico, che può essere:
+    * INTEGRO: per distruggerlo servono 100 colpi di arma bianca o 2 colpi di arma da fuoco (l'effetto Oggetto distrutto conta come un colpo di arma da fuoco). Dopodiché cambia il cartello in DISTRUTTO.
+    * RINFORZATO: per indebolirlo servono 100 colpi di arma bianca o 2 colpi di arma da fuoco (l'effetto Oggetto distrutto conta come un colpo di arma da fuoco). Dopodiché cambia il cartello in INTEGRO.
+    * DISTRUTTO: il portone è aperto anche se vi è una serratura applicata.
+
+    NOTA BENE: un portone senza serratura è aperto!
+
+
+    Sui **Portoni** puoi effettuare le seguenti operazioni Strutturali:
+
+* RIPARARE: consuma in area master un carico di VETTOVAGLIE (pagando se necessario la tassa di consumo) per sostituire il cartello DISTRUTTO con quello INTEGRO.
+* RINFORZARE: consuma in area master un carico di VETTOVAGLIE (pagando se necessario la tassa di consumo) per sostituire il cartello INTEGRO con quello RINFORZATO.
+* PORTA INFRANGIBILE: la porta infrangibile non può essere distrutta con la forza bruta. Probabilmente è una porta estremamente robusta o di ferro che non è attaccabile con mezzi a disposizione dei PG o il cui tempo di sfondamento sarebbe troppo lungo oppure è una porta che per qualche strana ragione non si scalfisce. Sul cartello della porta potrebbero essere presenti delle note.
+
+
+### Serrature
+
+Una serratura, nel mondo di gioco, è applicabile a qualunque porta od oggetto apribile (Contenitore). Una serratura è il mezzo per chiudere in qualche modo ciò che si desidera ed è rappresentata da un cartellino colorato.
+
+Ogni serratura è diversa da un'altra e benché ne possano esistere di simili, non si può mai dare per scontato che lo siano, è quindi IMPORTANTE SEMPRE LEGGERE I CARTELLINI PRIMA DI APRIRE UN OGGETTO O PORTA CON UNA SERRATURA.
+
+Prima si devono soddisfare i requisiti della serratura, poi si potrà aprire l'oggetto o porta a cui è applicata.
+
+Una serratura ha normalmente associata una CHIAVE che è un oggetto di gioco. Le chiavi di serrature normali hanno un codice alfanumerico che le distingue. Esempio: CHIAVE A111. Il cartellino che rappresenta le chiavi ha lo stesso colore della sua serratura.
+
+Le serrature si dividono in 3 categorie: Verde, Gialla, Rossa.
+
+
+#### Serratura Verde
+
+
+
+* Apertura: come da cartellino.
+* Scassinatura: n° variabile di grimaldelli come da cartellino.
+* Vulnerabilità: può essere distrutta con un n° di colpi di arma da fuoco pari al numero di grimaldelli da usare per la scassinatura. Se il numero è zero, serve un singolo colpo di arma da fuoco. Un effetto "Oggetto Distrutto" vale come un colpo di arma da fuoco. Una volta distrutta, il cartellino DEVE essere rimosso e consegnato ad un master.
+* Applicare: basta apporre il cartellino all'oggetto o porta o contenitore che si intende chiudere, ma solo se si possiede la chiave.
+* Rimuovere: la serratura deve essere Aperta con la sua chiave. Una serratura scassinata non può essere rimossa.
+
+
+#### Serratura Gialla	
+
+
+
+* Apertura: come da cartellino.
+* Scassinatura: n° variabile di grimaldelli come da cartellino.
+* Vulnerabilità: non può essere distrutta
+* Applicare / Rimuovere: occorre un Carpentiere o l'intervento dei Master.
+
+
+#### Serratura Rossa
+
+
+
+* Apertura: come da cartellino.
+* Scassinatura: n° variabile di grimaldelli o regole speciali come da cartellino.
+* Vulnerabilità: non può essere distrutta.
+* Effetti speciali: eventuali come da cartellino.
+* Applicare / Rimuovere: occorre l'intervento dei Master.
+
+ 
+
+Ciascuna Porta può supportare contemporaneamente 2 serrature: la prima Verde e la seconda Gialla o Rossa. Salvo eccezioni, non è possibile quindi mettere 2 serrature Verdi, o 1 Gialla e 1 Rossa, eccetera.
+
+Ciascun Contenitore può ricevere una singola serratura verde, salvo eccezioni.
+
+Esiste la possibilità di trovare in gioco delle serrature che i PG possono utilizzare per proteggere i loro averi. Ogni serratura segue le sue regole per essere applicata o rimossa.
+
+NOTA BENE: non è obbligatorio che il colore di una serratura ne determini la complessità. Possono esistere serrature verdi complesse da scassinare come serrature rosse semplici da scassinare. La differenza sta nelle loro caratteristiche come la vulnerabilità ed eventuali effetti speciali.
+
+
+### Scassinare le serrature, Grimaldelli
+
+Per scassinare una serratura generalmente sono richiesti dei "grimaldelli". I grimaldelli sono oggetti di gioco rappresentati da cartellini semplici; vengono consumati (ossia strappati) nell'atto della scassinatura. Ogni grimaldello è quindi ad uso singolo. Il numero di grimaldelli da consumare dipende dal numero indicato sul cartellino serratura. I grimaldelli, essendo oggetti, sono scambiabili tra PG e PNG. Per ogni grimaldello da usare si impiegano 10 secondi di operazione di scassinatura.
+
+Esempio: Corrado vuole scassinare la serratura che chiude la porta del bagno delle signore. La serratura richiede 3 grimaldelli: Corrado, ammesso che abbia l'abilità "Scassinare" e abbastanza grimaldelli, ci impiegherà 30 secondi, 10 per ogni grimaldello da usare.
+
+Il numero di grimaldelli da usare per la scassinatura è segnato in grande sul cartellino serratura. Se è richiesto un numero di grimaldelli uguale a zero, allora la scassinatura consiste in 10 secondi senza consumare nessun grimaldello, ma lo scassinatore deve possedere almeno un grimaldello.
+
+
+# Combattimento
+
+Il combattimento merita un capitolo a parte in quanto chi non si è mai avventurato nel mondo GRV avrà una certa difficoltà a capire le meccaniche di base e avanzate di questo processo.
+
+Un combattimento è semplicemente una situazione possibile in un GRV, non obbligatoria e che descrive un conflitto tra due o più personaggi. Nel nostro caso il combattimento è simulato con armi imbottite con le quali si tenta di colpire fisicamente l'avversario.
+
+In Intempesta Noctis le armi utilizzate possono essere: 
+
+
+
+* COLTELLI, SPADE, ASCE e BASTONI: colpiscono solo di fendente, mai di affondo.
+* FIORETTI: colpiscono solo di affondo, mai di fendente.
+* ARMI DA FUOCO: colpiscono con il proiettile che espellono. Possono avere un coltello montato sull'estremità (serve abilità di uso dei coltelli) per uso in corpo a corpo. Possono parare anche armi bianche, ma per essere usate in corpo a corpo devono essere interamente imbottite.
+* ARMI DA LANCIO: colpiscono con il proprio corpo morbido. Un'arma da lancio colpisce efficacemente con ogni sua parte. Se colpito, il PG o PNG subisce l'effetto associato. 
+
+
+## Armi bianche
+
+Le armi bianche sono simulate con materassina, in lattice o materiale morbido attorno ad un'anima rigida, non importa che la simulazione della lama sia reale per venire incontro ai giocatori che non hanno il tempo di prepararsi un equipaggiamento da esposizione. L'importante è che tali armi siano sicure
+
+Un'arma bianca infligge danno quando colpisce una locazione di un altro PG o PNG. Durante il combattimento è obbligatorio, nel momento dell'impatto dell'arma, dichiarare un effetto associato alla propria arma per informare il PG o PNG bersaglio ciò che deve interpretare. Per esempio, un personaggio con 2 punti ferita che subisca “Colpo” al busto non cade in coma, mentre subendo “Affondo” cade immediatamente in coma. Gli effetti vanno dichiarati a voce sufficientemente alta per farsi sentire dal bersaglio. Il bersaglio deve, a sua volta, sottrarre i punti ferita dal proprio totale se l'effetto lo richiede oppure interpretare gli effetti secondari. Una variante delle armi bianche sono le armi da lancio di piccole dimensioni e prive di anima rigida. Vengono utilizzate a distanza tramite lancio. Le regole di associazione effetto sono identiche a quelle delle armi bianche.
+
+
+## Armi da fuoco
+
+Le armi da fuoco sono basate sullo sparare proiettili innocui, sono quindi escluse armi che utilizzano proiettili piccoli (esempio, armi da softair), mentre sono consigliabili armi che utilizzino proiettili NERF. La sicurezza delle armi da fuoco è da decidere con i master. Ad Intempesta Noctis si usano perlopiù armi costruite con una linea guida propria del nostro GRV, chiedete allo staff!
+
+Le Armi da Fuoco provocano un danno che generalmente è Perforazione. Questo effetto deve essere URLATO AD ALTA VOCE nel momento dello sparo. Allo stesso modo delle armi bianche, il bersaglio dovrà interpretare l'effetto se colpito dal proiettile su una locazione.
+
+**Le pistole Monocolpo** sono una categoria particolari di armi da fuoco, con caricamento a molla (stile Nerf). Sono consentite solo quelle a colpo singolo, inteso sia come senza caricatore (cioè il meccanismo per cui è necessario inserire ogni singolo colpo nell'arma) che come tipo di caricamento della molla, il classico carrello o leva che va tirato prima di ogni colpo. Devono inoltre avere un design in linea con l'ambientazione o almeno poco appariscente, chiedete sempre allo staff per l'approvazione! Infine, questo tipo di armi possono essere utilizzate soltanto una volta durante un combattimento: dopo aver sparato, possono essere ricaricate solo quando tutti i nemici sono stati neutralizzati.
+
+
+## Il combattimento a mani nude
+
+Esiste la possibilità, a titolo puramente interpretativo e scenico, di simulare un combattimento a mani nude, o rissa. Per farlo, è sufficiente simulare il colpo portato senza colpire veramente il bersaglio e dichiarare a voce il tipo di colpo (pugno, calcio ecc ecc). Un combattimento del genere non produrrà danni se non quelli decisi dagli stessi giocatori.
+
+I giocatori decidono liberamente ed interpretativamente chi può vincere lo scontro, ma nel particolare, è chi subisce il colpo ad interpretare gli effetti. Serve una mano? Considerate le seguenti cose:
+
+
+
+* colpo di sorpresa (il primo che colpisce).
+* avere o meno le seguenti abilità: Robustezza, Robustezza 2, Ambidestria, Forza della disperazione, Omicidio silenzioso, Costituzione debole (malus).
+
+I giocatori sono comunque liberi di scegliere come finire il combattimento, ma è importante farlo senza fermarsi a discutere su chi abbia la tale abilità o meno, fatelo discretamente o usate la fantasia!
+
+La regola del secondo vale anche per il combattimento a mani nude.
+
+In tutti i casi, il combattimento a mani nude finisce appena un PG o PNG estrae un'arma.
+
+
+### Eccezioni: “Manesco” e “Vita da strada”
+
+Se un PG o PNG è in possesso dell'abilità apposita, è permesso colpire a mani nude anche bersagli armati, ma solamente nelle seguenti condizioni:
+
+
+
+1. Il PG o PNG non è legato;
+2. Non è in atto un combattimento (stesse condizioni di "Omicidio silenzioso");
+
+In questo caso, il PG o PNG con l'abilità "Manesco" o "Vita da strada" potrà utilizzare, come da abilità, uno o più colpi dichiarando Debolezza al bersaglio.
+
+ATTENZIONE: non è possibile utilizzare questo sistema con bersagli allertati e armati, ma è possibile farlo contro bersagli non armati, anche se fossero in allerta.
+
+
+## La “regola del secondo”
+
+Durante i combattimenti esiste una regola da seguire come indicazione della frequenza dei colpi e come limitazione vera e propria: la regola del secondo. Ogni PG può vibrare al massimo un colpo al secondo, eccezion fatta per il caso in cui un PG impugnasse una doppia arma, alchè potrebbe vibrare un colpo al secondo per arma impugnata. In generale, comunque, per colpire nuovamente il bersaglio occorre attendere un secondo. Questo serve ad evitare il "tapping" ossia i colpi dati a velocità eccessiva. MAI IGNORARE I COLPI senza autorizzazione, ma segnalare ai master la cosa.
+
+
+## Iniziative dei Giocatori
+
+Questo regolamento cerca di gestire le situazioni di gioco più comuni che necessitano di un livello di astrazione, ma non copre certamente tutto quello che può succedere nel mondo di gioco. Se un'azione che vorreste intraprendere con il vostro PG non è spiegata in questo regolamento, scrivete alla mail inazionifg@mail.com e lo staff valuterà se è possibile rappresentare in gioco la vostra idea e in che modo.
+
+
+
+
+# Effetti
+
+Gli effetti, anche indicati come “chiamate”, sono il modo con il quale i giocatori si comunicano l'un l'altro ciò che accade e le proprie azioni. Gli effetti sono di vari tipi e tentano di racchiudere tutte le azioni possibili. Le abilità spesso richiamano un effetto. Abilità ed effetti sono da distinguere. Alle volte un master può dichiarare un effetto particolare solo per ragioni di ambientazione, senza che un determinato PNG l'abbia dichiarato o abbia usato una qualche abilità.
+
+Esempio: il master intende simulare un terremoto e allarga le braccia e dichiara Spinta in quest'area! Tutti i PG davanti a lui e racchiusi nell'area cadono a terra. Nessuno dei PG vede il master nel gioco dato che lui è invisibile, ma i giocatori interpretano l'effetto.
+
+Ogni effetto è associato ad un colpo di un'arma, un proiettile, un tocco, un gesto o un cartellino. Il giocatore associa quindi l'effetto ad una qualche azione fisica. Ad ogni colpo di arma o sparo o tocco o gesto DEVE essere associato un effetto per rendere valido il colpo. L'effetto viene dichiarato normalmente a voce alta o comunque in modo che il bersaglio senta distintamente quello che deve subire o interpretare. Gli effetti hanno una durata in tempo base, ma possono variare questa durata (che viene ignorata in virtù di quella nuova) in funzione del suffisso di durata adeguato (vedi suffissi).
+
+
+## Fisici
+
+
+
+* **Colpo**: infligge un danno alla locazione colpita.
+* **Doppio**: infligge 2 danni alla locazione colpita.
+* **Affondo**: infligge 2 danni solo alla locazione busto. Una dichiarazione Affondo che colpisca una locazione differente dal busto è considerato automaticamente Nullo.
+* **Perforazione**: porta a zero la locazione colpita.
+* **Touché**: utilizzabile in duello se il duello è accettato da entrambi i contendenti che dovranno obbligatoriamente essere 2. Funziona associato solo ad armi bianche. Chi duella utilizza questo effetto. Al terzo Touché il bersaglio subisce Colpo all'ultima locazione colpita.
+* **Argento**: infligge un danno alla locazione colpita, se non specificato diversamente nella scheda del PG o PNG che subisce l’effetto.
+* **Botta**: il personaggio che subisce l'effetto cade a terra per 5 secondi in condizione di incoscienza. Chi subisce questo effetto non dimentica nulla.
+* **Spinta**: il personaggio che la subisce deve cadere a terra all'indietro e toccare il terreno con le natiche. Può rialzarsi immediatamente e difendersi normalmente mentre è a terra.
+* **Cicatrici X**: dove X è un numero uguale o superiore ad uno. Il personaggio deve strappare X cicatrici dal suo Cartellino SALUTE. I cartellini devono essere strappati nel più breve tempo possibile dalla dichiarazione dell'effetto. Inoltre, non è possibile distribuire le cicatrici tra più Cartellino SALUTE, deve essere consumato un intero Cartellini SALUTE prima di cominciare a strappare il successivo.).
+* **Veleno X**: dove X è un numero uguale o superiore ad uno. Ad ogni minuto successivo la dichiarazione, il personaggio subisce X Danni al Torso, "Cicatrici X" e "Debolezza Perenne". Il personaggio non ha nessuna consapevolezza di essere stato avvelenato prima che insorgano i primi sintomi del veleno, generalmente dopo che è passato il primo minuto. Se la dichiarazione iniziale contiene altri effetti assieme a Veleno X, tutti gli altri effetti si applicano immediatamente e quindi il PG è subito consapevole del veleno. Se il personaggio va in coma, oppure è già in coma quando gli viene somministrato il veleno, subisce tutti gli effetti di Veleno X, quindi l'effetto "Veleno X" ha termine, ma gli altri effetti causati dal veleno continuano secondo la loro durata. Questo significa che una volta raggiunto il coma, il PG smette di subire danni e cicatrici ogni minuto, ma continua a subire debolezza e gli eventuali altri effetti associati alla chiamata.
+
+    **ESEMPIO**: Tizio mette sotto il bicchiere di Caio un cartellino veleno che contiene la dichiarazione "Perforazione Veleno 1". Caio beve dal suo bicchiere e trova il veleno: subirà "Perforazione" e andrà in coma, quindi subisce gli effetti del veleno: 1 Danno al Busto, Cicatrici 1 e Debolezza Perenne, di fatto perdendo una cicatrice. Un medico Cura Caio facendogli riprendere i sensi, cosa che gli fa perdere un'altra cicatrice. Caio si risveglia quindi sotto l'effetto "Debolezza Perenne" e con 2 cicatrici in meno. Ma Caio era già stato curato diverse volte in precedenza e queste due cicatrici erano le ultime del suo Cartellino SALUTE, quindi lo strappa. Ora Caio ha un solo Cartellino SALUTE e quindi ha un solo PF per locazione.
+
+* **Cura**: chi subisce l'effetto recupera tutti i punti ferita nella sola locazione curata. Se la locazione non viene specificata (ad esempio, in conseguenza dell’assunzione di una sostanza) l’effetto si applica alla locazione tronco.
+* **Guarigione**: chi subisce l'effetto recupera tutti i punti ferita in tutte le locazioni.
+* **Stasi**: il bersaglio deve essere in coma o ferito. Quando il bersaglio termina il conteggio per il tempo dello stato, prolunga lo stato per altri 10 minuti invece di passare allo stato successivo.
+* **Analizzo lo stato di salute**: il bersaglio deve indicare il proprio stato di salute. Chi subisce la chiamata DEVE rispondere in uno dei seguenti modi: SANO, COMA, MORTO o MORIBONDO, inoltre deve specificare se FERITO e le locazioni interessate. I Giocatori non devono fornire nessun'altra informazione a riguardo, come la natura delle ferite inflitte o il numero di Punti Ferita o Cicatrici rimaste.
+* **Diagnosi**: il bersaglio deve indicare il proprio stato di salute. Chi subisce la chiamata DEVE rispondere in uno dei seguenti modi: SANO, COMA, MORTO o MORIBONDO, inoltre deve specificare se FERITO e le locazioni interessate. Il Giocatore deve anche comunicare le seguenti informazioni: Numero di cicatrici rimanenti prima di perdere il prossimo cartellino salute, se è sotto gli effetti di un veleno (compreso l'effetto di debolezza perenne causato dal Veleno) e comunicare eventuali Sintomi se è afflitto da una malattia. (come descritto nella sua scheda PG). Non deve però comunicare nessun'altra informazione dettagliata su Veleni e Malattie o il numero di ferite subite. (inteso come risposta alla chiamata, invece, a livello interpretativo può sempre comunicare qualsiasi informazione di cui il PG sia a conoscenza). In presenza di un Master, il giocatore potrebbe ottenere informazioni ulteriori sulla natura delle ferite riportate, i sintomi di veleni e malattie, ecc.
+* **Perquisizione**: il bersaglio deve immediatamente consegnare tutti i suoi averi a chi ha utilizzato l'effetto. Sono da consegnare solo gli oggetti di gioco escluse le armi e costumi personali. Il pronunciare questo effetto comporta che l'azione di perquisizione si è conclusa con successo. Se per motivi pratici il bersaglio non riesce a consegnare i suoi oggetti subito, dovrà farlo al primo momento utile, avendo cura di non farsi notare da altri. In alternativa, può affidare la consegna a un master.
+* **Dolore**: il bersaglio dell'effetto accusa un forte dolore per 10 secondi durante i quali non può né attaccare né difendersi. Il dolore DEVE essere interpretato dal personaggio.
+* **Debolezza**: il bersaglio accusa una forte debolezza, che deve essere interpretata. Per 1 minuto non può correre, non può attaccare nessuno e non può parlare con voce alta, ma può difendersi. Il bersaglio è comunque tenuto ad interpretare la condizione di debolezza.
+* **Paralisi**: il bersaglio si blocca immediatamente senza possibilità di muoversi o reagire per 1 minuto. Può comunque subire danni e, se portato al coma, cade a terra normalmente e l'effetto ha termine.
+* **Stordisci**: può essere aggiunto ad ogni effetto di arma bianca o da lancio e mai a quelli di arma da fuoco. Il bersaglio perde temporaneamente i punti ferita indicati dall'effetto di danno. Se va a zero al busto subisce Svenimento. Dopo 5 minuti, i danni da stordimento vengono resettati.
+
+
+## Mentali
+
+
+
+* **Paura**: chi subisce l'effetto non può attaccare la sua origine e deve allontanarsi da essa mantenendo la distanza, se possibile, di almeno 5 metri. L'effetto dura 1 minuto.
+* **Svenimento**: chi subisce l'effetto cade a terra per 1 minuto durante il quale non sente e non vede nulla. Il bersaglio può essere svegliato scrollandolo o ferendolo, ma non trasportandolo. Il bersaglio dimentica l'ultimo minuto prima dello svenimento.
+* **Possessione**: chi può utilizzare la chiamata deve farlo toccando il bersaglio che dovrà smettere di compiere qualsiasi azione e seguire le istruzioni date all'orecchio. Un PG o PNG posseduto è in balìa di chi ha utilizzato l'effetto. Dovrà muoversi, fare e dire ciò che gli viene detto se permesso dalle proprie abilità. Se il giocatore che ha utilizzato l'effetto interrompe il tocco diretto per più di due secondi, la possessione termina e il bersaglio subisce immediatamente Svenimento.
+
+
+## Speciali
+
+
+
+* **Sacro**: può essere rivolto a PG, PNG o oggetti. L'effetto non ha un valore e significato univoco sui bersagli. Se fatto su oggetti deve essere presente un master per conoscerne l'effetto. Se fatto su armi permette di aggiungere questo effetto all'effetto di danno dell'arma solo una volta per ogni Sacro eseguito sull'arma. Il momento in cui utilizzarlo è a scelta dell'utilizzatore. Un PG, a meno che non abbia ricevuto istruzioni speciali da parte di un master o da regole specifiche, non subisce alcun effetto.
+* **Risveglio**: può essere effettuata solo su PG in coma o morti. Il bersaglio si risveglia sotto forma di non-morto. Il PG riceve dal lanciatore dell'effetto dei comandi semplici indicativi di una azione elementare, che eseguirà senza discutere. Il risvegliato esegue solo l'ultimo comando ricevuto. Non è in grado di eseguire azioni complesse. In mancanza di un comando, attacca l'essere vivente più vicino, escluso il lanciatore dell'effetto. Non è possibile indicare luoghi o persone specifici nel comando (esempio: "Vai in locanda" non va bene, il risvegliato non capisce cosa sia una locanda!). Chi viene risvegliato DEVE emettere rantoli e "versi da zombie" assolutamente senza urlare, ma ad un volume udibile da un interlocutore a qualche metro. 
+
+    Il Risvegliato:
+
+1. Barcolla e cammina lentamente, ma combatte agilmente. 
+2. Utilizza le armi che aveva da vivo, ma senza alcuna abilità speciale. 
+3. Può infliggere solo Colpo. 
+4. Possiede 4 punti ferita in ogni locazione. 
+5. L'effetto Sacro conta per lui come Colpo. 
+6. Ignora i colpi agli arti. 
+7. Una volta eliminato con azzeramento del busto cade in coma normalmente se il PG al momento del risveglio era in coma; torna nello stato di morte se era morto. 
+8. Se non è eliminato l'effetto svanisce dopo 10 minuti se non rinnovato con un nuovo effetto di risveglio. 
+9. Un PG o PNG sotto l'effetto Risveglio non può essere disarmato nemmeno se è in coma o morto per 5 minuti.
+* **Bacio**: il bersaglio subisce Perforazione al busto. Chi subisce questa dichiarazione avrà indicazioni dirette da un master o da chi ha utilizzato l'effetto.
+* **Marchio**: solo tocco. Il PG bersaglio viene marchiato e subisce Svenimento. Il marchio può avere due stati: inattivo e attivo. Quando inattivo al PG marchiato viene indicato il nome del marchio, eventuali caratteristiche visive (esempio, una croce sulla fronte, che deve essere rappresentata a livello di costume), altre istruzioni utili ai fini del marchio stesso. Nel momento in cui le condizioni per l'attivazione sono soddisfatte, il marchio si attiva e il PG marchiato DEVE eseguire le istruzioni dell'azione di attivazione del suo marchio. Un PG marchiato riceve le indicazioni a riguardo dal PG marchiatore o da un master.
+* **Etereo**: infligge un danno spirituale. Un PG, a meno che non abbia ricevuto istruzioni speciali da parte di un master o da regole specifiche, non subisce alcun effetto.
+* **Riflesso**: utilizzato in risposta. L'effetto subito dal dichiarante viene ripetuto tal quale al mittente. Chi utilizza questo effetto subisce anch'esso l'effetto che viene riflesso.
+* **Analizzo il travestimento, sei -nome PG-**?: utilizzabile da chiunque al tocco. Il PG toccato deve rispondere alla domanda dell'effetto con "sì" se è il PG nominato oppure "no" se non lo è. È sufficiente pronunciare il nome del PG per come lo si conosce (un PG può registrarsi con un nome e presentarsi con un altro) e il bersaglio deve rispondere correttamente. Quest'effetto è utilizzato per scoprire eventuali PG occultati da un travestimento. Il PG bersaglio si accorge di essere stato scoperto se in quel momento è cosciente. ATTENZIONE: il PG o PNG nominato nella dichiarazione deve essere stato almeno visto una volta nelle sue normali sembianze.
+* **Nullo**: annulla l'effetto o l'incanto appena dichiarato. Può essere pronunciato volontariamente per annullare un effetto o incanto se il PG possiede abilità o segue regole speciali.
+* **Fatale**: porta a zero i punti ferita di tutte le locazioni del bersaglio indipendentemente dalla condizione dello stesso. Non è possibile dichiarare Nullo a questo effetto; fanno eccezione gli spiriti.
+* **Annulla -effetto-**: l'effetto dichiarato dopo Annulla viene cancellato. Si tratta di effetti con durata in tempo e mai di effetti momentanei come quelli di danno. L'effetto dichiarato cessa di funzionare sul bersaglio.
+* **Agonia**: valido solo se utilizzato su PG o PNG in coma. Il tempo di coma si riduce ad un minuto dal momento in cui si subisce l'effetto. Se il bersaglio viene curato, inoltre, sarà cosciente, ma per i dieci minuti successivi alla cura non potrà muoversi da solo, né reggersi in piedi né combattere in alcun modo. Può dialogare interpretando una condizione di estrema debolezza. Un PG che subisse questo effetto da sano, ferito o da morto deve dichiarare Nullo.
+* **Oggetto distrutto:** l'oggetto bersaglio viene distrutto, riporta il cartellino in area master (o l'intero oggetto se è associativo). La maggior parte degli oggetti di gioco con o senza cartellino viene direttamente distrutto, questo comprende armi, libri, monete (una alla volta), fogli, sostanze, erbe, cristalli, ecc.
+
+    Ci sono tre eccezioni degne di nota:
+
+1. Porte e Serrature non vengono distrutte direttamente ma subiscono un colpo di arma da fuoco.
+2. Gli oggetti magici (cartellini rossi) potrebbero non subirne gli effetti o reagire in modo particolare, deve essere presente un Master per usare questo effetto su oggetti magici.
+3. Le armi perdono il loro nastro di manutenzione. Sono inutilizzabili finché non ne ricevono un altro. Eventuali cartellini associati alle armi, seguono le regole normali.
+* **Incurabile**: il bersaglio deve dichiarare Nullo agli effetti Stasi, Cura e Guarigione fino alla fine della giornata di gioco (se non specificato diversamente da un suffisso X (tempo)).
+
+
+## Gesti
+
+Due situazioni di gioco sono rappresentate da gesti, e non mediante parole. L'uso di questi gesti non è libero, ma è permesso solo da particolari abilità o incanti.
+
+
+
+* **Invisibile**: Il giocatore alza un braccio tenendo un dito alzato al cielo. Ogni altro PG o PNG ignora la sua presenza.
+* **Circolo**: Il giocatore pone un pugno chiuso all'altezza del cuore. Il gesto rappresenta un'aura magica protettiva attiva in quel momento attorno alla sua persona. Chi assiste al gesto è consapevole di una particolare vibrazione dell'aria che circonda il personaggio che compie il gesto. Se il giocatore rimuove il pugno dal petto, l'aura protettiva è immediatamente rimossa.
+
+
+## Suffissi
+
+
+
+* **Nullo**: annulla l'effetto o l'incanto appena dichiarato. Come suffisso può essere pronunciato volontariamente per annullare un proprio effetto.
+* **In quest'area:** accompagnato dal gesto delle braccia che disegnano un'area di 90° di fronte a sé. I personaggi subiscono l'effetto se compresi nell'area. La profondità dell'area è di 10 metri.
+* **Raggio X**: l'effetto è valido per un'area circolare di raggio X (con X uguale al numero di metri) e centro chi lo dichiara.
+*  **– (classe)**: l'effetto è valido solo per la classe di PG o PNG dichiarata. Questo è un suffisso e va dichiarato dopo l'effetto. Esempio: Spinta non-morti colpirà solo i non-morti.
+* **Senza Cicatrici:** si associa agli effetti Cura o Guarigione. Se l'effetto legato a questa estensione porta il PG da COMA a SANO, il PG non deve strappare una Cicatrice
+* **(tempo) X**: dove X è un numero intero positivo. L'effetto che precede questa Chiamata perde la sua normale durata base. La durata dell'effetto diviene del tempo specificato dal numero X, espresso in Ore, Minuti o Secondi. Un effetto Debolezza Secondi 10 farà subire al bersaglio l'effetto Debolezza come descritto sopra ma per soli 10 secondi. Allo stesso modo, un effetto Debolezza Minuti 3, porterà la durata dell'effetto di debolezza a 3 minuti
+* **Perenne**: l'effetto che precede questa chiamata perde la sua normale durata base. Il bersaglio subisce l'effetto fino a fine giornata di gioco.
+
+
+
+
+# Cartellini
+
+I cartellini sono il modo con il quale all'interno dell'evento ci si passa oggetti o si detengono informazioni del proprio PG. Tutti i cartellini che possono essere scambiati o rubati possono essere rubati anche senza l'utilizzo della perquisizione SE SONO VISIBILI. Non è mai possibile aprire le borse altrui o frugare nelle tasche.  
+
+
+## Tipologie di Cartellino
+
+I cartellini esistenti sono:
+
+
+
+* CARTELLINI RISORSA: sono semplici foglietti rettangolari con sopra lo stemma di Intempesta Noctis e il nome della risorsa. Possono essere scambiati o rubati.
+* CARTELLINI SOSTANZA: sono semplici foglietti rettangolari piegati in due con sopra lo stemma di Intempesta Noctis; riportano all'interno gli EFFETTI subiti in caso di assunzione. I cartellini pozione, veleno e droga fanno parte di questa categoria. Quando vengono assunti, il cartellino viene strappato. Possono essere scambiati o rubati.
+* CARTELLINI POTERE: sono semplici foglietti rettangolari con sopra lo stemma di Intempesta Noctis e la scritta "POTERE". Servono a rappresentare l'eventuale potere magico che resta ad un personaggio. Quando viene usato viene strappato. Non possono essere scambiati o rubati. Non sono cumulabili tra eventi di gioco.
+* CARTELLINI OGGETTO: sono foglietti rettangolari, generalmente plastificati: sul fronte è riportato il logo di Intempesta Noctis ed eventualmente il nome dell'oggetto. Sul retro è riportata la descrizione dell'oggetto e gli effetti di gioco a seconda dei casi. In termini di gioco, l'oggetto è sempre rappresentato dal cartellino, anche nei casi in cui viene fornito con un oggetto fisico che lo rappresenta. Se doveste essere in possesso del cartellino di un oggetto, ma non dell'oggetto fisico originale, avete effettivamente l'oggetto e dovrete procurarvi una rappresentazione adeguata quando necessario. Ad esempio, per poter utilizzare un oggetto che è descritto come un'arma, dovete necessariamente legare il cartellino ad un'arma del tipo appropriato. Al contrario, se aveste un oggetto associativo ma senza cartellino, non è possibile utilizzare gli effetti che avrebbe avuto con il cartellino e deve essere riconsegnato in area staff. Se un oggetto viene rubato, si deve consegnare solamente il cartellino che rappresenta in effetti l'oggetto. Esempio: Paul ha una spada magica. Per usarla deve applicare il cartellino oggetto a una spada in suo possesso. Se venisse perquisito dovrebbe consegnare solo il cartellino. Come azione equivale al rubare la spada. Si suppone che Paul rimanga con la sua vecchia spada normale. \
+I PG in possesso di un cartellino oggetto DEVONO interpretare le istruzioni riportate sul cartellino stesso. Esempio, se un oggetto obbliga a camminare senza mai correre il PG è obbligato a fare in quel modo. Come linea guida generale, se si viene in contatto di un oggetto senza prendere precauzioni speciali, il giocatore è OBBLIGATO a leggere il cartellino ed interpretare gli effetti descritti. Esempio: Orazio teme che il manufatto che ha trovato nel bosco sia maledetto, quindi lo afferra con un fazzoletto e lo mette in una sacca molto velocemente senza nemmeno esaminarlo. Per distruggere un cartellino oggetto è necessario conservarlo fino alla fine dell'evento quindi contattare i master, oppure utilizzare l'effetto "oggetto distrutto" con le modalità descritte nel capitolo EFFETTI.
+* CARTELLINO SERRATURA: rappresenta una serratura o lucchetto. È possibile trovarne a sé stanti ma è più comune trovarli applicati a porte o contenitore. Per maggiori dettagli vedi la sezione "Serrature".
+
+
+## Oggetti comuni
+
+Vari oggetti comuni sono rappresentati da riproduzioni in vetro o plastica, e non da cartellini:
+
+
+
+* ERBE: le erbe sono rappresentate da oggetti di plastica a forma di fogliolina colorata. Quando un giocatore fosse in possesso di un cartellino cartaceo "erba" dovrà rivolgersi ai master per farselo sostituire da un oggetto di questi.
+* SOSTANZE: le sostanze sono rappresentate da boccette di vetro trasparenti con attaccato un cartellino sostanza. Qualora un giocatore avesse sostanze senza boccetta, deve rivolgersi ai master per farsi dare l'oggetto corrispondente.
+* CRISTALLI: i cristalli sono rappresentati da finti cristalli di plastica colorati. Chi fosse in possesso di un cartellino cristallo deve rivolgersi ai master per farselo sostituire dall'oggetto corrispondente.
+
+
+## Sostanze
+
+Nel gioco ci sono diversi tipi di sostanze sotto forma di cartellini Sostanza, spesso associati ad un oggetto fisico, generalmente una boccetta di vetro:
+
+
+
+* Le Pozioni hanno effetti generalmente benefici.
+* I Veleni hanno effetti nocivi.
+* I Preparati Medici generalmente curano le malattie.
+* Le Droghe seguono regole speciali descritte di seguito. Inoltre, sono le uniche sostanze senza una boccetta.
+
+Un cartellino SOSTANZA può avere un nome sulla "copertina" che equivale ad un'etichetta della sostanza. Tale etichetta NON è vincolante sul contenuto della sostanza.
+
+Per assumere qualunque sostanza le regole sono le medesime.
+
+
+
+* ASSUNZIONE VOLONTARIA: il PG prende il cartellino della sostanza tenendolo chiuso. Per assumere la sostanza è sufficiente aprire il cartellino. Una volta aperto si suppone che il PG abbia bevuto la sostanza. Il giocatore legge gli effetti del cartellino e li interpreta. Immediatamente dopo strappa il cartellino.
+* ASSUNZIONE INVOLONTARIA: il PG assume la sostanza involontariamente. In questo caso è obbligatorio che il PG beva una qualche bevanda che normalmente assumerebbe. Qualunque PG può nascondere un cartellino sostanza sotto il bicchiere desiderato. Questa operazione corrisponde a versare la sostanza nella bevanda. Quando un altro PG alza il bicchiere e beve da esso si suppone abbia ingerito la sostanza. In quel momento quel PG aprirà il cartellino e leggerà gli effetti che deve interpretare. Immediatamente dopo il cartellino va strappato.
+
+    N.B. QUANDO UN PG SOLLEVA IL BICCHIERE E SCOPRE IL CARTELLINO NASCOSTO È OBBLIGATO A BERE LA SOSTANZA. Solo un PG con l'abilità "Alchimia" potrà alzare un bicchiere e analizzare l'eventuale cartellino al di sotto e decidere se bere oppure no.
+
+* ASSUNZIONE FORZATA: il PG o PNG è incosciente (coma, svenimento, botta) e un altro PG o PNG lo tocca sulla fronte con in mano la sostanza. In quel momento il PG o PNG incosciente ha assunto la sostanza: deve leggere il cartellino e poi strapparlo e subire gli effetti della sostanza. È comunque consigliabile simulare il più possibile l'assunzione.
+
+
+## Droghe
+
+Un cartellino sostanza che abbia al suo interno una droga è riconoscibile ad occhio nudo, quindi, avrà sulla copertina il nome corrispondente a cosa è.
+
+Le droghe hanno vari effetti che durano tempi fissi. I tempi sono:
+
+
+
+1. EFFETTO PRIMARIO (E1): dura 1 ora, si seguono le istruzioni della sostanza.
+2. QUIESCENZA (Q): dura 1 ora e non si hanno effetti.
+3. EFFETTO SECONDARIO (E2): dura 1 ora (di base), si seguono le istruzioni della sostanza.
+
+Questi tempi sono base e possono variare in funzione di abilità o altro.
+
+Se si assume una nuova droga, gli effetti della precedente vengono immediatamente annullati e si riparte con l'effetto della nuova.
+
+Generalmente gli effetti primari sono vantaggiosi e quelli secondari sono svantaggiosi. Ne consegue che per evitare gli effetti secondari, un PG o PNG debba assumere continuamente la sostanza.
+
+Un PG che assuma droghe in un evento, all'evento successivo, quando entra in gioco, comincerà nello stato E2 dell'ultima droga assunta. È cura del giocatore essere onesto e segnalare questa cosa ai master che comunque nella maggior parte dei casi sapranno della cosa.
+
+Un PG che assuma droghe abitualmente, dopo un certo tempo deciso dai master raddoppia il tempo E2. Questo può avvenire più volte.
+
+Ecco alcune droghe conosciute:
+
+
+
+* OPPIO    
+
+    E1: immune a Dolore, Paura, Possessione. 
+
+
+    E2: Debolezza per tutta la fase.
+
+* MORFINA    
+
+    E1: immune a Dolore, Paura, Svenimento, Possessione, Al Termine del conteggio per il tempo di Coma, lo stato di Coma viene prolungato per ulteriori 14 minuti invece di passare a MORTO. 
+
+
+    E2: Debolezza per tutta la fase. Punti ferita ridotti a 1 per tutta la fase.
+
+
+
+## Creare Oggetti
+
+Gli oggetti vengono creati tra un live e l'altro: è necessario comunicare allo staff attraverso l'e-mail inazionifg@gmail.com le creazioni che si intendono eseguire con le informazioni relative all'oggetto che si sta creando:
+
+
+
+* Tipo di Oggetto (Anello, Pozione, Veleno, Arma Affilata, Serratura...).
+* Nome Proprio che avrà l'oggetto (nel caso dei Preziosi).
+* Elenco dei Materiali (nota anche come 'Ricetta').
+* Laboratorio dove avviene la sintesi (nel caso delle sostanze).
+* Elenco delle Abilità utilizzate.
+
+Per poter creare un oggetto, il PG deve avere a disposizione un Cartellino Oggetto. Le abilità dei mestieri che prevedono di creare oggetti forniscono un certo numero di questi cartellini ad evento, in modo simile ai cartellini potere, sono cumulabili da diverse fonti ma all'inizio di ogni Evento si resettano. I Cartellini Oggetto sono una risorsa virtuale: dato che vengono usati tra un live e l'altro e non si accumulano, non verranno consegnati fisicamente ai giocatori ma verrà semplicemente tenuto conto delle rispettive disponibilità quando si verifica se una creazione riesce.
+
+I materiali devono essere consegnati in segreteria al momento della registrazione all'evento successivo. Il giocatore troverà nella sua busta PG i cartellini, eventualmente plastificati, degli oggetti che ha creato, secondo le regole delle varie tipologie di oggetti.
+
+L'oggetto deve essere rappresentato fisicamente in gioco, quindi gli artigiani o i loro committenti sono tenuti a procurarsi per l'evento successivo un oggetto fisico adatto a cui allegare il cartellino. Fanno eccezione i proiettili speciali, per i quali è sufficiente il cartellino, e le Sostanze, per le quali è lo staff a fornire il contenitore quando necessario.
+
+
+## Sintetizzare Sostanze
+
+La sintesi delle sostanze è caratterizzata da alcune eccezioni alle regole generali di cui sopra:
+
+
+### Laboratorio
+
+La sintesi delle sostanze deve avvenire con un'attrezzatura idonea che comprende gli strumenti, come alambicchi, bruciatori, pestelli, ecc. ma anche altre sostanze secondarie necessarie alla sintesi che non sono rappresentate in gioco singolarmente, come catalizzatori e reagenti.
+
+Tutto questo è rappresentato in gioco dai laboratori alchemici: recipienti, ampolle alambicchi, ecc. dove c'è questa scenografia, significa che quel luogo ha disposizione un laboratorio attrezzato, anche se non è fisicamente presente in gioco tutto il materiale del laboratorio. I palazzi delle famiglie dispongono di un laboratorio ciascuno, esiste anche un laboratorio "pubblico" nell'ospedale del borgo.
+
+Quando si vuole effettuare una sintesi di sostanze è necessario indicare presso quale laboratorio avviene la sintesi. Questo perché la condizione del laboratorio che si intende utilizzare può influire sulla riuscita delle pozioni.
+
+
+
+* Accesso al Laboratorio: i laboratori delle magioni sono sempre accessibili ai membri della stessa famiglia, il laboratorio dell'ospedale è accessibile a tutti. Un membro esterno a una famiglia (non affiliato o della fazione opposta) può utilizzare il laboratorio di quella famiglia solo se viene dato un consenso esplicito in gioco dal capo famiglia (deve esistere uno scambio di missive dove viene dato questo permesso).
+* Manutenzione del Laboratorio: i laboratori vanno costantemente riforniti di reagenti, la vetreria pulita e sostituita quando troppo logora, i fornelli e bracieri devono avere nuovo combustibile, eccetera. Ad ogni evento è dunque necessario spendere un bene vettovaglie che rappresenta tutte queste forniture, per farlo è sufficiente mettere il bene in una busta indicando su di essa per quale laboratorio si sta pagando la manutenzione e inserirla nella cassetta delle poste ducali.
+* Probabilità di fallimento: Se il laboratorio che si sta utilizzando non è stato mantenuto, il personaggio subisce una probabilità del 20% che la sintesi che stava tentando fallisca, anche se la ricetta è corretta. Questa probabilità aumenta di 20% per ogni evento successivo in cui non viene effettuata la manutenzione. Questo rappresenta le imprecisioni introdotte dalla strumentazione non idonea: impurità negli alambicchi, reagenti insufficienti o alterati dall'umidità, fornelli con fiamme non uniformi, eccetera. È sempre possibile richiedere l'attuale percentuale di fallimento di un laboratorio a cui si ha accesso, prima di inviare le sintesi e le Sperimentazioni, tramite email a [inazionifg@gmail.com](mailto:inazionifg@gmail.com).
+* Danneggiamento del laboratorio: un laboratorio ha un indicatore di integrità, come le porte: inizia in stato "Integro" e riporta eventualmente un numero che indica da quanti eventi non è stato mantenuto. Durante un evento live può essere danneggiato; per farlo, i giocatori devono far esplodere il palloncino posto sotto il tavolo, quindi girare il cartello integrità su "Danneggiato". Con questo si intende simulare l'atto vandalico di spaccare le provette e rovesciare i reagenti, il che produce rumore. Se un laboratorio è "Danneggiato" non può essere utilizzato. 
+* Riparazione del laboratorio: Per riparare un laboratorio è necessario mettere 2 beni vettovaglie e 1 bene Tessile in una busta e indicare su di essa quale laboratorio si intende riparare, quindi inserirla nella cassetta della Posta Ducale. In alternativa, un Carpentiere può effettuare la medesima riparazione in gioco, utilizzando gli stessi materiali impiegando almeno 20 minuti di lavoro. In questo caso si intende una riparazione parziale, che poi continuerà nel tempo inter-live, ma sufficiente a poter sintetizzare qualche preparato medico (vedi Preparati Medici sotto). In ogni caso, potete girare il cartello integrità su "Integro".
+
+Per un laboratorio si paga il costo di mantenimento oppure il costo di riparazione, mai entrambi. Se durante un evento aveste già pagato il costo di mantenimento e poi aveste necessità di riparare lo stesso laboratorio, il costo di riparazione è ridotto ad 1 bene vettovaglie e 1 bene tessile.
+
+
+### Ingredienti e Ricette
+
+Per sintetizzare una sostanza, il personaggio deve indicare tutti gli ingredienti che ritiene necessari all'ottenimento della sostanza stessa. In più dovrà indicare la ricetta precisa di ciò che sta preparando poiché alcune abilità permettono di sintetizzare con un ingrediente in meno, ma la ricetta deve essere completa e riportare quale abilità si sta usando per ridurre il consumo di ingredienti.
+
+
+### Sperimentazione
+
+Non è necessario conoscere una ricetta per tentare una sintesi, è perfettamente possibile e incoraggiato sperimentare diverse combinazioni di ingredienti per scoprire nuove ricette. Per eseguire una sperimentazione, devi inviare una richiesta separata prima di inviare le sintesi delle sostanze note. Si può tentare un esperimento per ciascun cartellino oggetto disponibile, ma viene consumato solo se il tentativo riesce, cioè se la ricetta proposta corrisponde effettivamente ad una sostanza; gli ingredienti usati per l'esperimento sono comunque consumati.
+
+L'esito delle sperimentazioni viene comunicato via e-mail appena possibile; dopo aver ricevuto l'esito, se il PG dispone di altri Cartellini Oggetto, può inviare la richiesta delle sintesi normalmente.
+
+Il tipo di sostanze ottenibili dipende dalle abilità acquisite dal personaggio: non è possibile per un erborista creare veleni o per un semplice alchimista creare droghe. Questo rappresenta la conoscenza delle procedure e dell'uso corretto del laboratorio necessarie ad ottenere un certo tipo di sostanze. Esempio: se un Erborista mette nel contenitore 2 erbe blu e 1 erba rossa non otterrà nessuna sostanza. Un alchimista che usa la stessa ricetta otterrebbe invece un Veleno 1.
+
+
+### Preparati Medici
+
+I preparati medici sono una sostanza particolare, poiché il suo effetto preciso non è noto, si sa soltanto che certi preparati medici sono particolarmente efficaci nel trattamento di specifiche malattie.
+
+I Preparati Medici sono gli unici oggetti che è possibile creare in gioco, questo per consentire l'effettiva sperimentazione delle cure sui malati. È comunque sempre possibile crearli tra un evento e l'altro come ogni altra sostanza.
+
+Per sintetizzare un Preparato Medico in gioco, il PG deve innanzitutto disporre di un laboratorio agibile (vedi Laboratori sopra) ed effettivamente inserire negli appositi contenitori grandi disponibili presso i laboratori, gli ingredienti che ritiene opportuni perché la sostanza sia efficace (cartellini di estratti, erbe di plastica, ecc.). Quindi deve scrivere all'interno del cartellino annesso al contenitore l'elenco di questi ingredienti. Se desidera può scrivere una descrizione a piacere all'esterno del cartellino, che equivale ad apporre un'etichetta sul contenitore.
+
+Un PG che assume un Preparato Medico deve consegnarlo allo staff per valutare che effetti ha avuto.
+
+**Considerazioni di Ambientazione:** guarire da una malattia non è un processo istantaneo, un rimedio farmaceutico ha bisogno di tempo per fare effetto. È molto probabile che nell'immediato non ci siano evidenti segni di miglioramento, soprattutto per i casi più lievi, invece, nei casi più gravi la medicina giusta può fare la differenza tra la vita e la morte del paziente: se un paziente in condizioni critiche a cui date una medicina sopravvive fino alla fine dell'evento o se ne va via sulle sue gambe, è un buon indizio che la medicina è stata efficace, anche se il paziente continuasse a stare male.
+
+
+
+
+# L'Economia del Ducato per semplici cittadini
+
+L'economia nel mondo di Intempesta Noctis gioca un ruolo importante e segue delle regole fisse che la rendono un sistema "vivo" che interagisce con i PG e che reagisce, all'occorrenza, con le scelte dei PG, TUTTAVIA NON È OBBLIGATORIO STUDIARE TUTTO IL SISTEMA!
+
+Se non vuoi cimentarti nel mondo economico o vuoi che il tuo PG sia totalmente o parzialmente disinteressato all'economia, sarà sufficiente leggere questo capitolo del Regolamento. Altrimenti ti consigliamo la lettura del "Tomo della Economia".
+
+I punti importanti da tenere a mente sono:
+
+
+
+1. I beni sono fogli che indicano la propria natura e rappresentano una determinata merce che può avere utilità nel gioco. I beni sono CIBO, VETTOVAGLIE (utensili, piatti, soprammobili, varie), TESSILE (stoffe e vestiti) e ARMI.
+2. I beni riportano la scritta “BENE REGISTRATO” oppure “BENE NON REGISTRATO”. Un bene REGISTRATO si intende che sia censito dalla burocrazia del governo Ducale
+3. I beni possono essere acquistati da chiunque li possegga. Se il foglio riporta la scritta "BENE REGISTRATO" non puoi rubarlo o sottrarlo in alcun modo, in virtù di quanto scritto al punto 2.
+4. E’ possibile inviare beni a terzi solo nel corso di un evento, inserendoli in una busta assieme a un costo di invio di 5 monete di rame e riportante il destinatario. La busta va imbucata in una cassetta riportante la scritta “INVIO DI BENI” (diversa dalla cassette delle poste Ducali, e da quella della Locanda). La cassetta è inamovibile e non alterabile in alcun modo.
+5. I beni possono esserti utili per quanto riguarda le armi e la tua salute, vedi sotto "Limitazioni dei personaggi da fattori economici", appena qui sotto.
+6. Se vuoi un bene e nessuno te lo offre, nel Ducato spesso vi sono persone che li hanno, ad esempio mercanti.
+7. Nei mercati puoi anche vendere dei beni in tuo possesso; al MERCATO ESTERO puoi trovare un contratto da soddisfare con le tue merci, e riscuotere lauti guadagni.
+8. Se hai bisogno di soldi esiste una banca alla quale puoi chiedere. Se hai dubbi chiedi in gioco.
+9. Vi sono una serie di tasse che potrebbero riguardare. Tranquillo, quando ti chiedono dei soldi non te ne devi ricordare da solo.
+10. La locanda può darti diversi servizi. Se può interessarti, leggi la sezione apposita nel "Tomo della Economia".
+
+ 
+
+
+## Limitazioni dei Personaggi da Fattori Economici
+
+L'economia e i beni in gioco hanno delle dirette conseguenze sui personaggi e su quello che fanno o possono fare.
+
+
+
+1. Un PG che non mangi aumenta la probabilità di subire conseguenze in ambito di salute all'evento successivo.
+2. Un PG che non faccia manutenzione alle proprie armi non potrà utilizzarle all'evento successivo.
+3. Un PG medico che non faccia manutenzione alla sua attrezzatura, non potrà curare nessuno al suo evento successivo.
+4. Un laboratorio alchemico danneggiato e non riparato non può essere utilizzato per sintetizzare sostanze. Un laboratorio che non viene mantenuto comporta una probabilità di fallimento delle sintesi che aumenta più passano eventi dall'ultima manutenzione.
+
+
+## Consumo di Cibo
+
+Per non incorrere in conseguenze sulla sua salute, un PG può in qualunque momento:
+
+
+
+* Consumare cibo in locanda versando ad essa 3 monete di rame e ritirando il biglietto (oggetto fuori gioco) nel quale dovrà inserire il nome del proprio PG. A quel punto dovrà inserire il biglietto nella cassetta dello Staff in Locanda o nella cassetta della Posta. Il foglietto è un oggetto fuorigioco, rappresenta i benefici di un servizio di cui si è usufruito, pertanto non può essere rubato.
+* Beneficiare del mantenimento fornito dalla propria fazione. Una fazione copre il fabbisogno di Cibo dei propri membri se consuma Beni Cibo: per ogni Bene Cibo consumato, sono coperti 10 membri della fazione.
+
+Il Consumo di Beni per il mantenimento avviene mettendo i beni dentro una busta (reperibile generalmente in biblioteca) assieme ad un elenco dei PG che ne beneficiano. Questa busta deve poi essere imbucata nella cassetta della posta ducale.
+
+
+## Manutenzione delle Armi
+
+Durante un evento Live, è possibile utilizzare solo le armi che hanno ricevuto manutenzione. La manutenzione delle armi è rappresentata da un nastro colorato da porre sull'arma. Come si ottengono i nastri manutenzione?
+
+
+
+* Durante l'evento, i personaggi devono procurarsi un cartellino "Manutenzione" per ciascuna arma che intendono abilitare per l'evento seguente. I cartellini Manutenzione possono essere ottenuti dai Fabbri in gioco, che possono richiedere una somma di denaro in cambio del cartellino. I cartellini Manutenzione sono oggetti fuorigioco, rappresentano i benefici di un servizio di cui si è usufruito, pertanto non possono essere rubati; riportano su di essi la data dell'evento in corso.
+* I cartellini manutenzione sono prodotti dai Fabbri a partire dai Beni Armi, per maggiori dettagli vedi la sezione Abilità.
+* Durante la registrazione a un evento, il giocatore consegna allo staff i cartellini manutenzione e riceve in cambio i nastri colorati. In questo caso sono considerati validi solo i cartellini manutenzione con la data dell'evento precedente.
+* Durante un evento, un giocatore può consegnare i cartellini manutenzione a un membro dello staff per ricevere in cambio i nastri colorati. In questo caso sono validi solo i cartellini manutenzione con la data dell'evento corrente. Il tempo di attesa perché lo staff fornisca i nastri è variabile e dipende da quanto lo staff è impegnato in un dato momento, considerate questo tempo come quello necessario al fabbro per fare il lavoro di manutenzione.
+* Le armi da lancio costituiscono un'eccezione: si ricevono 3 nastri per ciascun cartellino manutenzione consegnato con lo scopo di mantenere armi da lancio.
+* Se un'arma subisce l'effetto "oggetto distrutto", è necessario rimuovere il nastro della manutenzione e consegnarlo allo staff, diventando di fatto inutilizzabile finché non viene applicato un nuovo nastro. Tuttavia, un personaggio può impugnare una qualsiasi arma con un nastro che sia in grado di utilizzare (con il permesso del proprietario qualora fosse di un altro giocatore)
+
+
+## Rimborso Medico e Manutenzione Strumenti
+
+Il Ducato riconosce un compenso ai medici che operano sul suo territorio, commisurato a quanto hanno contribuito alla salute dei cittadini.
+
+I medici dovranno procurarsi una busta, compilarla con la dicitura "rimborso medico di [nome PG]", inserire in essa le cicatrici man mano che le raccolgono dai personaggi che hanno curato, e poi imbucarla a fine evento nella cassetta dello staff che si trova in locanda.
+
+Dopo l'evento, i personaggi con l'abilità "Formazione Medica" possono richiedere le ricompense secondo lo schema seguente mandano una mail ad [inazionifg@gmail.com](mailto:inazionifg@gmail.com) con oggetto "rimborso medico":
+
+
+
+* 1 Moneta di Rame: 1 Cicatrice.
+* 1 Siero Medico: 3 Cicatrici.
+* 1 Estratto Casuale: 6 Cicatrici.
+
+La Manutenzione degli strumenti medici avviene semplicemente includendo le 3 monete di rame nella stessa busta del rimborso medico.
+
+
+## Manutenzione dei Laboratori
+
+Durante un evento, qualsiasi giocatore può inserire un bene vettovaglie in una busta, indicando per quale laboratorio vuole pagare la manutenzione e imbucarla nella cassetta della posta ducale.
+
+
+# Il Fuorigioco
+
+Nel mondo del gioco di ruolo dal vivo si sente nominare spesso il fuorigioco, ma cosa si intende? In generale lo si può definire come "qualsiasi interazione intrapresa dai personaggi al di fuori degli eventi ufficiali".
+
+Questo è generalmente percepito come una cosa negativa nel gioco di ruolo dal vivo, perché è contrario al suo spirito costituente: essere "dal vivo" implica una spontaneità e una serie di circostanze che necessariamente influenzano le scelte dei giocatori, mentre la caratteristica di ritrovo degli eventi ufficiali permette a tutti di intervenire e interferire con le giocate altrui, cosa che altrimenti non è possibile.
+
+Intempesta Noctis ha però alcune caratteristiche tali per cui il fuorigioco diventa una risorsa utile: la natura investigativa del gioco e il forte peso dell'ambientazione sullo svolgersi della trama. L'ambientazione è viva, risponde alle mosse dei giocatori e pesa sulle loro possibilità di azione, ma durante gli eventi gode di una limitata rappresentanza, per gli ovvi limiti di tempo ma anche di risorse dello staff.
+
+Per ovviare a questi limiti e dare ai giocatori più spazio di gioco, abbiamo posto alcune regole alle interazioni fuori gioco.
+
+
+## Interazioni private fra giocatori
+
+In generale questo tipo di interazione è deprecato perché toglie sempre spessore al gioco vero e proprio: una grande rivelazione raccontata al pub non crea lo stesso effetto che riportata al personaggio interessato durante un live.
+
+Ma ci sono anche casi comuni di gruppi di gioco stretti che hanno informazioni condivise in gioco ed è verosimile che i personaggi facciano rapporto su quanto accaduto loro durante il live e si scambino pareri e impressioni sulle loro informazioni, cercando di trovare il bandolo della matassa. Questo genere di interazioni fuorigioco è più comune tra giocatori che vivono nella stessa zona e possono trovarsi di persona, ma con i moderni mezzi tecnologici, videoconferenze su Skype e gruppi su Facebook sortiscono lo stesso effetto. Se c'è la possibilità di vedersi di persona è preferibile organizzare un Ritrovo. Siamo consapevoli che non possiamo impedire ai giocatori di parlarsi del gioco al di fuori degli eventi, quindi abbiamo deciso di regolare la cosa come segue:
+
+
+
+* Questo tipo di interazione fuorigioco è sconsigliata, usate le altre possibilità che vi diamo ogni volta che potete (missive in primis e i vari tipi di eventi a seguire).
+* Se proprio dovete, cercate di coinvolgere un Master.
+* Qualunque informazione da voi rivelata è considerata IN GIOCO. I migliori tutori della privacy del vostro PG siete voi stessi, se avete informazioni che non volete si sappiano, non ditele. Anche con le migliori intenzioni del mondo, un giocatore può sbagliare: se è a conoscenza di una informazione che non dovrebbe avere potrebbe scappargli detta o reagire come se il suo PG lo sapesse, evitate quindi cose come "te lo dico fuori gioco, tizio l'ho ucciso io, però non dirlo". Da notare che a questo fine si considerano solo le informazioni, ad esempio non potrete denunciare Tizio alla Duchessa perché vi ha dato del tu al bar mentre parlavate del gioco, invece di usare il plurale majestatis.
+
+
+## Missive
+
+Il modo migliore di scambiare informazioni di gioco al di fuori degli eventi sono le Missive. Il sito di Intempesta Noctis integra uno strumento appositamente designato che permette ai giocatori di inviare lettere ad altri PG ma anche a PNG. Le missive seguono queste regole:
+
+
+
+* Le missive sono Illimitate. Ciascun giocatore può inviare tutte le missive che può permettersi.
+* Le missive vengono inviate nella data dell'ultima Voce di Locanda.
+* Le missive hanno un costo in monete di gioco. Il costo varia in base al destinatario e al canale utilizzato per l'invio (vedi tabella).
+* Il pagamento delle missive avviene al live successivo: il costo delle missive che ha inviato viene prima dedotto dalla sua rendita, se questa non fosse sufficiente a coprire le spese, si chiederà al giocatore di saldare l'ammanco in segreteria al momento della registrazione del PG. Se il PG non avrà abbastanza monete, contrarrà un debito con la banca ducale per il corrispettivo ammontare(vedi Tomo dell'Economia).
+* Le missive arrivano SEMPRE a destinazione, salvo fattori di trama.
+* Le missive possono essere intercettate. L'intercettazione non pregiudica la consegna, ma significa che qualcuno avrà letto il contenuto del messaggio. La probabilità che una missiva sia intercettata dipende dal tipo di messaggio che si sta inviando (vedi tabella).
+* Per spedire una missiva è sufficiente conoscere il nome completo del destinatario o il suo titolo in caso di personalità nota.
+* La risposta di una missiva arriva dopo un tempo ritenuto consono dai Master per cui avvenga la spedizione del messaggio, l'elaborazione da parte del destinatario e la spedizione della risposta. Più il destinatario è lontano e più le richieste sono complesse, più tempo ci vorrà per avere la risposta.
+* È  possibile inviare Missive anche in gioco, imbucando il messaggio nell'apposita cassetta delle lettere. In questo caso il destinatario deve essere indicato all'esterno della busta; essa deve contenere anche le monete per coprire il costo della spedizione desiderata che viene scontato di 1 moneta di rame (min 1 moneta di rame).
+* Se una lettera inviata In Gioco non ha il destinatario sulla busta, il messaggio non verrà recapitato ma potrà comunque essere intercettato.
+
+<table>
+  <tr>
+   <td>
+Destinatario
+   </td>
+   <td>Costo
+   </td>
+   <td>Intercettazione
+   </td>
+  </tr>
+  <tr>
+   <td>PG
+   </td>
+   <td>0
+   </td>
+   <td>0%
+   </td>
+  </tr>
+  <tr>
+   <td>PNG nel Ducato
+   </td>
+   <td>1 moneta di rame
+   </td>
+   <td>5%
+   </td>
+  </tr>
+  <tr>
+   <td>PNG fuori del Ducato
+   </td>
+   <td>3 monete di rame
+   </td>
+   <td>10%
+   </td>
+  </tr>
+  <tr>
+   <td>Canale Sicuro
+   </td>
+   <td>1 moneta d’argento
+   </td>
+   <td>1%
+   </td>
+  </tr>
+</table>
+
+
+Non è possibile inserire denaro o oggetti in una missiva salvo
+
+
+
+* Il denaro che serve per coprire il costo d'invio della stessa missiva.
+* Il denaro di tasse di invio di merci.
+
+Non puoi, quindi, saldare un debito con la Banca (ma puoi avvisare così da poter saldare all'iscrizione successiva) o inviare denaro ad un ente (passa attraverso la Banca!) o ad una persona. Non puoi nemmeno inviare erbe o oggetti con cartellini o senza cartellini. Le merci possono essere inviate, pagando eventuali tasse di invio.
+
+IMPORTANTE: via missiva a un evento non è possibile inviare nemmeno dei documenti scritti (oggetti di gioco), ma solamente lettere scritte di proprio pugno o scritte da un altro personaggio.
+
+
+## Ritrovi
+
+I Ritrovi sono in realtà Eventi In Gioco, ma li citiamo qui perché a differenza di Live ed Episodi sono organizzati dai giocatori, quindi è una possibilità di giocare al di fuori degli eventi ufficiali. Vedi la descrizione nel capitolo Eventi di Gioco.
+
+
+## Azioni Fuori Gioco
+
+Questo tipo di Interazione Fuorigioco è stata aggiunto per venire incontro all'esigenza di molti giocatori di interagire con l'ambientazione in modo più diretto, che non sia parlare con un PNG.
+
+Un'Azione Fuorigioco rappresenta un PG che dedica il suo tempo libero a una particolare impresa, di natura prettamente pratica. In generale si tratta di reperire informazioni in modo indiretto (senza chiederle ad una persona specifica), come visitare un luogo, fare ricerche su testi scritti, chiedere in giro, ecc.
+
+Le Azioni Fuori Gioco (AFG) seguono queste regole:
+
+
+
+* Le AFG sono sconsigliate, hanno molti limiti e sono difficili da gestire, sono da considerarsi elementi primariamente interpretativi.
+* Le AFG devono essere scritte via Email all'indirizzo inazionifg@gmail.com , con una descrizione breve e concisa.
+* Il contenuto di una AFG deve seguire queste linee guida: a) Si visita un solo luogo; b) Si interagisce con una sola persona o gruppo omogeneo di persone; c) Si esegue una sola azione. Esempio: "vado al monastero di San Gennaro (visito un luogo) chiedo ai monaci ospitalità (interagisco con un gruppo omogeneo di e persone) per fare una ricerca della loro biblioteca circa le reliquie del santo (eseguo una azione)".
+* Se lo scopo di un'AFG può essere palesemente raggiunto con una missiva, l'azione viene rifiutata e vi sarà chiesto di spedire una missiva. Quindi non cercate di usare un'AFG per evitare di essere intercettati. Esempio: "vado a Parma al ministero degli esteri e parlo con ministro di" [segue descrizione del dialogo]. Questo tipo di azione sarebbe rifiutata perché un dialogo simile è prettamente prerogativa delle missive.
+* I Master hanno il diritto di rifiutare le AFG se ritengono che siano campate per aria o non soddisfino date condizioni dettate dal gioco o dall’ambientazione, oppure contrastino con i punti elencati qui.
+* Non è possibile agire direttamente contro altri PG, in quanto i giocatori interessanti non avrebbero la possibilità di controbattere.
+* È possibile agire contro PNG, con le dovute eccezioni in virtù del principio di conservazione e della regola di buon gioco per cui "le cose importanti si fanno ai Live".
+* Le AFG hanno un costo in monete di gioco variabile a discrezione dei Master, in base all'azione proposta.
+* La data in cui l'AFG inizia è determinata indicativamente dalla data dell'ultima Voce di Locanda, come per le missive. Ricordate sempre che nel mondo di gioco il vostro PG sta compiendo questa impresa; quindi, potrebbe essere preclusa la presenza del PG ad altri eventi di gioco, come i Ritrovi e le Cene di Fazione, se queste avvenissero nell'arco di tempo in cui il vostro PG sta compiendo la sua Azione Fuori Gioco.
+* Ogni PG ha diritto ad una sola AFG nel periodo che intercorre tra due Eventi LIVE (gli EPISODI non contano).
+* L'esito delle AFG è deciso in modo insindacabile dai Master, in genere in modo unilaterale, ma è possibile che vengano fatte domande per integrare la vostra descrizione, nei casi in cui ritenuto opportuno.
+
+
+## Documenti di Gioco
+
+Con “Documenti di Gioco” si intendono tutti i documenti prodotti dallo staff e utilizzati all’interno degli eventi di Gioco, sia Eventi Live che Episodi.
+
+Valgono per i documenti le seguenti regole:
+
+
+
+* Tutti i documenti di gioco sono da conservare obbligatoriamente fino alla fine dell’evento Live, non è possibile in nessun caso distruggerli nel corso di un evento, per esempio bruciandoli; l’unico modo per distruggerli in un evento è utilizzare l’effetto OGGETTO DISTRUTTO.
+* Possono essere distrutti tra un evento e il successivo, comunicandolo ai master e consegnando a loro il documento.
+* NON è possibile in NESSUN CASO fare fotografie dei documenti o degli oggetti di gioco, né per conservarli né soprattutto per inviarli a terzi.
+* Al fine di conservazione e di invio a terzi, il possessore del documento può farne una copia. La copia può essere fatta a mano (preferibile) oppure con software, ma in questo caso il documento deve essere redatto in ARIAL 12 e riportare la scritta COPIA come intestazione (per rendere evidente che non è un originale).
+
+    Il senso di questa regola è ambientativo: nel mondo di gioco non esistono tecniche rapide di copia di alta qualità.
+
+
+
+## Esiti
+
+Questa modalità ha moltissimi limiti dovuti alla sua natura "narrativa", più legata al gioco di ruolo da tavolo che dal vivo, mancando nel giocatore la spontaneità e l'immersione che si ha giocando in prima persona e avendo il master il peso di dover gestire in modo arbitrario un'infinità di variabili. (ad esempio, nel fuggire da un pericolo, il personaggio potrebbe banalmente inciampare ed essere raggiunto, cosa che qui deve decidere il master)
+
+Per tanto, ecco alcune linee guida sugli esiti delle AFG, per dare un'idea di che possibilità offrono ai giocatori:
+
+
+
+* I Master adotteranno sempre le soluzioni più conservative per l'incolumità del personaggio, anche a scapito dell'obiettivo. Se anche in gioco il personaggio rischierebbe per ottenere risultati, qui non c'è modo di "giocarsela" quindi si passa sempre dal rischio minore anche se comporta fallire.
+* La qualità delle informazioni ottenute sarà sempre e solo indiziaria. Non scoprirete mai grandi segreti in questo modo, né trovare oggetti chiave o altre informazioni cruciali, ma solo qualche aiuto.
+* Non otterrete informazioni aggiuntive qualora decideste di inviare delle AFG ripetute nel tempo, ma di carattere uguale (se cercate 3 volte la stessa cosa negli stessi luoghi non otterrete altri indizi e in generale la stessa azione non evolverà). 
+* L'ambientazione risponde alle vostre azioni, quindi è molto probabile che ci siano conseguenze, più o meno evidenti. Ad esempio, potrebbe manifestarsi come una Voce di Locanda che parla genericamente di qualcuno che fa domande in giro, oppure potrebbe tradursi nella reazione di qualche PNG, via missiva o durante un live. Potrebbe anche non succedere niente nell'immediato, ad esempio perché avete fatto davvero poco rumore o perché chi ha colto sta agendo alle vostre spalle.
+* Potrebbero esserci dei casi in cui il personaggio subisca effetti dannosi, indipendentemente dall'esito. Ad esempio, un PG potrebbe essere rapinato lungo la strada perdendo alcuni oggetti o monete, oppure potrebbe essere arrestato e farsi una notte in cella, con le conseguenze del caso.
+
+
+## Un regolamento aperto
+
+Nel corso degli anni, questo regolamento è andato incontro ad un continuo processo di revisione e miglioramento, spesso stimolato da iniziative spontanee dei giocatori. L'iniziativa dei giocatori, l'idea improvvisa di una nuova strada da far esplorare al proprio personaggio, ha spesso portato tutto Intempesta Noctis a esplorare nuovi modi di giocare e interagire. Lo staff è sempre aperto a nuovi suggerimenti e nuove idee: se vi venissero idee interessanti riguardo aspetti del gioco o dell'ambientazione non coperti da questo regolamento, vi invitiamo a parlarne con un Master o a scrivere una e-mail a inazionifg@gmail.com.
+
+ 
+
+
+# Guida Etica del Giocatore di Intempesta Noctis
+
+Il giocatore di ruolo è vario come vari sono i personaggi a cui dà vita con le mille sfumature date dalla propria fantasia e dalla propria abilità. Tuttavia, in un gioco di ruolo, insieme con la natura ludica dell'iniziativa, ci troviamo ad affrontare alcuni temi etici a livello di gestione e comportamento. Li elenchiamo a titolo preventivo e per essere chiari con chiunque dovesse venire a giocare da noi.
+
+Un giocatore di ruolo di Intempesta Noctis dovrebbe tenere a mente che:
+
+
+
+1. Un gioco di ruolo è una bella puntata di una storia. Lo scopo è di creare qualcosa di bello insieme e nessuno vince realmente su un altro giocatore. La sconfitta del proprio PG non renderà il giocatore peggiore, anzi, in alcuni casi avviene il contrario. Giocate per vincere qualcosa se lo desiderate, ma mai a tutti i costi andando a rovinare una bella storia.
+2. I master sono in campo per creare qualcosa insieme ai giocatori, ma sono già pesantemente penalizzati rispetto ad essi: lavorano per il prodotto finale e non possono giocare come voi perdendosi gran parte della sorpresa e del brivido. Il giocatore ricordi sempre che il master non gioca e non guadagna nulla a prendere decisioni che possono sembrarvi penalizzanti per un gruppo o per un altro.
+3. Un master è tale per poter superare le regole. Infatti, è in questo modo che si integra il regolamento che mai potrà essere completo o permettere le migliori sfumature interpretative. Quando un master ignora le regole o le cambia, può farlo e lo fa per rendere le cose più interessanti, a suo parere (vedi punto 2). L'errore può capitare e fa parte dell'essere umano.
+4. Barare è il modo migliore per ammazzare il gioco. I tentativi investigativi vengono rovinati e il giocatore non si divertirà in quanto perderà gradualmente il vero brivido del gioco di ruolo. Un intoccabile non gioca, rovina il gioco agli altri e a sé stesso. In tali casi ricordate che i master non sono cattivi se poi prendono provvedimenti, ma devono farlo per rispetto verso gli altri giocatori.
+5. Il Fuorigioco è nemico del gioco di ruolo. Cercate sempre di evitare di parlare fuorigioco di grandi segreti o di cose che il vostro personaggio non è venuto a sapere in gioco o di cose legate ai vostri vecchi personaggi. Non parlate dei vostri intimi segreti di gioco agli altri giocatori se non volete che il loro pg sia a conoscenza dei fatti: non solo è cattivo gioco, ma lo rovinerete agli altri! Questo è un punto molto importante, soprattutto in un gioco investigativo come il nostro. I master si riservano di prendere provvedimenti in caso di riscontro di questi comportamenti al limite o perfino scorretti!
+
+ 

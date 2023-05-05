@@ -80,6 +80,16 @@
 		{
 			return View::make('regolamento');
 		});
+	Route::get('tomo_regole',function()
+		{
+			$regole=(File::get(storage_path('files/regole.markdown.txt')));
+			return View::make('tomo_regole')->with('regole',$regole);
+		});
+	Route::get('tomo_economia',function()
+		{
+			$economia=(File::get(storage_path('files/economia.markdown.txt')));
+			return View::make('tomo_economia')->with('economia',$economia);
+		});
 	Route::get('istruzioni',function()
 		{
 			return View::make('informazioni');
@@ -305,13 +315,6 @@
 		Route::resource('admin/invito', 'InvitoController',array('except' => array('create','show','edit')));
 	});
 	
-
-	Route::get('/podcast', function() {return File::get(public_path() . '/podcastfolder/index.html');});
-	Route::get('/podcast/podcast.rss', function() {return File::get(public_path() . '/podcastfolder/podcast.rss');});
-	Route::get('/podcast/thumb.jpg', function() {return File::get(public_path() . '/podcastfolder/thumb.jpg');});
-	Route::get('/podcast/Capitolo%200%20-%20Introduzione.mp3', function() {return File::get(public_path() . '/podcastfolder/Capitolo%200%20-%20Introduzione.mp3');});
-	Route::get('/podcast/Capitolo%201%20-%20Assi%20nella%20Manica.mp3', function() {return File::get(public_path() . '/podcastfolder/Capitolo%201%20-%20Assi%20nella%20Manica.mp3');});
-	Route::get('/podcast/Capitolo%202%20-%20Il%20primo%20maggiordomo.mp3', function() {return File::get(public_path() . '/podcastfolder/Capitolo%202%20-%20Il%20primo%20maggiordomo.mp3');});
 
 
 	// route per Rotte commerciali

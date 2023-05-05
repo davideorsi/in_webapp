@@ -1,0 +1,531 @@
+
+# Intempesta Noctis - Tomo della Economia
+
+Prima di leggere questo tomo ti consigliamo di leggere il Regolamento di Intempesta  Noctis in quanto il Tomo della Economia fa riferimento a numerosi ambiti del  regolamento base. Se non desideri avventurarti nel sistema economico, puoi leggere  la sezione “L’Economia del Ducato per semplici cittadini” nel regolamento base. 
+
+Il sistema economico di Intempesta Noctis è costituito dall'insieme di regole che  gestiscono le modalità con cui si può guadagnare, produrre, spendere e consumare  denaro e beni materiali all'interno del mondo di gioco. Esso è studiato per  autoregolarsi, salvo possibili interventi correttivi da parte dei master, ed è suddiviso  in quattro diversi ambiti interagenti e comunicanti: 
+
+
+* Rendita agricola; 
+* Produzione; 
+* Commercio; 
+* Tassazione. 
+
+Questi ultimi, influenzano l’andamento economico globale del Ducato e  determinano i quantitativi di denaro a disposizione di cittadini e famiglie ed il costo  di beni e servizi. 
+
+
+# RENDITA AGRICOLA 
+
+Ogni fazione ha sotto controllo, di base, una area di territorio: idealmente, vasti  possedimenti adibiti alla produzione agricola. Gran parte degli abitanti del ducato  sono contadini: ogni nobile che abbia gestione del territorio, attraverso il lavoro di  questi cittadini, ricava dalla rendita del suo territorio un certo guadagno. 
+
+Il territorio può essere pensato come un “forziere” nel quale sono presenti le somme  di denaro e i beni che esso stesso ha prodotto nel periodo di tempo precedente ad  un evento live. Esso viene rappresentato in gioco, fisicamente, come un contenitore  di denaro speciale, conservato fuori dall'area di gioco (in area master), che può  essere aperto solo dal capofamiglia (o dai nobili della fazione, in assenza di  quest'ultimo). 
+
+Ad ogni evento LIVE l’agricoltura genera: 
+
+
+
+* 6 monete d’oro a territorio in condizione FLORIDA. 
+* 4 monete d’oro a territorio in condizione NORMALE. 
+* 2 monete d’oro a territorio in condizione DIFFICILE. 
+* 1 monete d’oro a territorio in condizione di CARESTIA. 
+
+Le condizioni di trama, il clima e le decisioni dei giocatori negli eventi precedenti  concorrono a determinare il quantitativo di denaro presente all'interno del forziere territorio. Il passaggio tra una condizione ed un’altra può essere graduale o  immediato, a discrezione dei master; tale cambiamento può anche, in casi  eccezionali, non essere lineare tra un evento e un altro (si può passare da una  condizione florida alla carestia tra un live e il successivo).  
+
+A fine di ogni evento, si immagina che parte dei proventi dell'agricoltura venga  reinvestito per il sostentamento dei contadini e per la produzione successiva, sotto  forma di sementi, arnesi, bestiame da lavoro. I master verificheranno, pertanto, la  presenza o meno di un eventuale residuo di denaro all'interno del forziere-territorio.  L'eventuale mancanza di questi fondi, quantificati in  
+
+
+
+* 3 monete d’oro in condizione FLORIDA,  
+* 2 monete d’oro in condizione NORMALE,
+* 1 monete d’oro in condizione DIFFICILE, 
+* 1 monete d’oro in condizione di CARESTIA, 
+
+può generare, come conseguenze di trama, del generico malcontento tra i contadini,  o anche una diminuzione della rendita agricola del territorio stesso (al live  successivo, pertanto, la famiglia potrà avere meno disponibilità di denaro). Più  precisamente, per ogni moneta d’oro mancante rispetto alla lista precedente, si avrà  una moneta d’oro in meno di rendita all’evento successivo. 
+
+L’amministratore del territorio (il capofamiglia o il consiglio dei nobili, in sua  assenza) non può informarsi in qualunque momento, durante un evento, circa le  condizioni dell’area territoriale; può però intervenire sul suo territorio attraverso  alcune azioni: 
+
+**- PRIMA DEL LIVE - CENSIMENTO**: richiesta di status (condizione) e  dell’ammontare di monete dell’area territoriale facendo uso dei funzionari ducali.  Per farlo deve versare ad inizio evento 1 moneta d’argento. Il Conte di Nottingham  non conosce minimamente la condizione della propria area agricola, ma ha bisogno  di un’importante somma che potrebbe ottenere dalla tassazione. Per ottimizzare la  cosa decide di richiedere lo status e versa 1 moneta d’argento. Gli viene comunicato  che la propria area agricola è in stato normale e ha 4 monete d’oro. 
+
+**- DURANTE IL LIVE - INVESTIMENTO**: una somma di denaro viene investita  per incentivare l’agricoltura. L’amministratore o chiunque dichiarasse di farlo, può  versare una cifra in denaro nel forziere-territorio (multiplo minimo, una moneta  d'argento), utilizzando la cassetta delle Poste Ducali e inviando una lettera con  specificato “Investimento Famiglia X”. L'azione può essere ripetuta più volte  durante un live. Il totale della somma versata in questo modo, verrà conteggiata ai  fini del denaro residuo, ma verrà poi immediatamente rimossa dall’area agricola. Il  Marchese di La Rochelle decide di investire in agricoltura in quanto crede che la  pesante tassazione operata ad inizio evento abbia dissanguato le tasche dei  contadini. Il Marchese, infatti, avendo tenuto bene nota di tutto, sa che la propria  area agricola deve reinvestire 3 monete d’oro, ma ne possiede solo 1. Non volendo  rischiare ne versa altre 2, così da essere coperto. Tuttavia, questa somma versata,  finito il conteggio dei master, sparisce insieme al restante e non viene più considerata  nel “forziere” agricolo.  
+
+**- PRIMA DEL LIVE - TASSAZIONE:** al costo di una moneta d'argento, da  intendersi come lo stipendio di un funzionario esattore, l'amministratore preleva  dal forziere-territorio la cifra desiderata (multiplo minimo, moneta d’argento). Se  viene richiesta una cifra non presente nel forziere-territorio, viene consegnato tutto  il possibile e nulla più. L'azione di TASSAZIONE non può essere più ripetuta fino  all’evento live successivo. 
+
+La produzione agricola, oltre a rappresentare la fonte principale di denaro a  disposizione di ciascuna famiglia, ha anche una influenza fondamentale  sull’andamento economico di tutto il ducato, ossia su commercio e artigianato. Per  la descrizione di questi effetti indiretti sull'economia, rimandiamo ai capitoli  successivi. 
+
+Ogni territorio, tra un evento e il successivo, accumula un quantitativo di denaro  detto RICCHEZZA. Tale quantitativo non è mai superiore alle 3 monete d’oro e dipende da vari fattori (+1 e -1 si riferiscono a +1 moneta d’oro e viceversa): 
+
+
+
+* se il territorio ha 1 m.o. in più del necessario per il reinvestimento: +1.
+* se il territorio cala il suo status economico: -1. 
+* fattori di trama: +1 o -1. 
+
+In tutti i casi la RICCHEZZA finale è sempre positiva, quindi un risultato negativo  porta ad una ricchezza zero e ad un normale sviluppo della rendita agricola. 
+
+
+## Considerazioni 
+
+Tassare molto senza poi reinvestire consente di avere molto denaro a disposizione in modo molto rapido, al prezzo però di determinare ovviamente un abbassamento  di produttività esponenziale, sia di denaro che di beni disponibili in gioco, che si  ripercuoterà sui giocatori negli eventi successivi. La scarsità di beni disponibili in  gioco, come verrà spiegato nei capitoli successivi, determina automaticamente un  aumento dei loro prezzi al mercato. Una bassa tassazione (o un adeguato  investimento prima della fine dell'evento) diminuisce la disponibilità immediata di  denaro, ma consente di mantenere alto il numero di beni di consumo a basso prezzo  in gioco. 
+
+
+# PRODUZIONE 
+
+Esistono 4 tipi di merce che vengono ricavati, dagli abili artigiani e lavoratori del  Ducato, mediante lavorazione delle risorse base dell’agricoltura. Un'agricoltura  florida produce grandi quantità di beni, e l'elevata disponibilità di essi mantiene  costante e accessibile il loro prezzo. 
+
+La produzione viene conteggiata in UNITA': una unità corrisponde, in gioco, ad un  foglio detto “Proprietà”. 
+
+Nel Ducato vengono prodotti e consumati 4 tipi di merce o bene: 
+
+
+
+* CIBO: riguarda tutto ciò che sia ingeribile. Una unità di merce di cibo può  essere in qualunque momento scambiata come cibarie o come bevande. 
+* VETTOVAGLIE: tutto ciò che sia supporti per il cibo o utensili per case e  palazzi (mobili, beni di lusso, libri, ecc.).  
+* TESSILE: stoffe e vestiti.  
+* ARMI: armi e/o munizioni di qualunque tipo. 
+
+Parallelamente, esistono 4 tipi di strutture di produzione, ossia di fabbriche  artigianali che producono le unità di merce. Essi non sono espandibili, in quanto  negli anni di gioco non esiste nel Ducato un sistema industriale. Si hanno: 
+
+
+
+* MULINO / MACELLO: produce ad ogni evento un numero N di unità di CIBO 
+* LABORATORIO ARTIGIANO: produce ad ogni evento N unità di  VETTOVAGLIE. 
+* SARTORIA: produce ad ogni evento N unità di TESSILE. 
+* ARMERIA: produce ad ogni evento N unità di ARMI. 
+
+Il parametro N (il numero di unità prodotte da ogni struttura) dipende innanzitutto  dalla condizione del territorio agricolo della famiglia di appartenenza.  Tuttavia, il produttore è in possesso di un sistema per aumentare la propria  produzione. Questo avviene attraverso il Mercato del Lavoro che in ogni evento LIVE raccoglie i nomi dei volontari manovali che si mettono a disposizione per  lavorare. 
+
+All’atto della produzione (che avviene alla registrazione del PG) il  produttore può decidere di assumere manovali per aumentare la produzione di qualche bene. Ogni manovale costa 5 monete di rame e per ogni 2 manovali assunti  si accresce la propria produzione di 1 bene. Il denaro viene versato direttamente ai  master durante la registrazione del PG. 
+
+Nota: anche se i vari personaggi non si sono registrati come manovali esistono tanti  abitanti nel Borgo che lavorerebbero per guadagnare la propria pagnotta. I produttori  avranno sempre a disposizione dei manovali, anche se non fossero PG. 
+
+Tuttavia, l’aumento di produzione non è infinito. Anche questo dipende dalla  presenza di materie prime e, in definitiva, dalla condizione delle aree agricole.  
+
+Pertanto, le possibilità produttive complete di aumenti con manovali sono: 
+
+
+
+* Condizione FLORIDA: N=2 (+1) (+1); 
+* Condizione NORMALE: N=2 (+1); 
+* Condizione DIFFICILE: N=1 (+1) (+1); 
+* Condizione di CARESTIA: N=1 (+1); 
+
+Per ogni “(+1)” il produttore può assumere 2 manovali e produrre un bene in più. 
+
+Nel caso di una struttura di proprietà di un personaggio non affiliato, per il calcolo  di N si considera il valore del territorio della famiglia in condizioni peggiori  migliorato di un livello. Le due famiglie sono in condizioni economiche difficile e  florida. Quindi per Elmerich la condizione è normale (difficile +1). Elmerich è non  affiliato e ha una sartoria.  
+
+
+## Il Mercato del Lavoro 
+
+Durante ogni evento LIVE vi sarà un momento lungo le ore pomeridiane in cui un  PNG apre il Mercato del Lavoro. Questo è il momento in cui in gioco ogni PG può  registrarsi come manovale per il periodo successivo al live stesso. Coloro i quali si  registrano durante l’evento saranno i PG assumibili all’evento LIVE successivo  quando i produttori sceglieranno se assumere o meno manovali per aumentare la  propria produzione. Le assunzioni seguono la lista del Mercato del Lavoro in ordine  cronologico di registrazione (non è quindi possibile selezionare un lavoratore in  particolare).  
+
+Il lavoro da manovale è da intendersi effettuato tra un evento e un altro e non è in  alcun modo rappresentato durante gli eventi.  Chiunque dovesse registrarsi al Mercato del Lavoro avrà una limitazione per la sua  eventuale Azione FG. Chi è registrato, infatti, potrà effettuare l’Azione FG solamente  se essa avviene all’interno del Ducato e solo se non occupa parecchi giorni  continuativamente.  
+
+Esempio: Ezio si iscrive al mercato del lavoro, poi invia un’azione FG nella quale ogni  giorno va davanti alla sede della Banca Ducale per vedere se qualcuno all’entrata  ha perso delle monete per terra. Essendo questa un’azione che coinvolge parecchi  giorni, non è ritenuta valida perché la maggior parte del tempo Ezio deve essere  disponibile come manovale. 
+
+In ogni caso, un produttore riuscirà sempre a trovare lavoratori PNG, qualora la  lista di PG non sia sufficiente a coprire le richieste. NON è possibile assumere  direttamente i lavoratori.
+
+NOTA BENE: se al LIVE successivo il numero di PG assunti come manovali è basso,  e qualche PG rimane senza lavoro perché i produttori non intendono avvalersi dei  manovali, i PG che non avessero lavorato non verranno pagati anche se hanno  ricevuto la limitazione dell’Azione FG. 
+
+
+## Il ticket “Proprietà” del Bene
+
+Ogni bene è determinato da un ticket detto “Proprietà” con il nome del bene stesso.  Il ticket rappresenta la proprietà effettiva del bene. Il ticket, a differenza di quello  usato per rappresentare un normale oggetto di gioco, presenta, oltre alla propria  descrizione scritta, un’indicazione sulla propria registrazione o meno. Un bene può  essere: 
+
+
+
+* **REGISTRATO**: il bene non può essere rubato quindi non deve essere consegnato  con l’effetto Perquisizione. Questo perché il foglio non è il bene in sé e si considera  solamente un atto di proprietà non valido al portatore. Un bene registrato è  tracciato dalle autorità competenti quindi si tratta di beni il cui utilizzo finale è,  tendenzialmente, noto alle autorità competenti stesse. 
+* **NON REGISTRATO**: il bene può essere rubato con una semplice perquisizione e  l’atto conferisce la proprietà diretta del bene. Un bene non registrato non è tracciato  quindi il modo in cui viene commerciato o utilizzato rimane tendenzialmente  segreto. 
+
+    Se un bene è NON REGISTRATO, non è possibile registrarlo nell’immediato, ma è  necessario cambiarne la natura tra un evento ed un altro all’atto del ritiro della  busta del PG.  
+
+
+
+## Utilizzo dei beni in gioco 
+
+
+
+* Ogni personaggio può, A INIZIO EVENTO, scambiare 2 unità tessile per 1  unità di un altro bene a sua scelta (di cui dovrà pagare il costo di conservazione). - Ogni personaggio può, A FINE EVENTO, vendere 1 unità di tessile al mercato  al prezzo migliore (indipendentemente dal tipo di bene). 
+* Le merci possono essere utilizzate per innumerevoli motivi di trama. 
+
+
+## Sostentamento della Famiglia 
+
+In aggiunta alle azioni di utilizzo dei beni, esiste un modo speciale in cui le famiglie  possono consumarli. Ad ogni evento LIVE, ogni famiglia PUO’ consumare 1 unità  di cibo per provvedere all’alimentazione dei PG. Ogni bene copre 10 PG. Si può  decidere di sfamare anche altri PG esterni alla famiglia. Per effettuare questa azione  occorre imbucare il bene alla cassetta delle Poste Ducali con una busta in cui si  specifica “Consumo Famiglia X” specificando chiaramente su una lista di nomi  quali pg sono coperti da questa azione.  
+
+MALUS (in caso non venga fatto): probabilità di malattia superiori (VEDI  “LIMITAZIONE DEI PG DA FATTORI ECONOMICI” del Regolamento). 
+
+
+## Manutenzione delle armi 
+
+I beni sono utilizzati anche nella dinamica di manutenzione delle armi. La  manutenzione è possibile esclusivamente attraverso un fabbro. Il fabbro può, alla  registrazione del PG, consegnare un bene armi (anche con la data dell’evento LIVE  precedente senza mantenerlo) e trasformarlo in 10 cartellini manutenzione.  Ognuno di questi cartellini potrà essere venduto o ceduto ad altri PG. Ogni cartellino manutenzione potrà essere consegnato alla registrazione del proprio PG  per fare mantenimento a 1 arma (bianca o da fuoco) oppure a 3 armi da lancio. Al  momento della consegna il master dà al giocatore 1 nastro/elastico colorato (un  colore diverso ad ogni evento) che verrà legato all’arma per rappresentare l’avvenuta  manutenzione. 
+
+
+## Produzione di un bene 
+
+Ad ogni evento LIVE il titolare di una struttura di produzione può versare la somma  di DUE MONETE D'ARGENTO al mercato ducale (costo di produzione), ricevendo  in cambio gli N beni di tipologia corrispondente alla struttura posseduta, e dispone  di essi in gioco. In più può assumere dei manovali. Se lo fa, ogni 2 manovali assunti  al prezzo di 5 monete di rame l’uno produce un bene in più fino al massimo  consentito dalla situazione agricola della propria area. 
+
+
+## Mancata produzione e pignoramento 
+
+Se la struttura non viene fatta funzionare, occorre comunque pagare il costo di 1  moneta d'argento, da intendersi come il pagamento di materie prime non utilizzate  e di stipendi di eventuali aiutanti. Una struttura inattiva per due live (in cui il  personaggio era presente in gioco, ma non ha prodotto beni anche se pagando la  tassa di 1 monete d'argento) viene pignorata a fine gioco, e il giocatore ne perde il  possesso. 
+
+
+## Vendita di un bene 
+
+Il proprietario di beni può effettuare: 
+
+- LIBERA VENDITA AL MERCATO INTERNO: contratta liberamente con pg e  png e vende il bene al prezzo voluto. 
+
+- VENDITA AL MERCATO ESTERO: acquista un contratto per il mercato estero  che richiede un determinato numero di beni. Quando intende soddisfare il  contratto, lo consegna al funzionario ducale o lo spedisce via posta. Il corrispettivo  del contratto verrà quindi saldato o su conto in banca o all’evento successivo. 
+
+Per i dettagli leggi la sezione COMMERCIO. 
+
+
+## Consumare un bene 
+
+Un bene può essere consumato ossia utilizzato per esigenze di gioco in qualunque  momento, se vi è una giustificazione. Per farlo è sufficiente dirigersi alla cassetta  delle Poste Ducali nell’area di gioco e inserire una busta con all’interno il bene da  consumare. Sulla busta va scritto chiaramente chi è che consuma il bene e in  generale le modalità e i motivi per cui si fa. 
+
+
+## Inviare un bene 
+
+Un bene può essere inviato ad un png o ente durante un evento. L’invio è sempre un dono e non obbliga a nessun pagamento. Per inviare il bene è sufficiente recarsi a una cassetta appositamente dedicata all’invio di BENI riportante la scritta “INVIO di BENI” (diversa da quella per l’invio delle missive); occorre poi inserire nella cassetta una busta con all’interno il bene da inviare più il costo di invio. Inviare beni ha SEMPRE un costo di  5 monete di rame indipendentemente da quanti beni si debbano mandare al  destinatario. Sulla busta va scritto chiaramente il destinatario. Al di fuori dell’evento non è possibile inviare un bene. 
+
+Nota: in un evento LIVE una cassetta “INVIO DI BENI” è sempre disponibile, facilmente raggiungibile. Possono anche essere disponibili altre cassette di “INVIO DI BENI”, a ogni evento in posizione diversa.  Le cassette sono inamovibili e non alterabili in alcun modo.
+
+
+## Cedere un bene
+
+Un bene può essere ceduto in qualunque momento se il proprietario consegna il  relativo cartellino di sua volontà ad un pg o png. Questo può essere fatto in cambio  di un prezzo in denaro o in qualunque altra cosa. Un bene registrato può essere  ceduto solo in questo modo. Un bene non registrato può essere anche rubato.  
+
+ATTENZIONE: in caso di beni registrati, se venisse deciso dal proprietario che il bene  viene ceduto in cambio di un prezzo in denaro, l’avere il ticket in mano non implica il  possesso finché non viene consegnata la cifra (tutela dei beni registrati). Non è  possibile, quindi, prendere un ticket e poi rifiutarsi di pagare a meno che non si riconsegni il bene. 
+
+
+## Conservare un bene 
+
+Ogni bene, alla fine dell’evento in corso, normalmente viene eliminato e non può  più essere utilizzato in futuro. Ogni pg in possesso di un bene, può però versare ad  inizio evento successivo (alla consegna della busta PG) 5 monete di rame per ogni  bene che intende conservare. Se lo fa, quel bene potrà essere utilizzato anche per  l’evento corrente. Questa regola vale sia per i beni registrati che per quelli non  registrati. Sul retro di ogni bene valido sarà presente la data del live e la firma di  un master. Ogni bene senza la data corretta e la firma di un master non verrà  considerato. ATTENZIONE: se un pg compra un bene “scaduto” non esiste alcuna  tutela. E’ compito dei pg stessi assicurarsi che il bene sia valido e “in corso”. 
+
+
+## Caratteristiche dei beni 
+
+I beni hanno differenti caratteristiche. 
+
+
+
+* CIBO: valore variabile nel tempo a seconda della situazione economica delle aree  agricole. 
+* VETTOVAGLIE: sempre in continuo utilizzo, il suo indice di rarità non scende mai  sotto a 1. 
+* TESSILE: bene bilanciato, tende a non variare troppo. 
+* ARMI: molto utile e richiesto a tratti, bene dal valore molto variabile. 
+
+Ottenere una struttura di produzione 
+
+Una struttura di produzione è rappresentata, in gioco, da una regolare licenza  ducale, ossia un documento non falsificabile né riproducibile. Tale foglio non può  essere rubato, perciò non va consegnato in seguito alla chiamata PERQUISIZIONE.  Può essere però venduto in cambio di denaro.  
+
+
+
+* Per possedere una licenza, un personaggio deve avere l’abilità apposita  “Licenza d’artigianato” (3 PX), rappresentante l'insieme delle abilità e delle  conoscenze necessarie a gestire una struttura di produzione. Ogni pg con l'abilità  può possedere e gestire un massimo di UNA struttura di produzione. Le strutture  vanno acquistate in gioco, oppure tramite richiesta scritta agli uffici ducali (tra un  evento e un altro tramite missiva). Tale richiesta viene soddisfatta solo se vi sono  strutture disponibili del tipo richiesto. Questa disponibilità viene rappresentato con  un tiro di dado; ad ogni evento in cui la richiesta permane la probabilità sale (30%,  50%, 70%). Il costo di una unità acquistata in questo modo è fissato in 4 monete  d'oro. 
+* L'abilità “Impresa di famiglia” (3 PX), giustificata da background, dà diritto  al possesso automatico di una struttura di produzione a scelta, da specificare  all'inizio del primo live a cui egli partecipa con la nuova abilità. Se persa (venduta  o pignorata), la struttura iniziale non può essere recuperata se non acquistandone  una in gioco e i PX sono perduti.
+* Il personaggio può diventare proprietario di un'altra struttura se possiede  l'abilità “Imprenditore” (5px), ma le eventuali ulteriori strutture vanno acquistate  in gioco, oppure tramite richiesta scritta agli uffici ducali. Tale richiesta viene  soddisfatta solo se vi sono strutture disponibili del tipo richiesto. Questa  disponibilità viene rappresentato con un tiro di dado; ad ogni evento in cui la  richiesta permane la probabilità sale (30%, 50%, 70%). Il costo di una unità  acquistata in questo modo è fissato in 4 monete d'oro. Non è possibile ottenere una  seconda struttura con l'abilità “Impresa di famiglia”. 
+
+
+## Perdere una struttura di produzione 
+
+Un pg può smettere di possedere una struttura di produzione in questi casi: 
+
+
+
+* l'ha venduta; 
+* la struttura è stata pignorata perché inattiva per due live consecutivi; 
+* il personaggio è morto e non ha redatto un testamento legale registrato. In  questo caso la struttura di produzione viene acquisita dall’autorità ducale oppure  messa all’asta. 
+* il personaggio è morto, ma ha redatto un certificato notarile presso un notaio  ducale in cui ha stabilito chi erediterà la struttura di produzione. Questo è l'unico  modo in cui un artigiano può trasferire dopo la sua morte una struttura ad un altro  personaggio. Il trasferimento di proprietà è, però, sotteso alla possibilità di  acquisire la struttura (abilità apposita, non superamento del massimo numero di  strutture ecc.). 
+
+
+# COMMERCIO & SERVIZI 
+
+I beni prodotti dai giocatori e da alcuni altri mercanti operanti nel ducato sono  commerciabili. Le regole di tale commercio sono elencate in seguito. 
+
+
+## Libero commercio 
+
+La compravendita e lo scambio di beni è libero. Il prezzo è fissato dal libero mercato. Sta all'abilità del commerciante il saper trarre un guadagno dall'abbondanza o dalla  scarsità di un particolare bene, che dipende dalla trama e dalle scelte economiche  dei giocatori. 
+
+Mercato di Borgo San Donnino 
+
+Il mercato del Borgo è un luogo fisico nell’area di gioco che viene adibita al  commercio e alla produzione dei beni. I prezzi sono determinati dall'andamento  dell'economia. Nel ducato mancano trasporti rapidi, pertanto il commercio  quotidiano si svolge prevalentemente su scala locale: i prezzi e la disponibilità di  beni dipendono fortemente dalla produttività dei campi che circondano il Borgo.  
+
+Il mercato rimane aperto in un orario variabile e la sua gestione è materia di gioco  e ambientazione escluse le regole seguenti. 
+
+In particolare, i parametri principali che influenzano i prezzi e che dipendono dai  territori agricoli sono: 
+
+
+
+* il Prezzo BASE d'Acquisto a cui vengono comprate merci dai mercanti del  Borgo (PBA)  
+* il Prezzo BASE di Vendita a cui vengono vendute merci dai mercanti del Borgo  (PBV) 
+* l'Indice di Rarità (IR) indica quando un bene viene percepito come comune o  raro nei territori del Ducato, in un dato momento storico.
+
+In particolare: 
+
+
+
+* Il parametro PBA dipende dal territorio in condizioni MIGLIORI 
+* Il parametro PBV dipende dal territorio in condizioni PEGGIORI 
+
+<table>
+  <tr>
+   <td>
+CONDIZIONE
+   </td>
+   <td>Prezzo Base Acquisto (PBA) 
+<p>
+(il pg vende al mercato)
+   </td>
+   <td>Prezzo Vendita (PBV) 
+<p>
+(il pg compra dal mercato)
+   </td>
+  </tr>
+  <tr>
+   <td>Florida
+   </td>
+   <td> 5 monete di rame 
+   </td>
+   <td>1 moneta d'argento
+   </td>
+  </tr>
+  <tr>
+   <td>Normale
+   </td>
+   <td> 1 moneta d'argento 
+   </td>
+   <td>2 monete d'argento
+   </td>
+  </tr>
+  <tr>
+   <td>Difficile
+   </td>
+   <td> 2 monete d'argento
+   </td>
+   <td>3 monete d'argento
+   </td>
+  </tr>
+  <tr>
+   <td>Carestia
+   </td>
+   <td>3 monete d'argento 
+   </td>
+   <td>4 monete d'argento
+   </td>
+  </tr>
+</table>
+
+
+L'Indice di Rarità, al contrario, è un parametro moltiplicatore che determina il  prezzo effettivo delle quattro tipologie di merce, a partire dal prezzo base.  Più una merce è rara, più si apprezzerà rispetto alle altre tipologie di bene. Ogni  tipologia di bene avrà quindi il suo indice di rarità: il prezzo finale al mercato di un  bene (in vendita o in acquisto) sarà dato dal prodotto del prezzo base per l'indice di  rarità: 
+
+Esempio: Prezzo finale di vendita delle armi = PBV * IR(armi) - Esempio: Prezzo finale di acquisto del cibo = PBA * IR(cibo)  
+
+L'indice di rarità per ciascuna merce è determinato, prima di un evento, dai master,  in base alle CONDIZIONI dei territori agricoli di entrambe le fazioni, al numero di  strutture di produzione di ogni tipologia attive in quell'evento, ed a esigenze di  trama. In condizioni “normali”, e in assenza di trame speciali, la maggior parte degli  indici di rarità avranno in generale valori molto vicini all'unità. 
+
+Esempio: una forte CARESTIA si è abbattuta sui territori della famiglia Nottingham,  molto tassati in passato. Anche i territori dei La Rochelle hanno difficoltà: sono in  condizioni DIFFICILI.  
+
+Il malcontento serpeggia per le campagne: i beni alimentari e i tessuti lussuosi  scarseggiano, e la gente vende i mobili di casa per cercare di andare avanti. I soldati  malpagati stentano a mantenere l'ordine, ed a causa di ciò sono in circolazione un  elevato numero di armi. 
+
+I parametri economici vincolati all'andamento agricolo sono: 
+
+
+
+* PBA: 1 moneta d'argento (il parametro non viene comunicato in mercato); 
+* PBV: 2 monete d'argento (il parametro non viene comunicato in mercato);  
+
+I master hanno deciso, in conseguenza della situazione descritta sopra, che gli indici  di rarità (anche questi, tenuti segreti) sono, per l'evento in corso:  - IR(cibo): 1.5 
+
+
+
+* IR(vettovaglie): 1 
+* IR(tessile): 2 
+* IR(armi): 0.5
+
+I prezzi affissi in locanda saranno pertanto 
+
+
+<table>
+  <tr>
+   <td>
+   </td>
+   <td>Cibo
+   </td>
+   <td>Vettovaglie
+   </td>
+   <td>Tessile
+   </td>
+   <td>Armi
+   </td>
+  </tr>
+  <tr>
+   <td>Prezzo di  
+<p>
+acquisto
+   </td>
+   <td>3 monete  d'argento 
+   </td>
+   <td>2 monete  d'argento 
+   </td>
+   <td>4 monete  d'argento 
+   </td>
+   <td>1 monete  d'argento 
+   </td>
+  </tr>
+  <tr>
+   <td>Prezzo di  vendita
+   </td>
+   <td>6 monete  d'argento 
+   </td>
+   <td>4 monete  d'argento 
+   </td>
+   <td>8 monete  d'argento 
+   </td>
+   <td>2 monete  d'argento 
+   </td>
+  </tr>
+</table>
+
+
+La situazione economica, però, influisce anche sulle strutture di produzione: le  strutture dei Nottingham producono pochissimo (N=1) (+1)) mentre quelle dei La  Rochelle sono scarsamente attive (N=1 (+1) (+1)). I personaggi sono pertanto costretti  a vendere parte delle loro scorte di beni che hanno conservato dai live precedenti per  ottenere denaro, oppure possono comprare a caro prezzo i beni di cui hanno bisogno. 
+
+Dato che nel tempo il Mercato è diventato un ente indipendente e completamente  integrato nella storia, queste regole e prezzi rappresentano un’indicazione di  quanto i vari beni valgano in quel momento all’interno del Ducato, ma non sono  vincolanti. 
+
+
+
+* Il giocatore non deve imparare obbligatoriamente queste regole: i prezzi del mercato  ducale (di acquisto e di vendita) per ciascuna merce vengono affissi in mercato, se  presente, prima di ogni evento.  
+* I beni comprati dal mercato sono sempre “Registrati”. 
+* I beni vendibili al mercato dipendono da questioni ambientative. Ne consegue  che in certe situazioni il mercato potrebbe accettare solo beni registrati oppure  qualunque bene o altro. 
+* Un personaggio accorto può tentare di desumere, avendo imparato queste poche  regole, l'andamento dell'agricoltura e dell'economia da questi prezzi, cercando di  volgere la situazione a suo vantaggio. 
+
+
+## Mercato Estero 
+
+Il Mercato Estero è nato in gioco ed è una tipologia di commercio che segue alcune  regole precise e stringenti dell’ambientazione. Il Mercato Estero è gestito da un  funzionario ducale che durante un lasso di tempo negli eventi LIVE mette a  disposizione dei soli mercanti (coloro con abilità “Mercante”) registrati una serie di  contratti di commercio con paesi diversi dal Ducato di parma, Piacenza e Guastalla.  Un contratto contiene tutte le informazioni necessarie per la propria gestione. Di  base le informazioni sono: 
+
+
+
+* Nome della persona/azienda che chiede le merci 
+* Stato/Paese in cui le merci andranno 
+* Nome della persona/ente a cui le merci verranno consegnate - il PAGAMENTO che il contratto corrisponderà una volta soddisfatto - la SCADENZA oltre la quale il contratto non sarà più valido
+
+I contratti vengono venduti con prezzi e modalità che sono tema di gioco e quindi  non spiegate in questo tomo. 
+
+Una volta che un mercante intende concludere un contratto è sufficiente  consegnare al funzionario ducale il contratto e le merci richieste. A quel punto  avviene il pagamento che può avvenire in contanti (solo se disponibile in gioco) o  nel conto bancario.  IMPORTANTE! Per concludere un contratto serve agire in questo modo. Se le merci  vengono inviate direttamente il contratto sarà nullo. Questo non significa che sia  impossibile farlo, ma che il sistema non pagherà alcuna cifra legata al contratto. 
+
+
+## Banca Ducale 
+
+La banca ducale è una struttura che dipende dalle autorità governative ducali. La  banca ducale apre conti a qualunque pg lo volesse. Le regole della banca ducale  sono note a tutti. 
+
+
+
+* la banca concede un interesse di 0,5 monete di rame ogni 10 depositate  dall’evento LIVE precedente (arrotondate per eccesso alla moneta di rame). - L’apertura di un conto bancario è da richiedere ad un funzionario della banca  oppure via missiva. Il conto verrà aperto a fine evento o prima dell’evento successivo  a meno che non sia indicato differentemente. 
+* La banca è un ente in gioco a tutti gli effetti: non chiude i conti in breve  tempo, né consegna denaro in breve tempo. La richiesta di somme di denaro deve  essere fatta ad un funzionario della banca oppure via missiva prima dell’evento  successivo per avere il denaro direttamente in busta PG. 
+* Il versamento di somme di denaro nel conto bancario viene effettuato con  una missiva alla banca (e il prezzo saldato ad inizio dell’evento successivo) oppure  ad un personaggio banchiere. 
+* La banca concede prestiti ad un interesse di 1 moneta di rame ogni 10  prestate (arrotondate per eccesso). Interesse da calcolare ad un evento per il  successivo. La concessione di ulteriori prestiti alla stessa persona senza la  chiusura del primo è a discrezione della banca tramite un funzionario della banca.  L’interesse è sempre calcolato dalla somma base richiesta. Le modalità e i tempi  con cui la Banca richiede il rimborso del prestito è materia di gioco e di accordo tra  le parti. 
+* La banca garantisce pagamenti per strutture di produzione e per integrazione  all’agricoltura oppure per pagamento di tasse immediatamente tramite il proprio  conto bancario. Per fare questo è necessario passare per un funzionario della banca  o tramite missiva. 
+* Per un pagamento o trasferimento di denaro è necessario un foglio di  liberatoria firmato dal titolare del conto con l’intenzione di pagamento e il  beneficiario. Si suppone che la banca sappia riconoscere senza ombra di dubbio le  firme (in termini di gioco, non si può truffare o contraffare una firma). A tal riguardo  una missiva è valida. La banca può quindi pagare chiunque (se il richiedente ha  un conto aperto) e la cifra dovrà essere versata all’inizio dell’evento successivo  oppure verrà segnata come debito. 
+
+
+## Il Mercato dei Preziosi 
+
+Il Mercato dei Preziosi è un sistema in gioco che consente di vendere (e in taluni  casi comprare) oggetti preziosi precedentemente creati o comprati. Nella pratica  consiste in una cassetta chiusa nella quale si possono inserire buste con dentro oggetti (cartellino oggetto prezioso). La busta che contiene il cartellino dovrà recare  il nome del PG che sarà l’eventuale beneficiario della vendita.  
+
+Tra un evento LIVE ed il successivo, alcuni oggetti possono essere venduti (al  Mercato dei Preziosi). A seconda dello status agricolo migliore lo staff sorteggerà un  numero massimo di oggetti che possono essere venduti e la loro probabilità che la  vendita vada a buon fine: 
+
+STATUS 
+
+
+
+* Florida: 4 oggetti al 30% 
+* Normale: 3 oggetti al 30% 
+* Difficile: 2 oggetti al 40% 
+* Carestia: 1 oggetto al 50 % 
+
+La vendita consiste quindi in tiri di dado percentuale (D100) a partire dall’oggetto  più vecchio nella lista dei preziosi in vendita. 
+
+Esempio: nel mercato dei preziosi ci sono 4 oggetti. Lo status agricolo migliore è  DIFFICILE. I tiri verranno effettuati dal primo oggetto e poi a scendere finché non ne  vengono venduti 2. Il primo tiro è un 60 quindi il primo oggetto non viene venduto. Il  secondo è 23 quindi il secondo oggetto è venduto. Il terzo è un 18 quindi anche il  terzo oggetto viene venduto. Avendo raggiunto il numero massimo di vendite(ossia  2), non si tira per il quarto oggetto. 
+
+La vendita degli oggetti viene effettuata circa una settimana prima dell’evento live.  Dopo quel momento non sarà possibile usare l’abilità “Mercante d’Arte”. 
+
+Chi ha l’abilità “Appassionato d’arte” può accedere alla lista degli oggetti presenti  nel Mercato dei Preziosi (apposita pagina sul sito). L’acquisto da parte di un pg con  tale abilità avviene con un’offerta (asta) alla cieca prima dell’evento live. Il pg riceve  l’oggetto se è il miglior offerente per esso. Le offerte sono vincolanti e hanno un  valore minimo indicato sulla pagina del sito. Le offerte non saldate in fase di  registrazione verranno registrate come debito nella Banca Ducale. 
+
+Ogni acquisto nel mercato dei preziosi resta segreto. Il venditore non saprà chi ha  acquistato e il compratore non saprà chi è il venditore. Il mercato dei preziosi non  è in nessun modo controllato dalle autorità ducali. 
+
+
+## Lavori su commissione
+
+Durante un evento Live, può succedere che un determinato PNG abbia un lavoro  specifico da proporre a chi gli capitasse a tiro, da svolgersi su un periodo di più  giorni, settimane o mesi nel periodo tra due live. In generale, questi lavori saranno  più specifici, richiederanno qualche competenza particolare o semplicemente le  giuste credenziali. I lavori su commissioni sono da contrattare in gioco, ottenerli  sta al vostro gioco, non ci sono specifici vincoli. Tuttavia, gli esiti del vostro operato  saranno determinati dallo staff in base alla scheda del vostro PG e alle giocate che  avete messo in atto. 
+
+I lavori su commissione saranno sempre saltuari, se presenti, e mai continuativi;  Il pagamento può variare da lavoro a lavoro. Anche questo tipo di lavoro limiterà le  azioni FG possibili al PG, ma le produzioni da attività come Fabbro, Carpentiere,  Alchimista saranno permesse.
+
+Un PG impegnato in un lavoro su commissione non potrà beneficiare del mercato  del lavoro da manovale: se fosse stato iscritto alla lista dei lavoratori ma in seguito  accetta un incarico su commissione, verrà tolto dalla lista. 
+
+Esempio: Verderaschi chiede a qualcuno di fare da buttafuori per uno dei suoi  bordelli e paga 1 moneta d’argento. Chi dovesse accettare potrà avere il pagamento  come lavoratore al live successivo, ma non potrà effettuare la propria azione FG. 
+
+
+## Lavori in gioco
+
+Qualsiasi prestazione effettuata da PG dietro pagamento durante gli eventi live o  episodi è un lavoro in gioco. Semplicemente il PG viene pagato per compiere  qualcosa durante l’evento. In questo caso la contrattazione è totalmente libera, a 
+
+patto che si intenda il lavoro concluso al termine dell’evento di gioco.  Esempio: Tizio viene assunto per fare da cameriere alla Locanda e viene pagato per  la propria prestazione durante l’evento dal vivo.  
+
+Questa è una realtà di gioco già esistente che includiamo in questa sezione per  completezza. 
+
+
+# TASSAZIONE DUCALE 
+
+La tassazione ducale è l’intervento governativo sull’economia per fare letteralmente  cassa. La tassazione tocca vari ambiti. Quelli noti e legislativamente già comprovati  sono: 
+
+
+
+* Tassa personale sulle famiglie: ogni persona paga una tassa a cadenza evento live  pari a 5 monete di rame. Tale somma viene direttamente sottratta, all'inizio  dell'evento successivo, dal forziere-territorio descritto in AGRICOLTURA.  Tassa di popolamento: la famiglia con più membri presenti all’evento paga 5 monete  di rame per ogni membro in più rispetto all’altra. 
+* Tassa postale: ogni invio di missive viene tassato. Per il dettaglio vedere la sezione  “Corrispondenza”. 
+* Tassa di riabilitazione: se un titolare di struttura di produzione venisse sospeso  dall’attività per illecito comprovato, allora per riottenere l’abilitazione alla  produzione dovrà pagare un’ammenda di 3 monete d’argento. 
+* Tassa sulle attività: il titolare di un’attività diversa da quella produttiva, che riceva  da questa un guadagno e che non sia altrimenti tassata, dovrà versare a cadenza  evento una tassa di 1 moneta d’argento. Non è inclusa l’attività di  mercanzia/commercio. 
+* Tassa di successione: un artigiano può rilevare la struttura di un artigiano defunto.  Per farlo deve versare una tassa di 3 monete d’argento. Se l’erede è della stessa  famiglia, la tassa di riduce a 1 moneta d’argento. 
+* La tassazione ducale non si applica per compravendita di oggetti tra personaggi. La tassazione ducale non tocca in alcun modo la banca ducale. Chi possiede l’abilità “Privilegi economici” è esentato da tassa personale sulle  famiglie, tassa di popolamento, tassa di successione e tassa di riabilitazione. 
+
+
+# LE ATTIVITA’ ECONOMICHE
+
+Le attività a scopo di lucro che non si connotano con il commercio (compravendita  di oggetti o beni) o che non dipendono da mestieri dedicati (esempio: un fabbro),  vengono dette “Attività economiche”. 
+
+Per la gestione in gioco di queste attività sono necessari un insieme di permessi  che servono per poter condurre l’attività. Le licenze, le condizioni e le regole sono  materia di gioco e ambientazione. 
+
+IMPORTANTE: le attività economiche sono di difficile gestione in gioco dato che non  è possibile simulare un flusso di persone realistico in un evento di gioco di ruolo  dal vivo. Pertanto le attività saranno valutate dai master come fattibilità, condizioni  e tassazione sui guadagni.  
+
+
+## La Locanda
+
+La locanda è un luogo di passaggio per tutti gli abitanti delle periferie e delle  campagne, ma è anch’essa un’attività che deve sottostare all’economia ed è  un’attività economica speciale. 
+
+La locanda è gestita sempre da un PNG o da un PG e non è mai chiusa. L’autorità  ducale permette nella zona di gioco la presenza di una sola locanda. La locanda potrebbe essere gestita da un PG se questi la rilevasse (comprasse) dal  proprietario precedente. Il sistema di gestione della locanda e di ottenimento della  relativa licenza e gestione è materia di gioco e ambientazione. La locanda segue  comunque alcune regole speciali. 
+
+
+
+1. SCORTE: la locanda deve acquistare le scorte di CIBO e VETTOVAGLIE. Per  soddisfare le scorte dell’evento in corso la locanda deve acquistare e consumare 1  unità di CIBO, 1 di VETTOVAGLIE imbucando nella cassetta delle Poste i beni in  una busta con scritto “Consumo Locanda”. Se a fine evento non vi saranno le scorte  consumate, tutto l’incasso della locanda verrà requisito. 
+2. TASSAZIONE DUCALE: la tassazione per un’attività di locanda è specifica  per l’attività stessa. Ad ogni fine evento il locandiere deve versare dai propri ricavi  un 50% di tasse (operazione condotta dai master). 
+3. IL BANCONE: per esigenze di gioco, il bancone della locanda non può essere  attraversato da nessun altro oltre il locandiere. Dietro al bancone il locandiere è  invulnerabile. Dietro al bancone è tenuto il denaro della locanda. Il denaro della  locanda è intoccabile. Il locandiere non può attingere dal denaro della locanda.  Tutti gli altri oggetti in possesso del locandiere possono essere normalmente rubati  con l’effetto Perquisizione. Per fare ciò è sufficiente perquisire il bancone stesso e il  locandiere dovrà consegnare tutti gli oggetti e il denaro che non sia nella cassetta  della locanda. Nella pratica il locandiere riesce a nascondersi sempre e la cassa della  locanda è al sicuro, ma gli oggetti sono derubabili come ad un normale PG. Se  durante un combattimento il locandiere si trovasse dietro al bancone, non potrà  agire in alcun modo nemmeno parlando a meno che esca dal bancone.  IMPORTANTE: il locandiere durante un combattimento può nascondersi dietro al  bancone o uscirne SOLO 1 VOLTA. Questo significa che non è consentito  nascondersi dietro al bancone, uscirne, combattere e poi rinascondersi
+4. LOCANDIERE: è considerato tale solo il proprietario della licenza della locanda.  Eventuali delegati non avranno i vantaggi del bancone personalmente, ma rimane  sempre e comunque la cassa di denaro intoccabile della locanda. 4) CALMIERE: il locandiere non può alzare i prezzi delle consumazioni  riguardanti le bevande in dotazione, fissati a massimo 1 moneta di rame. Può  tuttavia vendere qualunque altro articolo culinario o bevande di sua proprietà fuori  gioco al prezzo liberamente deciso da egli stesso. Tuttavia, le bevande in dotazione  devono sempre essere disponibili. 
+5. SEMPRE APERTA: anche quando il locandiere è assente, viene assunto che  la locanda sia aperta, i giocatori dovranno comunque pagare le consumazioni come  di consueto. Se il pg eventualmente proprietario non partecipa all’evento, la  locanda funzionerà anche senza le risorse necessarie, ma tutti i guadagni andranno  alle casse ducali. Se esiste un sostituto del locandiere giustificato con lettera scritta  o con modalità consone (giudizio dei master), la locanda rimarrà aperta, ma il  sostituto non godrà della protezione del bancone (vedi sopra). 
+6. FALLIMENTO: se il locandiere non riesce per due eventi a rendere attiva  prima della fine dell’evento la locanda (carenza di risorse), viene dichiarato il  fallimento e la locanda viene acquisita dall’autorità ducale. 
+
+
+## Le altre licenze 
+
+Ogni attività economica ha bisogno di una regolare licenza per essere gestita.  Ognuno può improvvisarsi imprenditore, ma chiaramente l’ambientazione reagirà  di conseguenza ad eventuali attività illegali e non autorizzate da opportuna licenza  (sempre che si vengano a scoprire!). 
+
+Le licenze possono essere ILLIMITATE o LIMITATE. Le licenze limitate sono  disponibili in numero finito (anche una sola) mentre le illimitate possono essere  acquistate senza limite. 
+
+Ogni licenza ha durata di 1 anno effettivo dalla data di acquisto. Le licenze possono avere anche un prezzo variabile, ma tendenzialmente il loro  costo è di 1 moneta d’argento. Un caso speciale è l’acquisto di una licenza  nell’ultimo trimestre (ultimo evento LIVE) dell’anno nel qual caso il costo della  licenza viene dimezzato dato che essa scadrebbe a fine anno. 
+
+Una licenza descrive di fatto ciò che un titolare può fare nella sua attività  economica. Ogni imprenditore può decidere di comporre la propria attività con le  licenze adeguate ai suoi interessi e a ciò che vuole e può offrire. Esempio: Sempronio vuole aprire un locale di assaggi di Grappa. Gli servirà una  licenza per somministrare superalcolici. Si rende conto poi di voler offrire anche la  possibilità di giocare d’azzardo ai suoi avventori e acquista in un secondo tempo la  licenza corrispondente. 
+
+Le licenze sono registrate nei registri ducali, e vengono rappresentate in gioco come  fogli fisici che non possono essere rubatii con le normali regole, al pari dei beni registrati. 
+
+La lista delle licenze è disponibile sul sito internet di Intempesta Noctis, essendo la  lista variabile ed aggiornata a seconda del mondo di gioco.  
+
+La licenza di locanda spiegata nella sezione “La Locanda” è un esempio di licenza  LIMITATA, in quanto calmierata a 1 sola e nota a tutti i personaggi.
