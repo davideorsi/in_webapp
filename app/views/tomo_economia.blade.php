@@ -20,5 +20,13 @@
 $(document).ready(function(){
     var text=$('#output').html();
     $('#output').html(marked.parse(text));
+	
+	$("h2").click(function(){
+		$(this).nextUntil("h1,h2").slideToggle();	
+	});
+	$("h2").nextUntil("h1,h2").hide();
+	$("h1").css({"color":"#00308F"});
+	$("h1").css({"text-align":"center"});
+	$( "<hr></hr>" ).insertBefore( "h1" );
 });
 @stop

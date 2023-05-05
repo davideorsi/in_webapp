@@ -473,9 +473,6 @@ Potrebbe capitare che un personaggio che non possiede nessuna abilità nell'uso 
 Per maggiori dettagli, vedi le sezioni Combattimento, Effetti e Abilità.
 
 
-# 
-
-
 # Il Mondo di Gioco
 
 
