@@ -1188,7 +1188,7 @@ Le Azioni Fuori Gioco (AFG) seguono queste regole:
 
 
 
-## Esiti
+### Esiti
 
 Questa modalità ha moltissimi limiti dovuti alla sua natura "narrativa", più legata al gioco di ruolo da tavolo che dal vivo, mancando nel giocatore la spontaneità e l'immersione che si ha giocando in prima persona e avendo il master il peso di dover gestire in modo arbitrario un'infinità di variabili. (ad esempio, nel fuggire da un pericolo, il personaggio potrebbe banalmente inciampare ed essere raggiunto, cosa che qui deve decidere il master)
 
