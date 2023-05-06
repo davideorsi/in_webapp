@@ -1187,22 +1187,6 @@ Le Azioni Fuori Gioco (AFG) seguono queste regole:
 * L'esito delle AFG è deciso in modo insindacabile dai Master, in genere in modo unilaterale, ma è possibile che vengano fatte domande per integrare la vostra descrizione, nei casi in cui ritenuto opportuno.
 
 
-## Documenti di Gioco
-
-Con “Documenti di Gioco” si intendono tutti i documenti prodotti dallo staff e utilizzati all’interno degli eventi di Gioco, sia Eventi Live che Episodi.
-
-Valgono per i documenti le seguenti regole:
-
-
-
-* Tutti i documenti di gioco sono da conservare obbligatoriamente fino alla fine dell’evento Live, non è possibile in nessun caso distruggerli nel corso di un evento, per esempio bruciandoli; l’unico modo per distruggerli in un evento è utilizzare l’effetto OGGETTO DISTRUTTO.
-* Possono essere distrutti tra un evento e il successivo, comunicandolo ai master e consegnando a loro il documento.
-* NON è possibile in NESSUN CASO fare fotografie dei documenti o degli oggetti di gioco, né per conservarli né soprattutto per inviarli a terzi.
-* Al fine di conservazione e di invio a terzi, il possessore del documento può farne una copia. La copia può essere fatta a mano (preferibile) oppure con software, ma in questo caso il documento deve essere redatto in ARIAL 12 e riportare la scritta COPIA come intestazione (per rendere evidente che non è un originale).
-
-    Il senso di questa regola è ambientativo: nel mondo di gioco non esistono tecniche rapide di copia di alta qualità.
-
-
 
 ## Esiti
 
@@ -1217,6 +1201,19 @@ Per tanto, ecco alcune linee guida sugli esiti delle AFG, per dare un'idea di ch
 * Non otterrete informazioni aggiuntive qualora decideste di inviare delle AFG ripetute nel tempo, ma di carattere uguale (se cercate 3 volte la stessa cosa negli stessi luoghi non otterrete altri indizi e in generale la stessa azione non evolverà). 
 * L'ambientazione risponde alle vostre azioni, quindi è molto probabile che ci siano conseguenze, più o meno evidenti. Ad esempio, potrebbe manifestarsi come una Voce di Locanda che parla genericamente di qualcuno che fa domande in giro, oppure potrebbe tradursi nella reazione di qualche PNG, via missiva o durante un live. Potrebbe anche non succedere niente nell'immediato, ad esempio perché avete fatto davvero poco rumore o perché chi ha colto sta agendo alle vostre spalle.
 * Potrebbero esserci dei casi in cui il personaggio subisca effetti dannosi, indipendentemente dall'esito. Ad esempio, un PG potrebbe essere rapinato lungo la strada perdendo alcuni oggetti o monete, oppure potrebbe essere arrestato e farsi una notte in cella, con le conseguenze del caso.
+
+## Documenti di Gioco
+
+Con “Documenti di Gioco” si intendono tutti i documenti prodotti dallo staff e utilizzati all’interno degli eventi di Gioco, sia Eventi Live che Episodi.
+
+Valgono per i documenti le seguenti regole:
+
+* Tutti i documenti di gioco sono da conservare obbligatoriamente fino alla fine dell’evento Live, non è possibile in nessun caso distruggerli nel corso di un evento, per esempio bruciandoli; l’unico modo per distruggerli in un evento è utilizzare l’effetto OGGETTO DISTRUTTO.
+* Possono essere distrutti tra un evento e il successivo, comunicandolo ai master e consegnando a loro il documento.
+* NON è possibile in NESSUN CASO fare fotografie dei documenti o degli oggetti di gioco, né per conservarli né soprattutto per inviarli a terzi.
+* Al fine di conservazione e di invio a terzi, il possessore del documento può farne una copia. La copia può essere fatta a mano (preferibile) oppure con software, ma in questo caso il documento deve essere redatto in ARIAL 12 e riportare la scritta COPIA come intestazione (per rendere evidente che non è un originale).
+
+    Il senso di questa regola è ambientativo: nel mondo di gioco non esistono tecniche rapide di copia di alta qualità.
 
 
 ## Un regolamento aperto
