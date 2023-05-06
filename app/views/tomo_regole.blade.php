@@ -4,8 +4,11 @@
 
 <div class="row">
 <div class='col-sm-10 col-sm-offset-1' >
+	<div class="text-justify">
+		<p>Per visualizzare ciascun argomento, cliccare sul titolo della sezione.</p>
+	</div>
 	<div id="output" class="text-justify">
-	{{$regole}}
+		{{$regole}}
 	</div>
 </div>
 </div>
