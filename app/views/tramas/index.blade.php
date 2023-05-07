@@ -24,6 +24,7 @@
 			</div>
 	
 			<div class="btn-group" style='margin-bottom:10px;'>
+			<a id='fulltrama' class="btn btn-info" href="{{ URL::to('trama/'.$keys[0]) }}">Vista completa</a>
 			<a id='edittrama' class="btn btn-primary" href="{{ URL::to('trama/'.$keys[0].'/edit') }}">Modifica</a>
 			<a class="btn btn-success" href="{{ URL::to('trama/create') }}">Nuova</a>
 			{{ Form::open(array('id'=>'deltrama','url' => 'tramas/' . $keys[0], 'style'=>'display:inline-block; margin-left: -2px;')) }}
@@ -46,6 +47,7 @@
 @section('Scripts')
 		$(function(ready) {
 			$('#selectTrama').change( function() {
+				$('#fulltrama').attr('href', 'trama/'+$(this).val());
 				$('#edittrama').attr('href', 'trama/'+$(this).val()+'/edit');
 				$('#deltrama').attr('action', 'trama/'+$(this).val());
 				get_trama($(this).val());

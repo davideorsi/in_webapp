@@ -57,11 +57,43 @@ class TramasController extends \BaseController {
 	public function show($id)
 	{
 		$trama = Trama::findOrFail($id);
+		$vicende = $trama->Vicende()->get();
+		
+		$Masters = User::orderBy('ID','asc')->where('usergroup','=',7)->orwhere('usergroup','=',15)->get();
+		$nomeMaster=array();
+		foreach ($Masters as $key2=>$Master){
+			$nomeMaster[$Master->id] = $Master->username;
+		}
+		
+		foreach ($vicende as &$vic ) {
+			$evento= Evento::find($vic['live']);
+			$vic['Evento']=$evento->Titolo;
+			$vic['Data']=$evento->Data;
+			
+			$elementi=$vic->Elementi;
+				foreach ($elementi as $elemento) {
+	
+						$elemento->png;
+						$elemento->PNGminori;
+							foreach ($elemento['png'] as $key3=>$png){
+								$elemento['png'][$key3]['nomeuser']=$nomeMaster[$png['Master']];
+							}
+						
+							foreach ($elemento['pngminori'] as $key4=>$png){
+								$elemento['pngminori'][$key4]['nomeuser']=$nomeMaster[$png['User']];
+							}
+						
+					}
+					
+				$vic['schedule']=$elementi;
+			
+		}
 
+		//var_dump($vicende);
 		if (Request::ajax()){
 			return Response::json($trama);
-		} else {
-			return Redirect::route('trama.index');
+		}else {
+		return View::make('tramas.show')->with('trama',$trama)->with('vicende',$vicende);
 		}
 	}	
 

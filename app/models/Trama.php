@@ -11,7 +11,9 @@ class Trama extends \Eloquent {
 		'body' => 'required'
 	];
 
-
+	public function Vicende(){
+		return $this->hasMany('Vicenda','trama');
+	}
 	protected $fillable = array('title', 'body');
 
 }
