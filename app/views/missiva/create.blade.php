@@ -74,12 +74,20 @@
 			if ($(this).val() !== '0') { // check input value
 				$('#tipo').val('0');
 				$('#destinatario_PNG').val('');
+				$('#tipo > option[value="0"]').show();
+				$('#tipo > option[value="1"]').hide();
+				$('#tipo > option[value="3"]').hide();
+				$('#tipo > option[value="10"]').hide();
 			}
 		});
 		
 		$('#destinatario_PNG').on("input", function(){
 			if ($(this).val() !== '') { // check input value
 				$('#destinatario').val('0');
+				$('#tipo > option[value="0"]').hide();
+				$('#tipo > option[value="1"]').show();
+				$('#tipo > option[value="3"]').show();
+				$('#tipo > option[value="10"]').show();
 				$('#tipo').val('3');
 			}
 		});
