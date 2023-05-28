@@ -68,5 +68,22 @@
 @section('Scripts')
 		$(function(ready) {
 			$("textarea").jqte({ol: false, ul:false, sup:false, sub:false, link:false, unlink:false, source:false});			
+		
+			
+		$('#destinatario').change(() => {
+			if ($(this).val() !== '0') { // check input value
+				$('#tipo').val('0');
+				$('#destinatario_PNG').val('');
+			}
 		});
+		
+		$('#destinatario_PNG').on("input", function(){
+			if ($(this).val() !== '') { // check input value
+				$('#destinatario').val('0');
+				$('#tipo').val('3');
+			}
+		});
+		
+		});
+		
 @stop
