@@ -69,7 +69,7 @@
 		$(function(ready) {
 			$("textarea").jqte({ol: false, ul:false, sup:false, sub:false, link:false, unlink:false, source:false});			
 		
-		@if (Auth::user()->usergroup !== 7)	
+		@if (Auth::user()->usergroup != 7)	
 		$('#destinatario').change(() => {
 			if ($(this).val() !== '0') { // check input value
 				$('#tipo').val('0');
