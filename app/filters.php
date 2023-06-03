@@ -146,7 +146,7 @@ Route::filter('mercante_arte', function()
 
 			$lista=INtools::select_column($abilita_del_PG,'Ability');			
 
-			$mercante_arte=in_array("Mercante d'Arte",$lista);
+			$mercante_arte=in_array("Appassionato d'Arte",$lista);
 		} else {
 			$mercante_arte=true;
 		}
