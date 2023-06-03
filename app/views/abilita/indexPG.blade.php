@@ -17,7 +17,7 @@
 	
 
 			<div class='form-group'>
-				<?php $keys= array_keys($selectAbilita['Armi']); ?>
+				<?php $keys= array_keys($selectAbilita['Generiche']); ?>
 				{{ Form::open() }}
 				{{ Form::select('abilita', $selectAbilita, $keys[0], ['class'=>'form-control', 'id'=>'selectabilita']) }}
 				{{ Form::close() }}

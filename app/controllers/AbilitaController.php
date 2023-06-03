@@ -3,7 +3,7 @@
 class AbilitaController extends \BaseController {
 
 	/**
-	 * Lista di tutti gli eventi, con la scelta tra editare, aggiungere o
+	 * Lista di tutti le abilità, con la scelta tra editare, aggiungere o
 	 * cancellare una abilita
 	 */
 	public function index()
@@ -20,14 +20,16 @@ class AbilitaController extends \BaseController {
 	}
 
 	/**
-	 * Lista di tutti gli eventi, con la scelta tra editare, aggiungere o
-	 * cancellare una abilita
+	 * Lista di tutti le abilità
 	 */
 	public function index_PG()
 	{
-		$abilitas = Abilita::orderBy('Categoria', 'asc')->orderBy('Ability', 'asc')->get(array('ID','Ability','Categoria'));
-
+		$abilitas = Abilita::where('Categoria','!=','---')->orderBy('Categoria', 'asc')->orderBy('Ability', 'asc')->get(array('ID','Ability','Categoria'));
+		$generiche= Abilita::where('Generica','=','1')->get(array('ID','Ability'));
 		$selectAbilita = array();
+		foreach($generiche as $abilita) {
+			$selectAbilita['Generiche'][$abilita->ID] = $abilita->Ability;
+		}
 		foreach($abilitas as $abilita) {
 			if (!in_array($abilita->Categoria,array('Speciali','Spiriti','Innate'))) {
 				$selectAbilita[$abilita->Categoria][$abilita->ID] = $abilita->Ability;
