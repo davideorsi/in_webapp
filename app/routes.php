@@ -322,6 +322,7 @@
 		Route::resource('admin/rotte', 'RotteController',array('except' => array('update','create','store','destroy')));
 		Route::get('admin/rotte/{id}/modifica',  array('uses' => 'RotteController@modifica'));
 		Route::put('admin/rotte/genera',  array('uses' => 'RotteController@genera'));
+		Route::put('admin/rotte/rigenera/{id}',  array('uses' => 'RotteController@rigenera'));
 	});
 	
 	Route::group(array('before'=>'Rotte_Commerciali'), function() { 

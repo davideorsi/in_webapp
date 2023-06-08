@@ -641,6 +641,8 @@ public function rigenera($idpg){
 	}
 
 	$this->calcolaRotte($mercante,$rotteGruppo);
+	
+	return Redirect::to('admin/rotte');
 
 }
 
