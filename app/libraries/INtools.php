@@ -80,8 +80,9 @@ class INtools {
 			$Monete = -$Monete;
 			$monetestr='Debito di ';
 			}
-		
+		if (is_null($Monete)){$Monete=0;};
 		$Rame= floor($Monete%10);
+		
 		$Argento =floor(($Monete-$Rame)/10);
 		if (floor($Argento%5)>0){
 			$Oro=floor($Argento/5);
