@@ -74,7 +74,7 @@ class INtools {
 
 	// converte le monete da n° di monete di rame in una stringa HumanFriendly
 	public static function convertiMonete($Monete)	{
-		
+		$Monete=(int)$Monete;
 		$monetestr='';
 		if ($Monete<0){
 			$Monete = -$Monete;
