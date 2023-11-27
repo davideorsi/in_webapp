@@ -112,11 +112,21 @@ class AbilitaController extends \BaseController {
 	public function showPG($id)
 	{
 		$abilita = Abilita::find($id);
+		
+		$abilita->Requisiti;
 
 		if (!in_array($abilita['Categoria'],array('Speciali','Spiriti','Innate'))) {
-			$abilita['Descrizione']=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br>'.$abilita['Descrizione'].'</p>');
-			$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+			$desc=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br></p><p>');		
+			if (!empty($abilita['Requisiti'])){
+				foreach($abilita['Requisiti'] as $req){
+					$desc.=nl2br('<b>Requisito: '.$req['Ability'].'</b></br>');
+				}
+			}	
+			$desc.=nl2br($abilita['Descrizione'].'</p>');
+			$abilita['Descrizione']=$desc;
 			
+			$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+
 			$PGab='';
 			foreach ($PG as $pers) {
 				$PGab.=$pers->Nome.'</br>';
@@ -136,8 +146,15 @@ class AbilitaController extends \BaseController {
 	{
 		$abilita = Abilita::find($id);
 
-	
-		$abilita['Descrizione']=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br>'.$abilita['Descrizione'].'</p>');
+		$abilita->Requisiti;
+			$desc=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br></p><p>');		
+			if (!empty($abilita['Requisiti'])){
+				foreach($abilita['Requisiti'] as $req){
+					$desc.=nl2br('<b>Requisito: '.$req['Ability'].'</b></br>');
+				}
+			}	
+			$desc.=nl2br($abilita['Descrizione'].'</p>');
+			$abilita['Descrizione']=$desc;
 		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 		
 		$PGab='';
