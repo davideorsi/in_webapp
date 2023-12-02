@@ -14,22 +14,27 @@
 
 </div>
 
-<div class='col-sm-4' style='text-align: center;'>
+<div class='col-sm-3' style='text-align: center;'>
 
 	<a href={{URL::to('tomo_regole')}}>
 	{{ HTML::image('img/regole.jpg','Regolamento',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
 
 </div>
+<div class='col-sm-3' style='text-align: center;'>
+<a href={{URL::to('tomo_abilita')}}>
+{{ HTML::image('img/abilita.jpg','Lista delle Abilità',array('style'=>'width:100%; max-width: 300px;'))}}
+</a>
+</div>
 
-<div class='col-sm-4' style='text-align: center;'>
+<div class='col-sm-3' style='text-align: center;'>
 	<a href={{URL::to('tomo_economia')}}>
 	{{ HTML::image('img/economia.jpg','Economia',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
 
 </div>
 
-<div class='col-sm-4 style='text-align: center;'>
+<div class='col-sm-3' style='text-align: center;'>
 	<a href={{URL::to('files/codice_penale_ducale_1827.pdf')}}>
 	{{ HTML::image('img/codice_penale.png','Codice Penale',array('style'=>'width:100%; max-width: 300px;'))}}
 	</a>
