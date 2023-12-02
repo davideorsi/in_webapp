@@ -40,6 +40,60 @@ class AbilitaController extends \BaseController {
 			->with('selectAbilita', $selectAbilita);
 	}
 
+	public function lista_completa_PG()
+	{
+		$abilitas = Abilita::where('Categoria','!=','---')->orderBy('Categoria', 'asc')->orderBy('Ability', 'asc')->get();
+		$generiche= Abilita::where('Generica','=','1')->get();
+
+
+
+		$AllAbilita = array();
+		foreach($generiche as $abilita) {
+			$abilita->Requisiti;
+			$abilita->Esclusi;
+			$AllAbilita["Generiche"][$abilita->ID]["Nome"] = $abilita->Ability.' ('.$abilita['PX'].'PX)';;
+			$desc='';		
+			if (count($abilita['Requisiti'])>0){
+				$desc.=nl2br("<p style='color:DodgerBlue;'><b>Requisiti: </b></br>");
+				foreach($abilita['Requisiti'] as $req){
+					$desc.=nl2br('<i>'.$req['Ability'].'</i></br>');
+				}
+			}	
+			if (count($abilita['Esclusi'])>0){
+				$desc.=nl2br("</p><p style='color:Tomato;'><b>Non permette l'acquisto di:</b></br>");
+				foreach($abilita['Esclusi'] as $escl){
+					$desc.=nl2br('<i>'.$escl['Ability'].'</i></br>');
+				}
+			}	
+			$desc.=nl2br('</p><p><b>Descrizione</b></br>'.$abilita['Descrizione'].'</p><hr></hr>');
+			$AllAbilita["Generiche"][$abilita->ID]['Descrizione']=$desc;
+		}
+		foreach($abilitas as $abilita) {
+			$abilita->Requisiti;
+			$abilita->Esclusi;		
+			if (!in_array($abilita->Categoria,array('Speciali','Spiriti','Innate'))) {
+				$AllAbilita[$abilita->Categoria][$abilita->ID]["Nome"] = $abilita->Ability.' ('.$abilita['PX'].'PX)';
+				$desc='';		
+				if (count($abilita['Requisiti'])>0){
+					$desc.=nl2br("<p style='color:DodgerBlue;'><b>Requisiti: </b></br>");
+					foreach($abilita['Requisiti'] as $req){
+						$desc.=nl2br('<i>'.$req['Ability'].'</i></br>');
+					}
+				}	
+				if (count($abilita['Esclusi'])>0){
+					$desc.=nl2br("</p><p style='color:Tomato;'><b>Non permette l'acquisto di:</b></br>");
+					foreach($abilita['Esclusi'] as $escl){
+						$desc.=nl2br('<i>'.$escl['Ability'].'</i></br>');
+					}
+				}	
+				$desc.=nl2br('</p><p><b>Descrizione</b></br>'.$abilita['Descrizione'].'</p><hr></hr>');
+				$AllAbilita[$abilita->Categoria][$abilita->ID]['Descrizione']=$desc;
+			}
+		}
+		// load the view and pass the nerds
+		return View::make('abilita.tomo_abilita')
+			->with('AllAbilita', $AllAbilita);
+	}
 
 
 	/**
@@ -114,24 +168,32 @@ class AbilitaController extends \BaseController {
 		$abilita = Abilita::find($id);
 		
 		$abilita->Requisiti;
+		$abilita->Esclusi;
 
 		if (!in_array($abilita['Categoria'],array('Speciali','Spiriti','Innate'))) {
-			$desc=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br></p><p>');		
-			if (!empty($abilita['Requisiti'])){
+			$desc=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br></p>');		
+			if (count($abilita['Requisiti'])>0){
+				$desc.=nl2br("<p style='color:DodgerBlue;'><b>Requisiti: </b></br>");
 				foreach($abilita['Requisiti'] as $req){
-					$desc.=nl2br('<b>Requisito: '.$req['Ability'].'</b></br>');
+					$desc.=nl2br('<i>'.$req['Ability'].'</i></br>');
 				}
 			}	
-			$desc.=nl2br($abilita['Descrizione'].'</p>');
+			if (count($abilita['Esclusi'])>0){
+				$desc.=nl2br("</p><p style='color:Tomato;'><b>Non permette l'acquisto di:</b></br>");
+				foreach($abilita['Esclusi'] as $escl){
+					$desc.=nl2br('<i>'.$escl['Ability'].'</i></br>');
+				}
+			}	
+			$desc.=nl2br('</br></p><p><b>Descrizione</b></br>'.$abilita['Descrizione'].'</p>');
 			$abilita['Descrizione']=$desc;
 			
-			$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
+			// $PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 
-			$PGab='';
-			foreach ($PG as $pers) {
-				$PGab.=$pers->Nome.'</br>';
-				}
-			$abilita['PG']=$PGab;	
+			// $PGab='';
+			// foreach ($PG as $pers) {
+			// 	$PGab.=$pers->Nome.'</br>';
+			// 	}
+			// $abilita['PG']=$PGab;	
 	
 			if (Request::ajax()){
 				return Response::json($abilita);
@@ -146,15 +208,23 @@ class AbilitaController extends \BaseController {
 	{
 		$abilita = Abilita::find($id);
 
-		$abilita->Requisiti;
-			$desc=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br></p><p>');		
-			if (!empty($abilita['Requisiti'])){
-				foreach($abilita['Requisiti'] as $req){
-					$desc.=nl2br('<b>Requisito: '.$req['Ability'].'</b></br>');
-				}
-			}	
-			$desc.=nl2br($abilita['Descrizione'].'</p>');
-			$abilita['Descrizione']=$desc;
+		$abilita->Requisiti;		
+		$desc=nl2br('<p> (Costo: '.$abilita['PX'].'PX)<br></p>');		
+		if (count($abilita['Requisiti'])>0){
+			$desc.=nl2br("<p style='color:DodgerBlue;'><b>Requisiti: </b></br>");
+			foreach($abilita['Requisiti'] as $req){
+				$desc.=nl2br('<i>'.$req['Ability'].'</i></br>');
+			}
+		}	
+		if (count($abilita['Esclusi'])>0){
+			$desc.=nl2br("</p><p style='color:Tomato;'><b>Non permette l'acquisto di:</b></br>");
+			foreach($abilita['Esclusi'] as $escl){
+				$desc.=nl2br('<i>'.$escl['Ability'].'</i></br>');
+			}
+		}	
+		$desc.=nl2br('</br></p><p><b>Descrizione</b></br>'.$abilita['Descrizione'].'</p>');
+		$abilita['Descrizione']=$desc;
+
 		$PG=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 		
 		$PGab='';

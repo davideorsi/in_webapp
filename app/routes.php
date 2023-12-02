@@ -85,6 +85,8 @@
 			$regole=(File::get(storage_path('files/regole.markdown.txt')));
 			return View::make('tomo_regole')->with('regole',$regole);
 		});
+	Route::get('tomo_abilita','AbilitaController@lista_completa_PG');
+
 	Route::get('tomo_economia',function()
 		{
 			$economia=(File::get(storage_path('files/economia.markdown.txt')));
@@ -268,7 +270,7 @@
         Route::get('vicende/{id}/master/{num?}','VicendasController@show_all_master');
     });
       
-	########## Trame ###############################
+	########## Oggetti ###############################
 	Route::group(array('before'=>'master'), function() {    
         Route::get('admin/oggetti','OggettiController@index');
         Route::post('admin/oggetti/stampa','OggettiController@stampa');
