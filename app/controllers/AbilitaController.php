@@ -51,7 +51,7 @@ class AbilitaController extends \BaseController {
 		foreach($generiche as $abilita) {
 			$abilita->Requisiti;
 			$abilita->Esclusi;
-			$AllAbilita["Generiche"][$abilita->ID]["Nome"] = $abilita->Ability.' ('.$abilita['PX'].'PX)';;
+			$AllAbilita["Generiche"][$abilita->ID]["Nome"] = $abilita->Ability.' ('.$abilita['PX'].' PX)';;
 			$desc='';		
 			if (count($abilita['Requisiti'])>0){
 				$desc.=nl2br("<p style='color:DodgerBlue;'><b>Requisiti: </b></br>");
@@ -72,7 +72,7 @@ class AbilitaController extends \BaseController {
 			$abilita->Requisiti;
 			$abilita->Esclusi;		
 			if (!in_array($abilita->Categoria,array('Speciali','Spiriti','Innate'))) {
-				$AllAbilita[$abilita->Categoria][$abilita->ID]["Nome"] = $abilita->Ability.' ('.$abilita['PX'].'PX)';
+				$AllAbilita[$abilita->Categoria][$abilita->ID]["Nome"] = $abilita->Ability.' ('.$abilita['PX'].' PX)';
 				$desc='';		
 				if (count($abilita['Requisiti'])>0){
 					$desc.=nl2br("<p style='color:DodgerBlue;'><b>Requisiti: </b></br>");
