@@ -764,6 +764,9 @@ Ogni effetto è associato ad un colpo di un'arma, un proiettile, un tocco, un ge
 7. Una volta eliminato con azzeramento del busto cade in coma normalmente se il PG al momento del risveglio era in coma; torna nello stato di morte se era morto. 
 8. Se non è eliminato l'effetto svanisce dopo 10 minuti se non rinnovato con un nuovo effetto di risveglio. 
 9. Un PG o PNG sotto l'effetto Risveglio non può essere disarmato nemmeno se è in coma o morto per 5 minuti.
+10. Al termine dei 10 minuti, o se viene abbattuto, il risvegliato smette di esserlo, ed il personaggio ritorna nello stato precedente all'applicazione dell'effetto "Risveglio" ("Coma" o "Morto"). Se non era "Morto", il personaggio inizia un nuovo stato di "Coma".
+
+
 * **Bacio**: il bersaglio subisce Perforazione al busto. Chi subisce questa dichiarazione avrà indicazioni dirette da un master o da chi ha utilizzato l'effetto.
 * **Marchio**: solo tocco. Il PG bersaglio viene marchiato e subisce Svenimento. Il marchio può avere due stati: inattivo e attivo. Quando inattivo al PG marchiato viene indicato il nome del marchio, eventuali caratteristiche visive (esempio, una croce sulla fronte, che deve essere rappresentata a livello di costume), altre istruzioni utili ai fini del marchio stesso. Nel momento in cui le condizioni per l'attivazione sono soddisfatte, il marchio si attiva e il PG marchiato DEVE eseguire le istruzioni dell'azione di attivazione del suo marchio. Un PG marchiato riceve le indicazioni a riguardo dal PG marchiatore o da un master.
 * **Etereo**: infligge un danno spirituale. Un PG, a meno che non abbia ricevuto istruzioni speciali da parte di un master o da regole specifiche, non subisce alcun effetto.
