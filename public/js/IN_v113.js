@@ -259,7 +259,6 @@ $.ajax({
 });
 }
 
-
 function get_licenza(pos){
 $.ajax({
 	type: "GET",
@@ -279,16 +278,82 @@ $.ajax({
 }
 
 
-function get_rotte(pos){
+function get_rotte(pos,id_evento){
 $.ajax({
 	type: "GET",
-	url:  "rotte/"+pos,
+	url:  "rotte/"+pos+"/"+id_evento,
 	async: false,
 	success: function(output){
 		$("#tabella_rotte").html(output.tabella);
 	},
 	dataType: "json"
 });
+}
+
+function add_mat_sintesi(tableID){
+  var table = document.getElementById(tableID);
+
+  var rowCount = table.rows.length;
+  var row = table.insertRow(rowCount);
+
+  var cell1 = row.insertCell(0);
+  cell1.width = '70%';
+  var element1 = document.createElement("input");
+  element1.type = "text";
+  element1.name="materiale_sintesi[]";
+  element1.className="form-control";
+  element1.value="";
+  cell1.appendChild(element1);
+
+  var cell2 = row.insertCell(1);
+  var element2 = document.createElement("input");
+  element2.type = "number";
+  element2.name="qta_sintesi[]";
+  element2.className="form-control";
+  element2.value="1";
+  element2.disabled=true;
+  cell2.appendChild(element2);
+
+  var cell3 = row.insertCell(2);
+  cell3.style ="text-align: center;";
+  cell3.innerHTML = '<a class="glyphicon glyphicon-remove-sign" style="font-size: 30px;" href="#" onclick="del_mat_sintesi('+rowCount+',\''+tableID+'\')"></a>';
+
+
+  /*
+  var cell3 = row.insertCell(2);
+  cell3.style ="text-align: center;";
+  cell3.innerHTML = '<a class="glyphicon glyphicon-plus-sign" style="font-size: 30px;" href="#" onclick="add_mat_sintesi(\''+tableID+'\')"></a>';
+
+  var prevCount = rowCount-1;
+  var prevRow = table.rows[prevCount];
+  var cell = prevRow.cells[2];
+  cell.innerHTML = '<a class="glyphicon glyphicon-remove-sign" style="font-size: 30px;" href="#" onclick="del_mat_sintesi('+prevCount+',\''+tableID+'\')"></a>';
+  */
+
+}
+
+function del_mat_sintesi(rowNumber,tableID){
+  var table = document.getElementById(tableID);
+  table.deleteRow(rowNumber);
+
+  var count = table.rows.length;
+  //var count = table.rows.count;
+  //count = count-1;
+  var i = 0;
+  for(;i<count;i++) {
+    var row = table.rows[i];
+    var cell = row.cells[2];
+    cell.innerHTML='<a class="glyphicon glyphicon-remove-sign" style="font-size: 30px;" href="#" onclick="del_mat_sintesi('+i+',\''+tableID+'\')"></a>';
+    /*
+    if (i==count-1){
+      cell.innerHTML='<a class="glyphicon glyphicon-remove-sign" style="font-size: 30px;" href="#" onclick="del_mat_sintesi('+i+',\''+tableID+'\')"></a>';
+    }else{
+      cell.innerHTML = '<a class="glyphicon glyphicon-plus-sign" style="font-size: 30px;" href="#" onclick="add_mat_sintesi(\''+tableID+'\')"></a>';
+    }
+    */
+  }
+
+
 }
 
 function add_rotta(tableID){
@@ -387,6 +452,18 @@ function modifica_rotte(pg){
   });
 }
 */
+function rigenera_rotte(pg,id_evento){
+$.ajax({
+	type: "GET",
+	url:  "rotte/rigenera/"+pg,
+	async: false,
+	success: function(output){
+    get_rotte(pg,id_evento);
+	},
+	dataType: "html"
+});
+}
+/*
 function rigenera_rotte(pg){
 $.ajax({
 	type: "PUT",
@@ -398,8 +475,8 @@ $.ajax({
 	dataType: "json"
 });
 }
-
-function destroy_rotta(id,pg){
+*/
+function destroy_rotta(id,pg,id_evento){
 	var conf = confirm("Cancello la rotta n°"+id+"?");
 	if (conf){
 		$.ajax({
@@ -408,7 +485,7 @@ function destroy_rotta(id,pg){
 			data: { _method:"DELETE" },
 			success: function(){
 				//location.reload();
-        get_rotte(pg);
+        get_rotte(pg,id_evento);
 				$("#info").html('Rotta Cancellata con Successo!');
 			},
 			dataType: "html"
@@ -439,6 +516,7 @@ $.ajax({
 	dataType: "json"
 });
 }
+
 
 function get_list_missive(page,show_delete,idpg){
 var data = $( "form" ).serializeArray();
@@ -553,6 +631,7 @@ $.ajax({
 	dataType: "json"
 });
 }
+
 
 
 function get_missiva(id,idpg){
@@ -1194,5 +1273,555 @@ $.ajax({
 		$("#errata_risposta").html(output.Testo);
 	},
 	dataType: "json"
+});
+}
+
+////// SOSTANZE
+
+function get_list_sostanze(page){
+  var data = $( "form" ).serializeArray();
+  data.push({name: 'page', value: page});
+  $.ajax({
+  	type: "GET",
+  	url:  "sostanze/search",
+  	data: data,
+  	success: function(output){
+  		$('#pagine').bootpag({
+  			total: output.last_page,
+  			maxVisible: 7
+  		}).on("page", function(event, num){get_list_sostanze(num)} );
+  		var sostanze=output.data;
+  		//var main=$('#results');
+      var main=$('#accordion');
+  		main.html('');
+  		$.each(sostanze, function(index, sostanza){
+
+        var cromodinamica = sostanza.cromodinamica;
+        var id_coll = 'collapse_'+sostanza.id_sostanza;
+        var materiali = sostanza.materiali;
+
+        panelDefault =$('<div></div>').addClass('panel panel-default');
+        header= $('<div></div>').addClass('panel-heading');
+        title=$('<h4></h4>').addClass('panel-title');
+        collapse=$('<div id='+id_coll+'></div>').addClass('panel-collapse collapse');
+        body=$('<div></div>').addClass('panel-body');
+        icon_area=$('<div></div>');
+        button=$('<a data-toggle="collapse" data-parent="#accordion" href="#'+id_coll+'"></a>');
+        //bodybox=$("<div class='col-sm-12'>	</div>");
+        bodycol1=$("<div class='col-sm-6'>	</div>");
+        bodycol2=$("<div class='col-sm-6'>	</div>");
+
+
+        main.append(panelDefault);
+        panelDefault.append(header);
+
+        //icon_area.append(sostanza.cancellata);
+
+        if(sostanza.cancellata==0){
+          icon_area.append("<a class='with_margin_icon glyphicon glyphicon-remove-sign' href='#' onclick='destroy_sostanza("+sostanza.id_sostanza+")'></a>");
+          icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='sostanze/"+sostanza.id_sostanza+"/edit' style='color: #f00'></a>");
+        }
+
+        header.append(icon_area);
+        header.append(button);
+        button.append(title);
+        title.append("<span class='icona_tipo_missiva "+sostanza.tipo['icon']+"' ></span>");
+        title.append("<span style='font-weight:bold; margin-right:5px;'>"+sostanza.nome+"</span>" );
+
+          panelDefault.append(collapse);
+          collapse.append(body);
+          body.append(  bodycol1);
+          body.append(  bodycol2);
+
+          stat =$('<div class="row-sm-12"></div>');
+          bodycol1.append(stat);
+          stat1=$('<div class="col-sm-6"></div>');
+          stat.append(stat1);
+          stat1.append('<label for="diluizione_'+sostanza.id_sostanza+'">Diluizione</label>');
+          stat1.append('<input class="form-control" id="diluizione_'+sostanza.id_sostanza+'" name="diluizione" type="number" value="'+sostanza.diluizione+'" disabled>');
+
+          stat2=$('<div class="col-sm-6"></div>');
+          stat.append(stat2);
+          stat2.append('<label for="cromodinamica_'+sostanza.id_sostanza+'">Cromodinamica</label>');
+          stat2.append('<input class="form-control" id="cromodinamica_'+sostanza.id_sostanza+'" name="cromodinamica" type="text" value="'+sostanza.cd+'" disabled><br>');
+
+          bodycol1.append('<br><label for="Effetti">Effetti</label>');
+          bodycol1.append('<textarea class="form-control" name="Effetti" cols="50" rows="2" id="Descrizione_'+sostanza.id_sostanza+'" disabled>'+sostanza.effetti+'</textarea>');
+
+
+          bodycol2.append('<label for="Matrice">Matrice</label>');
+          matrice=$('<div class="input-group"></div>');
+          bodycol2.append(matrice);
+					matrice.append('<span class="input-group-addon danger" id="sizing-addon1"><span class="glyphicon glyphicon-leaf "></span></span>');
+					matrice.append('<input id="Rosse_'+sostanza.id_sostanza+'" class="form-control" aria-describedby="sizing-addon1" name="Rosse" type="text" value="'+sostanza.R+'" disabled>');
+					matrice.append('<span class="input-group-addon success" id="sizing-addon2"><span class="glyphicon glyphicon-leaf"></span>	</span>');
+					matrice.append('<input id="Verdi_'+sostanza.id_sostanza+'" class="form-control" aria-describedby="sizing-addon2" name="Verdi" type="text" value="'+sostanza.V+'" disabled>');
+					matrice.append('<span class="input-group-addon primary" id="sizing-addon3"><span class="glyphicon glyphicon-leaf"></span></span>');
+					matrice.append('<input id="Blu_'+sostanza.id_sostanza+'" class="form-control" aria-describedby="sizing-addon3" name="Blu" type="text" value="'+sostanza.B+'" disabled>');
+
+
+          bodycol2.append('<br><label for="Materiali">Materiali</label>');
+          matDiv =$('<div class="form-group"></div>');
+          bodycol2.append(matDiv);
+
+          matTab=$('<table class="table table-striped"></table>');
+          matBody=$('<tbody></tbody>');
+          matDiv.append(matTab);
+          matTab.append(matBody);
+
+          	$.each(materiali, function(index, materiale){
+
+                matBody.append("<tr><td>"+materiale.Nome +"</td><td>"+materiale.pivot.quantita +"</td><tr>");
+
+            });
+  		});
+
+  		$('#panel_sostanza').hide();
+
+  	},
+  	dataType: "json"
+  });
+
+}
+
+function destroy_sostanza(id){
+  var conf = confirm("Cancello la Sostanza n°"+id+"?");
+  if (conf){
+    $.ajax({
+      type: 'POST',
+      url:  "sostanze/"+id,
+      data: { _method:"DELETE" },
+      success: function(){
+        //$("#info").html('Sostanza Cancellata con Successo!');
+        //location.reload();
+      },
+      dataType: "html"
+    });
+  }
+}
+
+function destroy_mat_sostanza(id_mat, id_sostanza){
+  $.ajax({
+    type: 'POST',
+    url:  "/admin/sostanze/materiale/"+id_mat+"/"+id_sostanza,
+    data: { _method:"DELETE" },
+    success: function(){
+      location.reload();
+      //get_rotte(pg);
+      $("#info").html('Materiale cancellato!');
+    },
+    dataType: "html"
+  });
+}
+
+function add_mat_sostanza(id_sostanza){
+  var data = $( "form" ).serializeArray();
+  $.ajax({
+    type: 'PUT',
+    url:  "/admin/sostanze/materiale/"+id_sostanza,
+    data: data,
+    success: function(){
+      location.reload();
+
+      $("#info").html('Materiale aggiunto!');
+    },
+    dataType: "html"
+  });
+}
+
+function add_mat_sostanza_new(){
+  var table = document.getElementById('tab-mat-sostanza');
+  var idMat= $('#SelMateriali').val();
+  var selMat = document.getElementById('SelMateriali');
+  var nomeMat=selMat.options[selMat.selectedIndex].text;
+  var qtaMat=$('#qtaMat').val();
+
+  var rowCount = table.rows.length;
+  var row = table.insertRow(rowCount);
+
+  var cell1 = row.insertCell(0);
+  var element0 = document.createElement("input");
+  element0.type = "hidden";
+  element0.name="mat_id[]";
+  //element1.className="form-control";
+  element0.value=idMat;
+  cell1.appendChild(element0);
+
+  //var cell1 = row.insertCell(0);
+  var element1 = document.createElement("input");
+  element1.type = "text";
+  element1.name="mat_nome[]";
+  element1.className="form-control";
+  element1.value=nomeMat;
+  cell1.appendChild(element1);
+
+  var cell2 = row.insertCell(1);
+  var element2 = document.createElement("input");
+  element2.type = "number";
+  element2.name="mat_qta[]";
+  element2.className="form-control";
+  element2.value=qtaMat;
+  cell2.appendChild(element2);
+
+  var cell3 = row.insertCell(2);
+  cell3.style ="text-align: center;";
+  cell3.innerHTML = '<a class="glyphicon glyphicon-remove-sign" style="font-size: 30px;" href="#" onclick="destroy_mat_sostanza_new('+rowCount+')"></a>';
+
+}
+
+function destroy_mat_sostanza_new(rowNumber){
+  var table = document.getElementById('tab-mat-sostanza');
+  table.deleteRow(rowNumber);
+}
+
+function change_color_cromodinamica(id_cd){
+  $.ajax({
+  	type: "GET",
+  	url:  "/admin/sostanze/cromodinamica/"+id_cd,
+  	async: true,
+  	success: function(output){
+      var hexR = output.cromo_R.toString(16);
+      var hexV = output.cromo_V.toString(16);
+      var hexB = output.cromo_B.toString(16);
+      var hexCromo = '#'+hexR+hexV+hexB;
+      var selCD = document.getElementById('cromodinamica');
+      selCD.style.backgroundColor = hexCromo;
+  		//$("#cromodinamica").setAttribute('style','background-color:rgb('+output.cromo_R+','+output.cromo_V+','+output.cromo_B+');');
+  	},
+  	dataType: "json"
+  });
+}
+  function get_matrice(){
+    var data = $( "form" ).serializeArray();
+    dil=$('#diluizione').val();
+    id_cd=$('#cromodinamica').val();
+    $.ajax({
+    	//type: "GET",
+      type: "PUT",
+    	url:  "/admin/sostanze/matrice/"+id_cd+"/"+dil,
+      data: data,
+    	//async: true,
+    	success: function(output){
+          //location.reload();
+        var rosse = document.getElementById("rosse");
+        rosse.value = output.R;
+
+        var verdi = document.getElementById("verdi");
+        verdi.value = output.V;
+
+        var blu = document.getElementById("blu");
+        blu.value = output.B;
+
+        //inserire con js il blocco dei messaggi.
+      },
+    	dataType: "json"
+    });
+}
+
+//// MATERIALI
+
+function get_list_materiali(page){
+  var data = $( "form" ).serializeArray();
+  data.push({name: 'page', value: page});
+  $.ajax({
+  	type: "GET",
+  	url:  "materiali/search",
+  	data: data,
+  	success: function(output){
+  		$('#pagine').bootpag({
+  			total: output.last_page,
+  			maxVisible: 7
+  		}).on("page", function(event, num){get_list_materiali(num)} );
+  		var materiali=output.data;
+  		//var main=$('#results');
+      var main=$('#accordion');
+  		main.html('');
+  		$.each(materiali, function(index, materiale){
+
+        var cromodinamica = materiale.cromodinamica;
+        var id_coll = 'collapse_'+materiale.ID;
+
+
+        panelDefault =$('<div></div>').addClass('panel panel-default');
+        header= $('<div></div>').addClass('panel-heading');
+        title=$('<h4></h4>').addClass('panel-title');
+        collapse=$('<div id='+id_coll+'></div>').addClass('panel-collapse collapse');
+        body=$('<div></div>').addClass('panel-body');
+        icon_area=$('<div></div>');
+        button=$('<a data-toggle="collapse" data-parent="#accordion" href="#'+id_coll+'"></a>');
+        //bodybox=$("<div class='col-sm-12'>	</div>");
+        bodycol1=$("<div class='col-sm-6'>	</div>");
+        bodycol2=$("<div class='col-sm-6'>	</div>");
+
+
+        main.append(panelDefault);
+        panelDefault.append(header);
+
+        header.append(icon_area);
+
+        if(materiale.cancellata==0){
+          icon_area.append("<a class='with_margin_icon glyphicon glyphicon-remove-sign' href='#' onclick='destroy_materiale("+materiale.ID+")'></a>");
+          icon_area.append("<a class='with_margin_icon glyphicon glyphicon-check' href='materiali/"+materiale.ID+"/edit' style='color: #f00'></a>");
+        }
+
+        header.append(button);
+        button.append(title);
+        //title.append("<span class='icona_tipo_missiva "+sostanza.tipo['icon']+"' ></span>");
+        title.append("<span style='font-weight:bold; margin-right:5px;'>"+materiale.Nome+"</span>" );
+
+          panelDefault.append(collapse);
+          collapse.append(body);
+          body.append(  bodycol1);
+          body.append(  bodycol2);
+
+          stat =$('<div class="row-sm-12"></div>');
+          bodycol1.append(stat);
+          stat1=$('<div class="col-sm-6"></div>');
+          stat.append(stat1);
+          stat1.append('<label for="categoria_'+materiale.ID+'">Categoria</label>');
+          stat1.append('<input class="form-control" id="categoria_'+materiale.ID+'" name="categoria" type="text" value="'+materiale.cat.Descrizione+'" disabled>');
+
+          stat2=$('<div class="col-sm-6"></div>');
+          stat.append(stat2);
+          stat2.append('<label for="stagione_'+materiale.ID+'">Stagione</label>');
+          stat2.append('<input class="form-control" id="stagione_'+materiale.ID+'" name="stagione" type="text" value="'+materiale.stg+'" disabled>');
+
+
+          cd =$('<div class="row-sm-12"></div>');
+          bodycol1.append(cd);
+          cd1=$('<div class="col-sm-12"></div>');
+          cd.append(cd1);
+          cd1.append('<label for="cromodinamica_'+materiale.ID+'">Cromodinamica</label>');
+          cromodinamica = '';
+          crom_name = materiale.ID;
+          if(materiale.cd!=null){
+            cromodinamica = materiale.cd.DESC;
+            crom_name = materiale.cd.DESC;
+          }
+          cd1.append('<input class="form-control" id="cromo_'+crom_name+'" name="cromodinamica" type="text" value="'+cromodinamica+'" disabled><br>');
+
+          dat =$('<div class="row-sm-12"></div>');
+          bodycol1.append(dat);
+          dat2=$('<div class="col-sm-6"></div>');
+          dat.append(dat2);
+          dat2.append('<label for="valore_'+materiale.ID+'">Valore</label>');
+          dat2.append('<input class="form-control" id="valore_'+materiale.ID+'" name="valore" type="number" value="'+materiale.ValoreBase+'" disabled><br>');
+
+          dat3=$('<div class="col-sm-6"></div>');
+          dat.append(dat3);
+          dat3.append('<label for="quantita_'+materiale.ID+'">Q.ta</label>');
+          dat3.append('<input class="form-control" id="quantita_'+materiale.ID+'" name="quantita" type="number" value="'+materiale.Quantita+'" disabled><br>');
+
+          rar1 =$('<div class="row-sm-12"></div>');
+          bodycol2.append(rar1);
+          rl=$('<div class="col-sm-12"></div>');
+          rar1.append(rl);
+          rl.append('<label for="RL_'+materiale.ID+'">Rarità Locale</label>');
+          rl.append('<input class="form-control" id="RL_'+materiale.ID+'" name="RL" type="text" value="'+materiale.rl.Descrizione+'" disabled>');
+
+          rar2 =$('<div class="row-sm-12"></div>');
+          bodycol2.append(rar2);
+          ro=$('<div class="col-sm-12"></div>');
+          rar2.append(ro);
+          ro.append('<label for="RO_'+materiale.ID+'">Rarità Oltremare</label>');
+          ro.append('<input class="form-control" id="RO_'+materiale.ID+'" name="RO" type="text" value="'+materiale.ro.Descrizione+'" disabled><br>');
+
+          rar3 =$('<div class="row-sm-12"></div>');
+          bodycol2.append(rar3);
+          rn=$('<div class="col-sm-12"></div>');
+          rar3.append(rn);
+          rn.append('<label for="RN_'+materiale.ID+'">Rarità Mercato Nero</label>');
+          rn.append('<input class="form-control" id="RN_'+materiale.ID+'" name="RN" type="text" value="'+materiale.rn.Descrizione+'" disabled><br>');
+
+
+  		});
+
+  		$('#panel_materiale').hide();
+
+  	},
+  	dataType: "json"
+  });
+
+}
+
+function destroy_materiale(id){
+  var conf = confirm("Cancello il materiale n°"+id+"?");
+  if (conf){
+    $.ajax({
+      type: 'POST',
+      url:  "materiali/"+id,
+      data: { _method:"DELETE" },
+      success: function(){
+        //$("#info").html('Sostanza Cancellata con Successo!');
+        //location.reload();
+      },
+      dataType: "html"
+    });
+  }
+}
+
+function get_verifica_cura(){
+  var data = $( "form" ).serializeArray();
+  //data.push({name: 'page', value: page});
+$.ajax({
+	type: "GET",
+	url:  "malattie/verificaCura",
+  data: data,
+	//async: true,
+	success: function(output){
+    var verifica=output;
+
+    var main=$('#resultsCura');
+    main.html(output);
+
+    var row = $('<div></div>');
+    if(verifica.esito=='Cura'){
+      row.addClass("row bs-callout bs-callout-success");
+    }else if(verifica.esito=='Pagliativo'){
+      row.addClass("row bs-callout bs-callout-warning");
+    }else{
+      row.addClass("row bs-callout bs-callout-danger");
+    }
+
+    esito = $('<div></div>');
+    esito.append('<label for="esito_cura">Esito</label>');
+    esito.append('<input id="esito_cura" class="form-control" aria-describedby="sizing-addon3" name="esito_cura" type="text" value="'+verifica.esito+'" disabled>');
+    row.append(esito);
+
+    effetti = $('<div></div>');
+    effetti.append('<label for="effetti_cura">Effetti</label>');
+    effetti.append('<textarea id="effetti_cura" class="form-control" aria-describedby="sizing-addon3" name="effetti_cura">'+verifica.effetto+'</textarea>');
+    row.append(effetti);
+
+    main.append(row);
+
+	},
+	dataType: "json"
+});
+}
+
+function get_list_sintesi(page){
+var data = $( "form" ).serializeArray();
+data.push({name: 'page', value: page});
+$.ajax({
+	type: "GET",
+	url:  "sintesi/search",
+	data: data,
+	success: function(output){
+		$('#pagine').bootpag({
+			total: output.last_page,
+			maxVisible: 7
+		}).on("page", function(event, num){get_list_sintesi(num)} );
+		var sintesi=output.data;
+		var main=$('#results');
+		main.html('');
+		$.each(sintesi, function(index, esperimento){
+
+      row = $('<div></div>');
+
+      main.append(row);
+
+
+      if(esperimento.diluizione!=0){
+        row.addClass('row bs-callout bs-callout-warning');
+      }else{
+        if(esperimento.id_sostanza!=null){
+          row.addClass('row bs-callout bs-callout-success');
+        }else{
+          row.addClass('row bs-callout bs-callout-danger');
+        }
+      }
+
+      var pg = '';
+
+      if(esperimento.id_pg==0){
+        pg = 'Master';
+      }else{
+        pg = esperimento.nomePG;
+      }
+
+      row.append('<label for="Personaggio">Personaggio</label>');
+      row.append('<input class="form-control" id="pg_'+esperimento.id_pg+'" name="pg" type="text" value="'+pg+'" disabled><br>');
+      row.append('<label for="Matrice">Matrice</label>');
+      matrice=$('<div class="form-inline"></div>');
+      group=$('<div class="input-group col-sm-9"></div>')
+      row.append(matrice);
+      matrice.append(group);
+      group.append('<span class="input-group-addon danger" id="sizing-addon1"><span class="glyphicon glyphicon-leaf "></span></span>');
+      group.append('<input id="r_'+esperimento.id_sintesi+'" class="form-control" aria-describedby="sizing-addon1" name="Rosse" type="text" value="'+esperimento.R_matrice+'" disabled> ');
+      group.append('<span class="input-group-addon success" id="sizing-addon2"><span class="glyphicon glyphicon-leaf"></span>	</span>');
+      group.append('<input id="Verdi_'+esperimento.id_sintesi+'" class="form-control" aria-describedby="sizing-addon2" name="Verdi" type="text" value="'+esperimento.V_matrice+'" disabled> ');
+      group.append('<span class="input-group-addon primary" id="sizing-addon3"><span class="glyphicon glyphicon-leaf"></span></span>');
+      group.append('<input id="Blu_'+esperimento.id_sintesi+'" class="form-control" aria-describedby="sizing-addon3" name="Blu" type="text" value="'+esperimento.B_matrice+'" disabled> ');
+
+      row.append('<br>');
+
+      var materiali = esperimento.componenti;
+      if(materiali!=null){
+        row.append('<label for="Materiali">Materiali</label>');
+        matTable = $('<table></table>');
+        $.each(materiali, function(index, materiale){
+          matTable.append('<tr><td>'+materiale.Nome+'</td><td>'+materiale.Quantita+'</td></tr>');
+        });
+        row.append(matTable);
+        row.append('<br>');
+      }
+
+
+      //cromod = $('<div class="input-group col-sm-6"></div>')
+      //cromod.append('<label for="Cromodinamica">Cromodinamica</label>');
+      row.append('<label for="Cromodinamica">Cromodinamica</label>');
+      //color =$('<div class="form-inline"></div>');
+      var cd = '';
+      if (esperimento.cromodinamica!=null){
+        cd = esperimento.cromodinamica.DESC;
+      }
+      //cromod.append('<input id="cromo_'+cd+'" class="form-control" aria-describedby="sizing-addon3" name="cromo_'+cd+'" type="text" value="'+cd+'" disabled>');
+      row.append('<input id="cromo_'+cd+'" class="form-control" aria-describedby="sizing-addon3" name="cromo_'+cd+'" type="text" value="'+cd+'" disabled>');
+      //color.append('<input id="cromo_'+cd+'" class="form-control" aria-describedby="sizing-addon3" name="cromo_'+cd+'" type="text" value="'+cd+'" disabled>');
+      //cromod.append(color);
+      //row.append(cromod);
+
+
+        if(esperimento.diluizione!=0){
+          if(esperimento.diluizione<0){
+            cerchioW = $('<div></div>').addClass('circleW');
+            //color.append(cerchioW);
+            //cromod.append(cerchioW);
+            row.append(cerchioW);
+          }else{
+            cerchioB = $('<div></div>').addClass('circleB');
+            //color.append(cerchioB);
+            //cromod.append(cerchioB);
+            row.append(cerchioB);
+          }
+          if(esperimento.rubedo==1){
+            cerchioR = $('<div></div>').addClass('circleR');
+            row.append(cerchioR);
+          }
+        }else{
+          if(esperimento.id_sostanza!=null){
+            row.append('<br>');
+            sostanza = $('<div class="input-group col-sm-9"></div>');
+            effetti = $('<div></div>');
+            effetti.append('<label for="effetti_'+esperimento.id_sintesi+'">Effetti</label>');
+            effetti.append('<input id="effetti_'+esperimento.id_sintesi+'" class="form-control" aria-describedby="sizing-addon3" name="effetti_'+esperimento.id_sintesi+'" type="text" value="'+esperimento.sostanza.effetti+'" disabled>');
+            sostanza.append(effetti);
+            nome = $('<div></div>');
+            nome.append('<label for="sostanza_'+esperimento.id_sintesi+'">Sostanza</label>');
+            nome.append('<input id="sostanza_'+esperimento.id_sintesi+'" class="form-control" aria-describedby="sizing-addon3" name="sostanza_'+esperimento.id_sintesi+'" type="text" value="'+esperimento.sostanza.nome+'" disabled>');
+            sostanza.append(nome);
+            row.append(sostanza);
+          }else{
+            if(esperimento.rubedo==1){
+              cerchioR = $('<div></div>').addClass('circleR');
+              row.append(cerchioR);
+            }
+          }
+        }
+
+    });
+  },
+  dataType: "json"
 });
 }

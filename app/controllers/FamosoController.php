@@ -9,13 +9,21 @@ class FamosoController extends \BaseController {
 	public function gallery()
 	{
 		$famosi = Famoso::orderBy('ID','asc')->get(array('ID','Nome','Foto'));
-		
+
 
 		return View::make('famoso.gallery')
 					->with('famosi',$famosi);
 	}
 
-	 
+	public function frontGallery()
+	{
+		$famosi = Famoso::orderBy('ID','asc')->get(array('ID','Nome','Foto'));
+
+		return View::make('frontpage.ambientazione.notabiliGallery')
+					->with('Notabili',$famosi);
+	}
+
+
 	public function index()
 	{
 		$famosi = Famoso::all();
@@ -66,7 +74,7 @@ class FamosoController extends \BaseController {
 			$image= Input::file('photo');
 			$fileName=str_random(6) . '_' . $image->getClientOriginalName();
 			$destinationPath=storage_path().'/images/famoso/';
-			
+
 			$famoso = new Famoso;
 			$famoso->Nome      = Input::get('Nome');
 			$famoso->Foto      = $fileName;
@@ -81,32 +89,54 @@ class FamosoController extends \BaseController {
 		}
 	}
 
-	
+
 	/**
 	 * Ritorna la famoso indicata da $id in formato json (per l'editing).
 	 *
-	 * 
+	 *
 	 */
 	public function show($id)
 	{
 		// mostra solo le famosi che non sono bozze
 
 		$famoso = Famoso::find($id);
-		
+
 		$paragrafi=explode( "\n",$famoso['Storia']);
 		$abstract=$paragrafi[0].'</br>'.$paragrafi[1];
 		unset($paragrafi[0]);
 		unset($paragrafi[1]);
-				
+
 		$famoso['Storia']=array($abstract,implode('</br>',$paragrafi));
-	
-		
+
+
 		if (Request::ajax()){
 			return Response::json($famoso);
 		} else {
 			return View::make('famoso.show')->with('famoso', $famoso);
 		}
-			
+
+	}
+
+	public function frontShow($id)
+	{
+		// mostra solo le famosi che non sono bozze
+
+		$famoso = Famoso::find($id);
+
+		$paragrafi=explode( "\n",$famoso['Storia']);
+		$abstract=$paragrafi[0].'</br>'.$paragrafi[1];
+		unset($paragrafi[0]);
+		unset($paragrafi[1]);
+
+		$famoso['Storia']=array($abstract,implode('</br>',$paragrafi));
+
+
+		if (Request::ajax()){
+			return Response::json($famoso);
+		} else {
+			return View::make('frontpage.ambientazione.notabile')->with('Notabile', $famoso);
+		}
+
 	}
 
 
@@ -147,10 +177,10 @@ class FamosoController extends \BaseController {
 				->withErrors($validator)
 				->withInput();
 		} else {
-			
+
 			// store
 			$famoso = Famoso::find($id);
-			
+
 			$image=Input::file('Foto');
 			if ($image) {
 				$fileName=str_random(6) . '_' . $image->getClientOriginalName();

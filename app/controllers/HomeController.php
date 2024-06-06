@@ -15,7 +15,23 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+	// show the frontpage
+	public function showFront()
+	{
+		$soglia = date_add(date_create(),date_interval_create_from_date_string("-15 days"));
+		$Eventi = Evento::take(5)->OrderBy('Data','Desc')->Where('Data','<',$soglia)->get();
+		$NextEvent = Evento::Where('Data','>',date_create())->first();
+		if ($NextEvent==null){
+			$NextEvent = new Evento();
+			$NextEvent['Tipo'] = "";
+			$NextEvent['Titolo'] = "-";
+			$NextEvent['Orari'] = "-";
+			$NextEvent['Luogo'] = "-";
+		}
+		return View::make('frontpage.index')
+			->with('NextEvent',$NextEvent)
+			->with('Eventi',$Eventi);
+	}
 	// show the homepage
 	public function showHome()
 	{
@@ -58,10 +74,10 @@ class HomeController extends BaseController {
 			);
 
 			$remember = Input::get('remember',false);
-			
+
 			// attempt to do the login and redirect to User Profile or Admin page depending on the usergroup.
 			if (Auth::attempt($userdata,$remember)) {
-				
+
 				$USER=Auth::user();
 				$id= $USER->id;
 				$pg= User::find($id)->PG()->get(array('PG.ID','Nome'));
@@ -76,11 +92,11 @@ class HomeController extends BaseController {
 				//redirect to homepage
 				return Redirect::to('/');
 
-				
-			} else {	 	
+
+			} else {
 
 				// validation not successful, send back to form
-				$errors = new MessageBag(['password' => ['email e/o password  non corretti.']]); 
+				$errors = new MessageBag(['password' => ['email e/o password  non corretti.']]);
 				return Redirect::to('login')->withErrors($errors);
 
 			}
@@ -93,9 +109,9 @@ class HomeController extends BaseController {
 		Auth::logout(); // log the user out of our application
 		return Redirect::to('/'); // redirect the user to the login screen
 	}
-	
-	
-	
+
+
+
 	public function sendMail()
 	{
 		//regole del validatore
@@ -112,16 +128,16 @@ class HomeController extends BaseController {
 		} else {
 			$emails_master=User::where('usergroup','=',7)->get(array('email'));
 			$indirizzi=INtools::select_column($emails_master,'email');
-			
+
 			$opzione=Input::get('destinatari');
 			$oggetto=Input::get('oggetto');
 			$testo=Input::get('testo');
-			
-			
+
+
 			$pgs=PG::whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
 			$Evento = Evento::orderBy('Data','Desc')->take(1)->get();
 			$iscritti = $Evento[0]->PG;
-			
+
 			switch ($opzione) {
 				case 0: // VIVI
 					foreach($pgs as $pg){
@@ -130,7 +146,7 @@ class HomeController extends BaseController {
 							if ($user_id) {
 								try {
 									$user_email=User::find($user_id)->email;
-								} catch (Exception $e) {}	
+								} catch (Exception $e) {}
 								if (!empty($user_mail)){
 									array_push($indirizzi,$user_email);
 								}
@@ -144,7 +160,7 @@ class HomeController extends BaseController {
 							if ($user_id) {
 								try {
 									$user_email=User::find($user_id)->email;
-								} catch (Exception $e) {}	
+								} catch (Exception $e) {}
 								if (!empty($user_mail)){
 									array_push($indirizzi,$user_email);
 								}
@@ -154,7 +170,7 @@ class HomeController extends BaseController {
 				case 2: // VIVI, non iscritti all'evento
 					$iscritti_id=INtools::select_column($iscritti,'ID');
 					$pg_id=INtools::select_column($pgs,'ID');
-					
+
 					$noniscritti=PG::findMany(array_diff($pg_id,$iscritti_id));
 					foreach($noniscritti as $pg){
 							$user=$pg->User;
@@ -162,7 +178,7 @@ class HomeController extends BaseController {
 							if ($user_id) {
 								try {
 									$user_email=User::find($user_id)->email;
-								} catch (Exception $e) {}	
+								} catch (Exception $e) {}
 
 								if (!empty($user_mail)){
 									array_push($indirizzi,$user_email);
@@ -171,19 +187,19 @@ class HomeController extends BaseController {
 						}
 					break;
 			}
-			
+
 			$data['testo']=$testo;
 			Mail::send('emails.email', $data, function($message) use ($indirizzi,$oggetto)
 			{
 				$message->to($indirizzi)->subject($oggetto);
 			});
-			
-			
+
+
 			Session::flash('message', 'Email inviata con successo!');
 			return Redirect::to('mail');
-		
+
 		}
-		
-	}	
-	
+
+	}
+
 }

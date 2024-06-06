@@ -20,7 +20,7 @@ class IncantoController extends \BaseController {
 			->with('selectIncanti', $selectIncanti);
 	}
 
-	public function index_PG()
+		public function index_PG()
 	{
 		$incanti = Incanto::orderBy('Livello', 'asc')->where('Base','1')->get(array('ID','Nome','Livello'));
 
@@ -34,7 +34,7 @@ class IncantoController extends \BaseController {
 			->with('incanti', $incanti)
 			->with('selectIncanti', $selectIncanti);
 	}
-
+	
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -117,7 +117,6 @@ class IncantoController extends \BaseController {
 			return Response::json($incanto);
 		} 
 	}
-	
 	
 	public function imparabile($id)
 	{

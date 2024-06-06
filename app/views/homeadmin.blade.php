@@ -20,7 +20,7 @@
 					{{ HTML::link('/admin/sanita', 'Genera!', array('class' => 'btn btn-success form-control'), false)}}
 				</div>
 			</div>
-		
+
 			<table class='table table-striped'>
 				<thead>
 					<tr>
@@ -38,12 +38,12 @@
 						<td>{{$Evento['pernottano']}}</td>
 					</tr>
 				</tbody>
-				
-				
-				@if ($tassazione) 
+
+
+				@if ($tassazione)
 				<hr>
 				<hr>
-				
+
 				<thead>
 					<tr>
 						<td></td>
@@ -83,18 +83,18 @@
 		<div class='row panel panel-default' style='padding:10px; margin: 0px'>
 		<!-- AGGIUNGI MANUALMENTE UNA ISCRIZIONE -->
 		{{ Form::model([], array('files'=>true, 'method' => 'POST', 'url' => 'admin', 'class'=>'pure-form')) }}
-			
+
 			<div class='col-xs-12 col-sm-12 col-md-6'>
 			{{ Form::label('PG', 'Personaggio',['style'=>'width:100%']) }}
 			{{ Form::select('PG', $selVivi, null, ['class'=>'form-control selectform', 'id'=>'selVivi']) }}
 			{{ Form::hidden('Evento',$Evento['ID']) }}
 			</div>
 			<div class='col-xs-12 col-sm-12 col-md-6'>
-			{{ Form::label('Note','Note',['style'=>'width:100%']) }}		
+			{{ Form::label('Note','Note',['style'=>'width:100%']) }}
 			{{ Form::input('text','Note','', ['class'=>'form-control'])}}
 			</div>
 			<div class='col-xs-12 col-sm-4 col-md-3'>
-			{{ Form::label('Arrivo','Arrivo',['style'=>'width:100%']) }}		
+			{{ Form::label('Arrivo','Arrivo',['style'=>'width:100%']) }}
 			{{ Form::input('time','Arrivo','14:00', ['class'=>'form-control'])}}
 			</div>
 			<div class='col-xs-4 col-sm-3 col-md-2'>
@@ -111,8 +111,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="col-sm-12 ">	
+
+	<div class="col-sm-12 ">
 		<h5><strong>Elenco degli iscritti</strong></h5>
 		<table class='table table-striped table-condensed'>
 			<thead>
@@ -129,11 +129,11 @@
 				<th>Pagato</th>
 				<th></th>
 			</thead>
-			
+
 		<tbody>
-		<!-- ISCRIZIONI -->			
+		<!-- ISCRIZIONI -->
 		@foreach ($Evento['PG'] as $PG)
-	
+
 			<tr>
 				<td class='{{$PG['classe_affiliazione']}}'>
 					{{$PG['Nome']}}<br><small>{{$PG['NomeGiocatore']}}</small>
@@ -150,8 +150,15 @@
 					@endif
 				</td>
 				<td>{{$PG['Rendita_tot']}}</td>
-				<td>{{$PG['Debiti_tot']}}</td>
-				<td>{{$PG['Spese_tot']}}</td>
+				<td>
+						{{$PG['Debiti_tot']}}
+
+				</td>
+				<td>
+						{{$PG['Spese_tot']}}
+						<br>
+						{{$PG->SintesiAvere($Evento['ID'])}}
+				</td>
 				<td class='{{$PG['class_denaro']}}'>{{$PG['Denaro_busta']}}</td>
 				<td>
 					@if($PG->Erbe()>0)
@@ -165,15 +172,22 @@
 					@if($PG->CartelliniPotere()>0)
 					{{$PG->CartelliniPotere()}}&nbsp;potere
 					@endif
+
 				</td>
 				<td>
 					@if (!empty($PG['pivot']['Note']))
 						{{$PG['pivot']['Note']}}
-						<br>
 					@endif
-					{{$PG->Rotte($Evento['ID'])}}
+					@if(!empty($PG->Rotte($Evento['ID'])))
+						<br>
+						{{$PG->Rotte($Evento['ID'])}}
+					@endif
+					@if(!empty($PG->SintesiDare($Evento['ID'])))
+						<br>
+						{{$PG->SintesiDare($Evento['ID'])}}
+					@endif
 				</td>
-				
+
 				<td align = "center">
 					{{ Form::model($PG, array('files'=>true, 'method' => 'PUT', 'url' => 'admin', 'class'=>'pure-form')) }}
 					{{ Form::hidden('PG',$PG['ID'])}}
@@ -186,10 +200,10 @@
 					@endif
 					{{ Form::close()}}
 				</td>
-				
+
 				<td align = "center">
 					{{ Form::model($PG, array('files'=>true, 'method' => 'DELETE', 'url' => 'admin', 'class'=>'pure-form')) }}
-					
+
 					{{ Form::hidden('PG',$PG['ID'])}}
 					{{ Form::hidden('Evento',$Evento['ID']) }}
 					{{ Form::submit("x", array('class' => 'btn btn-warning btn-xs')) }}
@@ -207,5 +221,3 @@
 
 
 @stop
-
-

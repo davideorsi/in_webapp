@@ -9,10 +9,17 @@ class MalattiaController extends \BaseController {
 	 */
 	public function index()
 	{
+		$check=null;
 		$Malattie=Malattia::orderBy('Nome','asc')->get();
 		$Cure=Cura::orderBy('Malattia','asc')->get();
 
-
+		$materiali=Materiale::where('categoria','!=',5)->where('cancellata',0)->get();
+		$selMateriali = array();
+    $selMateriali['---'][0] = 'Seleziona un Materiale..';
+		foreach($materiali as $mat) {
+      $cat = $mat->Categoria()->first()->Descrizione;
+			$selMateriali[$cat][$mat->ID] = $mat->Nome;
+    }
 
 		$selMalattie=array('NULL' => '');
 		foreach ($Malattie as $malattia){
@@ -22,11 +29,14 @@ class MalattiaController extends \BaseController {
 		$malati=PG::has('Malattie')->get(['Nome','ID']);
 		$malati->load('Malattie');
 		$selMalati=array();
+		$pgMalati=array();
+		$pgMalati[0]='';
 		foreach($malati as $malato){
 			$idstadio=INtools::select_column($malato->Malattie,'ID');
 			$stadio=Stadio::find($idstadio[0])->toArray();
 			$Malattia=Malattia::find($stadio['Malattia']);
 			$selMalati[]=array('ID'=>$malato->ID,'Nome'=>$malato->Nome,'Stadio'=>$stadio['Numero'],'StadioID'=>$stadio['ID'],'Malattia'=>$Malattia['Nome']);
+			$pgMalati[$malato->ID]=$malato->Nome;
 			}
 
 		$Vivi=PG::orderBy('Affiliazione','asc')->orderBy('Nome','asc')->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
@@ -42,11 +52,21 @@ class MalattiaController extends \BaseController {
 			$selStadi[$Malattia['Nome']][(string)$stadio['ID']] = 'Stadio '.$stadio['Numero'];
 		}
 
+		$selCD=array(0=>'');
+    $CD=SostanzeCromodinamica::get();
+     foreach($CD as $c){
+       $padre = $c->Padre->DESC;
+        $selCD[$padre][$c->ID] = $c->DESC.' ('.$c->livello.')';
+     }
+
 		return View::make('malattia.index')
 				->with('selMalattie',$selMalattie)
 				->with('Cure',$Cure)
 				->with('selMalati',$selMalati)
+				->with('pgMalati',$pgMalati)
+				->with('selMateriali',$selMateriali)
 				->with('selVivi',$selVivi)
+				->with('check',$check)
 				->with('selStadi',$selStadi);
 	}
 
@@ -138,16 +158,18 @@ class MalattiaController extends \BaseController {
 		$Cura->Estratto	= Input::get('Estratto');
 		$Cura->NumeroEstratti	= Input::get('NumeroEstratti');
 		$Cura->Malattia	= Input::get('Malattia');
-		$Cura->Rosse	= Input::get('Rosse');
-		$Cura->Verdi	= Input::get('Verdi');
-		$Cura->Blu	= Input::get('Blu');
+		/*
+		$Stadio->Rosse	= Input::get('Rosse');
+		$Stadio->Verdi	= Input::get('Verdi');
+		$Stadio->Blu	= Input::get('Blu');
+		*/
 		$Cura->Effetti	= Input::get('Effetti');
 		$Cura->BonusGuarigione	= Input::get('BonusGuarigione');
 		$Cura->save();
 
 		// redirect
 		Session::flash('message', 'Cura creata con successo!');
-		return Redirect::to('admin/malattie/'.$Stadio->Malattia.'/edit');
+		return Redirect::to('admin/malattie/'.$Cura->Malattia.'/edit');
 	}
 
 
@@ -160,9 +182,13 @@ class MalattiaController extends \BaseController {
 	public function show($id)
 	{
 		$Malattia=Malattia::find($id);
+		$Categorie=MalattieCategorie::get();
 		$data=$Malattia->toArray();
 		$data['Stadi']=$Malattia->Stadi->toArray();
 		$data['Cure']=$Malattia->Cure->toArray();
+		foreach($Categorie as $cat){
+			$data['Categorie'][$cat['ID']]=$cat['Descrizione'];
+		}
 		return View::make('malattia.show')
 				->with('Malattia',$data);
 	}
@@ -185,7 +211,15 @@ class MalattiaController extends \BaseController {
 		foreach($Categorie as $cat){
 			$data['Categorie'][$cat['ID']]=$cat['Descrizione'];
 		}
+		$selCD=array(0=>'');
+    $CD=SostanzeCromodinamica::get();
+     foreach($CD as $c){
+       $padre = $c->Padre->DESC;
+        $selCD[$padre][$c->ID] = $c->DESC.' ('.$c->livello.')';
+     }
+
 		return View::make('malattia.edit')
+				->with('selCD', $selCD)
 				->with('Malattia',$data);
 	}
 
@@ -202,10 +236,12 @@ class MalattiaController extends \BaseController {
 		$Malattia->Nome	= Input::get('Nome');
 		$Malattia->Categoria = Input::get('Categorie');
 		$Malattia->Descrizione = Input::get('Descrizione');
+		/*
 		$Malattia->CromoR = Input::get('Rosse');
 		$Malattia->CromoV = Input::get('Verdi');
 		$Malattia->CromoB = Input::get('Blu');
-
+		*/
+		$Malattia->IdCromodinamica = Input::get('CDmalattia');
 		$Malattia->save();
 
 		// redirect
@@ -235,16 +271,18 @@ class MalattiaController extends \BaseController {
 
 	public function aggiornaCura($id)
 	{
-		$Cura = Cura::find($id);
-		$Cura->Estratto	= Input::get('Estratto');
-		$Cura->NumeroEstratti	= Input::get('NumeroEstratti');
-		$Cura->Malattia	= Input::get('Malattia');
-		$Cura->Rosse	= Input::get('Rosse');
-		$Cura->Verdi	= Input::get('Verdi');
-		$Cura->Blu	= Input::get('Blu');
-		$Cura->Effetti	= Input::get('Effetti');
+		$Stadio = Cura::find($id);
+		$Stadio->Estratto	= Input::get('Estratto');
+		$Stadio->NumeroEstratti	= Input::get('NumeroEstratti');
+		$Stadio->Malattia	= Input::get('Malattia');
+		/*
+		$Stadio->Rosse	= Input::get('Rosse');
+		$Stadio->Verdi	= Input::get('Verdi');
+		$Stadio->Blu	= Input::get('Blu');
+		*/
+		$Stadio->Effetti	= Input::get('Effetti');
 		$Cura->BonusGuarigione	= Input::get('BonusGuarigione');
-		$Cura->save();
+		$Stadio->save();
 
 		// redirect
 		Session::flash('message', 'Cura modificata con successo!');
@@ -352,7 +390,7 @@ class MalattiaController extends \BaseController {
 
 				foreach($Stadi as $stadio){
 					$malattia = Malattia::find($stadio->Malattia);
-
+					$pagliativo = $evPG->Pagliativo;
 					$Guarigione = $stadio->Guarigione;
 					$Complicazione = $stadio->Complicazione;
 					if($evPG->Cibo == 1){$Cibo = 0;} else {$Cibo = $parametri->ProbCibo;}
@@ -403,11 +441,13 @@ class MalattiaController extends \BaseController {
 							}
 						}else if($tiro<$Complicazione-$Terapia-$Cura+$Cibo+$Cicatrici){
 							// stadio successivo
-							$stadioLast = Stadio::where('Malattia',$stadio->Malattia)->orderBy('Numero','Desc')->first();
-							if($livello<$stadioLast->Numero){
-								$stadioP = Stadio::where('Malattia',$stadio->Malattia)->where('Numero',$livello+1)->first();
-								$stadioP->PG()->attach($malato->ID);
-								$stadio->PG()->detach($malato->ID);
+							if($Pagliavito==0&&$Cura==0){
+								$stadioLast = Stadio::where('Malattia',$stadio->Malattia)->orderBy('Numero','Desc')->first();
+								if($livello<$stadioLast->Numero){
+									$stadioP = Stadio::where('Malattia',$stadio->Malattia)->where('Numero',$livello+1)->first();
+									$stadioP->PG()->attach($malato->ID);
+									$stadio->PG()->detach($malato->ID);
+								}
 							}
 						}
 

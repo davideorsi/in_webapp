@@ -37,6 +37,8 @@
 				{{ Form::open(array('method' => 'PUT', 'url' => 'admin/rotte/genera', 'class'=>'form-inline')) }}
 				{{ Form::submit('Genera Rotte per Tutti', array('class' => 'btn btn-success')) }}
 				{{ Form::select('selectMercanti', $selectMercanti, $keys[0], ['class'=>'form-control', 'id'=>'selectMercanti']) }}
+        {{ Form::select('selectEvento', $selectEvento, $keys[0], ['class'=>'form-control', 'id'=>'selectEvento']) }}
+        {{ Form::hidden('ultimoEvento',$ultimoEvento)}}
 				{{ Form::close() }}
 				@endif
 
@@ -95,10 +97,16 @@
 @section('Scripts')
 		$(function(ready) {
 			$('#selectMercanti').change( function() {
-				$('#rigeneraRotta').attr('onclick', 'rigenera_rotte('+$(this).val()+')');
+				$('#rigeneraRotta').attr('onclick', 'rigenera_rotte('+$(this).val()+','+$('#selectEvento').val()+')');
 
-				get_rotte($(this).val());
+				get_rotte($(this).val(),$('#selectEvento').val());
 			});
-			get_rotte($('#selectMercanti').val());
+      $('#selectEvento').change( function() {
+        $('#rigeneraRotta').attr('onclick', 'rigenera_rotte('+$('#selectMercanti').val()+','+$('#selectEvento').val()+')');
+
+        get_rotte($('#selectMercanti').val(),$(this).val());
+      });
+
+			get_rotte($('#selectMercanti').val(),$('#selectEvento').val());
 		});
 @stop

@@ -17,5 +17,9 @@ class Malattia extends Eloquent {
 	public function Categoria(){
 		return $this->hasOne('MalattiaCategorie','ID','Categoria');
 	}
+
+	public function Cromodinamica(){
+		return $this->hasOne('SostanzeCromodinamica','ID','IdCromodinamica');
+	}
 }
 ?>

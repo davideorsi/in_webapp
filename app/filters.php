@@ -14,21 +14,21 @@
 App::before(function($request)
 {
 	setlocale(LC_TIME, 'it_IT.utf8');
-	
+
 	App::singleton('prelive', function(){
-        $prelive = true; #true in prelive, false nell'uso normale
-        return $prelive; 
+        $prelive=false; #true in prelive, false nell'uso normale
+        return $prelive;
     });
 	App::singleton('blocca_missive', function(){
-        $blocca_missive = false; #true blocca le missive
-        return $blocca_missive; 
+        $blocca_missive=false; #true blocca le missive
+        return $blocca_missive;
     });
 });
 
 
 App::after(function($request, $response)
 {
-	
+
 });
 
 /*
@@ -106,18 +106,18 @@ Route::filter('scrivere', function()
 		}
 	} else {
 		$group=Auth::user()->usergroup;
-		
+
 		if ( $group!= 7) {
 			$idpg = Session::get('idpg');
 			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
 
-			$lista=INtools::select_column($abilita_del_PG,'Ability');			
+			$lista=INtools::select_column($abilita_del_PG,'Ability');
 
 			$leggere=in_array('Leggere',$lista)|in_array('Leggere e scrivere',$lista);
 		} else {
 			$leggere=true;
 		}
-			
+
 		if (!$leggere) {
 			return Response::make('Unauthorized', 401);
 		}
@@ -139,19 +139,49 @@ Route::filter('mercante_arte', function()
 		}
 	} else {
 		$group=Auth::user()->usergroup;
-		
+
 		if ( $group!= 7) {
 			$idpg = Session::get('idpg');
 			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
 
-			$lista=INtools::select_column($abilita_del_PG,'Ability');			
+			$lista=INtools::select_column($abilita_del_PG,'Ability');
 
 			$mercante_arte=in_array("Appassionato d'Arte",$lista);
 		} else {
 			$mercante_arte=true;
 		}
-			
+
 		if (!$mercante_arte) {
+			return Response::make('Unauthorized', 401);
+		}
+	}
+});
+Route::filter('Erboristeria', function()
+{
+	if (Auth::guest()){
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
+		}
+	} else {
+		$group=Auth::user()->usergroup;
+
+		if ( $group!= 7) {
+			$idpg = Session::get('idpg');
+			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
+
+			$lista=INtools::select_column($abilita_del_PG,'Ability');
+
+			$erboristeria=in_array("Erboristeria",$lista);
+		} else {
+			$erboristeria=true;
+		}
+
+		if (!$erboristeria) {
 			return Response::make('Unauthorized', 401);
 		}
 	}
@@ -170,18 +200,18 @@ Route::filter('rotte_commerciali', function()
 		}
 	} else {
 		$group=Auth::user()->usergroup;
-		
+
 		if ( $group!= 7) {
 			$idpg = Session::get('idpg');
 			$abilita_del_PG=PG::find($idpg)->Abilita()->get();
 
-			$lista=INtools::select_column($abilita_del_PG,'Ability');			
+			$lista=INtools::select_column($abilita_del_PG,'Ability');
 
 			$rotte_commerciali=in_array("Rotte commerciali locali",$lista);
 		} else {
 			$rotte_commerciali=true;
 		}
-			
+
 		if (!$rotte_commerciali) {
 			return Response::make('Unauthorized', 401);
 		}

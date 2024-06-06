@@ -31,6 +31,10 @@
 						{{ Form::textarea('Descrizione', $Malattia['Descrizione'],['size'=>'50x2','class'=>'form-control']) }}
 						<br>
 						{{ Form::label('Cromodinamica', 'Cromodinamica') }}
+
+						{{ Form::select('CDmalattia', $selCD, $Malattia['IdCromodinamica'], ['class'=>'form-control','describedby'=>"basic-addon-CD"]) }}
+
+							<!--
 						<div class="input-group">
 
 							<span class="input-group-addon danger" id="sizing-addon1">
@@ -48,6 +52,7 @@
 							{{Form::input('number', 'Blu'  , $Malattia['CromoB'],['id'=>'Blu', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
 						</div>
 					</div>
+					-->
 					<div class="col-md-6 col-md-offset-0">
 						<div class="btn-group">
 								<br>
@@ -170,8 +175,8 @@
 			<div class="row bs-callout bs-callout-primary">
 
 				{{ Form::model('',array('method' => 'PUT','url' => 'admin/cura/'.$Cura['ID'])) }}
-			        <div class="col-md-12">
-				        <div class="form-group">
+	        <div class="col-md-12">
+		        <div class="form-group">
 							{{ Form::label('Estratto', 'Estratto') }}
 							<div class="input-group">
 								{{ Form::input('text','Estratto',$Cura['Estratto'] ,['class'=>'form-control']) }}
@@ -181,9 +186,11 @@
 								{{Form::input('number', 'NumeroEstratti', $Cura['NumeroEstratti'],['id'=>'NumeroEstratti', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon1"])}}
 							</div>
 						</div>
-				        <div class="form-group">
+		        <div class="form-group">
 							{{ Form::input('hidden','Malattia',$Malattia['ID'],['class'=>'form-control']) }}
 						</div>
+
+							<!--
 						<div class="form-group">
 							{{ Form::label('Matrice', 'Matrice') }}
 							<div class="input-group">
@@ -203,8 +210,8 @@
 								{{Form::input('number', 'Blu'  , $Cura['Blu'],['id'=>'Blu', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
 							</div>
 						</div>
-
-				        <div class="form-group">
+						-->
+				    <div class="form-group">
 							{{ Form::label('Effetti', 'Effetti') }}
 							{{ Form::textarea('Effetti', $Cura['Effetti'], ['size'=>'50x2','class'=>'form-control']) }}
 						</div>
@@ -212,18 +219,16 @@
 							{{ Form::label('BonusGuarigione', 'Bonus Guarigione (%)') }}
 							{{Form::input('number', 'BonusGuarigione'  , $Cura['BonusGuarigione'],['id'=>'BonusGuarigione', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
 						</div>
-
-				</div>
-
-				<div class="col-md-12">
-			        <div class="btn-group">
-						{{ Form::submit('Modifica Cura', array('class' => 'btn btn-primary')) }}
-						{{ Form::close() }}
-						{{ Form::open(array('url' => 'admin/cura/'.$Stadio['ID'], 'style'=>'display:inline-block; margin-left: -2px')) }}
-						{{ Form::hidden('_method', 'DELETE') }}
-						{{ Form::submit('Cancella', array('class' => 'btn btn-warning')) }}
-						{{ Form::close() }}
 					</div>
+					<div class="col-md-12">
+				    <div class="btn-group">
+							{{ Form::submit('Modifica Cura', array('class' => 'btn btn-primary')) }}
+							{{ Form::close() }}
+							{{ Form::open(array('url' => 'admin/cura/'.$Stadio['ID'], 'style'=>'display:inline-block; margin-left: -2px')) }}
+							{{ Form::hidden('_method', 'DELETE') }}
+							{{ Form::submit('Cancella', array('class' => 'btn btn-warning')) }}
+							{{ Form::close() }}
+						</div>
 				</div>
 			</div>
 			@endforeach
@@ -231,20 +236,21 @@
 			<!-- Aggiungi una nuova cura della malattia-->
 			<div class="row bs-callout bs-callout-warning">
 				{{ Form::open(array('url'=>'admin/malattie/nuova_cura')) }}
-		        <div class="col-md-12">
-				        <div class="form-group">
-							{{ Form::label('Estratto', 'Estratto') }}
-							<div class="input-group">
-								{{ Form::input('text','Estratto', '' ,['class'=>'form-control']) }}
-								<span class="input-group-addon" id="sizing-addon1">
-									<span class='glyphicon glyphicon-leaf '></span>
-								</span>
-								{{Form::input('number', 'NumeroEstratti', 1,['id'=>'NumeroEstratti', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon1"])}}
-							</div>
+		    <div class="col-md-12">
+					<div class="form-group">
+						{{ Form::label('Estratto', 'Estratto') }}
+						<div class="input-group">
+							{{ Form::input('text','Estratto', '' ,['class'=>'form-control']) }}
+							<span class="input-group-addon" id="sizing-addon1">
+								<span class='glyphicon glyphicon-leaf '></span>
+							</span>
+							{{Form::input('number', 'NumeroEstratti', 1,['id'=>'NumeroEstratti', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon1"])}}
 						</div>
-				        <div class="form-group">
-							{{ Form::input('hidden','Malattia',$Malattia['ID'],['class'=>'form-control']) }}
-						</div>
+					</div>
+				  <div class="form-group">
+						{{ Form::input('hidden','Malattia',$Malattia['ID'],['class'=>'form-control']) }}
+					</div>
+						<!--
 						<div class="form-group">
 							{{ Form::label('Matrice', 'Matrice') }}
 							<div class="input-group">
@@ -264,13 +270,12 @@
 								{{Form::input('number', 'Blu'  , null,['id'=>'Blu', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
 							</div>
 						</div>
-
-				        <div class="form-group">
-							{{ Form::label('Effetti', 'Effetti') }}
+						-->
+				   <div class="form-group">
+					  	{{ Form::label('Effetti', 'Effetti') }}
 							{{ Form::textarea('Effetti', null, ['size'=>'50x2','class'=>'form-control']) }}
-						</div>
-						
-						<div class="form-group">
+					 </div>
+					 <div class="form-group">
 							{{ Form::label('BonusGuarigione', 'Bonus Guarigione (%)') }}
 							{{Form::input('number', 'BonusGuarigione'  , 20,['id'=>'BonusGuarigione', 'class'=>'form-control', 'aria-describedby'=>"sizing-addon3"])}}
 						</div>
@@ -278,7 +283,7 @@
 				</div>
 
 				<div class="col-md-12">
-			        <div class="btn-group">
+			    <div class="btn-group">
 						{{ Form::submit('Aggiungi Cura', array('class' => 'btn btn-warning')) }}
 					</div>
 				</div>

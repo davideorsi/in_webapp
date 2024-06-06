@@ -9,10 +9,12 @@ class RotteController extends \BaseController {
 	public function index()
 	{
 		$selectMercanti = array();
+		$selectEvento = array();
 		$abilita = Abilita::find(39);
 		if (Auth::user()->usergroup == 7){
 			$PGs=$abilita->PG()->whereRaw('`Morto` = 0 AND `InLimbo` = 0')->get();
-			$selectMercanti[0]= 'Mercato Nero';
+			$selectMercanti[0]= 'Listino';
+			$selectMercanti[1]= 'Mercato Nero';
 			$idpg = 0;
 
 
@@ -32,27 +34,41 @@ class RotteController extends \BaseController {
 
 		$rotte = RottaCommerciale::where('DATA','=' ,$data)->where('IDPG', '=', $idpg)->get();
 		*/
-
-		$rotteGruppo = RottaCommercialeGruppo::orderBy('ID','Desc')->first();
-		$idGruppo = $rotteGruppo->ID;
-		$rotte = RottaCommerciale::where('Evento','=' ,$idGruppo)->where('IDPG', '=', $idpg)->get();
-
 		$sel=array();
 
-		foreach ($rotte as $r){
+		$eventi = Evento::where('tipo','EVENTO LIVE')->Orderby('ID','Desc')->get();
+		$evento = $eventi[0];
 
-			$Opzione= Materiale::find($r['IDMateriale'])->Nome;
-
-			$sel[$r['ID']]=array(
-					'ID' => $r['ID'],
-					'Opzione'=> $Opzione,
-					'Costo'=>$r['Costo'],
-					'Disponibili' => $r['Disponibili'],
-					'Acquistati' => $r['Acquistati'],
-					'evento' => $r['Evento'],
-					);
-
+		foreach($eventi as $ev) {
+			$selectEvento[$ev->ID] = $ev->Titolo.' - '.$ev->Data;
 		}
+
+		$dataEvento  = $evento->Data;
+		if($dataEvento >= date("Y-m-d")){
+    		$rotteGruppo = RottaCommercialeGruppo::where('id_evento',$evento["ID"])->orderBy('ID','Desc')->first();
+				if ($rotteGruppo){
+					$idGruppo = $rotteGruppo->ID;
+					$rotte = RottaCommerciale::where('Evento','=' ,$idGruppo)->where('IDPG', '=', $idpg)->get();
+
+					foreach ($rotte as $r){
+
+						$Opzione= Materiale::find($r['IDMateriale'])->Nome;
+
+						$sel[$r['ID']]=array(
+								'ID' => $r['ID'],
+								'Opzione'=> $Opzione,
+								'Costo'=>$r['Costo'],
+								'Disponibili' => $r['Disponibili'],
+								'Acquistati' => $r['Acquistati'],
+								'evento' => $r['Evento'],
+								);
+
+					}
+				}
+		}
+
+
+		/*
 		$attivaGenera = true;
 		$attiva = true;
 
@@ -61,13 +77,15 @@ class RotteController extends \BaseController {
 
 		if (strtotime($dataEvento) <= strtotime('today')){ $attiva = false ;}
 		else {$attiva = true;}
-
+		*/
 		// load the view and pass the nerds
 		return View::make('rotte.index')
 			->with('selectMercanti', $selectMercanti)
-			->with('sel', $sel)
+			->with('selectEvento', $selectEvento)
+			->with('ultimoEvento', $evento->ID)
+			->with('sel', $sel);
 			//->with('attivaGenera', $attivaGenera)
-			->with('attiva', $attiva);
+			//->with('attiva', $attiva);
 	}
 
 public function destroy($id){
@@ -78,15 +96,32 @@ public function destroy($id){
 	//return Redirect::to('rotte');
 }
 
-public function show($id)
+public function show($id,$id_evento)
 	{
+		//Session::flash('message', $id.' '.$id_evento);
 		$tabella = '';
+		$rotte = array();
 		if (Auth::user()->usergroup == 7){
-		$gruppoRotte = RottaCommercialeGruppo::orderBy('ID','Desc')->first();
+			$evento = Evento::where('ID',$id_evento)->Orderby('ID','Desc')->first();
+			$righe = false;
+			$dataEvento  = $evento->Data;
+			$modifica = 'disabled';
 
-		$idGruppo = $gruppoRotte->ID;
+			if($dataEvento >= date("Y-m-d")){
+				$modifica = '';
+			}
 
-		$rotte = RottaCommerciale::where('Evento','=' ,$idGruppo)->where('IDPG', '=', $id)->get();
+			$id_gruppoRotte = 0;
+			$gruppoRotte = RottaCommercialeGruppo::where('id_evento',$evento["ID"])->orderBy('ID','Desc')->first();
+					if ($gruppoRotte){
+
+							$id_gruppoRotte = 	$gruppoRotte["ID"];
+					}
+
+			$rotte = RottaCommerciale::where('Evento','=' ,	$id_gruppoRotte)->where('IDPG', '=', $id)->get();
+			if($dataEvento >= date("Y-m-d") ){
+				$modifica = '';
+			}
 
 		$tabella = $tabella.'<form method="POST" action="/admin/rotte/modifica/'.$id.'" accept-charset="UTF-8" class="form-inline" enctype="multipart/form-data">';
 		/*
@@ -95,10 +130,11 @@ public function show($id)
 				<input class="btn btn-success" type="submit" value="Genera Rotte per Tutti">
 			*/
 		$tabella = $tabella.'<table id="listino"><tr><th>Numero</th><th>Oggetto</th><th>Costo</th><th>Costo(Ramelle)</th><th>Disponibili</th><th>Cancella</th></tr>';
-	$tabella = $tabella.'	<input name="_method" type="hidden" value="PUT">';
-	$tabella = $tabella.'<input name="_token" type="hidden" value="wsz47iOG2QbBZsZwJhxJ7ZkNEoDZ5w9weOjogDzJ">';
+		$tabella = $tabella.'	<input name="_method" type="hidden" value="PUT">';
+		$tabella = $tabella.'<input name="_token" type="hidden" value="wsz47iOG2QbBZsZwJhxJ7ZkNEoDZ5w9weOjogDzJ">';
 
 		foreach ($rotte as $r){
+			$righe = true;
 			$Opzione= Materiale::find($r['IDMateriale'])->Nome;
 			$Costo = INtools::convertiMonete($r['Costo']);
 /*
@@ -107,7 +143,7 @@ public function show($id)
 			$tabella = $tabella.'<td>'.$Costo.'</td><td>'.$r['Costo'].'</td><td>'.$r['Disponibili'].'</td>';
 */
 			$tabella = $tabella.'<tr height="30px"><td>';
-			$tabella = $tabella.'<input type="number" name="numero[]" value="'.$r['Acquistati'].'" class="form-control" style="width:60px">';
+			$tabella = $tabella.'<input type="number" name="numero[]" value="'.$r['Acquistati'].'" class="form-control" style="width:60px" '.$modifica.'>';
 			$tabella = $tabella.'<input type="hidden" name="ID[]" value="'.$r['ID'].'">';
 			$tabella = $tabella.'<input type="hidden" name="numero_old[]" value="'.$r['Acquistati'].'">';
 			$tabella = $tabella.'<input type="hidden" name="oggetto[]" value="'.$r['Opzione'].'">';
@@ -116,17 +152,22 @@ public function show($id)
 			$tabella = $tabella.'<td>'.$Opzione;
 			$tabella = $tabella.'<input type="hidden" name="nome[]" value="'.$Opzione.'"></td>';
 			$tabella = $tabella.'<td>'.$Costo.'</td>';
-			$tabella = $tabella.'<td><input type="number" name="costo[]" value="'.$r['Costo'].'" class="form-control" style="width:60px">';
+			$tabella = $tabella.'<td><input type="number" name="costo[]" value="'.$r['Costo'].'" class="form-control" style="width:60px" '.$modifica.'>';
 			$tabella = $tabella.'<input type="hidden" name="cos_old[]" value="'.$r['Costo'].'"></td>';
-			$tabella = $tabella.'<td><input type="number" name="disponibile[]" value="'.$r['Disponibili'].'" class="form-control" style="width:60px">';
+			$tabella = $tabella.'<td><input type="number" name="disponibile[]" value="'.$r['Disponibili'].'" class="form-control" style="width:60px" '.$modifica.'>';
 			$tabella = $tabella.'<input type="hidden" name="disp_old[]" value="'.$r['Disponibili'].'"></td>';
-			$tabella = $tabella.'<td><a class="with_margin_icon glyphicon glyphicon-remove-sign" href="#" onclick="destroy_rotta('.$r['ID'].','.$id.')"></a></td></tr>';
+			if ($modifica != 'disabled'){
+					$tabella = $tabella.'<td><a class="with_margin_icon glyphicon glyphicon-remove-sign" href="#" onclick="destroy_rotta('.$r['ID'].','.$id.')"></a></td></tr>';
+			}
+
 		}
 
 		$tabella = $tabella.'</table>';
-		$tabella = $tabella.'<a class="btn btn-info glyphicon glyphicon-plus" href="#" onclick="add_rotta(\'listino\')"></a><space/>';
-		$tabella = $tabella.'<input class="btn btn-success" type="submit" value="Applica Modifiche"></form>';
+		if (($modifica != 'disabled')&&($righe) ){
+			$tabella = $tabella.'<a class="btn btn-info glyphicon glyphicon-plus" href="#" onclick="add_rotta(\'listino\')"></a><space/>';
+			$tabella = $tabella.'<input class="btn btn-success" type="submit" value="Applica Modifiche"></form>';
 		}
+	}
 
 
 
@@ -325,7 +366,12 @@ public function update()
 		return Redirect::to('rotte');
 	}
 
-public function calcolaRotte($mercante,$rotteGruppo)	{
+public function calcolaRotte($id_mercante,$rotteGruppo)	{
+
+	if($id_mercante > 1){
+			$mercante = PG::find($id_mercante);
+	}
+
 
 	$fazRochelle=Fazione::find(1);
 	$condizioneRochelle = $fazRochelle->Condizione;
@@ -347,16 +393,24 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 	}
 
 	//determino i modificatore per le condizioni del mercato
-	$affiliazione = $mercante->Affiliazione;
-	if ($affiliazione =='Nottingham') {
-		$condizione = $condizioneNottingham;
-	} else if ($affiliazione == 'La Rochelle') {
-		$condizione = $condizioneRochelle;
-	} else {
-		if($condizioneNottingham>$condizioneRochelle) {
+	if($id_mercante > 1){
+		$affiliazione = $mercante->Affiliazione;
+		if ($affiliazione =='Nottingham') {
 			$condizione = $condizioneNottingham;
-		} else {
+		} else if ($affiliazione == 'La Rochelle') {
 			$condizione = $condizioneRochelle;
+		} else {
+			if($condizioneNottingham>$condizioneRochelle) {
+				$condizione = $condizioneNottingham;
+			} else {
+				$condizione = $condizioneRochelle;
+			}
+		}
+	}else{
+		if($condizioneNottingham>$condizioneRochelle) {
+			$condizione = $condizioneRochelle;
+		} else {
+			$condizione = $condizioneNottingham;
 		}
 	}
 
@@ -370,48 +424,60 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 	$poolR = 1;
 	$poolV = 0;
 	$poolP = 0;
+	$poolO = 0;
 	$OM = false;
-	$abilitaPG = $mercante->Abilita()->get();
-	foreach ($abilitaPG as $abi){
-		if ($abi['ID']==40) {
-			$estrazioni = $estrazioni +3;
-			//array_push($poolEstrazioni,'B');
-			//array_push($poolEstrazioni,'X');
-			//array_push($poolEstrazioni,'R');
-			$poolB = $poolB+1;
-			$poolX = $poolX+1;
-			$poolR = $poolR+1;
-			$OM = true;
-		}
-		//aggiungere altri IF per le abilità che aumentano gli SLOT
-		if ($abi['ID']==129) { //mercante da una vita
-			$estrazioni = $estrazioni +1;
-			$poolX = $poolX+1;
-		}
-		if ($abi['ID']==226) { //mercante esotico
-			if ($poolX>0){
-				$poolX = $poolX-1;
-				$poolR = $poolR+1;
-			}
-		}
-		if ($abi['ID']==225) { //mercante di preziosi
-			if ($poolX>0){
-				$poolX = $poolX-1;
-				$poolP = $poolP+1;
-			}
-		}
-		if ($abi['ID']==224) { //mercante di spezie
-			if ($poolX>0){
-				$poolX = $poolX-1;
-				$poolV = $poolV+1;
-			}
-		}
-		if ($abi['ID']==127) { //mercante di città
-			if ($poolX>0){
-				$poolX = $poolX-1;
+	$MN = false;
+	if($id_mercante>1){
+		$abilitaPG = $mercante->Abilita()->get();
+		foreach ($abilitaPG as $abi){
+			if ($abi['ID']==40) {
+				$estrazioni = $estrazioni +3;
+				//array_push($poolEstrazioni,'B');
+				//array_push($poolEstrazioni,'X');
+				//array_push($poolEstrazioni,'R');
 				$poolB = $poolB+1;
+				$poolX = $poolX+1;
+				$poolR = $poolR+1;
+				$OM = true;
+			}
+			//aggiungere altri IF per le abilità che aumentano gli SLOT
+			if ($abi['ID']==129) { //mercante da una vita
+				$estrazioni = $estrazioni +1;
+				$poolX = $poolX+1;
+			}
+			if ($abi['ID']==226) { //mercante esotico
+				if ($poolX>0){
+					$poolX = $poolX-1;
+					$poolR = $poolR+1;
+				}
+			}
+			if ($abi['ID']==225) { //mercante di preziosi
+				if ($poolX>0){
+					$poolX = $poolX-1;
+					$poolP = $poolP+1;
+				}
+			}
+			if ($abi['ID']==224) { //mercante di spezie
+				if ($poolX>0){
+					$poolX = $poolX-1;
+					$poolV = $poolV+1;
+				}
+			}
+			if ($abi['ID']==127) { //mercante di città
+				if ($poolX>0){
+					$poolX = $poolX-1;
+					$poolB = $poolB+1;
+				}
 			}
 		}
+	}elseif($id_mercante==1){
+		$poolB = 0;
+		$poolX = 5;
+		$poolR = 1;
+		$poolV = 0;
+		$poolP = 0;
+		$poolO = 3;
+		$MN=true;
 	}
 
 	$poolEstrazioni = array();
@@ -430,6 +496,9 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 	for ($i=0;$i<$poolR;$i++){
 		array_push($poolEstrazioni,'R');
 	}
+	for ($i=0;$i<$poolO;$i++){
+		array_push($poolEstrazioni,'O');
+	}
 
 	$estratti = array();
 	//$found = false;
@@ -442,6 +511,9 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 				$qryRarita = 'RaritaOM';
 			} else {
 				$qryRarita = 'RaritaLoc';
+			}
+			if ($MN) {
+				$qryRarita = 'RaritaMN';
 			}
 			if ($est == 'B') {
 				// inserire controllo per cui ciascun materiale base
@@ -501,6 +573,10 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 							->where($qryRarita, '>', 2)
 							->whereNotIn('ID',$estratti)
 							->orderBy(DB::raw('RANDOM()'))->get();
+			} else if ($est == 'O') {
+						$materiali = Materiale::where('Categoria',5)
+						->whereNotIn('ID',$estratti)
+						->orderBy(DB::raw('RANDOM()'))->get();
 			} else {
 						$categoria = CategorieMateriali::where('ID','<>',2)
 							->orderBy(DB::raw('RANDOM()'))->first();
@@ -544,9 +620,12 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 			else {
 				$rarita = $materiale->RaritàLoc;
 				}
+			if ($MN) {
+				$rarita = $materiale->RaritaMN;
+			}
 
 			$stagioneMat = $materiale->Stagione;
-			if ($stagioneMat = $stagione) {$rarita = $rarita -1;}
+			if ($stagioneMat == $stagione) {$rarita = $rarita -1;}
 
 			if ($rarita < 1) {
 				//un oggetto molto comune di stagione diventa sempre disponbile
@@ -606,7 +685,8 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 			if ($tiro <= $prob){
 				printf($tiro);
 				$rottac = new RottaCommerciale;
-				$rottac->IDPG = (int)$mercante->ID;
+				//$rottac->IDPG = (int)$mercante->ID;
+				$rottac->IDPG = $id_mercante;
 				$rottac->IDMateriale = (int)$materiale->ID;
 				$rottac->DATA = $dataRotte;
 				$rottac->disponibili = $qta;
@@ -626,24 +706,125 @@ public function calcolaRotte($mercante,$rotteGruppo)	{
 	}
 }
 
-public function rigenera($idpg){
+public function generaListino($rotteGruppo){
+	$fazRochelle=Fazione::find(1);
+	$condizioneRochelle = $fazRochelle->Condizione;
+	$fazNottingham = Fazione::find(2);
+	$condizioneNottingham = $fazNottingham->Condizione;
 
-	$evento = Evento::Orderby('ID','Desc')->first();
-	$dataEvento = $evento->Data;
+	$dataRotte = date('d-m-Y', time());
 
-	$mercante = PG::find($idpg);
-	$rotteGruppo = $evento->RotteCommercialiGruppo()->Orderby('ID','Desc')->first();
-	$rottePG=$rotteGruppo->RotteCommerciali()->where('IDPG','=',$idpg)->get();
+	$month = date('m', time());
 
-	//cencello le rotte attuali
-	foreach($rottePG as $rotta){
-		$rotta->delete();
+	if ($month == 12 || $month == 1 || $month == 2){
+		$stagione = 1;
+	} elseif ($month == 3 || $month == 4 || $month == 5){
+		$stagione = 2;
+	} elseif ($month == 6 || $month == 7 || $month == 8){
+		$stagione = 3;
+	} elseif($month == 9 || $month == 10 || $month == 11){
+		$stagione = 4;
 	}
 
-	$this->calcolaRotte($mercante,$rotteGruppo);
-	
-	return Redirect::to('admin/rotte');
+	//determino i modificatore per le condizioni del mercato
 
+		if($condizioneNottingham>$condizioneRochelle) {
+			$condizione = $condizioneRochelle;
+		} else {
+			$condizione = $condizioneNottingham;
+		}
+
+
+	$materiali = Materiale::get();
+
+	foreach ($materiali as $materiale){
+
+		$rarita = $materiale->RaritàLoc;
+
+		$stagioneMat = $materiale->Stagione;
+		if ($stagioneMat == $stagione) {$rarita = $rarita -1;}
+
+		$modPrezzo = 0;
+		$modProb = 0;
+		$modQta = 0;
+		if ($condizione == 3){
+			if ($rarita < 3) { //l'offerta supera la domanda: i prezzi calano, e c'è più disponibilitità, ma i mercanti cercheranno di capitalizzare sui beni di lusso che vanno
+				$modPrezzo = -1;
+				$modProb = -1;
+				$modQta = +1;
+			} else if ($rarita > 3){ //la domanda supera l'offerta: i prezzi salgono ed è più facile trovarli sul mercato, ma data la particolarità dei prodotti, le quantita restano limitate
+				$modPrezzo = +1;
+				$modProb = +1;
+				$modQta = 0;
+			}
+		} else if ($condizione == 1){
+			if ($rarita < 3) { //la domanda cala e l'offerta resta invariata: salgono soltanto i prezzi.
+				$modPrezzo = +1;
+				$modProb = 0;
+				$modQta = 0;
+			} else if ($rarita > 3){//la domanda cala e l'offerta resta invarita: le rarità sul mercato sono solo quelle, ma vendono meno i mercanti hanno più magazzino
+				$modPrezzo = 0;
+				$modProb = 0;
+				$modQta = +1;
+			}
+		} else if ($condizione == 0){
+			if ($rarita < 3) {//la domanda supera l'offerta: il prezo aumenta e le disponibilità sono limitate. sono più presenti sul mercato perchè i mercanti cercano di recuperare denaro puntando sui beni di prima necessità
+				$modPrezzo = +1;
+				$modProb = +1;
+				$modQta = -1;
+			} else if ($rarita > 3){//l'offerta supera la domanda: i prezzi scendono, ma non si trovano in giro, e quando si trovano le quantità sono limitate.
+				$modPrezzo = -1;
+				$modProb = -1;
+				$modQta = -1;
+			}
+		}
+
+		//determinare quantita
+		$qta = $materiale->Quantita;
+		$qta = (int)floor($qta + (($qta/2)*$modQta));
+		if ($qta < 1) {$prob = 0;}
+
+		//determinare costo
+		$valore = (int)ceil($materiale->ValoreBase * (1.1+($modPrezzo*0.1)));
+
+		$rottac = new RottaCommerciale;
+		//$rottac->IDPG = (int)$mercante->ID;
+		$rottac->IDPG = 0;
+		$rottac->IDMateriale = (int)$materiale->ID;
+		$rottac->DATA = $dataRotte;
+		$rottac->disponibili = $qta;
+		$rottac->acquistati = 0;
+		$rottac->costo = $valore;
+		$rottac->Evento = (int)$rotteGruppo->ID;
+		$rottac->save();
+	}
+
+}
+
+public function rigenera($idpg){
+//	Session::flash('message', 'Prima devi generare le rotte per tutti!');
+	$evento = Evento::Where('tipo','EVENTO LIVE')->Orderby('ID','Desc')->first();
+	$dataEvento = $evento->Data;
+
+	//$mercante = PG::find($idpg);
+	$idGruppo = 0;
+	$rotteGruppo = RottaCommercialeGruppo::where('id_evento',$evento["ID"])->orderBy('ID','Desc')->first();
+	if($rotteGruppo){
+		$idGruppo = $rotteGruppo->ID;
+
+		$rottePG = RottaCommerciale::where('Evento','=' ,$idGruppo)->where('IDPG', '=', $idpg)->get();
+
+		//cencello le rotte attuali
+		foreach($rottePG as $rotta){
+			$rotta->delete();
+		}
+
+		$this->calcolaRotte($mercante,$rotteGruppo);
+	}else{
+		Session::flash('message', 'Prima devi generare le rotte per tutti!');
+	}
+
+	//return Redirect::to('admin/rotte');
 }
 
 
@@ -660,7 +841,10 @@ public function genera()
 			$rotteGruppo->data = $evento->Data;
 			$rotteGruppo->save();
 
+			//Listino
+			$this->generaListino($rotteGruppo);
 			//mercato nero
+			$this->calcolaRotte(1,$rotteGruppo);
 			//Session::flash('message',$evento->ID);
 			//DB::insert('insert into RotteCommerciali (IDPG, IDMateriale,DATA,Disponibili,Aquistati,Costo,Evento) values (?, ?,?,?,?,?,?)', array(0,8,$dataEvento,1,0,10,$evento->ID));
 
@@ -672,7 +856,7 @@ public function genera()
 
 			$OM = false;
 			foreach ($mercantiLoc as $mercante){
-				$this->calcolaRotte($mercante,$rotteGruppo);
+				$this->calcolaRotte($mercante->ID,$rotteGruppo);
 				/*
 				//determino i modificatore per le condizioni del mercato
 				$affiliazione = $mercante->Affiliazione;

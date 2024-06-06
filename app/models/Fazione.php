@@ -6,4 +6,8 @@ class Fazione extends Eloquent {
 	public $timestamps = false;
 	protected $primaryKey = 'ID';
 
+	public function StatoLab(){
+		return $this->hasOne('LaboratorioStato','ID','id_laboratorio_stato');
+	}
+
 }

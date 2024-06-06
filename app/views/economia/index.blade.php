@@ -1,6 +1,6 @@
 @extends('admin')
 
-	
+
 	@section('content')
 	<div>
 		<h3>Economia</h3>
@@ -13,9 +13,9 @@
 	</div>
 	{{ Form::model('', array('files'=>false, 'method' => 'PUT', 'url' => 'admin/economia')) }}
 
-	
+
 	<div class='row'>
-	
+
 		<div class='col-xs-6 col-xs-offset-0'>
 			<h4>{{$Fazioni[0]['Fazione']}}</h4>
 			<div class="input-group" style='margin-bottom:5px;'>
@@ -43,7 +43,7 @@
 					{{ Form::input('number','Ricchezza[0]', $Fazioni[0]['Ricchezza'], ['class'=>'form-control','min'=>'0', 'max'=>'3']) }}
 			</div>
 		</div>
-		
+
 		<div class='col-xs-6 col-xs-offset-0'>
 			<h4>{{$Fazioni[1]['Fazione']}}</h4>
 			<div class="input-group" style='margin-bottom:5px;'>
@@ -70,21 +70,21 @@
 				</span>
 					{{ Form::input('number','Ricchezza[1]', $Fazioni[1]['Ricchezza'], ['class'=>'form-control','min'=>'0', 'max'=>'3']) }}
 			</div>
-			
+
 		</div>
 		<div class='col-xs-12'>
 			<p>* Penalità: deficit di monete, espresso in monete di Rame,
-			dovuto ad un eccessivo prelievo di denaro -con mancato reinvestimento- 
+			dovuto ad un eccessivo prelievo di denaro -con mancato reinvestimento-
 			nei territori. Se alla fine del live il denaro presente nei territori
 			è inferiore al minimo dato dalla propria Condizione, la differenza è segnata come Penalità.
 			Il deficit verrà scalato dal denaro disponibile al live successivo.</p>
-			<p>&dagger; Ricchezza: surplus, espresso in monete d'Oro, al 
+			<p>&dagger; Ricchezza: surplus, espresso in monete d'Oro, al
 			denaro disponibile nel territorio
-			assegnato per motivi di regolamento o trama. 
+			assegnato per motivi di regolamento o trama.
 			Minimo:0 MO. Massimo: 3MO.</p>
-		
+
 		</div>
-		
+
 		<div class="col-xs-12">
 			<div class="col-xs-6" style='padding-left:0px;'>
 				<div class="panel panel-info">
@@ -123,6 +123,43 @@
 		</div>
 	<br>
 	<hr>
+
+	<div class='row' style='padding: 10px;'>
+		<div class="col-xs-12">
+			<div class="col-xs-4" style='padding-left:0px;'>
+				<div class="panel panel-info">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Laboratorio La Rochelle</h3>
+				  </div>
+				  <div class="panel-body">
+							{{ Form::select('labRochelle', $selStatoLab, $Fazioni[0]['id_laboratorio_stato'], ['class'=>'form-control']) }}
+				  </div>
+				</div>
+			</div>
+			<div class="col-xs-4" style='padding-left:0px;'>
+				<div class="panel panel-warning">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Laboratorio Ospitale</h3>
+				  </div>
+				  <div class="panel-body">
+							{{ Form::select('labOspitale', $selStatoLab, $Fazioni[2]['id_laboratorio_stato'], ['class'=>'form-control']) }}
+				  </div>
+				</div>
+			</div>
+			<div class="col-xs-4" style='padding-left:0px;'>
+				<div class="panel panel-danger">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Laboratorio Nottingham</h3>
+				  </div>
+				  <div class="panel-body">
+							{{ Form::select('labNottingham', $selStatoLab, $Fazioni[1]['id_laboratorio_stato'], ['class'=>'form-control']) }}
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+
 	<div class='row' style='padding: 10px;'>
 			<div class='col-xs-4'>
 				<h4>Indici Rarità</h4>
@@ -135,7 +172,7 @@
 				</div>
 				@endforeach
 			</div>
-			
+
 			<div class='col-xs-7 col-xs-offset-1'>
 				<table class='table table-striped'>
 				<tr>
@@ -155,16 +192,14 @@
 			<div class="form-group btn-group col-xs-2">
 			{{ Form::submit('Aggiorna', array('class' => 'btn btn-success')) }}
 			</div>
-			
+
 	</div>
-	
+
 	{{ Form::close() }}
 
 @stop
 @section('Scripts')
 		$(function(ready) {
-			
+
 		});
 @stop
-		
-

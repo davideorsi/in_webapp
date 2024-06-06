@@ -410,9 +410,9 @@ class PgController extends \BaseController {
 				if (in_array('Uso di armi da Lancio',INtools::select_column($data['PG'][$key]['Abilita'],'Ability'))){$ha_armi=true;}
 				if (in_array('Armi',INtools::select_column($pg->Categorie->toarray(),'Categoria'))){$ha_armi=true;}
 				
-				if (in_array($pg->ID,$PGR) && $ha_armi ){
-					$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> Nello scorso Live non hai pagato (o non è stata pagata per te) la manutenzione delle Armi. Non puoi usare armi in combattimento: per usarle in questo evento, procurati un cartellino manutenzione da un Fabbro e specifica che è per l'evento precedente. Dovrai comunque pagare il mantenimento per il prossimo Live.";
-				}
+				//if (in_array($pg->ID,$PGR) && $ha_armi ){
+				//	$data['PG'][$key]['Note'].="<br><b>ATTENZIONE!</b> Nello scorso Live non hai pagato (o non è stata pagata per te) la manutenzione delle Armi. Non puoi usare armi in combattimento: per usarle in questo evento, procurati un cartellino manutenzione da un Fabbro e specifica che è per l'evento precedente. Dovrai comunque pagare il mantenimento per il prossimo Live.";
+				//}
 				//######################################################
 				// CONTROLLO DELLE MALATTIE
 				$Malattie=INtools::select_column($pg->Malattie()->get(),'Effetti');

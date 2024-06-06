@@ -57,7 +57,7 @@ class BancaController extends \BaseController {
 
 		$spese=[];
         $debiti_missive=[];
-        foreach ($pgs as $pg){
+        foreach ($Vivi as $pg){
 		    $missive = Missiva::orderBy('id','asc')->whereRaw("`mittente` = ? AND ((`pagato` IS NULL) OR (`pagato` = 0))",[$pg['ID']])->get(['costo']);
 			$costi=INtools::select_column($missive,'costo');
 			
